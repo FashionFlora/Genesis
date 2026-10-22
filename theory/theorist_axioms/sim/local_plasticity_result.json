@@ -1,0 +1,20 @@
+{
+  "active_edge_fraction_regime0": 0.12089583333333333,
+  "active_edge_fraction_regime1": 0.204,
+  "mae_regime0": 0.4701875,
+  "mae_regime1": 0.4699583333333333,
+  "mean_weight_target0_before_switch": 2.752121750269755,
+  "mean_weight_target1_after_switch": 2.71025349937674,
+  "parameters": {
+    "N": 8,
+    "T": 12000,
+    "decay": 0.0005,
+    "edge_threshold": 0.5,
+    "eta": 0.008,
+    "switch": 6000
+  },
+  "regime1_threshold_occupancy_after_100_steps": 0.9761016949152542,
+  "seed": 20261022,
+  "true_edge_precision_regime0": 1.0,
+  "true_edge_precision_regime1": 0.5881331699346405
+}

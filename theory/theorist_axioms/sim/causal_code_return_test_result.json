@@ -1,0 +1,819 @@
+{
+  "experiment": "return-memory diagnostic for exact causal-code path filter on A-B-A recurrence",
+  "fixed_random_edge_target_coverage": 0.5,
+  "limitations": [
+    "The exact reference filter stores O(T*N) prefix counts and O(T^2*N) segment costs; bounded-memory approximation is not yet implemented.",
+    "One local neighborhood is enumerated exactly; scaling to many coupled local neighborhoods is untested.",
+    "A posterior distribution over architectures is measured; a physically sampled coherent architecture path is not yet implemented."
+  ],
+  "null_runs": [
+    {
+      "map_edge_occupancy": 0.0033333333333333335,
+      "map_structural_changes": 6,
+      "map_target_coverage": null,
+      "max_edges": 1,
+      "mean_predictive_code_bits_per_step": 2.0204867132993303,
+      "null_map_edge_occupancy": 0.0033333333333333335,
+      "null_posterior_edge_mass_mean": 0.269684301401485,
+      "posterior_edge_mass_mean": 0.269684301401485,
+      "posterior_target_mass_mean": null,
+      "recovery_delay_mean_steps": null,
+      "recovery_success_fraction": null,
+      "regime_recovery_delays": [
+        null,
+        null,
+        null
+      ]
+    },
+    {
+      "map_edge_occupancy": 0.2677777777777778,
+      "map_structural_changes": 42,
+      "map_target_coverage": null,
+      "max_edges": 1,
+      "mean_predictive_code_bits_per_step": 2.017531600072568,
+      "null_map_edge_occupancy": 0.2677777777777778,
+      "null_posterior_edge_mass_mean": 0.3004453062147549,
+      "posterior_edge_mass_mean": 0.3004453062147549,
+      "posterior_target_mass_mean": null,
+      "recovery_delay_mean_steps": null,
+      "recovery_success_fraction": null,
+      "regime_recovery_delays": [
+        null,
+        null,
+        null
+      ]
+    },
+    {
+      "map_edge_occupancy": 0.024444444444444446,
+      "map_structural_changes": 22,
+      "map_target_coverage": null,
+      "max_edges": 1,
+      "mean_predictive_code_bits_per_step": 2.0163728138415644,
+      "null_map_edge_occupancy": 0.024444444444444446,
+      "null_posterior_edge_mass_mean": 0.3510276426013564,
+      "posterior_edge_mass_mean": 0.3510276426013564,
+      "posterior_target_mass_mean": null,
+      "recovery_delay_mean_steps": null,
+      "recovery_success_fraction": null,
+      "regime_recovery_delays": [
+        null,
+        null,
+        null
+      ]
+    },
+    {
+      "map_edge_occupancy": 0.0022222222222222222,
+      "map_structural_changes": 4,
+      "map_target_coverage": null,
+      "max_edges": 1,
+      "mean_predictive_code_bits_per_step": 2.020481362068996,
+      "null_map_edge_occupancy": 0.0022222222222222222,
+      "null_posterior_edge_mass_mean": 0.18036818156921802,
+      "posterior_edge_mass_mean": 0.18036818156921802,
+      "posterior_target_mass_mean": null,
+      "recovery_delay_mean_steps": null,
+      "recovery_success_fraction": null,
+      "regime_recovery_delays": [
+        null,
+        null,
+        null
+      ]
+    },
+    {
+      "map_edge_occupancy": 0.06888888888888889,
+      "map_structural_changes": 42,
+      "map_target_coverage": null,
+      "max_edges": 1,
+      "mean_predictive_code_bits_per_step": 2.0199362492741573,
+      "null_map_edge_occupancy": 0.06888888888888889,
+      "null_posterior_edge_mass_mean": 0.2992369127319824,
+      "posterior_edge_mass_mean": 0.2992369127319824,
+      "posterior_target_mass_mean": null,
+      "recovery_delay_mean_steps": null,
+      "recovery_success_fraction": null,
+      "regime_recovery_delays": [
+        null,
+        null,
+        null
+      ]
+    },
+    {
+      "map_edge_occupancy": 0.12333333333333334,
+      "map_structural_changes": 56,
+      "map_target_coverage": null,
+      "max_edges": 1,
+      "mean_predictive_code_bits_per_step": 2.0170303662691937,
+      "null_map_edge_occupancy": 0.12333333333333334,
+      "null_posterior_edge_mass_mean": 0.39444654395413115,
+      "posterior_edge_mass_mean": 0.39444654395413115,
+      "posterior_target_mass_mean": null,
+      "recovery_delay_mean_steps": null,
+      "recovery_success_fraction": null,
+      "regime_recovery_delays": [
+        null,
+        null,
+        null
+      ]
+    },
+    {
+      "map_edge_occupancy": 0.0044444444444444444,
+      "map_structural_changes": 4,
+      "map_target_coverage": null,
+      "max_edges": 1,
+      "mean_predictive_code_bits_per_step": 2.019933824560456,
+      "null_map_edge_occupancy": 0.0044444444444444444,
+      "null_posterior_edge_mass_mean": 0.1876399883299583,
+      "posterior_edge_mass_mean": 0.1876399883299583,
+      "posterior_target_mass_mean": null,
+      "recovery_delay_mean_steps": null,
+      "recovery_success_fraction": null,
+      "regime_recovery_delays": [
+        null,
+        null,
+        null
+      ]
+    },
+    {
+      "map_edge_occupancy": 0.03666666666666667,
+      "map_structural_changes": 18,
+      "map_target_coverage": null,
+      "max_edges": 1,
+      "mean_predictive_code_bits_per_step": 2.017820104395648,
+      "null_map_edge_occupancy": 0.03666666666666667,
+      "null_posterior_edge_mass_mean": 0.24607048940371823,
+      "posterior_edge_mass_mean": 0.24607048940371823,
+      "posterior_target_mass_mean": null,
+      "recovery_delay_mean_steps": null,
+      "recovery_success_fraction": null,
+      "regime_recovery_delays": [
+        null,
+        null,
+        null
+      ]
+    },
+    {
+      "map_edge_occupancy": 0.02666666666666667,
+      "map_structural_changes": 23,
+      "map_target_coverage": null,
+      "max_edges": 1,
+      "mean_predictive_code_bits_per_step": 2.0162150705954223,
+      "null_map_edge_occupancy": 0.02666666666666667,
+      "null_posterior_edge_mass_mean": 0.2348995240638254,
+      "posterior_edge_mass_mean": 0.2348995240638254,
+      "posterior_target_mass_mean": null,
+      "recovery_delay_mean_steps": null,
+      "recovery_success_fraction": null,
+      "regime_recovery_delays": [
+        null,
+        null,
+        null
+      ]
+    },
+    {
+      "map_edge_occupancy": 0.027777777777777776,
+      "map_structural_changes": 20,
+      "map_target_coverage": null,
+      "max_edges": 1,
+      "mean_predictive_code_bits_per_step": 2.0190283940301974,
+      "null_map_edge_occupancy": 0.027777777777777776,
+      "null_posterior_edge_mass_mean": 0.20630350518239443,
+      "posterior_edge_mass_mean": 0.20630350518239443,
+      "posterior_target_mass_mean": null,
+      "recovery_delay_mean_steps": null,
+      "recovery_success_fraction": null,
+      "regime_recovery_delays": [
+        null,
+        null,
+        null
+      ]
+    },
+    {
+      "map_edge_occupancy": 0.02,
+      "map_structural_changes": 26,
+      "map_target_coverage": null,
+      "max_edges": 1,
+      "mean_predictive_code_bits_per_step": 2.015554504080921,
+      "null_map_edge_occupancy": 0.02,
+      "null_posterior_edge_mass_mean": 0.24769638130619454,
+      "posterior_edge_mass_mean": 0.24769638130619454,
+      "posterior_target_mass_mean": null,
+      "recovery_delay_mean_steps": null,
+      "recovery_success_fraction": null,
+      "regime_recovery_delays": [
+        null,
+        null,
+        null
+      ]
+    },
+    {
+      "map_edge_occupancy": 0.0077777777777777776,
+      "map_structural_changes": 8,
+      "map_target_coverage": null,
+      "max_edges": 1,
+      "mean_predictive_code_bits_per_step": 2.018154364383184,
+      "null_map_edge_occupancy": 0.0077777777777777776,
+      "null_posterior_edge_mass_mean": 0.19414718015392393,
+      "posterior_edge_mass_mean": 0.19414718015392393,
+      "posterior_target_mass_mean": null,
+      "recovery_delay_mean_steps": null,
+      "recovery_success_fraction": null,
+      "regime_recovery_delays": [
+        null,
+        null,
+        null
+      ]
+    },
+    {
+      "map_edge_occupancy": 0.01,
+      "map_structural_changes": 12,
+      "map_target_coverage": null,
+      "max_edges": 1,
+      "mean_predictive_code_bits_per_step": 2.0188596688016727,
+      "null_map_edge_occupancy": 0.01,
+      "null_posterior_edge_mass_mean": 0.2303203083428306,
+      "posterior_edge_mass_mean": 0.2303203083428306,
+      "posterior_target_mass_mean": null,
+      "recovery_delay_mean_steps": null,
+      "recovery_success_fraction": null,
+      "regime_recovery_delays": [
+        null,
+        null,
+        null
+      ]
+    },
+    {
+      "map_edge_occupancy": 0.013333333333333334,
+      "map_structural_changes": 16,
+      "map_target_coverage": null,
+      "max_edges": 1,
+      "mean_predictive_code_bits_per_step": 2.0178918667543035,
+      "null_map_edge_occupancy": 0.013333333333333334,
+      "null_posterior_edge_mass_mean": 0.22655084158733704,
+      "posterior_edge_mass_mean": 0.22655084158733704,
+      "posterior_target_mass_mean": null,
+      "recovery_delay_mean_steps": null,
+      "recovery_success_fraction": null,
+      "regime_recovery_delays": [
+        null,
+        null,
+        null
+      ]
+    },
+    {
+      "map_edge_occupancy": 0.0077777777777777776,
+      "map_structural_changes": 9,
+      "map_target_coverage": null,
+      "max_edges": 1,
+      "mean_predictive_code_bits_per_step": 2.02063949299988,
+      "null_map_edge_occupancy": 0.0077777777777777776,
+      "null_posterior_edge_mass_mean": 0.2171206865013443,
+      "posterior_edge_mass_mean": 0.2171206865013443,
+      "posterior_target_mass_mean": null,
+      "recovery_delay_mean_steps": null,
+      "recovery_success_fraction": null,
+      "regime_recovery_delays": [
+        null,
+        null,
+        null
+      ]
+    },
+    {
+      "map_edge_occupancy": 0.017777777777777778,
+      "map_structural_changes": 16,
+      "map_target_coverage": null,
+      "max_edges": 1,
+      "mean_predictive_code_bits_per_step": 2.0192907547123933,
+      "null_map_edge_occupancy": 0.017777777777777778,
+      "null_posterior_edge_mass_mean": 0.284275477442093,
+      "posterior_edge_mass_mean": 0.284275477442093,
+      "posterior_target_mass_mean": null,
+      "recovery_delay_mean_steps": null,
+      "recovery_success_fraction": null,
+      "regime_recovery_delays": [
+        null,
+        null,
+        null
+      ]
+    },
+    {
+      "map_edge_occupancy": 0.023333333333333334,
+      "map_structural_changes": 12,
+      "map_target_coverage": null,
+      "max_edges": 1,
+      "mean_predictive_code_bits_per_step": 2.020035296810525,
+      "null_map_edge_occupancy": 0.023333333333333334,
+      "null_posterior_edge_mass_mean": 0.16132820542645723,
+      "posterior_edge_mass_mean": 0.16132820542645723,
+      "posterior_target_mass_mean": null,
+      "recovery_delay_mean_steps": null,
+      "recovery_success_fraction": null,
+      "regime_recovery_delays": [
+        null,
+        null,
+        null
+      ]
+    },
+    {
+      "map_edge_occupancy": 0.024444444444444446,
+      "map_structural_changes": 26,
+      "map_target_coverage": null,
+      "max_edges": 1,
+      "mean_predictive_code_bits_per_step": 2.0191261969592755,
+      "null_map_edge_occupancy": 0.024444444444444446,
+      "null_posterior_edge_mass_mean": 0.23922763555657384,
+      "posterior_edge_mass_mean": 0.23922763555657384,
+      "posterior_target_mass_mean": null,
+      "recovery_delay_mean_steps": null,
+      "recovery_success_fraction": null,
+      "regime_recovery_delays": [
+        null,
+        null,
+        null
+      ]
+    },
+    {
+      "map_edge_occupancy": 0.005555555555555556,
+      "map_structural_changes": 6,
+      "map_target_coverage": null,
+      "max_edges": 1,
+      "mean_predictive_code_bits_per_step": 2.0122278063788452,
+      "null_map_edge_occupancy": 0.005555555555555556,
+      "null_posterior_edge_mass_mean": 0.15806093045481595,
+      "posterior_edge_mass_mean": 0.15806093045481595,
+      "posterior_target_mass_mean": null,
+      "recovery_delay_mean_steps": null,
+      "recovery_success_fraction": null,
+      "regime_recovery_delays": [
+        null,
+        null,
+        null
+      ]
+    },
+    {
+      "map_edge_occupancy": 0.012222222222222223,
+      "map_structural_changes": 17,
+      "map_target_coverage": null,
+      "max_edges": 1,
+      "mean_predictive_code_bits_per_step": 2.020422697472583,
+      "null_map_edge_occupancy": 0.012222222222222223,
+      "null_posterior_edge_mass_mean": 0.19597012776690284,
+      "posterior_edge_mass_mean": 0.19597012776690284,
+      "posterior_target_mass_mean": null,
+      "recovery_delay_mean_steps": null,
+      "recovery_success_fraction": null,
+      "regime_recovery_delays": [
+        null,
+        null,
+        null
+      ]
+    }
+  ],
+  "null_stream_summary": {
+    "map_edge_occupancy": {
+      "mean": 0.03638888888888889,
+      "sd_across_seeds": 0.05961385517138664
+    },
+    "mean_predictive_code_bits_per_step": {
+      "mean": 2.018351957388056,
+      "sd_across_seeds": 0.002066661798482392
+    },
+    "posterior_edge_mass_mean": {
+      "mean": 0.24124100849956487,
+      "sd_across_seeds": 0.05977134770212706
+    }
+  },
+  "parameters": {
+    "N": 2,
+    "duration_prior": "p(d)=1/[d(d+1)], survival P(D>=d)=1/d; no scale parameter",
+    "edit_prior": "same code prior conditioned on a topology change; no hand-set edit rate",
+    "initial_architecture_prior": "universal graph-size code p(k)=1/[(k+1)(k+2)], conditioned on physical capacity k<=1; edge identity uniform within k",
+    "physical_edge_capacity": 1,
+    "predictive_code": "Jeffreys Beta(1/2,1/2) integrated Bernoulli code; conditional edge uses separate source=0 and source=1 contexts",
+    "regimes": 3,
+    "seeds": [
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32,
+      33,
+      34,
+      35,
+      36,
+      37,
+      38,
+      39
+    ],
+    "steps_per_regime": 300,
+    "target_schedule": [
+      0,
+      1,
+      0
+    ],
+    "total_steps_per_seed": 900
+  },
+  "target_runs": [
+    {
+      "map_edge_occupancy": 0.9911111111111112,
+      "map_structural_changes": 4,
+      "map_target_coverage": 0.9822222222222222,
+      "max_edges": 1,
+      "mean_predictive_code_bits_per_step": 1.0918876756585492,
+      "null_map_edge_occupancy": null,
+      "null_posterior_edge_mass_mean": null,
+      "posterior_edge_mass_mean": 0.9799289196388743,
+      "posterior_target_mass_mean": 0.9656577414881857,
+      "recovery_delay_mean_steps": 5.333333333333333,
+      "recovery_success_fraction": 1.0,
+      "regime_recovery_delays": [
+        5,
+        4,
+        7
+      ]
+    },
+    {
+      "map_edge_occupancy": 0.9911111111111112,
+      "map_structural_changes": 8,
+      "map_target_coverage": 0.9844444444444445,
+      "max_edges": 1,
+      "mean_predictive_code_bits_per_step": 1.0896351892181966,
+      "null_map_edge_occupancy": null,
+      "null_posterior_edge_mass_mean": null,
+      "posterior_edge_mass_mean": 0.9776882519410404,
+      "posterior_target_mass_mean": 0.9638154703593884,
+      "recovery_delay_mean_steps": 5.333333333333333,
+      "recovery_success_fraction": 1.0,
+      "regime_recovery_delays": [
+        5,
+        7,
+        4
+      ]
+    },
+    {
+      "map_edge_occupancy": 0.9955555555555555,
+      "map_structural_changes": 7,
+      "map_target_coverage": 0.98,
+      "max_edges": 1,
+      "mean_predictive_code_bits_per_step": 1.0911858216485733,
+      "null_map_edge_occupancy": null,
+      "null_posterior_edge_mass_mean": null,
+      "posterior_edge_mass_mean": 0.9806083462735672,
+      "posterior_target_mass_mean": 0.9603796487293563,
+      "recovery_delay_mean_steps": 7.333333333333333,
+      "recovery_success_fraction": 1.0,
+      "regime_recovery_delays": [
+        8,
+        8,
+        6
+      ]
+    },
+    {
+      "map_edge_occupancy": 0.9944444444444445,
+      "map_structural_changes": 7,
+      "map_target_coverage": 0.9811111111111112,
+      "max_edges": 1,
+      "mean_predictive_code_bits_per_step": 1.0889286804988367,
+      "null_map_edge_occupancy": null,
+      "null_posterior_edge_mass_mean": null,
+      "posterior_edge_mass_mean": 0.9807458826178774,
+      "posterior_target_mass_mean": 0.9621159398082078,
+      "recovery_delay_mean_steps": 6.666666666666667,
+      "recovery_success_fraction": 1.0,
+      "regime_recovery_delays": [
+        4,
+        9,
+        7
+      ]
+    },
+    {
+      "map_edge_occupancy": 0.99,
+      "map_structural_changes": 5,
+      "map_target_coverage": 0.9844444444444445,
+      "max_edges": 1,
+      "mean_predictive_code_bits_per_step": 1.0890176988363165,
+      "null_map_edge_occupancy": null,
+      "null_posterior_edge_mass_mean": null,
+      "posterior_edge_mass_mean": 0.9798431533022947,
+      "posterior_target_mass_mean": 0.9669572021982731,
+      "recovery_delay_mean_steps": 4.666666666666667,
+      "recovery_success_fraction": 1.0,
+      "regime_recovery_delays": [
+        5,
+        3,
+        6
+      ]
+    },
+    {
+      "map_edge_occupancy": 0.99,
+      "map_structural_changes": 7,
+      "map_target_coverage": 0.9844444444444445,
+      "max_edges": 1,
+      "mean_predictive_code_bits_per_step": 1.0910610425987928,
+      "null_map_edge_occupancy": null,
+      "null_posterior_edge_mass_mean": null,
+      "posterior_edge_mass_mean": 0.9792927265235375,
+      "posterior_target_mass_mean": 0.9667191692755668,
+      "recovery_delay_mean_steps": 5,
+      "recovery_success_fraction": 1.0,
+      "regime_recovery_delays": [
+        5,
+        5,
+        5
+      ]
+    },
+    {
+      "map_edge_occupancy": 0.9888888888888889,
+      "map_structural_changes": 11,
+      "map_target_coverage": 0.9866666666666667,
+      "max_edges": 1,
+      "mean_predictive_code_bits_per_step": 1.092646300201196,
+      "null_map_edge_occupancy": null,
+      "null_posterior_edge_mass_mean": null,
+      "posterior_edge_mass_mean": 0.9777280489274255,
+      "posterior_target_mass_mean": 0.9664185094607344,
+      "recovery_delay_mean_steps": 5.333333333333333,
+      "recovery_success_fraction": 1.0,
+      "regime_recovery_delays": [
+        7,
+        4,
+        5
+      ]
+    },
+    {
+      "map_edge_occupancy": 0.9944444444444445,
+      "map_structural_changes": 4,
+      "map_target_coverage": 0.9888888888888889,
+      "max_edges": 1,
+      "mean_predictive_code_bits_per_step": 1.0880076321675238,
+      "null_map_edge_occupancy": null,
+      "null_posterior_edge_mass_mean": null,
+      "posterior_edge_mass_mean": 0.979705950828613,
+      "posterior_target_mass_mean": 0.9675449686990023,
+      "recovery_delay_mean_steps": 3.3333333333333335,
+      "recovery_success_fraction": 1.0,
+      "regime_recovery_delays": [
+        4,
+        3,
+        3
+      ]
+    },
+    {
+      "map_edge_occupancy": 0.9833333333333333,
+      "map_structural_changes": 5,
+      "map_target_coverage": 0.9766666666666667,
+      "max_edges": 1,
+      "mean_predictive_code_bits_per_step": 1.0912515376528924,
+      "null_map_edge_occupancy": null,
+      "null_posterior_edge_mass_mean": null,
+      "posterior_edge_mass_mean": 0.9780575763788819,
+      "posterior_target_mass_mean": 0.9641399054172631,
+      "recovery_delay_mean_steps": 7,
+      "recovery_success_fraction": 1.0,
+      "regime_recovery_delays": [
+        10,
+        5,
+        6
+      ]
+    },
+    {
+      "map_edge_occupancy": 0.9866666666666667,
+      "map_structural_changes": 5,
+      "map_target_coverage": 0.9822222222222222,
+      "max_edges": 1,
+      "mean_predictive_code_bits_per_step": 1.0921297512534323,
+      "null_map_edge_occupancy": null,
+      "null_posterior_edge_mass_mean": null,
+      "posterior_edge_mass_mean": 0.9788116568381011,
+      "posterior_target_mass_mean": 0.9665262265343333,
+      "recovery_delay_mean_steps": 5.333333333333333,
+      "recovery_success_fraction": 1.0,
+      "regime_recovery_delays": [
+        6,
+        4,
+        6
+      ]
+    },
+    {
+      "map_edge_occupancy": 0.9922222222222222,
+      "map_structural_changes": 7,
+      "map_target_coverage": 0.9844444444444445,
+      "max_edges": 1,
+      "mean_predictive_code_bits_per_step": 1.089943931726397,
+      "null_map_edge_occupancy": null,
+      "null_posterior_edge_mass_mean": null,
+      "posterior_edge_mass_mean": 0.9807960507516716,
+      "posterior_target_mass_mean": 0.9665759064661095,
+      "recovery_delay_mean_steps": 5,
+      "recovery_success_fraction": 1.0,
+      "regime_recovery_delays": [
+        5,
+        4,
+        6
+      ]
+    },
+    {
+      "map_edge_occupancy": 0.9866666666666667,
+      "map_structural_changes": 6,
+      "map_target_coverage": 0.98,
+      "max_edges": 1,
+      "mean_predictive_code_bits_per_step": 1.089544000367135,
+      "null_map_edge_occupancy": null,
+      "null_posterior_edge_mass_mean": null,
+      "posterior_edge_mass_mean": 0.9795979701115658,
+      "posterior_target_mass_mean": 0.9655620223851514,
+      "recovery_delay_mean_steps": 6.333333333333333,
+      "recovery_success_fraction": 1.0,
+      "regime_recovery_delays": [
+        7,
+        7,
+        5
+      ]
+    },
+    {
+      "map_edge_occupancy": 0.9933333333333333,
+      "map_structural_changes": 6,
+      "map_target_coverage": 0.9844444444444445,
+      "max_edges": 1,
+      "mean_predictive_code_bits_per_step": 1.0880535019325774,
+      "null_map_edge_occupancy": null,
+      "null_posterior_edge_mass_mean": null,
+      "posterior_edge_mass_mean": 0.980369559771556,
+      "posterior_target_mass_mean": 0.9660057235749071,
+      "recovery_delay_mean_steps": 5,
+      "recovery_success_fraction": 1.0,
+      "regime_recovery_delays": [
+        4,
+        6,
+        5
+      ]
+    },
+    {
+      "map_edge_occupancy": 0.9766666666666667,
+      "map_structural_changes": 6,
+      "map_target_coverage": 0.97,
+      "max_edges": 1,
+      "mean_predictive_code_bits_per_step": 1.0916351719233846,
+      "null_map_edge_occupancy": null,
+      "null_posterior_edge_mass_mean": null,
+      "posterior_edge_mass_mean": 0.9734539682837501,
+      "posterior_target_mass_mean": 0.9569186120406158,
+      "recovery_delay_mean_steps": 9.333333333333334,
+      "recovery_success_fraction": 1.0,
+      "regime_recovery_delays": [
+        8,
+        7,
+        13
+      ]
+    },
+    {
+      "map_edge_occupancy": 0.98,
+      "map_structural_changes": 5,
+      "map_target_coverage": 0.9777777777777777,
+      "max_edges": 1,
+      "mean_predictive_code_bits_per_step": 1.0926564962345715,
+      "null_map_edge_occupancy": null,
+      "null_posterior_edge_mass_mean": null,
+      "posterior_edge_mass_mean": 0.9753713479639261,
+      "posterior_target_mass_mean": 0.9639338332564181,
+      "recovery_delay_mean_steps": 6.666666666666667,
+      "recovery_success_fraction": 1.0,
+      "regime_recovery_delays": [
+        4,
+        11,
+        5
+      ]
+    },
+    {
+      "map_edge_occupancy": 0.9955555555555555,
+      "map_structural_changes": 5,
+      "map_target_coverage": 0.9833333333333333,
+      "max_edges": 1,
+      "mean_predictive_code_bits_per_step": 1.08895544095064,
+      "null_map_edge_occupancy": null,
+      "null_posterior_edge_mass_mean": null,
+      "posterior_edge_mass_mean": 0.9801815208586538,
+      "posterior_target_mass_mean": 0.9629867755724069,
+      "recovery_delay_mean_steps": 5.333333333333333,
+      "recovery_success_fraction": 1.0,
+      "regime_recovery_delays": [
+        4,
+        7,
+        5
+      ]
+    },
+    {
+      "map_edge_occupancy": 0.9866666666666667,
+      "map_structural_changes": 7,
+      "map_target_coverage": 0.9811111111111112,
+      "max_edges": 1,
+      "mean_predictive_code_bits_per_step": 1.0855102398248404,
+      "null_map_edge_occupancy": null,
+      "null_posterior_edge_mass_mean": null,
+      "posterior_edge_mass_mean": 0.9789301303422832,
+      "posterior_target_mass_mean": 0.9652309662358074,
+      "recovery_delay_mean_steps": 6.333333333333333,
+      "recovery_success_fraction": 1.0,
+      "regime_recovery_delays": [
+        3,
+        6,
+        10
+      ]
+    },
+    {
+      "map_edge_occupancy": 0.9866666666666667,
+      "map_structural_changes": 7,
+      "map_target_coverage": 0.9811111111111112,
+      "max_edges": 1,
+      "mean_predictive_code_bits_per_step": 1.091282562513887,
+      "null_map_edge_occupancy": null,
+      "null_posterior_edge_mass_mean": null,
+      "posterior_edge_mass_mean": 0.9777574775791581,
+      "posterior_target_mass_mean": 0.9660321418108572,
+      "recovery_delay_mean_steps": 6,
+      "recovery_success_fraction": 1.0,
+      "regime_recovery_delays": [
+        6,
+        7,
+        5
+      ]
+    },
+    {
+      "map_edge_occupancy": 0.9833333333333333,
+      "map_structural_changes": 8,
+      "map_target_coverage": 0.9755555555555555,
+      "max_edges": 1,
+      "mean_predictive_code_bits_per_step": 1.086602358947673,
+      "null_map_edge_occupancy": null,
+      "null_posterior_edge_mass_mean": null,
+      "posterior_edge_mass_mean": 0.9769865395584019,
+      "posterior_target_mass_mean": 0.9621990359656721,
+      "recovery_delay_mean_steps": 7.666666666666667,
+      "recovery_success_fraction": 1.0,
+      "regime_recovery_delays": [
+        7,
+        9,
+        7
+      ]
+    },
+    {
+      "map_edge_occupancy": 0.9833333333333333,
+      "map_structural_changes": 7,
+      "map_target_coverage": 0.98,
+      "max_edges": 1,
+      "mean_predictive_code_bits_per_step": 1.090609257746653,
+      "null_map_edge_occupancy": null,
+      "null_posterior_edge_mass_mean": null,
+      "posterior_edge_mass_mean": 0.9772078327096169,
+      "posterior_target_mass_mean": 0.9653613746482509,
+      "recovery_delay_mean_steps": 7.333333333333333,
+      "recovery_success_fraction": 1.0,
+      "regime_recovery_delays": [
+        8,
+        9,
+        5
+      ]
+    }
+  ],
+  "target_stream_summary": {
+    "map_edge_occupancy": {
+      "mean": 0.9885,
+      "sd_across_seeds": 0.0051553041126423576
+    },
+    "map_structural_changes": {
+      "mean": 6.35,
+      "sd_across_seeds": 1.5898113095584645
+    },
+    "map_target_coverage": {
+      "mean": 0.9814444444444445,
+      "sd_across_seeds": 0.004129089816902691
+    },
+    "mean_predictive_code_bits_per_step": {
+      "mean": 1.0900272145951033,
+      "sd_across_seeds": 0.0019227676685522443
+    },
+    "posterior_edge_mass_mean": {
+      "mean": 0.9786531455600398,
+      "sd_across_seeds": 0.0018606990897182473
+    },
+    "posterior_target_mass_mean": {
+      "mean": 0.9645540586963254,
+      "sd_across_seeds": 0.0025423646257871184
+    },
+    "recovery_delay_mean_steps": {
+      "mean": 6.016666666666667,
+      "sd_across_seeds": 1.2973263103612582
+    },
+    "recovery_success_fraction": {
+      "mean": 1.0,
+      "sd_across_seeds": 0.0
+    }
+  }
+}

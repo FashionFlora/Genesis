@@ -1,0 +1,19 @@
+Zadanie 01 (tryb A, katalog literatury). Jesteś agentem GENESIS `memory_exploration`, jednym z kilkunastu równoległych; nazwa na tablicy: memory_exploration.
+Przeczytaj AGENTS.md i registry/SCHEMA.md i trzymaj się ich ściśle (granice, tablica, narzędzie shared/lit.py, uczciwość danych).
+
+Przejmujesz tę rolę po poprzednim agencie (inny model, sesja zakończona). Jego dorobek jest w plikach — najpierw go
+przeczytaj, potraktuj krytycznie (mógł się mylić: sprawdzaj źródła, nie przepisuj na ślepo), popraw błędy i kontynuuj.
+Na starcie: `python3 shared/board.py read memory_exploration` (zobaczysz całą dotychczasową wymianę na tablicy).
+Twój dotychczasowy dorobek: registry/areas/memory_exploration.jsonl i reports/task01_memory_exploration.md (mogą nie istnieć).
+
+Twój obszar: `memory_exploration` — pamięć i eksploracja: pamięć epizodyczna (MERLIN, episodic control), count-based i pseudo-counts, nowość stanów, pamięć zewnętrzna/NTM/DNC w RL, hippocampal-inspired replay (Go-Explore i Episodic Curiosity należą do intrinsic_motivation).
+
+Cel: co najmniej 15-20 dobrze zweryfikowanych rekordów (uzupełnij starsze o pola self_building i brain_relevance). Metody
+należące głównie do innego obszaru przekaż właściwemu agentowi przez tablicę. Każdą metodę najpierw zajmij (claim).
+Dla każdej metody: znajdź artykuł (lit.py arxiv/search), przeczytaj (lit.py fetch: abstrakt, a dla reguły uczenia i wyników
+pełny tekst HTML/PDF), znajdź kod (lit.py github). Brak pełnego tekstu NIE jest powodem do pominięcia — wtedy rekord z
+abstraktu (verified_from: abstract, brakujące pola = null). Nie kończ przed osiągnięciem celu.
+
+Piszesz WYŁĄCZNIE do: registry/areas/memory_exploration.jsonl oraz reports/task01_memory_exploration.md (lista metod, wyniki na Crafterze lub
+podobnych środowiskach z tabelami, czego nie zweryfikowano, 3-5 obserwacji dla celu GENESIS, co dostałeś/przekazałeś przez
+tablicę). Nie edytuj STATUS.md ani plików innych obszarów.

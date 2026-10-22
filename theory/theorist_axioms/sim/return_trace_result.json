@@ -1,0 +1,535 @@
+{
+  "seeds": 40,
+  "phases": 500,
+  "channels": 4,
+  "persistent_first_mean": 1.15,
+  "persistent_return_mean": 29.325,
+  "persistent_return_minus_first_mean": 28.175,
+  "persistent_return_faster_fraction": 0.05,
+  "reset_first_mean": 1.15,
+  "reset_return_mean": 1.275,
+  "reset_return_minus_first_mean": 0.125,
+  "return_choice_occupancy": 0.9418,
+  "per_seed": [
+    {
+      "first": 0,
+      "return": 73,
+      "reset_first": 0,
+      "reset_return": 4,
+      "null": 0.854,
+      "scores": [
+        800,
+        434,
+        -2,
+        -42
+      ]
+    },
+    {
+      "first": 0,
+      "return": 94,
+      "reset_first": 0,
+      "reset_return": 0,
+      "null": 0.812,
+      "scores": [
+        822,
+        478,
+        26,
+        78
+      ]
+    },
+    {
+      "first": 6,
+      "return": 0,
+      "reset_first": 6,
+      "reset_return": 2,
+      "null": 1.0,
+      "scores": [
+        834,
+        400,
+        20,
+        84
+      ]
+    },
+    {
+      "first": 0,
+      "return": 0,
+      "reset_first": 0,
+      "reset_return": 0,
+      "null": 1.0,
+      "scores": [
+        834,
+        412,
+        26,
+        -24
+      ]
+    },
+    {
+      "first": 0,
+      "return": 110,
+      "reset_first": 0,
+      "reset_return": 0,
+      "null": 0.78,
+      "scores": [
+        778,
+        466,
+        -4,
+        34
+      ]
+    },
+    {
+      "first": 0,
+      "return": 0,
+      "reset_first": 0,
+      "reset_return": 0,
+      "null": 1.0,
+      "scores": [
+        828,
+        432,
+        -18,
+        14
+      ]
+    },
+    {
+      "first": 0,
+      "return": 0,
+      "reset_first": 0,
+      "reset_return": 2,
+      "null": 1.0,
+      "scores": [
+        844,
+        402,
+        -14,
+        -14
+      ]
+    },
+    {
+      "first": 0,
+      "return": 34,
+      "reset_first": 0,
+      "reset_return": 0,
+      "null": 0.932,
+      "scores": [
+        768,
+        364,
+        32,
+        -50
+      ]
+    },
+    {
+      "first": 18,
+      "return": 52,
+      "reset_first": 18,
+      "reset_return": 2,
+      "null": 0.912,
+      "scores": [
+        840,
+        434,
+        24,
+        14
+      ]
+    },
+    {
+      "first": 0,
+      "return": 83,
+      "reset_first": 0,
+      "reset_return": 0,
+      "null": 0.834,
+      "scores": [
+        812,
+        436,
+        -8,
+        -20
+      ]
+    },
+    {
+      "first": 0,
+      "return": 81,
+      "reset_first": 0,
+      "reset_return": 0,
+      "null": 0.838,
+      "scores": [
+        814,
+        480,
+        58,
+        -22
+      ]
+    },
+    {
+      "first": 0,
+      "return": 6,
+      "reset_first": 0,
+      "reset_return": 0,
+      "null": 0.988,
+      "scores": [
+        890,
+        472,
+        2,
+        -34
+      ]
+    },
+    {
+      "first": 0,
+      "return": 17,
+      "reset_first": 0,
+      "reset_return": 0,
+      "null": 0.966,
+      "scores": [
+        826,
+        384,
+        -32,
+        48
+      ]
+    },
+    {
+      "first": 0,
+      "return": 41,
+      "reset_first": 0,
+      "reset_return": 0,
+      "null": 0.918,
+      "scores": [
+        826,
+        438,
+        18,
+        38
+      ]
+    },
+    {
+      "first": 0,
+      "return": 46,
+      "reset_first": 0,
+      "reset_return": 0,
+      "null": 0.908,
+      "scores": [
+        820,
+        482,
+        90,
+        -6
+      ]
+    },
+    {
+      "first": 0,
+      "return": 2,
+      "reset_first": 0,
+      "reset_return": 8,
+      "null": 0.998,
+      "scores": [
+        818,
+        406,
+        -34,
+        4
+      ]
+    },
+    {
+      "first": 4,
+      "return": 60,
+      "reset_first": 4,
+      "reset_return": 0,
+      "null": 0.88,
+      "scores": [
+        808,
+        454,
+        0,
+        -46
+      ]
+    },
+    {
+      "first": 0,
+      "return": 37,
+      "reset_first": 0,
+      "reset_return": 0,
+      "null": 0.926,
+      "scores": [
+        846,
+        434,
+        -28,
+        -16
+      ]
+    },
+    {
+      "first": 0,
+      "return": 0,
+      "reset_first": 0,
+      "reset_return": 0,
+      "null": 1.0,
+      "scores": [
+        820,
+        386,
+        -12,
+        6
+      ]
+    },
+    {
+      "first": 5,
+      "return": 13,
+      "reset_first": 5,
+      "reset_return": 0,
+      "null": 0.974,
+      "scores": [
+        862,
+        422,
+        16,
+        -56
+      ]
+    },
+    {
+      "first": 0,
+      "return": 0,
+      "reset_first": 0,
+      "reset_return": 0,
+      "null": 1.0,
+      "scores": [
+        894,
+        404,
+        28,
+        12
+      ]
+    },
+    {
+      "first": 0,
+      "return": 0,
+      "reset_first": 0,
+      "reset_return": 0,
+      "null": 1.0,
+      "scores": [
+        874,
+        428,
+        0,
+        28
+      ]
+    },
+    {
+      "first": 0,
+      "return": 0,
+      "reset_first": 0,
+      "reset_return": 0,
+      "null": 1.0,
+      "scores": [
+        834,
+        418,
+        -12,
+        -48
+      ]
+    },
+    {
+      "first": 0,
+      "return": 15,
+      "reset_first": 0,
+      "reset_return": 0,
+      "null": 0.97,
+      "scores": [
+        836,
+        398,
+        -46,
+        46
+      ]
+    },
+    {
+      "first": 0,
+      "return": 0,
+      "reset_first": 0,
+      "reset_return": 4,
+      "null": 1.0,
+      "scores": [
+        856,
+        484,
+        84,
+        -18
+      ]
+    },
+    {
+      "first": 0,
+      "return": 0,
+      "reset_first": 0,
+      "reset_return": 10,
+      "null": 1.0,
+      "scores": [
+        864,
+        388,
+        4,
+        -30
+      ]
+    },
+    {
+      "first": 0,
+      "return": 0,
+      "reset_first": 0,
+      "reset_return": 0,
+      "null": 1.0,
+      "scores": [
+        808,
+        342,
+        0,
+        84
+      ]
+    },
+    {
+      "first": 0,
+      "return": 0,
+      "reset_first": 0,
+      "reset_return": 0,
+      "null": 1.0,
+      "scores": [
+        864,
+        402,
+        16,
+        16
+      ]
+    },
+    {
+      "first": 0,
+      "return": 4,
+      "reset_first": 0,
+      "reset_return": 0,
+      "null": 0.992,
+      "scores": [
+        838,
+        454,
+        -36,
+        2
+      ]
+    },
+    {
+      "first": 0,
+      "return": 39,
+      "reset_first": 0,
+      "reset_return": 0,
+      "null": 0.922,
+      "scores": [
+        856,
+        454,
+        8,
+        52
+      ]
+    },
+    {
+      "first": 0,
+      "return": 29,
+      "reset_first": 0,
+      "reset_return": 0,
+      "null": 0.942,
+      "scores": [
+        846,
+        418,
+        -88,
+        8
+      ]
+    },
+    {
+      "first": 3,
+      "return": 0,
+      "reset_first": 3,
+      "reset_return": 17,
+      "null": 1.0,
+      "scores": [
+        824,
+        406,
+        -8,
+        14
+      ]
+    },
+    {
+      "first": 2,
+      "return": 101,
+      "reset_first": 2,
+      "reset_return": 0,
+      "null": 0.798,
+      "scores": [
+        822,
+        458,
+        6,
+        44
+      ]
+    },
+    {
+      "first": 7,
+      "return": 56,
+      "reset_first": 7,
+      "reset_return": 0,
+      "null": 0.888,
+      "scores": [
+        788,
+        408,
+        -28,
+        32
+      ]
+    },
+    {
+      "first": 0,
+      "return": 54,
+      "reset_first": 0,
+      "reset_return": 0,
+      "null": 0.892,
+      "scores": [
+        842,
+        460,
+        -26,
+        -10
+      ]
+    },
+    {
+      "first": 0,
+      "return": 9,
+      "reset_first": 0,
+      "reset_return": 1,
+      "null": 0.982,
+      "scores": [
+        804,
+        402,
+        -12,
+        -16
+      ]
+    },
+    {
+      "first": 0,
+      "return": 0,
+      "reset_first": 0,
+      "reset_return": 0,
+      "null": 1.0,
+      "scores": [
+        856,
+        410,
+        20,
+        48
+      ]
+    },
+    {
+      "first": 0,
+      "return": 29,
+      "reset_first": 0,
+      "reset_return": 0,
+      "null": 0.942,
+      "scores": [
+        868,
+        450,
+        50,
+        16
+      ]
+    },
+    {
+      "first": 1,
+      "return": 36,
+      "reset_first": 1,
+      "reset_return": 0,
+      "null": 0.928,
+      "scores": [
+        868,
+        464,
+        -34,
+        32
+      ]
+    },
+    {
+      "first": 0,
+      "return": 52,
+      "reset_first": 0,
+      "reset_return": 1,
+      "null": 0.896,
+      "scores": [
+        832,
+        444,
+        36,
+        -8
+      ]
+    }
+  ]
+}

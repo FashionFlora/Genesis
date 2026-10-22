@@ -1,0 +1,24 @@
+Zbuduj PIASKOWNICĘ dla projektu GENESIS w folderze sandbox/ (piszesz tylko tam). Granice serwera: AGENTS.md, sekcja „Twarde granice”.
+
+Po co: myśliciele szukają JEDNEJ fundamentalnej zasady, z której sama wynika cyfrowa biointeligencja (system, który rośnie,
+przycina się, uczy, pamięta i zapomina, bez nagrody i bez backpropu). Piaskownica to stały, uczciwy sędzia: wpisują
+tylko swoją zasadę, a ona mierzy, co z niej SAMO wynikło. Ten sam pomiar dla wszystkich, nie do naciągnięcia.
+
+1. Świat: wielokanałowy strumień obserwacji z ukrytą strukturą (zależności między kanałami, rytmy, przyczynowość).
+   Reżimy zmieniają się i WRACAJĄ. Złożoność świata rośnie i maleje w zaplanowanych fazach (żeby było widać, czy
+   struktura systemu rośnie, gdy świat się komplikuje, i kurczy, gdy upraszcza). Kilka stałych seedów. Możesz
+   wykorzystać engine/stream.py, jeśli się nadaje.
+2. Interfejs kandydata: candidates/<nazwa>/principle.py z klasą System: `step(obs) -> prediction` (przewidywanie
+   następnej obserwacji) oraz `structure() -> dict` (np. liczba jednostek, połączeń, zużyte zasoby). Nic więcej.
+   Nagroda nie istnieje. Kandydat nie dostaje informacji o fazach ani reżimach.
+3. Stałe pomiary (opisz każdy w sandbox/README.md): jakość predykcji vs proste baseline'y; szybkość adaptacji po
+   zmianie; pamięć po powrocie starego reżimu (czy wraca szybciej niż za pierwszym razem); czy struktura śledzi
+   złożoność świata (rośnie i kurczy się); koszt zasobów.
+4. Elegancja: automatycznie (AST) policz w principle.py liczbę stałych liczbowych, gałęzi warunkowych i linii.
+   Kara za każdą. Zasada, która potrzebuje wielu ręcznych progów, przegrywa z prostszą.
+5. Jeden wynik łączny (wzór jawny w README), wpis do sandbox/leaderboard.jsonl: kandydat, autor, wynik, składowe,
+   hash principle.py, czas. Polecenie: `.venv/bin/python sandbox/judge.py candidates/<nazwa>` (CPU, max ~10 min).
+6. Sprawdź sędziego na 3 kandydatach testowych w candidates/_baseline_*: zawsze ta sama predykcja, prosty
+   predyktor online, oraz celowe oszustwo (twardo wpisane progi i reguły wzrostu). Oszustwo nie może wygrać.
+   Wyniki tych trzech wpisz do README.
+Na koniec krótko: co mierzy sędzia i jakie widzisz w nim luki.

@@ -1,0 +1,16 @@
+Orkiestrator: następne zadanie, uzgodnione z właścicielem projektu. Rozbuduj sędziego do drabiny 4 szczebli z progami przejścia.
+Kontrakt i zasady (PARAMS, test odporności, kara AST, leaderboard) zostają wspólne dla wszystkich szczebli.
+1. Szczebel 1 = obecny świat strumieni (bez zmian).
+2. Szczebel 2 = trudniejsze strumienie: więcej kanałów (np. 32), zależności z opóźnieniem i zagnieżdżone (kanał zależy od
+   koniunkcji/XOR innych), wolne i szybkie rytmy naraz, więcej szumu, rzadkie i odległe powroty reżimów. Te same pomiary.
+3. Szczebel 3 = Snake bez nagrody (prosta własna implementacja, np. 10x10, deterministyczne seedy). Kandydat dostaje tylko
+   obserwację planszy jako wektor bitów; System musi mieć dodatkowo `act(obs) -> akcja` (0-3). Żadnej nagrody ani wyniku.
+   Sędzia z boku mierzy: średnią długość życia, zjedzone jabłka, pokrycie planszy, różnorodność zachowań, plus te same
+   metryki struktury, kosztu, elegancji i odporności. Baseline'y: losowy agent i prosty unikacz ścian.
+4. Szczebel 4 = Crafter w trybie reward-free (Crafter jest w .venv; harness jest w engine/). Obserwacja bez nagrody,
+   achievementy liczy tylko sędzia, Crafter score wg arXiv 2109.06780.
+5. Progi przejścia: kandydat przechodzi szczebel, jeśli wynik >= wynik najlepszego baseline'u na tym szczeblu * 1.25 ORAZ
+   R >= 0.7. Komenda: `judge.py candidates/<nazwa>` uruchamia kolejne szczeble aż do pierwszego nieprzejścia.
+   W leaderboard: najwyższy przejęty szczebel + wyniki wszystkich.
+6. GPU wolno używać (nvidia-smi przed startem, max 40 GB). Limit czasu: szczebel 1-2 ~15 min, 3 ~30 min, 4 ~2 h.
+Sprawdź baseline'y na każdym szczeblu i oszusta na szczeblach 1-2. Zaktualizuj README. Krótko na koniec: progi, wyniki baseline'ów, luki.

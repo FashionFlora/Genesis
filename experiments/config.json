@@ -1,0 +1,11 @@
+{
+  "environment": "crafter.Env",
+  "crafter_package": "crafter==1.8.3",
+  "torch": "2.14.1",
+  "steps_smoke": 100000,
+  "steps_full": 1000000,
+  "achievement_count": 22,
+  "paper": "arXiv:2109.06780",
+  "paper_score_formula": "exp(mean_i(log(1 + s_i))) - 1; s_i success rate percentage",
+  "python_hash_seed_required": 0
+}

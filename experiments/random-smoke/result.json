@@ -1,0 +1,92 @@
+{
+  "achievement_success_rate_percent": {
+    "collect_coal": 0.0,
+    "collect_diamond": 0.0,
+    "collect_drink": 0.0,
+    "collect_iron": 0.0,
+    "collect_sapling": 0.0,
+    "collect_stone": 0.0,
+    "collect_wood": 0.0,
+    "defeat_skeleton": 0.0,
+    "defeat_zombie": 0.0,
+    "eat_cow": 0.0,
+    "eat_plant": 0.0,
+    "make_iron_pickaxe": 0.0,
+    "make_iron_sword": 0.0,
+    "make_stone_pickaxe": 0.0,
+    "make_stone_sword": 0.0,
+    "make_wood_pickaxe": 0.0,
+    "make_wood_sword": 0.0,
+    "place_furnace": 0.0,
+    "place_plant": 0.0,
+    "place_stone": 0.0,
+    "place_table": 0.0,
+    "wake_up": 100.0
+  },
+  "agent": "RandomAgent",
+  "agent_uses_backprop_declared": false,
+  "audit": {
+    "backward_calls": null,
+    "limitations": [
+      "Tensor scan only reaches agent-owned reachable objects.",
+      "backward interception is not enabled; functional autograd calls and custom backward paths may evade detection."
+    ],
+    "requires_grad_tensor_seen": false
+  },
+  "code_version": null,
+  "config": {
+    "achievement_names": [
+      "collect_coal",
+      "collect_diamond",
+      "collect_drink",
+      "collect_iron",
+      "collect_sapling",
+      "collect_stone",
+      "collect_wood",
+      "defeat_skeleton",
+      "defeat_zombie",
+      "eat_cow",
+      "eat_plant",
+      "make_iron_pickaxe",
+      "make_iron_sword",
+      "make_stone_pickaxe",
+      "make_stone_sword",
+      "make_wood_pickaxe",
+      "make_wood_sword",
+      "place_furnace",
+      "place_plant",
+      "place_stone",
+      "place_table",
+      "wake_up"
+    ],
+    "crafter_version": "unknown",
+    "reward_blind": true,
+    "seeds": [
+      1234
+    ],
+    "steps_per_episode": 100000
+  },
+  "crafter_score_formula": "exp((1/22) * sum_i(log(1 + s_i))) - 1; s_i is success rate in percent",
+  "crafter_score_percent": 0.2334044670569151,
+  "device": {
+    "cpu_count": 8,
+    "cuda_available": true,
+    "gpu_name": "NVIDIA RTX PRO 6000 Blackwell Server Edition"
+  },
+  "duration_seconds": 1.9080696105957031,
+  "episodes": [
+    {
+      "achievements": [
+        "wake_up"
+      ],
+      "seed": 1234,
+      "steps": 160
+    }
+  ],
+  "numpy": "2.5.4",
+  "python": "3.14.4",
+  "run_id": "random-smoke",
+  "schema_version": 1,
+  "started_unix": 1792670356.221354,
+  "torch": "2.14.1+cu130"
+}

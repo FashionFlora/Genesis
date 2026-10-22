@@ -1,0 +1,260 @@
+{
+  "configurations": [
+    {
+      "max_total_contacts_observed": 2,
+      "null_stream": {
+        "births_mean": 0.05,
+        "stable_edges_per_step_mean": 0.0015291666666666667,
+        "steps_with_stable_edge_fraction_mean": 0.0015291666666666667
+      },
+      "probe_mode": "uniform",
+      "probe_steps": 50,
+      "recovery_delay_sd_across_seeds": 105.9978249921253,
+      "stable_capacity": 1,
+      "target_coverage_sd_across_seeds": 0.08539735554063331,
+      "target_stream": {
+        "births": 7.9,
+        "fraction_steps_with_stable_edge": 0.8844541666666667,
+        "prunes": 238.05,
+        "recovery_mean_steps_to_50_sustained": 338.57142857142856,
+        "recovery_success_fraction": 0.9875,
+        "stable_edge_precision": 0.8638481918317137,
+        "stable_edges_per_step": 0.8844541666666667,
+        "target_coverage": 0.7658333333333334,
+        "total_contacts_per_step": 1.8844541666666668
+      },
+      "total_capacity": 2
+    },
+    {
+      "max_total_contacts_observed": 3,
+      "null_stream": {
+        "births_mean": 0.05,
+        "stable_edges_per_step_mean": 0.0015291666666666667,
+        "steps_with_stable_edge_fraction_mean": 0.0015291666666666667
+      },
+      "probe_mode": "uniform",
+      "probe_steps": 50,
+      "recovery_delay_sd_across_seeds": 110.68053741108751,
+      "stable_capacity": 2,
+      "target_coverage_sd_across_seeds": 0.08810209513210607,
+      "target_stream": {
+        "births": 7.9,
+        "fraction_steps_with_stable_edge": 0.8719166666666667,
+        "prunes": 238.05,
+        "recovery_mean_steps_to_50_sustained": 360.8482142857143,
+        "recovery_success_fraction": 0.98125,
+        "stable_edge_precision": 0.7858911030657948,
+        "stable_edges_per_step": 0.9494583333333333,
+        "target_coverage": 0.74625,
+        "total_contacts_per_step": 1.9494583333333333
+      },
+      "total_capacity": 3
+    },
+    {
+      "max_total_contacts_observed": 2,
+      "null_stream": {
+        "births_mean": 0.05,
+        "stable_edges_per_step_mean": 0.0006708333333333334,
+        "steps_with_stable_edge_fraction_mean": 0.0006708333333333334
+      },
+      "probe_mode": "uniform",
+      "probe_steps": 100,
+      "recovery_delay_sd_across_seeds": 163.80726082929544,
+      "stable_capacity": 1,
+      "target_coverage_sd_across_seeds": 0.12999131915460954,
+      "target_stream": {
+        "births": 7.25,
+        "fraction_steps_with_stable_edge": 0.7337541666666667,
+        "prunes": 118.2,
+        "recovery_mean_steps_to_50_sustained": 534.8511904761905,
+        "recovery_success_fraction": 0.9,
+        "stable_edge_precision": 0.7874850500019613,
+        "stable_edges_per_step": 0.7337541666666667,
+        "target_coverage": 0.5804166666666667,
+        "total_contacts_per_step": 1.7337541666666667
+      },
+      "total_capacity": 2
+    },
+    {
+      "max_total_contacts_observed": 3,
+      "null_stream": {
+        "births_mean": 0.05,
+        "stable_edges_per_step_mean": 0.0006708333333333334,
+        "steps_with_stable_edge_fraction_mean": 0.0006708333333333334
+      },
+      "probe_mode": "uniform",
+      "probe_steps": 100,
+      "recovery_delay_sd_across_seeds": 165.5633014118057,
+      "stable_capacity": 2,
+      "target_coverage_sd_across_seeds": 0.13093944741325622,
+      "target_stream": {
+        "births": 7.2,
+        "fraction_steps_with_stable_edge": 0.7331125000000001,
+        "prunes": 118.2,
+        "recovery_mean_steps_to_50_sustained": 524.9404761904761,
+        "recovery_success_fraction": 0.89375,
+        "stable_edge_precision": 0.7588803057256809,
+        "stable_edges_per_step": 0.7668291666666667,
+        "target_coverage": 0.5825,
+        "total_contacts_per_step": 1.7668291666666667
+      },
+      "total_capacity": 3
+    },
+    {
+      "max_total_contacts_observed": 2,
+      "null_stream": {
+        "births_mean": 0.0,
+        "stable_edges_per_step_mean": 0.0,
+        "steps_with_stable_edge_fraction_mean": 0.0
+      },
+      "probe_mode": "coactive",
+      "probe_steps": 50,
+      "recovery_delay_sd_across_seeds": 47.42532411262468,
+      "stable_capacity": 1,
+      "target_coverage_sd_across_seeds": 0.03161688274174979,
+      "target_stream": {
+        "births": 8.0,
+        "fraction_steps_with_stable_edge": 0.9725833333333334,
+        "prunes": 233.8,
+        "recovery_mean_steps_to_50_sustained": 179.10625,
+        "recovery_success_fraction": 1.0,
+        "stable_edge_precision": 0.9052601998469407,
+        "stable_edges_per_step": 0.9725833333333334,
+        "target_coverage": 0.8805958333333334,
+        "total_contacts_per_step": 1.9522041666666667
+      },
+      "total_capacity": 2
+    },
+    {
+      "max_total_contacts_observed": 3,
+      "null_stream": {
+        "births_mean": 0.0,
+        "stable_edges_per_step_mean": 0.0,
+        "steps_with_stable_edge_fraction_mean": 0.0
+      },
+      "probe_mode": "coactive",
+      "probe_steps": 50,
+      "recovery_delay_sd_across_seeds": 36.11248215212435,
+      "stable_capacity": 2,
+      "target_coverage_sd_across_seeds": 0.02407498810141623,
+      "target_stream": {
+        "births": 8.05,
+        "fraction_steps_with_stable_edge": 0.9752375,
+        "prunes": 233.8,
+        "recovery_mean_steps_to_50_sustained": 167.14375,
+        "recovery_success_fraction": 1.0,
+        "stable_edge_precision": 0.8109973338655768,
+        "stable_edges_per_step": 1.0966291666666668,
+        "target_coverage": 0.8885708333333333,
+        "total_contacts_per_step": 2.07625
+      },
+      "total_capacity": 3
+    },
+    {
+      "max_total_contacts_observed": 2,
+      "null_stream": {
+        "births_mean": 0.0,
+        "stable_edges_per_step_mean": 0.0,
+        "steps_with_stable_edge_fraction_mean": 0.0
+      },
+      "probe_mode": "coactive",
+      "probe_steps": 100,
+      "recovery_delay_sd_across_seeds": 93.32545274864621,
+      "stable_capacity": 1,
+      "target_coverage_sd_across_seeds": 0.06376506848058217,
+      "target_stream": {
+        "births": 7.95,
+        "fraction_steps_with_stable_edge": 0.8647833333333333,
+        "prunes": 117.15,
+        "recovery_mean_steps_to_50_sustained": 414.63392857142856,
+        "recovery_success_fraction": 0.99375,
+        "stable_edge_precision": 0.8307400454167815,
+        "stable_edges_per_step": 0.8647833333333333,
+        "target_coverage": 0.7189083333333334,
+        "total_contacts_per_step": 1.855025
+      },
+      "total_capacity": 2
+    },
+    {
+      "max_total_contacts_observed": 3,
+      "null_stream": {
+        "births_mean": 0.0,
+        "stable_edges_per_step_mean": 0.0,
+        "steps_with_stable_edge_fraction_mean": 0.0
+      },
+      "probe_mode": "coactive",
+      "probe_steps": 100,
+      "recovery_delay_sd_across_seeds": 81.14925070306175,
+      "stable_capacity": 2,
+      "target_coverage_sd_across_seeds": 0.059181822442696784,
+      "target_stream": {
+        "births": 7.9,
+        "fraction_steps_with_stable_edge": 0.8592125,
+        "prunes": 117.15,
+        "recovery_mean_steps_to_50_sustained": 406.7339285714286,
+        "recovery_success_fraction": 0.9875,
+        "stable_edge_precision": 0.7791400154818067,
+        "stable_edges_per_step": 0.9238125,
+        "target_coverage": 0.7196041666666667,
+        "total_contacts_per_step": 1.9140541666666666
+      },
+      "total_capacity": 3
+    }
+  ],
+  "definitions": {
+    "local_score": "EMA(x*y) - EMA(x)*EMA(y), stored only on extant contacts and updated from their endpoints",
+    "null_stream": "all targets are independent Bernoulli(0.5)",
+    "prune": "mature contact removed after local score remains below prune_threshold for prune_steps, or when displaced by a stronger sprout",
+    "sprout": "uniform random unconnected neighbor, or a random currently coactive unconnected neighbor; one at a time in the reserved synaptic slot",
+    "stabilize": "probe score exceeds accept_threshold and either a mature slot is vacant or probe beats the weakest mature edge",
+    "target_stream": "one target equals source in each regime; all other targets are independent Bernoulli(0.5)"
+  },
+  "experiment": "local probationary sprouting under a hard synaptic budget",
+  "fixed_random_edge_control_coverage": 0.125,
+  "parameters": {
+    "N": 8,
+    "accept_threshold": 0.08,
+    "alpha": 0.02,
+    "probe_durations": [
+      50,
+      100
+    ],
+    "probe_modes": [
+      "uniform",
+      "coactive"
+    ],
+    "prune_steps": 100,
+    "prune_threshold": 0.025,
+    "regimes": 8,
+    "seeds": [
+      20261022,
+      20261023,
+      20261024,
+      20261025,
+      20261026,
+      20261027,
+      20261028,
+      20261029,
+      20261030,
+      20261031,
+      20261032,
+      20261033,
+      20261034,
+      20261035,
+      20261036,
+      20261037,
+      20261038,
+      20261039,
+      20261040,
+      20261041
+    ],
+    "steps_per_regime": 1500,
+    "superiority_margin": 0.0,
+    "sustained_recovery_steps": 50,
+    "total_capacities_including_probe": [
+      2,
+      3
+    ],
+    "total_steps_per_seed": 12000
+  }
+}

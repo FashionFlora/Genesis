@@ -1,0 +1,158 @@
+{
+  "agent_interface": "predict(observation)->prediction; observe(observation,next_observation)",
+  "aggregate": {
+    "engine.stream_agents:MeanPredictor": {
+      "mean_adaptation_steps_after_change": null,
+      "mean_agent_seconds": 2.8704991564154625e-05,
+      "mean_final_connections": 0.0,
+      "mean_final_units": 8.0,
+      "mean_growth_events": 0.0,
+      "mean_online_mse": 0.38003472222222223,
+      "mean_pruning_events": 0.0,
+      "mean_return_forgetting_mse": null,
+      "mean_target_mse": 0.33472222222222225,
+      "runs": 1
+    }
+  },
+  "config": {
+    "adaptation_threshold_target_mse": 0.16,
+    "adaptation_window": 50,
+    "agents": [
+      "engine.stream_agents:MeanPredictor"
+    ],
+    "numpy": "2.5.4",
+    "python": "3.14.4",
+    "replicates": 1,
+    "seeds": [
+      20261022
+    ],
+    "segment_length": 5,
+    "steps_per_run": 5,
+    "stream": {
+      "input_dim": 8,
+      "output_dim": 8,
+      "regimes": {
+        "A": {
+          "flip_probability": 0.1,
+          "source": 0,
+          "target": 7
+        },
+        "B": {
+          "flip_probability": 0.1,
+          "source": 1,
+          "target": 7
+        },
+        "C": {
+          "flip_probability": 0.1,
+          "source": 2,
+          "target": 7
+        }
+      },
+      "schedule": [
+        "A",
+        "B",
+        "A",
+        "C",
+        "B",
+        "A"
+      ],
+      "seed": 20261022,
+      "segment_length": 5
+    },
+    "structure_interval": 10
+  },
+  "environment": "nonstationary_binary_sensory_prediction",
+  "integrity": {
+    "regime_metadata_available_to_agent": false,
+    "reward_available_to_agent": false,
+    "target_is_next_sensory_observation": true
+  },
+  "reward_free": true,
+  "runs": [
+    {
+      "agent": "engine.stream_agents:MeanPredictor",
+      "cost": {
+        "agent_seconds": 2.8704991564154625e-05,
+        "estimated_state_bytes": 72,
+        "reported_work_units": 120,
+        "transitions_per_second": 30073.390105604267,
+        "wall_seconds": 0.00016625993885099888
+      },
+      "mean_adaptation_steps_after_change": null,
+      "mean_online_mse": 0.38003472222222223,
+      "mean_return_forgetting_mse": null,
+      "mean_target_mse": 0.33472222222222225,
+      "online_mse": [
+        0.25,
+        0.875,
+        0.34375,
+        0.2361111111111111,
+        0.1953125
+      ],
+      "online_target_mse": [
+        0.25,
+        1.0,
+        0.25,
+        0.11111111111111113,
+        0.0625
+      ],
+      "phases": [
+        {
+          "adaptation_steps_to_threshold": null,
+          "adaptation_threshold_target_mse": 0.16,
+          "adaptation_window": 50,
+          "connections_end": 0,
+          "connections_start": 0,
+          "early_target_mse": 0.33472222222222225,
+          "end_step": 4,
+          "growth_events_end": 0,
+          "late_target_mse": 0.33472222222222225,
+          "mean_mse": 0.38003472222222223,
+          "mean_target_mse": 0.33472222222222225,
+          "phase_index": 0,
+          "previous_visit_late_target_mse": null,
+          "pruning_events_end": 0,
+          "regime": "A",
+          "return_forgetting_mse": null,
+          "start_step": 0,
+          "transitions": 5,
+          "units_end": 8,
+          "units_start": 8
+        }
+      ],
+      "seed": 20261022,
+      "steps": 5,
+      "structure_final": {
+        "connection_count": 0,
+        "estimated_state_bytes": 72,
+        "growth_events": 0,
+        "pruning_events": 0,
+        "unit_count": 8,
+        "work_units": 120
+      },
+      "structure_timeline": [
+        {
+          "connection_count": 0,
+          "estimated_state_bytes": 72,
+          "growth_events": 0,
+          "phase_index": 0,
+          "pruning_events": 0,
+          "regime": "A",
+          "step": 0,
+          "unit_count": 8
+        },
+        {
+          "connection_count": 0,
+          "estimated_state_bytes": 72,
+          "growth_events": 0,
+          "phase_index": 0,
+          "pruning_events": 0,
+          "regime": "A",
+          "step": 4,
+          "unit_count": 8
+        }
+      ]
+    }
+  ],
+  "schema_version": "genesis.stream-bench.v1"
+}

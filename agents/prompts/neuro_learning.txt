@@ -1,0 +1,19 @@
+Zadanie 01 (tryb A, katalog literatury). Jesteś agentem GENESIS `neuro_learning`, jednym z kilkunastu równoległych; nazwa na tablicy: neuro_learning.
+Przeczytaj AGENTS.md i registry/SCHEMA.md i trzymaj się ich ściśle (granice, tablica, narzędzie shared/lit.py, uczciwość danych).
+
+Przejmujesz tę rolę po poprzednim agencie (inny model, sesja zakończona). Jego dorobek jest w plikach — najpierw go
+przeczytaj, potraktuj krytycznie (mógł się mylić: sprawdzaj źródła, nie przepisuj na ślepo), popraw błędy i kontynuuj.
+Na starcie: `python3 shared/board.py read neuro_learning` (zobaczysz całą dotychczasową wymianę na tablicy).
+Twój dotychczasowy dorobek: registry/areas/neuro_learning.jsonl i reports/task01_neuro_learning.md (mogą nie istnieć).
+
+Twój obszar: `neuro_learning` — jak uczy się biologiczny mózg (mechanizmy z neuronauki + ich modele obliczeniowe): plastyczność synaptyczna (LTP/LTD, STDP z neuromodulacją, three-factor learning rules, eligibility traces), neuromodulacja jako sygnały uczenia, dendrytyczne obliczenia (Urbanczik-Senn, burst-dependent plasticity), complementary learning systems, konsolidacja i replay w śnie, active inference / free energy principle, predictive processing w korze, Thousand Brains / HTM, grid/place cells i mapy poznawcze (Tolman-Eichenbaum Machine), spiking networks z lokalnym uczeniem, e-prop, ciekawość u zwierząt. Oceniaj pod kątem implementacji w agencie na Crafterze.
+
+Cel: co najmniej 15-20 dobrze zweryfikowanych rekordów (uzupełnij starsze o pola self_building i brain_relevance). Metody
+należące głównie do innego obszaru przekaż właściwemu agentowi przez tablicę. Każdą metodę najpierw zajmij (claim).
+Dla każdej metody: znajdź artykuł (lit.py arxiv/search), przeczytaj (lit.py fetch: abstrakt, a dla reguły uczenia i wyników
+pełny tekst HTML/PDF), znajdź kod (lit.py github). Brak pełnego tekstu NIE jest powodem do pominięcia — wtedy rekord z
+abstraktu (verified_from: abstract, brakujące pola = null). Nie kończ przed osiągnięciem celu.
+
+Piszesz WYŁĄCZNIE do: registry/areas/neuro_learning.jsonl oraz reports/task01_neuro_learning.md (lista metod, wyniki na Crafterze lub
+podobnych środowiskach z tabelami, czego nie zweryfikowano, 3-5 obserwacji dla celu GENESIS, co dostałeś/przekazałeś przez
+tablicę). Nie edytuj STATUS.md ani plików innych obszarów.

@@ -1,0 +1,215 @@
+{
+  "configurations": [
+    {
+      "capacity": "uncapped",
+      "null_stream": {
+        "false_edges_per_step_mean": 0.19817916666666666,
+        "steps_with_any_edge_fraction_mean": 0.16435416666666666
+      },
+      "target_stream": {
+        "active_edges_per_step_mean": 1.2300625,
+        "recovery_50_steps_mean": 11.13125,
+        "recovery_50_steps_sd": 4.952426015348437,
+        "recovery_success_fraction": 1.0,
+        "recovery_windows": 160,
+        "target_coverage_mean": 0.9925958333333333,
+        "target_coverage_sd_across_seeds": 0.001203084865852969,
+        "true_edge_precision_mean": 0.8071258991331673
+      },
+      "threshold": 0.05
+    },
+    {
+      "capacity": 1,
+      "null_stream": {
+        "false_edges_per_step_mean": 0.16435416666666666,
+        "steps_with_any_edge_fraction_mean": 0.16435416666666666
+      },
+      "target_stream": {
+        "active_edges_per_step_mean": 0.9994625,
+        "recovery_50_steps_mean": 32.0875,
+        "recovery_50_steps_sd": 10.890585096770513,
+        "recovery_success_fraction": 1.0,
+        "recovery_windows": 160,
+        "target_coverage_mean": 0.9786333333333334,
+        "target_coverage_sd_across_seeds": 0.0011877265865696768,
+        "true_edge_precision_mean": 0.9791596579029204
+      },
+      "threshold": 0.05
+    },
+    {
+      "capacity": 2,
+      "null_stream": {
+        "false_edges_per_step_mean": 0.1813875,
+        "steps_with_any_edge_fraction_mean": 0.16435416666666666
+      },
+      "target_stream": {
+        "active_edges_per_step_mean": 1.1957083333333334,
+        "recovery_50_steps_mean": 11.375,
+        "recovery_50_steps_sd": 5.06057061999929,
+        "recovery_success_fraction": 1.0,
+        "recovery_windows": 160,
+        "target_coverage_mean": 0.9924375,
+        "target_coverage_sd_across_seeds": 0.0012435597984102884,
+        "true_edge_precision_mean": 0.8301182559546487
+      },
+      "threshold": 0.05
+    },
+    {
+      "capacity": "uncapped",
+      "null_stream": {
+        "false_edges_per_step_mean": 0.0020125,
+        "steps_with_any_edge_fraction_mean": 0.0015458333333333333
+      },
+      "target_stream": {
+        "active_edges_per_step_mean": 1.0126791666666666,
+        "recovery_50_steps_mean": 24.7375,
+        "recovery_50_steps_sd": 6.083263412840184,
+        "recovery_success_fraction": 1.0,
+        "recovery_windows": 160,
+        "target_coverage_mean": 0.9835333333333334,
+        "target_coverage_sd_across_seeds": 0.0011056672193747881,
+        "true_edge_precision_mean": 0.9712242062312526
+      },
+      "threshold": 0.1
+    },
+    {
+      "capacity": 1,
+      "null_stream": {
+        "false_edges_per_step_mean": 0.0015458333333333333,
+        "steps_with_any_edge_fraction_mean": 0.0015458333333333333
+      },
+      "target_stream": {
+        "active_edges_per_step_mean": 0.9987583333333333,
+        "recovery_50_steps_mean": 33.125,
+        "recovery_50_steps_sd": 8.683857149907523,
+        "recovery_success_fraction": 1.0,
+        "recovery_windows": 160,
+        "target_coverage_mean": 0.97795,
+        "target_coverage_sd_across_seeds": 0.0011072362991801838,
+        "true_edge_precision_mean": 0.9791659386622454
+      },
+      "threshold": 0.1
+    },
+    {
+      "capacity": 2,
+      "null_stream": {
+        "false_edges_per_step_mean": 0.0019458333333333333,
+        "steps_with_any_edge_fraction_mean": 0.0015458333333333333
+      },
+      "target_stream": {
+        "active_edges_per_step_mean": 1.0125916666666666,
+        "recovery_50_steps_mean": 24.7375,
+        "recovery_50_steps_sd": 6.083263412840184,
+        "recovery_success_fraction": 1.0,
+        "recovery_windows": 160,
+        "target_coverage_mean": 0.9835333333333334,
+        "target_coverage_sd_across_seeds": 0.0011056672193747881,
+        "true_edge_precision_mean": 0.9713079406455395
+      },
+      "threshold": 0.1
+    },
+    {
+      "capacity": "uncapped",
+      "null_stream": {
+        "false_edges_per_step_mean": 4.166666666666667e-06,
+        "steps_with_any_edge_fraction_mean": 4.166666666666667e-06
+      },
+      "target_stream": {
+        "active_edges_per_step_mean": 0.986,
+        "recovery_50_steps_mean": 44.325,
+        "recovery_50_steps_sd": 8.770369148445235,
+        "recovery_success_fraction": 1.0,
+        "recovery_windows": 160,
+        "target_coverage_mean": 0.9705041666666667,
+        "target_coverage_sd_across_seeds": 0.0012412121651389227,
+        "true_edge_precision_mean": 0.9842867015543492
+      },
+      "threshold": 0.15
+    },
+    {
+      "capacity": 1,
+      "null_stream": {
+        "false_edges_per_step_mean": 4.166666666666667e-06,
+        "steps_with_any_edge_fraction_mean": 4.166666666666667e-06
+      },
+      "target_stream": {
+        "active_edges_per_step_mean": 0.9859958333333333,
+        "recovery_50_steps_mean": 44.325,
+        "recovery_50_steps_sd": 8.770369148445235,
+        "recovery_success_fraction": 1.0,
+        "recovery_windows": 160,
+        "target_coverage_mean": 0.9705041666666667,
+        "target_coverage_sd_across_seeds": 0.0012412121651389227,
+        "true_edge_precision_mean": 0.9842908247501655
+      },
+      "threshold": 0.15
+    },
+    {
+      "capacity": 2,
+      "null_stream": {
+        "false_edges_per_step_mean": 4.166666666666667e-06,
+        "steps_with_any_edge_fraction_mean": 4.166666666666667e-06
+      },
+      "target_stream": {
+        "active_edges_per_step_mean": 0.986,
+        "recovery_50_steps_mean": 44.325,
+        "recovery_50_steps_sd": 8.770369148445235,
+        "recovery_success_fraction": 1.0,
+        "recovery_windows": 160,
+        "target_coverage_mean": 0.9705041666666667,
+        "target_coverage_sd_across_seeds": 0.0012412121651389227,
+        "true_edge_precision_mean": 0.9842867015543492
+      },
+      "threshold": 0.15
+    }
+  ],
+  "definitions": {
+    "active": "score > threshold; if capped, keep the largest scores up to capacity",
+    "null_stream": "all targets are independent Bernoulli(0.5)",
+    "recovery": "first run of 50 consecutive pre-update selections containing current target, per regime",
+    "score": "EMA(x*y) - EMA(x)*EMA(y), updated online after selecting edges",
+    "target_stream": "one target equals x in each regime; other targets are independent Bernoulli(0.5)"
+  },
+  "experiment": "local covariance evidence with hard active-edge budget",
+  "fixed_edge_control_target_coverage": 0.125,
+  "parameters": {
+    "N": 8,
+    "alpha": 0.02,
+    "capacities": [
+      "uncapped",
+      1,
+      2
+    ],
+    "regimes": 8,
+    "seeds": [
+      20261022,
+      20261023,
+      20261024,
+      20261025,
+      20261026,
+      20261027,
+      20261028,
+      20261029,
+      20261030,
+      20261031,
+      20261032,
+      20261033,
+      20261034,
+      20261035,
+      20261036,
+      20261037,
+      20261038,
+      20261039,
+      20261040,
+      20261041
+    ],
+    "steps_per_regime": 1500,
+    "sustained_recovery_steps": 50,
+    "thresholds": [
+      0.05,
+      0.1,
+      0.15
+    ],
+    "total_steps_per_seed": 12000
+  }
+}

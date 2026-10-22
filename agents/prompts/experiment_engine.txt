@@ -1,0 +1,35 @@
+Zadanie E1. Jesteś agentem `experiment_engine` GENESIS (moduł Experimental Engine). Twoja nazwa na tablicy: experiment_engine.
+Przeczytaj AGENTS.md i trzymaj się go (sekcja o tablicy shared/board.py też Cię dotyczy; metod nie musisz claimować).
+Równolegle 7 innych agentów buduje katalog literatury w registry/areas/ — możesz z niego korzystać, nie edytuj go.
+
+Cel: zbudować i URUCHOMIĆ rygorystyczny, deterministyczny benchmark Craftera, na którym potem będą testowane wszystkie hipotezy
+(oba strumienie: warianty znanych metod i niezależnie generowane mechanizmy uczenia).
+
+1. Środowisko: venv /opt/dlami/nvme/genesis/.venv, pakiet `crafter` (github.com/danijar/crafter), torch z CUDA.
+2. Harness w engine/ (zwykły, deterministyczny kod Pythona, bez LLM):
+   - Interfejs agenta: klasa z `act(obs) -> action` i `observe(obs, action, next_obs, done, info_bez_nagrody)`.
+     **Harness NIE przekazuje agentowi nagrody ani achievementów** (tryb reward-free egzekwowany w kodzie, nie w umowie).
+   - Ewaluacja wg artykułu Crafter (arXiv 2109.06780): success rate 22 achievementów i Crafter score
+     (średnia geometryczna w procentach, dokładnie wg wzoru z artykułu — przepisz go z artykułu i zacytuj).
+   - Stałe seedy, zapis config + wersji kodu + czasu + użycia GPU/CPU do experiments/<run_id>/result.json.
+   - Flagi kryteriów: agent deklaruje `uses_backprop` (harness to sprawdza: np. czy jakikolwiek tensor ma requires_grad
+     i czy wywołano backward — opisz, jak to wykrywasz i jakie są luki).
+   - Budżety: smoke (np. 100k kroków) i pełny 1M kroków (standard Craftera).
+3. Uruchom i sprawdź poprawność harnessu:
+   - random agent — porównaj z wynikiem z artykułu Crafter (podaj tabelę). Jeśli się nie zgadza, znajdź przyczynę.
+   - jeden prosty baseline reward-free z ciekawością (np. RND lub błąd predykcji, może używać backpropu — to punkt odniesienia).
+   Każdy pojedynczy przebieg max ~30 min; pełne 1M kroków tylko dla random agenta i tylko jeśli się mieści. Dłuższe → zaplanuj
+   w raporcie, nie uruchamiaj.
+4. Zasoby: GPU sprawdź `nvidia-smi` przed startem, max 40 GB VRAM; max 3 rdzenie CPU (taskset/ograniczenie liczby wątków),
+   `nice -n 15`. Serwer jest współdzielony.
+5. Gdy harness działa: `post experiment_engine all "..."` z opisem interfejsu agenta i jak zgłaszać kandydatów do testu.
+   Jeśli z tablicy przyjdą wyniki/metody warte szybkiego testu — zapisz je w raporcie jako kolejkę.
+
+Wynik: engine/README.md (jak dodać agenta, jak uruchomić), experiments/, reports/task_E1.md (co działa, wyniki z liczbami
+i ścieżkami do result.json, rozbieżności z artykułem, luki w wykrywaniu backpropu, plan dłuższych przebiegów).
+Nie zmyślaj wyników — każda liczba w raporcie musi pochodzić z pliku result.json, który faktycznie wygenerowałeś.
+
+Przejmujesz tę rolę po poprzednim agencie (inny model, sesja zakończona). Jego dorobek jest w plikach — najpierw go
+przeczytaj, potraktuj krytycznie (mógł się mylić: sprawdzaj źródła, nie przepisuj na ślepo), popraw błędy i kontynuuj.
+Na starcie: `python3 shared/board.py read experiment_engine` (zobaczysz całą dotychczasową wymianę na tablicy).
+Twój dotychczasowy dorobek: engine/, experiments/, reports/task_E1.md. Harness ma pozwalać agentowi zmieniać własną architekturę w trakcie przebiegu (rosnące/przycinane sieci) — to główny kierunek GENESIS. Masz GPU (sprawdź nvidia-smi przed użyciem).

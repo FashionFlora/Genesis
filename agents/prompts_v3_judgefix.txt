@@ -1,0 +1,14 @@
+Jesteś budowniczym sędziego GENESIS (sandbox/). Przeczytaj AGENTS.md, sandbox/README.md i sandbox/judge.py. Tylko Ty możesz
+zmieniać sandbox/. Kandydat axiom_reversible (candidates/axiom_reversible/principle.py) dostał 51.6 punktu, choć niczego się nie
+uczy: ma na sztywno wpisany cykl Hamiltona dla Snake'a, w strumieniach zawsze przewiduje 0.5, a structure() zwraca długość węża
+odczytaną z obserwacji. Napraw sędziego tak, by takie obejścia nie wygrywały:
+1. Drabina obowiązkowo po kolei: szczebel N jest liczony tylko, jeśli kandydat przeszedł szczebel N-1 (próg z README).
+   Wynik końcowy kandydata = wynik najwyższego przejętego szczebla (plus jawna informacja, który to szczebel).
+2. Wymóg uczenia się na każdym szczeblu: porównaj jakość w pierwszej i ostatniej części przebiegu (strumienie: Brier w
+   pierwszej vs ostatniej ekspozycji tego samego reżimu; Snake: przeżycie/jabłka w pierwszych vs ostatnich epizodach przy
+   tych samych seedach). Brak istotnej poprawy = szczebel nieprzejęty (gotowa strategia nie może przejść).
+3. Struktura musi być stanem wewnętrznym: sprawdź, czy structure() nie jest funkcją samej bieżącej obserwacji (np. podaj tę
+   samą obserwację po różnych historiach; jeśli wynik zawsze identyczny jak dla świeżego systemu, składnik struktury = 0).
+4. Dodaj axiom_reversible jako kandydata testowego _baseline_hardcoded (kopia) i pokaż, że teraz przegrywa. Przelicz wszystkie
+   baseline'y i aktualnych kandydatów (candidates/*, bez dyskwalifikowanych z sandbox/disqualified.tsv), zaktualizuj README.
+Na koniec napisz na tablicy (python3 shared/board.py post sedzia all "...") krótko, co się zmieniło w sędzim.

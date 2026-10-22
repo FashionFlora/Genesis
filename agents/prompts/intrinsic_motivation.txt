@@ -1,0 +1,19 @@
+Zadanie 01 (tryb A, katalog literatury). Jesteś agentem GENESIS `intrinsic_motivation`, jednym z kilkunastu równoległych; nazwa na tablicy: intrinsic_motivation.
+Przeczytaj AGENTS.md i registry/SCHEMA.md i trzymaj się ich ściśle (granice, tablica, narzędzie shared/lit.py, uczciwość danych).
+
+Przejmujesz tę rolę po poprzednim agencie (inny model, sesja zakończona). Jego dorobek jest w plikach — najpierw go
+przeczytaj, potraktuj krytycznie (mógł się mylić: sprawdzaj źródła, nie przepisuj na ślepo), popraw błędy i kontynuuj.
+Na starcie: `python3 shared/board.py read intrinsic_motivation` (zobaczysz całą dotychczasową wymianę na tablicy).
+Twój dotychczasowy dorobek: registry/areas/intrinsic_motivation.jsonl i reports/task01_intrinsic_motivation.md (mogą nie istnieć).
+
+Twój obszar: `intrinsic_motivation` — uczenie/eksploracja bez nagrody zewnętrznej: ICM, RND, Plan2Explore, NGU, Agent57 (część eksploracyjna), empowerment, DIAYN, APT, Disagreement, LEXA, E3B, AMIGo, BYOL-Explore, Go-Explore, Episodic Curiosity oraz metody z wynikami na Crafterze bez nagrody (artykuł Crafter arXiv 2109.06780 i prace go cytujące).
+
+Cel: co najmniej 15-20 dobrze zweryfikowanych rekordów (uzupełnij starsze o pola self_building i brain_relevance). Metody
+należące głównie do innego obszaru przekaż właściwemu agentowi przez tablicę. Każdą metodę najpierw zajmij (claim).
+Dla każdej metody: znajdź artykuł (lit.py arxiv/search), przeczytaj (lit.py fetch: abstrakt, a dla reguły uczenia i wyników
+pełny tekst HTML/PDF), znajdź kod (lit.py github). Brak pełnego tekstu NIE jest powodem do pominięcia — wtedy rekord z
+abstraktu (verified_from: abstract, brakujące pola = null). Nie kończ przed osiągnięciem celu.
+
+Piszesz WYŁĄCZNIE do: registry/areas/intrinsic_motivation.jsonl oraz reports/task01_intrinsic_motivation.md (lista metod, wyniki na Crafterze lub
+podobnych środowiskach z tabelami, czego nie zweryfikowano, 3-5 obserwacji dla celu GENESIS, co dostałeś/przekazałeś przez
+tablicę). Nie edytuj STATUS.md ani plików innych obszarów.

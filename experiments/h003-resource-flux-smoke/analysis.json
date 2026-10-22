@@ -1,0 +1,333 @@
+{
+  "analysis": "paired H003 resource-flux populations on the shared SensorStream benchmark",
+  "environment_divergence": {
+    "mechanism": "local Beta-Bernoulli prediction, resource packet allocation, local error dissipation, mass death/fission and birth mutation follow THEORY.md",
+    "stage1": "eight rhythm-modulated channels, default target flip 0.10, schedule A,B,A,C,B,A with 1,000 samples per phase; the agent receives no regime/source label",
+    "theory": "three IID fair source channels, target XOR noise 0.08, schedule 0,1,2,0 with 600 samples per phase"
+  },
+  "groups": {
+    "neutral_mu_0.05:inflow_scale=1.0": {
+      "agent_cpu_seconds": {
+        "mean": 0.04723592079244554,
+        "sd": 0.0
+      },
+      "births": {
+        "mean": 3466.0,
+        "sd": 0.0
+      },
+      "deaths": {
+        "mean": 3469.0,
+        "sd": 0.0
+      },
+      "error_resource_cost": {
+        "mean": 3946.488929879782,
+        "sd": 0.0
+      },
+      "estimated_state_bytes": {
+        "mean": 15360.0,
+        "sd": 0.0
+      },
+      "extinctions": 0,
+      "final_population": {
+        "mean": 42.0,
+        "sd": 0.0
+      },
+      "mean_adaptation_steps_after_change": {
+        "mean": 142.0,
+        "sd": 0.0
+      },
+      "mean_online_mse": {
+        "mean": 0.24417323836969282,
+        "sd": 0.0
+      },
+      "mean_post_shift_active_source_edge_share_100_300": {
+        "mean": 0.44253398711358477,
+        "sd": 0.0
+      },
+      "mean_return_forgetting_mse": {
+        "mean": null,
+        "sd": null
+      },
+      "mean_target_mse": {
+        "mean": 0.20338590695754255,
+        "sd": 0.0
+      },
+      "mutations": {
+        "mean": 178.0,
+        "sd": 0.0
+      },
+      "peak_structure": {
+        "mean": 68.0,
+        "sd": 0.0
+      },
+      "resource_packets": {
+        "mean": 10802.0,
+        "sd": 0.0
+      },
+      "runs": 1,
+      "work_units": {
+        "mean": 1886828.0,
+        "sd": 0.0
+      }
+    },
+    "neutral_mu_0.15:inflow_scale=1.0": {
+      "agent_cpu_seconds": {
+        "mean": 0.04963722079992294,
+        "sd": 0.0
+      },
+      "births": {
+        "mean": 3544.0,
+        "sd": 0.0
+      },
+      "deaths": {
+        "mean": 3538.0,
+        "sd": 0.0
+      },
+      "error_resource_cost": {
+        "mean": 3832.491440083997,
+        "sd": 0.0
+      },
+      "estimated_state_bytes": {
+        "mean": 18628.0,
+        "sd": 0.0
+      },
+      "extinctions": 0,
+      "final_population": {
+        "mean": 51.0,
+        "sd": 0.0
+      },
+      "mean_adaptation_steps_after_change": {
+        "mean": 83.0,
+        "sd": 0.0
+      },
+      "mean_online_mse": {
+        "mean": 0.2414714251555824,
+        "sd": 0.0
+      },
+      "mean_post_shift_active_source_edge_share_100_300": {
+        "mean": 0.37839699192255455,
+        "sd": 0.0
+      },
+      "mean_return_forgetting_mse": {
+        "mean": null,
+        "sd": null
+      },
+      "mean_target_mse": {
+        "mean": 0.18177140124465938,
+        "sd": 0.0
+      },
+      "mutations": {
+        "mean": 561.0,
+        "sd": 0.0
+      },
+      "peak_structure": {
+        "mean": 70.0,
+        "sd": 0.0
+      },
+      "resource_packets": {
+        "mean": 10862.0,
+        "sd": 0.0
+      },
+      "runs": 1,
+      "work_units": {
+        "mean": 1930926.0,
+        "sd": 0.0
+      }
+    },
+    "selected:inflow_scale=1.0": {
+      "agent_cpu_seconds": {
+        "mean": 0.05249243415892124,
+        "sd": 0.0
+      },
+      "births": {
+        "mean": 3588.0,
+        "sd": 0.0
+      },
+      "deaths": {
+        "mean": 3579.0,
+        "sd": 0.0
+      },
+      "error_resource_cost": {
+        "mean": 2552.5118291576773,
+        "sd": 0.0
+      },
+      "estimated_state_bytes": {
+        "mean": 19792.0,
+        "sd": 0.0
+      },
+      "extinctions": 0,
+      "final_population": {
+        "mean": 54.0,
+        "sd": 0.0
+      },
+      "mean_adaptation_steps_after_change": {
+        "mean": 92.0,
+        "sd": 0.0
+      },
+      "mean_online_mse": {
+        "mean": 0.23225932892472242,
+        "sd": 0.0
+      },
+      "mean_post_shift_active_source_edge_share_100_300": {
+        "mean": 0.9139641624411443,
+        "sd": 0.0
+      },
+      "mean_return_forgetting_mse": {
+        "mean": null,
+        "sd": null
+      },
+      "mean_target_mse": {
+        "mean": 0.10807463139777941,
+        "sd": 0.0
+      },
+      "mutations": {
+        "mean": 185.0,
+        "sd": 0.0
+      },
+      "peak_structure": {
+        "mean": 81.0,
+        "sd": 0.0
+      },
+      "resource_packets": {
+        "mean": 10852.0,
+        "sd": 0.0
+      },
+      "runs": 1,
+      "work_units": {
+        "mean": 2263320.0,
+        "sd": 0.0
+      }
+    }
+  },
+  "hypothesis_id": "H003",
+  "input_result": "experiments/h003-resource-flux-smoke/result.json",
+  "paired_comparisons": {
+    "inflow_scale=1.0:selected_vs_neutral_mu_0.05": {
+      "current_source_share": {
+        "95pct_t_interval": [
+          0.47143017532755954,
+          0.47143017532755954
+        ],
+        "differences": [
+          0.47143017532755954
+        ],
+        "fraction_selected_better": 1.0,
+        "mean_selected_minus_control": 0.47143017532755954,
+        "n_paired": 1,
+        "sd_paired_difference": 0.0
+      },
+      "target_mse": {
+        "95pct_t_interval": [
+          -0.09531127555976314,
+          -0.09531127555976314
+        ],
+        "differences": [
+          -0.09531127555976314
+        ],
+        "fraction_selected_better": 1.0,
+        "mean_selected_minus_control": -0.09531127555976314,
+        "n_paired": 1,
+        "sd_paired_difference": 0.0
+      }
+    },
+    "inflow_scale=1.0:selected_vs_neutral_mu_0.15": {
+      "current_source_share": {
+        "95pct_t_interval": [
+          0.5355671705185898,
+          0.5355671705185898
+        ],
+        "differences": [
+          0.5355671705185898
+        ],
+        "fraction_selected_better": 1.0,
+        "mean_selected_minus_control": 0.5355671705185898,
+        "n_paired": 1,
+        "sd_paired_difference": 0.0
+      },
+      "target_mse": {
+        "95pct_t_interval": [
+          -0.07369676984687996,
+          -0.07369676984687996
+        ],
+        "differences": [
+          -0.07369676984687996
+        ],
+        "fraction_selected_better": 1.0,
+        "mean_selected_minus_control": -0.07369676984687996,
+        "n_paired": 1,
+        "sd_paired_difference": 0.0
+      }
+    }
+  },
+  "runs": [
+    {
+      "agent": "ResourceSelected",
+      "agent_cpu_seconds": 0.05249243415892124,
+      "births": 3588,
+      "condition": "selected",
+      "deaths": 3579,
+      "error_resource_cost": 2552.5118291576773,
+      "estimated_state_bytes": 19792,
+      "extinct_at_step": null,
+      "final_distinct_source_edges": 2,
+      "final_population": 54,
+      "inflow_scale": 1.0,
+      "mean_adaptation_steps_after_change": 92.0,
+      "mean_online_mse": 0.23225932892472242,
+      "mean_post_shift_active_source_edge_share_100_300": 0.9139641624411443,
+      "mean_return_forgetting_mse": null,
+      "mean_target_mse": 0.10807463139777941,
+      "mutations": 185,
+      "peak_structure": 81,
+      "resource_packets": 10852,
+      "seed": 20261022,
+      "work_units": 2263320
+    },
+    {
+      "agent": "ResourceNeutral",
+      "agent_cpu_seconds": 0.04723592079244554,
+      "births": 3466,
+      "condition": "neutral_mu_0.05",
+      "deaths": 3469,
+      "error_resource_cost": 3946.488929879782,
+      "estimated_state_bytes": 15360,
+      "extinct_at_step": null,
+      "final_distinct_source_edges": 3,
+      "final_population": 42,
+      "inflow_scale": 1.0,
+      "mean_adaptation_steps_after_change": 142.0,
+      "mean_online_mse": 0.24417323836969282,
+      "mean_post_shift_active_source_edge_share_100_300": 0.44253398711358477,
+      "mean_return_forgetting_mse": null,
+      "mean_target_mse": 0.20338590695754255,
+      "mutations": 178,
+      "peak_structure": 68,
+      "resource_packets": 10802,
+      "seed": 20261022,
+      "work_units": 1886828
+    },
+    {
+      "agent": "ResourceNeutralHighMutation",
+      "agent_cpu_seconds": 0.04963722079992294,
+      "births": 3544,
+      "condition": "neutral_mu_0.15",
+      "deaths": 3538,
+      "error_resource_cost": 3832.491440083997,
+      "estimated_state_bytes": 18628,
+      "extinct_at_step": null,
+      "final_distinct_source_edges": 3,
+      "final_population": 51,
+      "inflow_scale": 1.0,
+      "mean_adaptation_steps_after_change": 83.0,
+      "mean_online_mse": 0.2414714251555824,
+      "mean_post_shift_active_source_edge_share_100_300": 0.37839699192255455,
+      "mean_return_forgetting_mse": null,
+      "mean_target_mse": 0.18177140124465938,
+      "mutations": 561,
+      "peak_structure": 70,
+      "resource_packets": 10862,
+      "seed": 20261022,
+      "work_units": 1930926
+    }
+  ]
+}

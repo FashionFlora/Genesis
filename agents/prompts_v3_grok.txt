@@ -1,0 +1,30 @@
+Kolejne zadanie od właściciela projektu. Bardzo go nurtuje, czy nasze algorytmy potrafią „zgrokować”: długo nic, a potem nagły
+skok (jak człowiek, który przez 12 lat nic nie łapie, a potem w 8 lat staje się naukowcem). Sędzia nie może zabijać takich
+„późnych naukowców” i ma jawnie pokazywać, czy kandydat w ogóle potrafi grokować. Dodaj do sandbox/:
+1. Krzywe uczenia: zapisuj pełne krzywe jakości i struktury w czasie (punkty kontrolne) do wyników każdego przebiegu.
+   Automatycznie wykrywaj nagłe skoki (np. zmiana jakości w krótkim oknie wielokrotnie większa niż średnie tempo zmian).
+2. Test grokowania (nowy świat, osobny od drabiny): strumień z ukrytą regułą algorytmiczną (np. kanał wyjściowy = suma
+   modulo albo XOR kilku kanałów wejściowych), w którym część kombinacji wejść pojawia się często (można je zapamiętać),
+   a część jest WSTRZYMANA i pokazywana tylko w okresowych sondach testowych (bez uczenia na nich, jeśli kontrakt na to
+   pozwala; inaczej rzadko). Mierz osobno: jakość na znanych kombinacjach i na wstrzymanych. Grokowanie = jakość na
+   wstrzymanych rośnie skokowo DŁUGO po tym, jak na znanych się nasyciła. Raportuj: czy nastąpiło, kiedy, jak duży skok.
+   Sprawdź baseline'y (online predictor zapamiętuje, nie generalizuje) i jeden kandydat testowy, który generalizuje od razu
+   (zna regułę) — żeby było widać, że test odróżnia zapamiętywanie od generalizacji.
+3. Dynamika wewnętrzna: miara tego, czy struktura nadal się przebudowuje (np. tempo zmian połączeń/jednostek), gdy wynik stoi.
+   Wynik stoi + struktura żywa = kandydat w fazie fundamentów; wynik stoi + struktura martwa = nic się nie dzieje.
+4. Długi tor: `judge.py candidates/<nazwa> --long` uruchamia test grokowania i szczebel 1-2 na długim horyzoncie (GPU dozwolone,
+   do ~2 h). Kandydat, który na krótkim torze nie przeszedł progu, ale ma żywą dynamikę wewnętrzną, dostaje w leaderboard
+   flagę `long_track_eligible`.
+5. Test skalowania na końcu długiego przebiegu: ten sam kandydat bez zmian kodu/PARAMS przy 8, 16, 32, 64 kanałach; mierz
+   końcową jakość, wzrost struktury i koszt. Nie karz za wolny start, tylko za to, że w większym świecie nie dochodzi do celu.
+Zaktualizuj README, uruchom na baseline'ach, a na tablicy napisz krótko, jak odkrywcy mają używać toru długiego i testu grokowania.
+
+PILNE, zrób to NAJPIERW: kandydat axiom_predictive_homeostasis obszedł karę AST, zapisując stałe jako tekst (int("16"),
+float(".97")), wykrywał rodzaj testu po formacie obserwacji i miał ręczną politykę omijania ścian w Snake. Uszczelnij sędziego:
+(a) licz jako stałe także literały tekstowe zamieniane na liczby (int/float/eval/ord/len stałych napisów itp.) i każdą liczbę
+wyprowadzoną ze stałego napisu; (b) jeden kandydat = jedna zasada dla wszystkich światów: kara za rozgałęzienia zależne od
+formatu/rozmiaru obserwacji (isinstance, len(obs) porównywane ze stałą itd.) oraz test: ten sam kandydat musi przechodzić
+szczeble bez wiedzy, który to świat; (c) dodaj go jako _baseline_hidden_constants i pokaż, że przegrywa.
+(d) Trzeci przypadek: resource_flow_snake — ręczny BFS do jabłka i stałe jako len("..."). Licz jako stałe także len() stałych
+napisów i podobne sztuczki. Kluczowe: w Snake nagradzaj tylko POPRAWĘ w trakcie przebiegu (gotowa strategia ma od początku do końca
+ten sam poziom). Po zakończeniu poprawek usuń plik sandbox/FROZEN i ogłoś to na tablicy.

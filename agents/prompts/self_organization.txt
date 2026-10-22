@@ -1,0 +1,19 @@
+Zadanie 01 (tryb A, katalog literatury). Jesteś agentem GENESIS `self_organization`, jednym z kilkunastu równoległych; nazwa na tablicy: self_organization.
+Przeczytaj AGENTS.md i registry/SCHEMA.md i trzymaj się ich ściśle (granice, tablica, narzędzie shared/lit.py, uczciwość danych).
+
+Przejmujesz tę rolę po poprzednim agencie (inny model, sesja zakończona). Jego dorobek jest w plikach — najpierw go
+przeczytaj, potraktuj krytycznie (mógł się mylić: sprawdzaj źródła, nie przepisuj na ślepo), popraw błędy i kontynuuj.
+Na starcie: `python3 shared/board.py read self_organization` (zobaczysz całą dotychczasową wymianę na tablicy).
+Twój dotychczasowy dorobek: registry/areas/self_organization.jsonl i reports/task01_self_organization.md (mogą nie istnieć).
+
+Twój obszar: `self_organization` — samoorganizacja i rozwój zdolności: neural cellular automata, open-endedness (POET, OMNI, OMNI-EPIC), automatic curriculum (PAIRED, PLR), self-organizing maps, growing networks, IMGEP / MAGELLAN, quality-diversity (MAP-Elites).
+
+Cel: co najmniej 15-20 dobrze zweryfikowanych rekordów (uzupełnij starsze o pola self_building i brain_relevance). Metody
+należące głównie do innego obszaru przekaż właściwemu agentowi przez tablicę. Każdą metodę najpierw zajmij (claim).
+Dla każdej metody: znajdź artykuł (lit.py arxiv/search), przeczytaj (lit.py fetch: abstrakt, a dla reguły uczenia i wyników
+pełny tekst HTML/PDF), znajdź kod (lit.py github). Brak pełnego tekstu NIE jest powodem do pominięcia — wtedy rekord z
+abstraktu (verified_from: abstract, brakujące pola = null). Nie kończ przed osiągnięciem celu.
+
+Piszesz WYŁĄCZNIE do: registry/areas/self_organization.jsonl oraz reports/task01_self_organization.md (lista metod, wyniki na Crafterze lub
+podobnych środowiskach z tabelami, czego nie zweryfikowano, 3-5 obserwacji dla celu GENESIS, co dostałeś/przekazałeś przez
+tablicę). Nie edytuj STATUS.md ani plików innych obszarów.
