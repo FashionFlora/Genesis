@@ -1,23 +1,26 @@
-# GENESIS
+# Genesis
 
-**Cel:** jedna fundamentalna zasada, z której sama wynika cyfrowa biointeligencja: system, który rośnie, przycina się,
-uczy, pamięta i bada świat, bez nagrody zewnętrznej i bez backpropagation. Nie dokładamy osobnych mechanizmów.
-Szukamy prawa, z którego one wynikają. Może to wymagać nowej matematyki. Biologia (biology/PRINCIPLES.md) jest źródłem
-inspiracji.
+**Goal:** one fundamental principle from which digital biointelligence follows on its own: a system that grows, prunes
+itself, learns, remembers and explores, without external reward and without backpropagation. Do not add separate
+mechanisms. Look for the law from which they follow. This may require new mathematics. Biology
+(biology/PRINCIPLES.md) is a source of inspiration.
 
-**Kotwica:** liczy się tylko to, co faktycznie uruchomiono. Liczby wyłącznie z plików wyników. Obalony pomysł to też
-wynik. Fakty z literatury tylko ze źródeł, które otworzyłeś (`.venv/bin/python shared/lit.py search|arxiv|fetch|github`).
+**Anchor:** only what was actually run counts. Numbers come only from result files. A refuted idea is also a result.
+Facts from the literature only from sources you opened (`.venv/bin/python shared/lit.py search|arxiv|fetch|github`).
 
-**Sędzia:** `.venv/bin/python sandbox/judge.py candidates/<nazwa>` (kontrakt w sandbox/README.md). Parametry w `PARAMS`
-są dozwolone, ale sędzia sprawdza odporność na ich zmianę. Ukryte progi i warunki są karane. Tablica wyników:
-sandbox/leaderboard.jsonl. Nie modyfikuj sandbox/.
+**Judge:** `.venv/bin/python sandbox/judge.py candidates/<name>` (contract in sandbox/README.md). Parameters in `PARAMS`
+are allowed, but the judge tests robustness to changing them. Hidden constants and branches are penalised. Leaderboard:
+sandbox/leaderboard.jsonl. Do not modify sandbox/. Hand-written strategies and any attempt to game the judge lead to
+disqualification (sandbox/disqualified.tsv).
 
-**Wspólne narzędzia:** tablica `python3 shared/board.py read|post <ja> ...` (krótko, konkretnie), hipotezy
+**Shared tools:** board `python3 shared/board.py read|post <me> ...` (short and concrete), hypotheses
 `python3 shared/hyp.py list|add|status|note`.
 
-**Pamięć między turami:** każda tura to nowa sesja. Zaczynasz od swojego `HANDOFF.md`, a kończysz, nadpisując go
-krótko (najwyżej 25 linii): co zrobiłeś, co wyszło (liczby i ścieżki), co dalej.
+**Memory between turns:** every turn is a new session. Start from your `HANDOFF.md` and finish by overwriting it briefly
+(at most 25 lines): what you did, what came out (numbers and paths), what comes next.
 
-**Granice serwera (współdzielony z produkcją datasetu TTS):** piszesz tylko w `/opt/dlami/nvme/genesis/`, w swoich
-plikach. Nie dotykasz `/opt/dlami/nvme/dataset/`, cudzych procesów ani sesji tmux. GPU wolno (przed startem
-`nvidia-smi`, max 40 GB). Python tylko z `.venv`. Długie komendy z `nice -n 15`, max ~6 GB RAM i 3 rdzenie.
+**Server limits (shared with a TTS dataset pipeline):** write only inside `/opt/dlami/nvme/genesis/`, in your own files.
+Never touch `/opt/dlami/nvme/dataset/`, other processes or other tmux sessions. GPU allowed (run `nvidia-smi` first,
+max 40 GB). Python only from `.venv`. Run long commands with `nice -n 15`, max ~6 GB RAM and 3 cores.
+
+The working language of the board and notes may be Polish or English.

@@ -3,7 +3,7 @@
 set -e
 SRC=/opt/dlami/nvme/genesis; DST=/opt/dlami/nvme/genesis_repo
 rsync -a --delete --max-size=5m \
-  --exclude .git --exclude README.md --exclude .gitignore \
+  --exclude .git --exclude README.md --exclude .gitignore --exclude docs \
   --exclude .venv --exclude shared/cache --exclude logs --exclude __pycache__ --exclude '*.pyc' \
   --exclude registry/sources --exclude HANDOFF.md --exclude run_area.sh --exclude supervisor.py \
   "$SRC"/ "$DST"/

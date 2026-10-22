@@ -1,0 +1,111 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 520" role="img" aria-label="Genesis agent loop: a supervisor launches each agent in a fresh session; discoverers and the experimenter write candidates, a deterministic judge scores them onto a leaderboard, the top three return to the discoverers as parents, and the critic disqualifies candidates that game the judge." font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" fill="#1f2328">
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#1f2328"/>
+    </marker>
+    <marker id="ab" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#0969da"/>
+    </marker>
+    <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#cf222e"/>
+    </marker>
+  </defs>
+  <rect x="0.5" y="0.5" width="979" height="519" rx="14" fill="#ffffff" stroke="#d0d7de"/>
+
+  <!-- column titles -->
+  <g font-size="11" fill="#656d76" letter-spacing="1">
+    <text x="115" y="24" text-anchor="middle">ORCHESTRATION</text>
+    <text x="365" y="24" text-anchor="middle">AGENTS (LLMs)</text>
+    <text x="665" y="24" text-anchor="middle">CODE, NOT OPINION</text>
+    <text x="880" y="24" text-anchor="middle">RESULT</text>
+  </g>
+
+  <!-- supervisor -->
+  <rect x="40" y="236" width="150" height="64" rx="8" fill="#f6f8fa" stroke="#1f2328"/>
+  <text x="115" y="263" text-anchor="middle" font-weight="600">Supervisor</text>
+  <text x="115" y="282" text-anchor="middle" font-size="11" fill="#656d76">fresh session per turn</text>
+  <text x="115" y="330" text-anchor="middle" font-size="11" fill="#656d76">memory = files</text>
+  <text x="115" y="345" text-anchor="middle" font-size="11" fill="#656d76">+ HANDOFF.md</text>
+
+  <!-- agents -->
+  <g>
+    <rect x="270" y="64" width="190" height="56" rx="8" fill="#ffffff" stroke="#1f2328"/>
+    <text x="365" y="88" text-anchor="middle" font-weight="600">Discoverer · life</text>
+    <text x="365" y="106" text-anchor="middle" font-size="11" fill="#656d76">resources, growth, death</text>
+
+    <rect x="270" y="148" width="190" height="56" rx="8" fill="#ffffff" stroke="#1f2328"/>
+    <text x="365" y="172" text-anchor="middle" font-weight="600">Discoverer · axioms</text>
+    <text x="365" y="190" text-anchor="middle" font-size="11" fill="#656d76">conditions → law</text>
+
+    <rect x="270" y="240" width="190" height="56" rx="8" fill="#f6f8fa" stroke="#656d76" stroke-dasharray="5 4"/>
+    <text x="365" y="264" text-anchor="middle" font-weight="600">Shared board</text>
+    <text x="365" y="282" text-anchor="middle" font-size="11" fill="#656d76">messages · hypothesis registry</text>
+
+    <rect x="270" y="332" width="190" height="56" rx="8" fill="#ffffff" stroke="#1f2328"/>
+    <text x="365" y="356" text-anchor="middle" font-weight="600">Experimenter</text>
+    <text x="365" y="374" text-anchor="middle" font-size="11" fill="#656d76">independent replication</text>
+
+    <rect x="270" y="416" width="190" height="56" rx="8" fill="#ffffff" stroke="#cf222e"/>
+    <text x="365" y="440" text-anchor="middle" font-weight="600">Critic</text>
+    <text x="365" y="458" text-anchor="middle" font-size="11" fill="#656d76">prior art · artefacts · gaming</text>
+  </g>
+
+  <!-- supervisor launches agents -->
+  <g stroke="#1f2328" fill="none" stroke-width="1.2">
+    <path d="M190 252 C230 252 230 92 268 92" marker-end="url(#a)"/>
+    <path d="M190 260 C235 260 235 176 268 176" marker-end="url(#a)"/>
+    <path d="M190 284 C235 284 235 360 268 360" marker-end="url(#a)"/>
+    <path d="M190 292 C230 292 230 444 268 444" marker-end="url(#a)"/>
+  </g>
+  <text x="115" y="226" text-anchor="middle" font-size="11" fill="#656d76">launches each agent</text>
+
+  <!-- board links -->
+  <g stroke="#656d76" stroke-width="1.2" stroke-dasharray="4 3">
+    <line x1="365" y1="206" x2="365" y2="238" marker-start="url(#a)" marker-end="url(#a)"/>
+    <line x1="365" y1="298" x2="365" y2="330" marker-start="url(#a)" marker-end="url(#a)"/>
+  </g>
+  <text x="372" y="226" font-size="11" fill="#656d76">read / post</text>
+
+  <!-- candidates, judge -->
+  <rect x="580" y="120" width="170" height="64" rx="8" fill="#ffffff" stroke="#1f2328"/>
+  <text x="665" y="147" text-anchor="middle" font-weight="600">Candidates</text>
+  <text x="665" y="166" text-anchor="middle" font-size="11" fill="#656d76">one file: principle.py</text>
+
+  <rect x="580" y="236" width="170" height="64" rx="8" fill="#ddf4ff" stroke="#0969da" stroke-width="1.6"/>
+  <text x="665" y="263" text-anchor="middle" font-weight="600" fill="#0550ae">Judge</text>
+  <text x="665" y="282" text-anchor="middle" font-size="11" fill="#0550ae">deterministic sandbox</text>
+
+  <rect x="800" y="236" width="150" height="64" rx="8" fill="#ffffff" stroke="#1f2328"/>
+  <text x="875" y="263" text-anchor="middle" font-weight="600">Leaderboard</text>
+  <text x="875" y="282" text-anchor="middle" font-size="11" fill="#656d76">score per candidate</text>
+
+  <rect x="800" y="416" width="150" height="56" rx="8" fill="#fff8f8" stroke="#cf222e"/>
+  <text x="875" y="440" text-anchor="middle" font-weight="600" fill="#a40e26">Disqualified</text>
+  <text x="875" y="458" text-anchor="middle" font-size="11" fill="#a40e26">gamed the judge</text>
+
+  <!-- flows -->
+  <g stroke="#1f2328" fill="none" stroke-width="1.2">
+    <path d="M460 92 C520 92 520 140 578 140" marker-end="url(#a)"/>
+    <path d="M460 176 C520 176 520 160 578 160" marker-end="url(#a)"/>
+    <path d="M460 354 C540 354 540 170 578 172" marker-end="url(#a)"/>
+    <line x1="665" y1="184" x2="665" y2="234" marker-end="url(#a)"/>
+    <line x1="750" y1="268" x2="798" y2="268" marker-end="url(#a)"/>
+  </g>
+  <text x="520" y="84" text-anchor="middle" font-size="11" fill="#656d76">writes</text>
+  <text x="548" y="300" text-anchor="middle" font-size="11" fill="#656d76">ports &amp;</text>
+  <text x="548" y="314" text-anchor="middle" font-size="11" fill="#656d76">replicates</text>
+  <text x="674" y="214" font-size="11" fill="#656d76">evaluates</text>
+  <text x="774" y="260" text-anchor="middle" font-size="11" fill="#656d76">score</text>
+
+  <!-- evolution feedback -->
+  <path d="M875 236 V58 Q875 50 867 50 H373 Q365 50 365 58 V62" fill="none" stroke="#0969da" stroke-width="1.6" marker-end="url(#ab)"/>
+  <text x="620" y="43" text-anchor="middle" font-size="12" fill="#0550ae" font-weight="600">top 3 return as parents · mutate or cross over</text>
+
+  <!-- critic -->
+  <g stroke="#cf222e" fill="none" stroke-width="1.4">
+    <line x1="460" y1="444" x2="798" y2="444" marker-end="url(#ar)"/>
+    <line x1="875" y1="414" x2="875" y2="302" marker-end="url(#ar)"/>
+  </g>
+  <text x="630" y="436" text-anchor="middle" font-size="11" fill="#a40e26">audits every new score, flags gaming</text>
+  <text x="884" y="362" font-size="11" fill="#a40e26">excluded</text>
+</svg>

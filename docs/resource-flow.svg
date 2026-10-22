@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 412" role="img" aria-label="The resource-flow principle: each cell gains mass from a finite shared inflow and loses mass to maintenance and to its own prediction error; at zero mass it dies and its connection is pruned, at double mass it splits and its daughter inherits or varies the connection, so growth, pruning and selection all follow from one mass balance." font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" fill="#1f2328">
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#1f2328"/>
+    </marker>
+    <marker id="ab" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#0969da"/>
+    </marker>
+  </defs>
+  <rect x="0.5" y="0.5" width="979" height="411" rx="14" fill="#ffffff" stroke="#d0d7de"/>
+
+  <!-- the law -->
+  <g font-size="15" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" text-anchor="middle"><text x="400" y="40">J = I − c − λ·e</text><text x="590" y="40">m ← m + J</text></g>
+  <text x="490" y="60" text-anchor="middle" font-size="11" fill="#656d76">one mass balance per cell · no age clock · no population cap · no fitness threshold</text>
+
+  <!-- inflow -->
+  <rect x="40" y="150" width="190" height="70" rx="8" fill="#f6f8fa" stroke="#1f2328"/>
+  <text x="135" y="179" text-anchor="middle" font-weight="600">Shared inflow</text>
+  <text x="135" y="198" text-anchor="middle" font-size="11" fill="#656d76">finite, split among all cells</text>
+  <line x1="230" y1="185" x2="358" y2="185" stroke="#1f2328" stroke-width="1.2" marker-end="url(#a)"/>
+  <text x="294" y="176" text-anchor="middle" font-size="11" fill="#656d76">intake  I</text>
+
+  <!-- cell -->
+  <circle cx="430" cy="185" r="70" fill="#ddf4ff" stroke="#0969da" stroke-width="1.6"/>
+  <text x="430" y="170" text-anchor="middle" font-weight="600" fill="#0550ae">Cell</text>
+  <text x="430" y="190" text-anchor="middle" font-size="12" fill="#0550ae">mass  m</text>
+  <text x="430" y="208" text-anchor="middle" font-size="11" fill="#0550ae">one edge → one input</text>
+
+  <!-- dissipation -->
+  <rect x="335" y="300" width="190" height="64" rx="8" fill="#ffffff" stroke="#1f2328"/>
+  <text x="430" y="326" text-anchor="middle" font-weight="600">Dissipation</text>
+  <text x="430" y="345" text-anchor="middle" font-size="11" fill="#656d76">upkeep c + own prediction error λ·e</text>
+  <line x1="430" y1="255" x2="430" y2="298" stroke="#1f2328" stroke-width="1.2" marker-end="url(#a)"/>
+  <text x="440" y="282" font-size="11" fill="#656d76">loses</text>
+
+  <!-- outcomes -->
+  <rect x="680" y="80" width="260" height="70" rx="8" fill="#ffffff" stroke="#1f2328"/>
+  <text x="700" y="108" font-weight="600">m ≤ 0  →  dies</text>
+  <text x="700" y="128" font-size="12" fill="#656d76">pruning: its edge disappears</text>
+
+  <rect x="680" y="220" width="260" height="70" rx="8" fill="#ffffff" stroke="#1f2328"/>
+  <text x="700" y="248" font-weight="600">m ≥ 2  →  splits</text>
+  <text x="700" y="268" font-size="12" fill="#656d76">growth: daughter inherits or varies edge</text>
+
+  <g stroke="#1f2328" fill="none" stroke-width="1.2">
+    <path d="M495 160 C580 140 600 115 678 115" marker-end="url(#a)"/>
+    <path d="M495 210 C580 230 600 255 678 255" marker-end="url(#a)"/>
+  </g>
+  <text x="590" y="122" text-anchor="middle" font-size="11" fill="#656d76">poor predictor</text>
+  <text x="590" y="262" text-anchor="middle" font-size="11" fill="#656d76">good predictor</text>
+
+  <!-- feedback -->
+  <path d="M810 292 V392 H302 Q292 392 292 382 V238 Q292 230 300 228 L362 214" fill="none" stroke="#0969da" stroke-width="1.6" marker-end="url(#ab)"/>
+  <text x="640" y="384" text-anchor="middle" font-size="11" fill="#0550ae">new cells compete for the same inflow → selection</text>
+</svg>

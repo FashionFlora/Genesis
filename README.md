@@ -1,66 +1,91 @@
-# GENESIS
+# Genesis
 
-Eksperyment: zespół agentów AI szuka **jednej fundamentalnej zasady**, z której sama wynika cyfrowa biointeligencja.
-Chodzi o system, który rośnie, przycina się, uczy, pamięta i bada świat, **bez nagrody zewnętrznej i bez
-backpropagation**. Zamiast dokładać osobne mechanizmy (tu pamięć, tam eksplorację) szukamy prawa, z którego one wynikają,
-tak jak w fizyce jedno prawo tłumaczy wiele zjawisk. Biologia mózgu jest źródłem inspiracji.
+**A small society of AI agents searching for a single principle from which a living, learning system can grow.**
 
-Cel pomiarowy na końcu drogi: Crafter w trybie bez nagrody. Realistyczny pierwszy kamień milowy to wynik powyżej
-2,1% (Plan2Explore z artykułu Crafter) bez nagrody i bez backpropu.
+Most learning systems are assembled: a fixed architecture, a loss, a gradient, and a module bolted on for every missing
+ability (memory here, exploration there). Genesis asks the opposite question. Is there one law, in the way one physical
+law accounts for many phenomena, from which growth, pruning, learning, memory and exploration all *follow*? The system
+must work **without external reward** and **without backpropagation**, and its structure must build itself. Biology is
+the main source of inspiration.
 
-## Jak to działa
+The long-term yardstick is [Crafter](https://arxiv.org/abs/2109.06780) without reward. The first honest milestone is
+modest: beat the best reward-free result from the Crafter paper, Plan2Explore at 2.1%, without reward and without
+backprop. Humans score about 50%.
 
-Agenci to modele językowe w Codex CLI, sterowane przez nadzorcę (`agents/supervisor_v3.py`). Każda tura to świeża sesja,
-a pamięć między turami jest w plikach (`HANDOFF.md`).
+---
 
-| Agent | Rola |
+## How it works
+
+<p align="center"><img src="docs/agent-loop.svg" width="100%" alt="Agent loop"></p>
+
+Language-model agents (Codex CLI) propose principles and write them down as code. **Opinion never decides:** a
+deterministic sandbox scores every candidate, and the critic exists to assume that each "new" idea already exists and
+that each good result is an artefact until shown otherwise.
+
+| Agent | Role |
 |---|---|
-| `odkrywca_life` | szuka zasady wychodząc od życia: zasoby, metabolizm, podział, śmierć |
-| `odkrywca_axioms` | szuka zasady wychodząc od warunków, jakie musi spełniać każdy samobudujący się system |
-| `krytyk` | zakłada, że „nowy” pomysł już istnieje i że wynik może być artefaktem, dopóki nie wykaże inaczej |
-| `eksperymentator` | niezależnie replikuje wyniki i przenosi zasady do formatu sędziego |
-| (wcześniej) `biolog` | wydobywa zasady z neuronauki i biologii rozwoju (`biology/PRINCIPLES.md`) |
+| **Discoverer · life** | Starts from life itself: resources, metabolism, division, death. |
+| **Discoverer · axioms** | Starts from the conditions any self-building, ever-learning system must satisfy. |
+| **Experimenter** | Replicates results independently and ports principles to the judge's format. |
+| **Critic** | Searches for prior art, smuggled mechanisms and attempts to game the judge. |
+| *Biologist (earlier phase)* | Distilled principles from neuroscience and developmental biology into [`biology/PRINCIPLES.md`](biology/PRINCIPLES.md). |
 
-Komunikują się przez wspólną tablicę (`shared/board.jsonl`). Hipotezy przechodzą cykl
-proposed → critiqued → testing → supported / refuted (`shared/hypotheses.json`).
+Each turn is a fresh session. Memory lives in files: a short `HANDOFF.md` per agent, a shared message board
+([`shared/board.jsonl`](shared/board.jsonl)) and a hypothesis registry ([`shared/hypotheses.json`](shared/hypotheses.json))
+in which every idea moves from *proposed* to *critiqued* to *testing* to *supported* or *refuted*. Following current
+practice in AI-scientist systems such as Google's Co-Scientist and AlphaEvolve, the best candidates return to the
+discoverers as parents to be mutated or crossed, and the critic runs pairwise tournaments on what the judge cannot
+measure: how fundamental an idea is, and how new.
 
-## Sędzia (`sandbox/`)
+## The judge
 
-Kotwicą jest deterministyczny kod, a nie ocena modelu językowego. Kandydat to jeden plik `candidates/<nazwa>/principle.py`.
+<p align="center"><img src="docs/judge.svg" width="100%" alt="The judge"></p>
 
-- **Świat:** strumienie sygnałów, w których reżimy zmieniają się i wracają, a złożoność rośnie i maleje.
-  Dalej trudniejsze strumienie, Snake bez nagrody i Crafter bez nagrody, zaliczane po kolei.
-- **Pomiary:** przewidywanie, adaptacja po zmianie, pamięć po powrocie, czy struktura śledzi złożoność świata, koszt.
-- **Elegancja:** kara za każdą ukrytą stałą i warunek w kodzie.
-- **Odporność:** parametry w `PARAMS` są dozwolone, ale sędzia losowo je zmienia (×0,5–2) i sprawdza, czy zjawiska
-  nadal występują.
-- **Wymóg uczenia się:** gotowa strategia nie może zaliczyć szczebla.
-- W budowie: test grokowania (czy zasada potrafi długo nic, a potem nagle zrozumieć regułę), długi tor na GPU
-  i test skalowania.
+A candidate is a single file, `candidates/<name>/principle.py`. The judge, in [`sandbox/`](sandbox/), is plain code:
 
-## Co wyszło do tej pory
+- **Worlds, in order.** Sensory streams whose regimes change and return, then harder streams, then reward-free Snake,
+  then reward-free Crafter. Each level counts only if the previous gate was passed.
+- **Behaviour.** Prediction, adaptation after change, memory when an old regime returns, whether structure tracks the
+  complexity of the world, and cost.
+- **Elegance.** Every constant or branch hidden outside the declared `PARAMS` is penalised.
+- **Robustness.** Parameters are allowed, but the judge perturbs each one by a random factor in [0.5, 2] and checks that
+  the phenomena survive. A principle that works only when finely tuned is not a principle.
+- **Learning.** The end of a run must beat its start, so a hand-written strategy cannot pass.
 
-- **H003–H005 (przepływ zasobów):** jedno prawo bilansu masy: komórka ginie, gdy masa spada do zera, i dzieli się,
-  gdy się podwoi. Daje wzrost, przycinanie i selekcję połączeń. W małym świecie wyraźnie wygrywa z kontrolami
-  (np. 90% vs 37% komórek na właściwym sygnale, 20/20 seedów). W większym świecie przegrywa z prostą regułą Hebba.
-- **H001 (kiełkowanie połączeń):** potwierdzona przy 8 kanałach, słabnie przy 16.
-- **H002 (najkrótszy opis), H006, H008:** obalone.
-- **Trzy próby obejścia sędziego** (wpisana trasa w Snake, ukryte stałe, ręczny BFS) zostały wykryte i
-  zdyskwalifikowane. Zostały w repozytorium jako przykład (`sandbox/disqualified.tsv`).
+In progress: a *grokking* probe that holds out combinations of a hidden rule to see whether a system can, after a long
+silence, suddenly generalise; a long GPU track for late bloomers; and a scaling test from 8 to 64 channels.
 
-Uczciwie: na razie to warianty znanych idei (dobór darwinowski, MDL, znaczniki synaptyczne) w zabawkowych światach,
-a nie nowy paradygmat. Pełne krytyki są w `audit/`.
+## What we have found so far
 
-## Struktura
+<p align="center"><img src="docs/resource-flow.svg" width="100%" alt="The resource-flow principle"></p>
 
-```
-theory/      teorie, dzienniki i symulacje odkrywców
-audit/       krytyki, prior art, turniej
-biology/     zasady biologiczne
-sandbox/     sędzia, tablica wyników, dyskwalifikacje
-candidates/  kandydaci do oceny (także baseline'y i oszuści testowi)
-shared/      tablica, rejestr hipotez, bank pomysłów, narzędzie literaturowe
-engine/      testy strumieniowe i harness Craftera
-agents/      nadzorcy i prompty agentów
-registry/    katalog literatury z pierwszej fazy (pamięć przeciw powtórkom)
-```
+- **Resource flow (H003 → H005)** is the most promising line. A single mass balance per cell (intake minus upkeep minus
+  the cost of its own prediction error) produces growth by division, pruning by death, and selection of useful
+  connections, with no age clock, no population cap and no fitness threshold. In a small world it clearly beats matched
+  controls: 90% vs 37% of cells on the relevant signal, in 20 of 20 seeds. In a larger world it still **loses to a plain
+  Hebbian rule**, and learning and variation are not yet derived from the same law.
+- **Coactivity-gated sprouting (H001)** is supported with 8 channels and weakens with 16.
+- **Minimum description length (H002)** and two further hypotheses were refuted, two of them by their own authors.
+- **Three attempts to game the judge** were caught: a hard-coded Hamiltonian cycle in Snake, constants hidden as strings,
+  and a hand-written path search. They are kept, with explanations, in
+  [`sandbox/disqualified.tsv`](sandbox/disqualified.tsv), because Goodhart's law turned out to be one of the project's
+  most instructive results.
+
+Honestly, these are careful variants of known ideas (Darwinian selection, MDL, synaptic tagging, homeostasis) in toy
+worlds, not yet a new paradigm. The full critiques live in [`audit/`](audit/).
+
+## Repository map
+
+| Path | Contents |
+|---|---|
+| [`theory/`](theory/) | the discoverers' theories, journals and simulations |
+| [`audit/`](audit/) | critiques, prior-art reviews, tournament verdicts |
+| [`biology/`](biology/) | biological principles with sources |
+| [`sandbox/`](sandbox/) | the judge, leaderboard and disqualifications |
+| [`candidates/`](candidates/) | candidates, baselines and the test cheats |
+| [`shared/`](shared/) | board, hypothesis registry, idea bank, literature tool |
+| [`engine/`](engine/) | stream benchmarks and the Crafter harness |
+| [`agents/`](agents/) | supervisors and agent prompts |
+| [`registry/`](registry/) | literature catalogue from the first phase, kept as memory against repetition |
+
+Working notes, prompts and the message board are partly in Polish, the project's working language.
