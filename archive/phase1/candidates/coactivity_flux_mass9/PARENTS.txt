@@ -1,0 +1,8 @@
+Parents:
+- candidates/coactivity_flux_scale9/
+- candidates/coactivity_support_resilient/
+
+Mutation: retain scale9's conditional coactivity reservoirs and bounded decay,
+but select a source by contrast multiplied by its total evidence mass. This makes
+the same reservoir that stores persistence also determine influence, testing
+whether stable contacts resist transient Hebbian winners in larger worlds.

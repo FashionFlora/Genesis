@@ -1,0 +1,8 @@
+{
+  "candidate": "candidates/coactivity_total_evidence9/principle.py",
+  "seeds": 12,
+  "first_a_mse": 0.26880183316434975,
+  "b_mse": 0.26766423323042493,
+  "return_a_mse": 0.24764234959545575,
+  "return_minus_first": -0.021159483568893966
+}

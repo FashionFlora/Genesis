@@ -1,0 +1,8 @@
+Parents: candidates/contextual_predictive_equivalence/ and candidates/reversible_surprise/.
+
+Mutation/crossover:
+Predictive context addresses route between active and dormant transition
+models. A dormant model replaces the active model locally only when its
+prequential error on the observed transition is lower; only the selected
+model accumulates new evidence. Context therefore retrieves previously useful
+predictive distinctions while surprise alone does not create an address.

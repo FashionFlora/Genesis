@@ -1,0 +1,2 @@
+Parents: candidates/resource_flow_competition/ and candidates/coactivity_support/.
+Mutation: contact resource mass now sets the retention rate of its local predictive evidence. The intent is to make persistence and memory one resource-dependent state instead of letting evidence decay on a fixed clock; local predictive competition still controls mass flow.

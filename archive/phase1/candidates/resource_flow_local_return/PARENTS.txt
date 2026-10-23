@@ -1,0 +1,1 @@
+Parent: resource_flow_returned_evidence. New mechanism: each relation's own prediction returns its mass.

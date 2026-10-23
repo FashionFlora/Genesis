@@ -1,0 +1,67 @@
+{
+  "steps": 240,
+  "calibration_steps": 60,
+  "drift_step": 120,
+  "noise_sd": 0.12,
+  "pulse": 0.5,
+  "pulse_rate": 0.1,
+  "threshold": 0.34,
+  "learning_rate": 0.1,
+  "rows": [
+    {
+      "drift_gain": 0.6,
+      "mode": "raw",
+      "worlds": 200,
+      "precision": 0.0996691495965239,
+      "recall": 1.0,
+      "fpr": 0.9996880623729192,
+      "post_drift_mean_residual": 0.0
+    },
+    {
+      "drift_gain": 0.6,
+      "mode": "residual",
+      "worlds": 200,
+      "precision": 0.46330482687109714,
+      "recall": 0.7985417249759036,
+      "fpr": 0.10132661214703868,
+      "post_drift_mean_residual": 0.2281153939925824
+    },
+    {
+      "drift_gain": 0.6,
+      "mode": "confidence",
+      "worlds": 200,
+      "precision": 0.6108453734517976,
+      "recall": 0.4420384745544037,
+      "fpr": 0.03074455794111605,
+      "post_drift_mean_residual": 0.2281153939925824
+    },
+    {
+      "drift_gain": 1.4,
+      "mode": "raw",
+      "worlds": 200,
+      "precision": 0.09963888888888889,
+      "recall": 1.0,
+      "fpr": 1.0,
+      "post_drift_mean_residual": 0.0
+    },
+    {
+      "drift_gain": 1.4,
+      "mode": "residual",
+      "worlds": 200,
+      "precision": 0.573662461964623,
+      "recall": 0.8911196338212322,
+      "fpr": 0.07309501795690135,
+      "post_drift_mean_residual": 0.22238717137171674
+    },
+    {
+      "drift_gain": 1.4,
+      "mode": "confidence",
+      "worlds": 200,
+      "precision": 0.6426547878506083,
+      "recall": 0.48408180621009733,
+      "fpr": 0.02936122721559374,
+      "post_drift_mean_residual": 0.22238717137171674
+    }
+  ],
+  "limitation": "Synthetic two-channel motor effects with supplied gain drift and external pulses; no neural circuit or synaptic growth."
+}

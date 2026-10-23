@@ -1,0 +1,9 @@
+Parents:
+- candidates/resource_balance_support/principle.py
+- candidates/resource_flow_action/principle.py
+
+Mutation/crossover: relation support is now conditioned on the action that
+preceded the sensory transition. That action receives resource in proportion
+to its predictable sensory return; the next action is drawn from the least
+resourced alternative, so variation follows the same finite-flow balance.
+The policy reads no reward, apple, body length, or geometry.

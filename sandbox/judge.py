@@ -5,7 +5,12 @@ from __future__ import annotations
 
 import argparse
 import ast
+import contextlib
+from contextlib import contextmanager
+from concurrent.futures import ProcessPoolExecutor
 import hashlib
+import importlib.util
+import io
 import json
 import math
 import os
@@ -50,13 +55,24 @@ CURVE_POINTS = 64
 GROK_SHORT_STEPS = 2048
 GROK_LONG_STEPS = 16384
 GROK_SCALING_STEPS = 1024
+NURSERY_SCALE_STEPS = 512
+NURSERY_TIME_STEPS = (512, 2048)
+
+# The GPU track is deliberately independent from the four CPU ladder levels.
+# Its default is long enough to expose slow adaptation while remaining usable
+# on a shared accelerator; --gpu-steps can extend every scale to 1e5 steps.
+GPU_SCALE_SIZES = (1000, 10000, 100000)
+GPU_SEEDS = (1103,)
+GPU_DEFAULT_STEPS = 10000
+GPU_MAX_STEPS = 100000
+GPU_MEMORY_LIMIT_BYTES = 40 * 1024 ** 3
 
 # These are filled from the committed reference-candidate runs below. They are
 # intentionally fixed so a leaderboard entry cannot change its own gate.
 LEVEL_BASELINES = {
     1: {"candidate": "_baseline_online", "score": 20.9957},
     2: {"candidate": "_baseline_online", "score": 10.6251},
-    3: {"candidate": "_baseline_snake_wall", "score": 28.3005},
+    3: {"candidate": "_baseline_snake_wall", "score": 13.0174},
     4: {"candidate": "_baseline_snake_random", "score": 8.8746},
 }
 
@@ -65,7 +81,7 @@ LEVEL_WEIGHTS = {
         "return_memory_score": 0.15, "structure_score": 0.20, "cost_score": 0.10},
     2: {"prediction_skill_vs_constant": 0.35, "adaptation_score": 0.20,
         "return_memory_score": 0.15, "structure_score": 0.20, "cost_score": 0.10},
-    3: {"life_score": 0.25, "apple_score": 0.25, "board_coverage_score": 0.10,
+    3: {"life_improvement_score": 0.25, "apple_improvement_score": 0.25, "board_coverage_score": 0.10,
         "behavior_diversity_score": 0.15, "structure_score": 0.15, "cost_score": 0.10},
     4: {"crafter_task_score": 0.80, "structure_score": 0.10, "cost_score": 0.10},
 }
@@ -245,6 +261,90 @@ class ComplexSensoryWorld:
         active = tuple(range(self.source_channels, self.source_channels + complexity))
         return nxt[:], {"phase": phase, "regime": regime, "complexity": complexity,
                         "active_targets": active}
+
+
+class GrokWorld:
+    """Frequent XOR combinations plus rare held-out probes."""
+
+    input_width = 3
+
+    def __init__(self, width=8, steps=GROK_SHORT_STEPS, seed=4211):
+        self.width = int(width)
+        self.steps = int(steps)
+        self.t = 0
+        self.rng = random.Random(int(seed) ^ self.width)
+        self.known = tuple(range(4))
+        self.heldout = tuple(range(4, 8))
+
+    def row(self, index):
+        probe = index % 16 == 15
+        pattern = (self.heldout[(index // 16) % len(self.heldout)] if probe
+                   else self.known[self.rng.randrange(len(self.known))])
+        observation = [float((pattern >> bit) & 1) for bit in range(self.input_width)]
+        observation.extend(float(self.rng.randrange(2)) for _ in range(self.width - self.input_width))
+        target = observation[:]
+        target[self.input_width] = float(bool(pattern & 1) ^ bool(pattern & 2) ^ bool(pattern & 4))
+        return observation, target, "heldout" if probe else "known"
+
+
+def _run_grokking(principle_path, deadline, steps=GROK_SHORT_STEPS, widths=(8,), params_override=None):
+    reports = []
+    for width in widths:
+        world = GrokWorld(width=width, steps=steps)
+        worker = CandidateWorker(principle_path, deadline, params_override)
+        known_quality, heldout_quality, all_quality, structures, memories = [], [], [], [], []
+        cpu = []
+        try:
+            for index in range(world.steps):
+                observation, target, group = world.row(index)
+                response = worker.step(observation)
+                prediction = response.get("prediction")
+                if not isinstance(prediction, list) or len(prediction) != width:
+                    raise ValueError(f"GrokWorld expects {width} probabilities")
+                value = max(0.0, min(1.0, 1.0 - (float(prediction[world.input_width])
+                                                   - target[world.input_width]) ** 2 / 0.25))
+                all_quality.append(value)
+                (heldout_quality if group == "heldout" else known_quality).append(value)
+                mass, memory = _structure_mass(response.get("structure", {}))
+                structures.append(mass)
+                memories.append(memory)
+                cpu.append(float(response.get("cpu_seconds", 0.0)))
+            worker_info = worker.finish()
+        except BaseException:
+            worker.stop()
+            raise
+        curve = _curve_points(all_quality, structures)
+        dynamics = _curve_dynamics(curve)
+        known_saturation = None
+        for index in range(16, len(all_quality), 16):
+            window = all_quality[max(0, index - 16):index]
+            if window and sum(window) / len(window) >= 0.85:
+                known_saturation = index
+                break
+        heldout_late = heldout_quality[-max(1, len(heldout_quality) // 4):]
+        heldout_early = heldout_quality[:max(1, len(heldout_quality) // 4)]
+        heldout_jump = (sum(heldout_late) / len(heldout_late)
+                        - sum(heldout_early) / len(heldout_early))
+        reports.append({
+            "width": width, "steps": world.steps,
+            "final_quality": sum(all_quality[-max(1, len(all_quality) // 8):])
+            / max(1, len(all_quality) // 8),
+            "structure_growth": (structures[-1] - structures[0]) if structures else 0.0,
+            "mean_structure_mass": sum(structures) / max(1, len(structures)),
+            "mean_reported_memory_bytes": sum(memories) / max(1, len(memories)),
+            "known_quality": sum(known_quality) / max(1, len(known_quality)),
+            "heldout_quality": sum(heldout_quality) / max(1, len(heldout_quality)),
+            "known_saturation_step": known_saturation,
+            "heldout_jump": heldout_jump,
+            "grokking_detected": bool(known_saturation is not None and heldout_jump >= 0.15),
+            "generalizes_immediately": bool(heldout_quality and heldout_quality[0] >= 0.85),
+            "learning_curve": curve,
+            "resources": {"agent_cpu_seconds": sum(cpu),
+                          "agent_cpu_ms_per_step": 1000.0 * sum(cpu) / max(1, world.steps),
+                          "worker_peak_rss_mb": worker_info.get("peak_rss_kib", 0) / 1024.0},
+            **dynamics,
+        })
+    return reports
 
 
 _WORKER_SOURCE = r'''import contextlib
@@ -566,7 +666,7 @@ def _control_learning(first_runs, last_runs):
     improvement = sum(gains) / len(gains)
     improved = sum(gain > 0.0 for gain in gains)
     required = math.ceil(len(gains) * LEARNING_MIN_PAIRS_FRACTION)
-    return {
+    result = {
         "learning_improvement": improvement,
         "learning_pairs": len(gains),
         "learning_pairs_improved": improved,
@@ -580,6 +680,14 @@ def _control_learning(first_runs, last_runs):
             if "life_score" in run else run["achievement_fraction"]
             for run in last_runs) / len(last_runs),
     }
+    if "life_score" in first_runs[0]:
+        result["life_improvement_score"] = max(0.0, sum(
+            last["life_score"] - first["life_score"]
+            for first, last in zip(first_runs, last_runs)) / len(gains))
+        result["apple_improvement_score"] = max(0.0, sum(
+            last["apple_score"] - first["apple_score"]
+            for first, last in zip(first_runs, last_runs)) / len(gains))
+    return result
 
 
 def _phase_metrics(rows, phase_count):
@@ -639,6 +747,53 @@ def _correlation(left, right):
     variance_right = sum((b - mean_right) ** 2 for b in right)
     denominator = math.sqrt(variance_left * variance_right)
     return covariance / denominator if denominator else 0.0
+
+
+def _curve_points(quality, structure, labels=None):
+    """Keep bounded, inspectable checkpoints from a full run."""
+    count = min(CURVE_POINTS, len(quality), len(structure))
+    if not count:
+        return []
+    indexes = sorted({min(len(quality) - 1, int(index * (len(quality) - 1) / max(1, count - 1)))
+                      for index in range(count)})
+    points = []
+    for index in indexes:
+        point = {"step": index, "quality": float(quality[index]),
+                 "structure": float(structure[index])}
+        if labels:
+            point.update(labels[index])
+        points.append(point)
+    return points
+
+
+def _curve_dynamics(curve):
+    if len(curve) < 2:
+        return {"mean_quality_change": 0.0, "mean_structure_change": 0.0,
+                "internal_dynamics_score": 0.0, "quality_jump_detected": False,
+                "quality_jump_step": None, "quality_jump_magnitude": 0.0}
+    quality_changes = [abs(curve[index]["quality"] - curve[index - 1]["quality"])
+                       for index in range(1, len(curve))]
+    structure_changes = [abs(curve[index]["structure"] - curve[index - 1]["structure"])
+                         for index in range(1, len(curve))]
+    mean_quality = sum(quality_changes) / len(quality_changes)
+    mean_structure = sum(structure_changes) / len(structure_changes)
+    plateau = max(mean_quality, 1.0e-9)
+    live = mean_structure / max(mean_structure + mean_quality, 1.0e-9)
+    window = max(1, min(4, len(quality_changes)))
+    window_changes = [sum(quality_changes[index:index + window])
+                      for index in range(len(quality_changes) - window + 1)]
+    average_window = sum(window_changes) / len(window_changes)
+    jump_index = max(range(len(window_changes)), key=window_changes.__getitem__)
+    jump = window_changes[jump_index]
+    return {
+        "mean_quality_change": mean_quality,
+        "mean_structure_change": mean_structure,
+        "internal_dynamics_score": live,
+        "quality_jump_detected": bool(average_window and jump >= 4.0 * average_window
+                                       and jump >= 4.0 * plateau),
+        "quality_jump_step": curve[jump_index + window]["step"] if average_window and jump >= 4.0 * average_window and jump >= 4.0 * plateau else None,
+        "quality_jump_magnitude": jump,
+    }
 
 
 def _constant_string_numbers(tree):
@@ -754,6 +909,256 @@ def _read_principle(path: Path):
     return counts, params_value
 
 
+def _normalized_ast_hash(path: Path) -> str:
+    tree = ast.parse(path.read_text(encoding="utf-8"), filename=str(path))
+
+    class Normalize(ast.NodeTransformer):
+        def __init__(self):
+            self.names = {}
+
+        def _body(self, body):
+            if body and isinstance(body[0], ast.Expr) and isinstance(body[0].value, ast.Constant) \
+                    and isinstance(body[0].value.value, str):
+                body = body[1:]
+            return [self.visit(node) for node in body]
+
+        def visit_Module(self, node):
+            node.body = self._body(node.body)
+            return node
+
+        def visit_FunctionDef(self, node):
+            node.name = node.name if node.name in {"step", "act", "structure", "__init__"} else "function"
+            node.body = self._body(node.body)
+            return self.generic_visit(node)
+
+        def visit_ClassDef(self, node):
+            node.body = self._body(node.body)
+            return self.generic_visit(node)
+
+        def visit_Assign(self, node):
+            if any(isinstance(target, ast.Name) and target.id == "PARAMS" for target in node.targets):
+                return None
+            return self.generic_visit(node)
+
+        def visit_AnnAssign(self, node):
+            if isinstance(node.target, ast.Name) and node.target.id == "PARAMS":
+                return None
+            return self.generic_visit(node)
+
+        def visit_Name(self, node):
+            if node.id not in {"System", "step", "act", "structure", "PARAMS"}:
+                node.id = "identifier"
+            return node
+
+    normalized = Normalize().visit(tree)
+    return hashlib.sha256(ast.dump(normalized, include_attributes=False).encode()).hexdigest()
+
+
+def _behavior_signature(path: Path, params: dict, timeout=30.0) -> str:
+    rows = []
+    deadline = time.monotonic() + timeout
+    for width in (8, 12, 16, 32):
+        worker = CandidateWorker(path, deadline, params)
+        try:
+            for step in range(24):
+                observation = [float(((step * (i + 3) + i * i + 7) % 11) < 5)
+                               for i in range(width)]
+                response = worker.step(observation)
+                rows.append((width, step, response.get("prediction"), response.get("structure")))
+            worker.finish()
+        finally:
+            worker.stop()
+    def quantize(value):
+        if isinstance(value, float):
+            return round(value, 9)
+        if isinstance(value, list):
+            return [quantize(item) for item in value]
+        if isinstance(value, dict):
+            return {key: quantize(item) for key, item in value.items()}
+        return value
+    canonical = json.dumps(quantize(rows), sort_keys=True, separators=(",", ":"), allow_nan=False)
+    return hashlib.sha256(canonical.encode()).hexdigest()
+
+
+def _family_metadata(candidate: str, ast_hash: str, behavior_hash: str, entries: list,
+                    principle_path: Path, params: dict):
+    excluded = _disqualified_candidates()
+    for row in entries:
+        if row.get("candidate") == candidate:
+            continue
+        if row.get("candidate") in excluded:
+            continue
+        if (row.get("behavior_signature") == behavior_hash
+                and row.get("behavior_signature_params", row.get("params", {})) == params):
+            return {"clone_of": row.get("candidate"), "family": row.get("family", row.get("candidate"))}
+    for row in entries:
+        peer = row.get("candidate")
+        if peer == candidate or row.get("normalized_ast_sha256") != ast_hash:
+            continue
+        if peer in excluded:
+            continue
+        peer_path = PROJECT_ROOT / "candidates" / peer / "principle.py"
+        if not peer_path.is_file():
+            continue
+        settings = [params, row.get("params", {})]
+        for setting in settings:
+            if not isinstance(setting, dict):
+                continue
+            try:
+                if (_behavior_signature(principle_path, setting) ==
+                        _behavior_signature(peer_path, setting)):
+                    return {"clone_of": peer, "family": row.get("family", peer)}
+            except Exception:
+                continue
+    for row in entries:
+        if row.get("candidate") == candidate:
+            continue
+        if row.get("candidate") in excluded:
+            continue
+        if row.get("normalized_ast_sha256") == ast_hash:
+            return {"parameter_variant_of": row.get("candidate"),
+                    "family": row.get("family", row.get("candidate"))}
+    return {"family": candidate}
+
+
+def _disqualified_candidates():
+    path = ROOT / "disqualified.tsv"
+    if not path.exists():
+        return set()
+    return {line.split("\t", 1)[0].strip() for line in path.read_text(encoding="utf-8").splitlines()
+            if line.strip() and not line.startswith("#")}
+
+
+def family_rankings(entries=None):
+    """Return one best non-clone score row per family, highest first."""
+    if entries is None:
+        entries = [json.loads(line) for line in (ROOT / "leaderboard.jsonl").read_text(encoding="utf-8").splitlines()
+                   if line.strip()]
+    best = {}
+    excluded = _disqualified_candidates()
+    for row in entries:
+        if row.get("track") == "gpu" or row.get("clone_of") or row.get("candidate") in excluded:
+            continue
+        family = row.get("family", row.get("candidate"))
+        if family not in best or float(row.get("score", 0)) > float(best[family].get("score", 0)):
+            best[family] = row
+    return sorted(best.values(), key=lambda row: float(row.get("score", 0)), reverse=True)
+
+
+def _linear_slope(points):
+    points = [(float(x), float(y)) for x, y in points
+              if math.isfinite(float(x)) and math.isfinite(float(y))]
+    if len(points) < 2:
+        return 0.0
+    mean_x = sum(x for x, _ in points) / len(points)
+    mean_y = sum(y for _, y in points) / len(points)
+    denominator = sum((x - mean_x) ** 2 for x, _ in points)
+    return (sum((x - mean_x) * (y - mean_y) for x, y in points) / denominator
+            if denominator else 0.0)
+
+
+def _nursery_measure(principle_path, params, result):
+    deadline = time.monotonic() + 900
+    scaling = _run_grokking(principle_path, deadline, NURSERY_SCALE_STEPS,
+                            (8, 16, 32, 64), params)
+    times = [_run_grokking(principle_path, deadline, steps, (8,), params)[0]
+             for steps in NURSERY_TIME_STEPS]
+    size_slope = _linear_slope([(math.log2(row["width"]), row["final_quality"])
+                                for row in scaling])
+    time_slope = _linear_slope([(math.log2(row["steps"]), row["final_quality"])
+                                for row in times])
+    structure_slope = _linear_slope([(math.log2(row["width"]), row["mean_structure_mass"])
+                                     for row in scaling])
+    memory_points = [(math.log2(row["width"]), row["mean_reported_memory_bytes"])
+                     for row in scaling if row["mean_reported_memory_bytes"] > 0]
+    memory_exponent = _linear_slope([(x, math.log2(y)) for x, y in memory_points])
+    curves = [row.get("learning_curve", []) for row in scaling]
+    downs, intervals = 0, 0
+    for curve in curves:
+        for left, right in zip(curve, curve[1:]):
+            intervals += 1
+            downs += right["structure"] < left["structure"]
+    runs = [run for stage in result.get("levels", {}).values() for run in stage.get("runs", [])]
+    return_memory = [float(run["return_memory_score"]) for run in runs
+                     if isinstance(run.get("return_memory_score"), (int, float))]
+    action_values = [float(run[key]) for run in runs for key in ("behavior_diversity", "action_entropy")
+                     if isinstance(run.get(key), (int, float))]
+    has_action = any("behavior_diversity" in run or "action_entropy" in run for run in runs)
+    tree = ast.parse(principle_path.read_text(encoding="utf-8"))
+    declares_act = any(isinstance(node, ast.ClassDef) and node.name == "System"
+                       and any(isinstance(member, (ast.FunctionDef, ast.AsyncFunctionDef))
+                               and member.name == "act" for member in node.body)
+                       for node in tree.body)
+    score_summary = result.get("score_components", {})
+    return {
+        "potential": {"slope_size": size_slope, "slope_time": time_slope,
+                      "slope_structure_size": structure_slope},
+        "phenomena": {
+            "structure_growth_size_slope": structure_slope,
+            "structure_pruning_fraction": downs / max(1, intervals),
+            "return_memory_score": sum(return_memory) / max(1, len(return_memory)),
+            "action_diversity": sum(action_values) / max(1, len(action_values)),
+            "has_act": float(declares_act),
+            "action_observed": float(has_action),
+            "stream_return_memory_score": float(score_summary.get("return_memory_score", 0.0)),
+            "memory_scaling_exponent": memory_exponent,
+            "memory_subquadratic": float(bool(memory_points) and memory_exponent < 2.0),
+        },
+        "measurements": {"scaling": scaling, "time": times,
+                         "widths": [row["width"] for row in scaling],
+                         "steps": [row["steps"] for row in times]},
+    }
+
+
+def _nursery_history(row, entries):
+    family = row.get("family", row.get("candidate"))
+    excluded = _disqualified_candidates()
+    history = [entry for entry in entries
+               if entry.get("family", entry.get("candidate")) == family
+               and not entry.get("clone_of") and not entry.get("parameter_variant_of")
+               and entry.get("candidate") not in excluded]
+    version = len(history) + 1
+    first = history[0] if history else row
+    current_potential = row.get("potential", {})
+    first_potential = first.get("potential", {})
+    return {"eligible": not (row.get("clone_of") or row.get("parameter_variant_of")
+                              or row.get("candidate") in excluded),
+            "version": version, "first_candidate": first.get("candidate"),
+            "progress": {
+                "score_delta_from_first": float(row.get("score", 0.0)) - float(first.get("score", 0.0)),
+                "slope_size_delta_from_first": (float(current_potential.get("slope_size", 0.0))
+                    - float(first_potential.get("slope_size", 0.0))),
+                "slope_time_delta_from_first": (float(current_potential.get("slope_time", 0.0))
+                    - float(first_potential.get("slope_time", 0.0))),
+            }}
+
+
+def nursery_rankings(entries=None):
+    if entries is None:
+        entries = [json.loads(line) for line in (ROOT / "leaderboard.jsonl").read_text(encoding="utf-8").splitlines()
+                   if line.strip()]
+    excluded = _disqualified_candidates()
+    families = {}
+    for row in entries:
+        if (row.get("track") == "gpu" or row.get("clone_of") or row.get("parameter_variant_of")
+                or row.get("candidate") in excluded or not row.get("potential")):
+            continue
+        family = row.get("family", row.get("candidate"))
+        current = families.get(family)
+        rank = lambda item: (sum(float(item.get("potential", {}).get(key, 0.0))
+                                 for key in ("slope_size", "slope_time")),
+                             sum(float(item.get("nursery", {}).get("progress", {}).get(key, 0.0))
+                                 for key in ("score_delta_from_first", "slope_size_delta_from_first",
+                                             "slope_time_delta_from_first")))
+        if current is None or rank(row) > rank(current):
+            families[family] = row
+    return sorted(families.values(), key=lambda row: (
+        sum(float(row.get("potential", {}).get(key, 0.0)) for key in ("slope_size", "slope_time")),
+        sum(float(row.get("nursery", {}).get("progress", {}).get(key, 0.0))
+            for key in ("score_delta_from_first", "slope_size_delta_from_first", "slope_time_delta_from_first"))),
+        reverse=True)
+
+
 def _elegance(ast_counts):
     penalty = (0.012 * max(0, ast_counts["numeric_literals"] - 4)
                + 0.025 * ast_counts["conditional_branches"]
@@ -764,7 +1169,8 @@ def _elegance(ast_counts):
     return max(0.10, 1.0 - penalty), min(0.90, penalty)
 
 
-def _run_seed(principle_path: Path, seed: int, deadline: float, params_override=None):
+def _run_seed(principle_path: Path, seed: int, deadline: float, params_override=None,
+              horizon_multiplier=1):
     world = SensoryWorld(seed)
     worker = CandidateWorker(principle_path, deadline, params_override)
     online_class = _load_online_baseline()
@@ -774,7 +1180,7 @@ def _run_seed(principle_path: Path, seed: int, deadline: float, params_override=
     cpu_samples = []
     peak_memory_bytes = []
     try:
-        for _ in range(world.boundaries[-1]):
+        for _ in range(world.boundaries[-1] * horizon_multiplier):
             response = worker.step(observation)
             prediction = response.get("prediction")
             if not isinstance(prediction, list) or len(prediction) != CHANNELS:
@@ -864,6 +1270,10 @@ def _run_seed(principle_path: Path, seed: int, deadline: float, params_override=
         + 0.35 * min(1.0, rss_mb / 512.0)
         + 0.20 * min(1.0, state_mb / 64.0)
     )
+    curve = _curve_points(
+        [max(0.0, 1.0 - row["target_brier"] / 0.25) for row in rows],
+        [row["structure_mass"] for row in rows])
+    dynamics = _curve_dynamics(curve)
     return {
         "seed": seed,
         "transitions": transitions,
@@ -883,6 +1293,8 @@ def _run_seed(principle_path: Path, seed: int, deadline: float, params_override=
         "structure_spearman": rho,
         "structure_direction_fraction": direction_score,
         "cost_score": cost_score,
+        "learning_curve": curve,
+        **dynamics,
         "resources": {
             "agent_cpu_seconds": cpu_seconds,
             "agent_cpu_ms_per_step": cpu_ms_per_step,
@@ -903,7 +1315,7 @@ def _score_runs(runs):
         key: _mean(runs, key)
         for key in ("prediction_skill_vs_constant", "adaptation_score", "return_memory_score",
                     "structure_score", "cost_score", "learning_improvement",
-                    "learning_pairs_improved", "learning_pairs")
+                    "learning_pairs_improved", "learning_pairs", "internal_dynamics_score")
     }
     metrics["learning_passed"] = (
         metrics["learning_improvement"] >= LEARNING_MIN_IMPROVEMENT
@@ -924,14 +1336,15 @@ def _score_runs(runs):
     return metrics, 100.0 * weighted
 
 
-def _run_complex_stream_seed(principle_path, seed, deadline, params_override=None):
+def _run_complex_stream_seed(principle_path, seed, deadline, params_override=None,
+                             horizon_multiplier=1):
     world = ComplexSensoryWorld(seed)
     worker = CandidateWorker(principle_path, deadline, params_override)
     online = _load_online_baseline()()
     observation = world.obs[:]
     rows, cpu_samples, state_bytes = [], [], []
     try:
-        for _ in range(world.boundaries[-1]):
+        for _ in range(world.boundaries[-1] * horizon_multiplier):
             response = worker.step(observation)
             prediction = response.get("prediction")
             if not isinstance(prediction, list) or len(prediction) != world.channels:
@@ -997,6 +1410,10 @@ def _run_complex_stream_seed(principle_path, seed, deadline, params_override=Non
     cost = _cost_score(cpu, transitions, rss_mb, state_mb)
     observable_structure_score = 0.5 * max(0.0, rho) + 0.5 * direction_score
     structure_state_score = _probe_structure_state(principle_path, 2, seed, deadline, params_override)
+    curve = _curve_points(
+        [max(0.0, 1.0 - row["target_brier"] / 0.25) for row in rows],
+        [row["structure_mass"] for row in rows])
+    dynamics = _curve_dynamics(curve)
     return {
         "seed": seed, "transitions": transitions, "mean_brier": brier,
         "baseline_brier": baseline_brier,
@@ -1008,6 +1425,8 @@ def _run_complex_stream_seed(principle_path, seed, deadline, params_override=Non
         **learning,
         "structure_spearman": rho, "structure_direction_fraction": direction_score,
         "cost_score": cost,
+        "learning_curve": curve,
+        **dynamics,
         "resources": {"agent_cpu_seconds": cpu, "agent_cpu_ms_per_step": cpu_ms,
                       "worker_process_cpu_seconds": worker_info.get("process_cpu_seconds"),
                       "worker_peak_rss_mb": rss_mb, "reported_state_mb_mean": state_mb},
@@ -1098,6 +1517,7 @@ def _action_value(response, action_count):
 def _run_snake_seed(principle_path, seed, deadline, params_override=None):
     worker = CandidateWorker(principle_path, deadline, params_override)
     masses, complexities, actions, cpu_samples, state_bytes = [], [], [], [], []
+    quality_values = []
     episode_runs = []
     try:
         for _episode in range(CONTROL_EPISODES):
@@ -1115,6 +1535,8 @@ def _run_snake_seed(principle_path, seed, deadline, params_override=None):
                 row = world.step(action)
                 masses.append(mass)
                 complexities.append(row["complexity"])
+                quality_values.append(0.5 * row["steps"] / SNAKE_HORIZON
+                                     + 0.5 * min(1.0, row["apples"] / 5.0))
             episode_runs.append({
                 "survival_steps": len(episode_actions), "apples_eaten": world.apples,
                 "board_coverage": len(world.visited) / 100.0,
@@ -1141,6 +1563,8 @@ def _run_snake_seed(principle_path, seed, deadline, params_override=None):
     observable_structure_score = structure
     structure_state_score = _probe_structure_state(principle_path, 3, seed, deadline, params_override)
     structure *= structure_state_score
+    curve = _curve_points(quality_values, masses)
+    dynamics = _curve_dynamics(curve)
     turns = len(actions)
     cpu = sum(cpu_samples)
     rss_mb = worker_info.get("peak_rss_kib", 0) / 1024.0
@@ -1159,6 +1583,8 @@ def _run_snake_seed(principle_path, seed, deadline, params_override=None):
         "structure_state_score": structure_state_score,
         "structure_spearman": rho, "structure_direction_fraction": direction,
         "cost_score": _cost_score(cpu, turns, rss_mb, state_mb),
+        "learning_curve": curve,
+        **dynamics,
         "resources": {"agent_cpu_seconds": cpu, "agent_cpu_ms_per_step": cpu * 1000 / max(1, turns),
                       "worker_process_cpu_seconds": worker_info.get("process_cpu_seconds"),
                       "worker_peak_rss_mb": rss_mb, "reported_state_mb_mean": state_mb},
@@ -1192,6 +1618,7 @@ def _run_crafter_seed(principle_path, seed, deadline, params_override=None):
     worker = CandidateWorker(principle_path, deadline, params_override)
     achievements = set()
     masses, complexities, cpu_samples, state_bytes = [], [], [], []
+    quality_values = []
     episode_runs = []
     try:
         for _episode in range(CONTROL_EPISODES):
@@ -1214,6 +1641,7 @@ def _run_crafter_seed(principle_path, seed, deadline, params_override=None):
                 episode_achievements.update(names)
                 masses.append(mass)
                 complexities.append(complexity)
+                quality_values.append(len(achievements) / 22.0)
                 episode_steps += 1
                 if done:
                     break
@@ -1228,6 +1656,8 @@ def _run_crafter_seed(principle_path, seed, deadline, params_override=None):
     observable_structure_score = structure
     structure_state_score = _probe_structure_state(principle_path, 4, seed, deadline, params_override)
     structure *= structure_state_score
+    curve = _curve_points(quality_values, masses)
+    dynamics = _curve_dynamics(curve)
     cpu = sum(cpu_samples)
     rss_mb = worker_info.get("peak_rss_kib", 0) / 1024.0
     state_mb = (sum(state_bytes) / max(1, len(state_bytes))) / (1024 * 1024)
@@ -1239,6 +1669,8 @@ def _run_crafter_seed(principle_path, seed, deadline, params_override=None):
         "structure_spearman": rho, "structure_direction_fraction": direction,
         "mean_observation_complexity": sum(complexities) / max(1, len(complexities)),
         "cost_score": _cost_score(cpu, sum(run["survival_steps"] for run in episode_runs), rss_mb, state_mb),
+        "learning_curve": curve,
+        **dynamics,
         "resources": {"agent_cpu_seconds": cpu, "agent_cpu_ms_per_step": cpu * 1000 / max(1, sum(run["survival_steps"] for run in episode_runs)),
                       "worker_process_cpu_seconds": worker_info.get("process_cpu_seconds"),
                       "worker_peak_rss_mb": rss_mb, "reported_state_mb_mean": state_mb},
@@ -1260,7 +1692,8 @@ def _score_level_runs(level, runs):
     if level == 3:
         metrics = {key: _mean(runs, key) for key in LEVEL_WEIGHTS[level]}
         metrics.update({key: _mean(runs, key) for key in
-                        ("learning_improvement", "learning_pairs_improved", "learning_pairs")})
+                        ("learning_improvement", "learning_pairs_improved", "learning_pairs",
+                         "internal_dynamics_score")})
         metrics.update({"mean_survival_steps": _mean(runs, "survival_steps"),
                         "mean_apples_eaten": _mean(runs, "apples_eaten"),
                         "mean_board_coverage": _mean(runs, "board_coverage"),
@@ -1268,7 +1701,8 @@ def _score_level_runs(level, runs):
     else:
         metrics = {key: _mean(runs, key) for key in ("structure_score", "cost_score")}
         metrics.update({key: _mean(runs, key) for key in
-                        ("learning_improvement", "learning_pairs_improved", "learning_pairs")})
+                        ("learning_improvement", "learning_pairs_improved", "learning_pairs",
+                         "internal_dynamics_score")})
         all_names = None
         try:
             import crafter
@@ -1291,30 +1725,56 @@ def _score_level_runs(level, runs):
     return metrics, 100.0 * weighted
 
 
-def _evaluate_level(level, principle_path, params, deadline):
+def _run_level_task(task):
+    level, principle_path, seed, deadline, override, long_horizon = task
+    if level == 1:
+        return _run_seed(principle_path, seed, deadline, override,
+                         8 if long_horizon else 1)
+    if level == 2:
+        return _run_complex_stream_seed(principle_path, seed, deadline, override,
+                                        8 if long_horizon else 1)
+    if level == 3:
+        return _run_snake_seed(principle_path, seed, deadline, override)
+    return _run_crafter_seed(principle_path, seed, deadline, override)
+
+
+def _run_level_task_safe(task):
+    try:
+        return True, _run_level_task(task)
+    except Exception as exc:
+        return False, f"{type(exc).__name__}: {exc}"
+
+
+def _evaluate_level(level, principle_path, params, deadline, long_horizon=False):
     seeds = SEEDS if level in (1, 2) else SNAKE_SEEDS if level == 3 else CRAFTER_SEEDS
-
-    def run(seed, override=None):
-        if level == 1:
-            return _run_seed(principle_path, seed, deadline, override)
-        if level == 2:
-            return _run_complex_stream_seed(principle_path, seed, deadline, override)
-        if level == 3:
-            return _run_snake_seed(principle_path, seed, deadline, override)
-        return _run_crafter_seed(principle_path, seed, deadline, override)
-
-    runs = [run(seed) for seed in seeds]
-    metrics, unpenalized = _score_level_runs(level, runs)
-    robustness_runs, ratios = [], []
-    for perturb_seed in ROBUSTNESS_SEEDS if params else ():
-        perturbed_params, factors = _perturb_params(params, perturb_seed)
-        perturbed_runs, error = [], None
-        try:
-            perturbed_runs = [run(seed, perturbed_params) for seed in seeds]
-            _, perturbed_score = _score_level_runs(level, perturbed_runs)
-        except Exception as exc:
-            error = f"{type(exc).__name__}: {exc}"
-            perturbed_score = 0.0
+    worker_count = min(3, max(1, os.cpu_count() or 1))
+    with ProcessPoolExecutor(max_workers=worker_count) as pool:
+        nominal_tasks = [(level, principle_path, seed, deadline, None, long_horizon)
+                         for seed in seeds]
+        runs = list(pool.map(_run_level_task, nominal_tasks))
+        metrics, unpenalized = _score_level_runs(level, runs)
+        robustness_runs, ratios = [], []
+        perturbations = []
+        for perturb_seed in ROBUSTNESS_SEEDS if params else ():
+            perturbed_params, factors = _perturb_params(params, perturb_seed)
+            perturbations.append((perturb_seed, perturbed_params, factors))
+        robust_tasks = [(level, principle_path, seed, deadline, perturbed_params, long_horizon)
+                        for _perturb_seed, perturbed_params, _factors in perturbations
+                        for seed in seeds]
+        robust_results = list(pool.map(_run_level_task_safe, robust_tasks))
+    offset = 0
+    for perturb_seed, perturbed_params, factors in perturbations:
+        task_results = robust_results[offset:offset + len(seeds)]
+        offset += len(seeds)
+        failed = next((result for okay, result in task_results if not okay), None)
+        error, perturbed_runs, perturbed_score = None, [result for _okay, result in task_results], 0.0
+        if failed is not None:
+            error, perturbed_runs = failed, []
+        else:
+            try:
+                _, perturbed_score = _score_level_runs(level, perturbed_runs)
+            except Exception as exc:
+                error, perturbed_runs = f"{type(exc).__name__}: {exc}", []
         ratio = (max(0.0, min(1.0, perturbed_score / unpenalized)) if unpenalized > 0
                  else (1.0 if perturbed_score <= 0 else 0.0))
         ratios.append(ratio)
@@ -1345,7 +1805,8 @@ def _perturb_params(params, seed):
     return changed, factors
 
 
-def judge(candidate_dir: Path, author: str, timeout_seconds=None, only_level=None):
+def judge(candidate_dir: Path, author: str, timeout_seconds=None, only_level=None,
+          long_track=False):
     principle_path = (candidate_dir / "principle.py").resolve()
     if not principle_path.is_file():
         raise FileNotFoundError(f"candidate must contain {principle_path}")
@@ -1355,7 +1816,8 @@ def judge(candidate_dir: Path, author: str, timeout_seconds=None, only_level=Non
     world_agnostic = ast_counts["format_dependent_branches"] == 0
     levels = {}
     highest_passed = 0
-    level_sequence = (only_level,) if only_level is not None else (1, 2, 3, 4)
+    level_sequence = ((only_level,) if only_level is not None else
+                      ((1, 2) if long_track else (1, 2, 3, 4)))
     last_result = None
     stop_reason = "all_levels_passed"
     for level in level_sequence:
@@ -1364,7 +1826,7 @@ def judge(candidate_dir: Path, author: str, timeout_seconds=None, only_level=Non
         deadline = time.monotonic() + level_timeout
         level_started = time.monotonic()
         try:
-            result = _evaluate_level(level, principle_path, params, deadline)
+            result = _evaluate_level(level, principle_path, params, deadline, long_track)
             error = None
         except Exception as exc:
             result = {"score_unpenalized": 0.0, "score_components": {},
@@ -1421,6 +1883,21 @@ def judge(candidate_dir: Path, author: str, timeout_seconds=None, only_level=Non
         reported_robustness = reported["robustness"]
         reported_runs = reported["runs"]
         reported_robustness_runs = reported["robustness_runs"]
+    examined = last_result["score_components"]
+    long_track_eligible = bool(
+        only_level is None and highest_passed < 2
+        and examined.get("internal_dynamics_score", 0.0) >= 0.05)
+    grokking = None
+    scaling = []
+    if long_track:
+        try:
+            grokking = _run_grokking(principle_path, time.monotonic() + (timeout_seconds or 900),
+                                     GROK_LONG_STEPS, (8,), params)
+            scaling = _run_grokking(principle_path, time.monotonic() + (timeout_seconds or 900),
+                                    GROK_SCALING_STEPS, (8, 16, 32, 64), params)
+        except Exception as exc:
+            grokking = {"error": f"{type(exc).__name__}: {exc}"}
+            scaling = []
     return {
         "candidate": candidate_dir.name,
         "author": author,
@@ -1432,6 +1909,9 @@ def judge(candidate_dir: Path, author: str, timeout_seconds=None, only_level=Non
         "score_components": reported_components,
         "robustness": reported_robustness,
         "world_agnostic": world_agnostic,
+        "long_track_eligible": long_track_eligible,
+        "grokking": grokking,
+        "scaling": scaling,
         "params": params,
         "robustness_runs": reported_robustness_runs,
         "levels": levels,
@@ -1453,6 +1933,11 @@ def judge(candidate_dir: Path, author: str, timeout_seconds=None, only_level=Non
             "learning_min_improvement": LEARNING_MIN_IMPROVEMENT,
             "learning_min_pairs_fraction": LEARNING_MIN_PAIRS_FRACTION,
             "control_episodes_per_seed": CONTROL_EPISODES,
+            "curve_points": CURVE_POINTS,
+            "grok_short_steps": GROK_SHORT_STEPS,
+            "grok_long_steps": GROK_LONG_STEPS,
+            "grok_scaling_steps": GROK_SCALING_STEPS,
+            "long_track": long_track,
             "robustness_seeds": list(ROBUSTNESS_SEEDS) if params else [],
             "level_timeouts_seconds": LEVEL_TIMEOUTS,
             "snake_seeds": list(SNAKE_SEEDS), "snake_horizon": SNAKE_HORIZON,
@@ -1462,6 +1947,348 @@ def judge(candidate_dir: Path, author: str, timeout_seconds=None, only_level=Non
             "only_level": only_level,
         },
         "runs": reported_runs,
+        "wall_seconds": time.monotonic() - started,
+    }
+
+
+class _GPUWorld:
+    """A batched, multi-scale stream used only by the GPU track."""
+
+    def __init__(self, units, seed, device, steps):
+        import torch
+        self.torch = torch
+        self.units = int(units)
+        self.seed = int(seed)
+        self.device = device
+        self.steps = int(steps)
+        self.t = 0
+        generator = torch.Generator(device=device)
+        generator.manual_seed(self.seed)
+        self.generator = generator
+        self.obs = torch.rand(self.units, device=device, generator=generator)
+        self.index = torch.arange(self.units, device=device)
+        self.module_width = max(4, int(math.sqrt(self.units)))
+        self.phase_length = max(128, min(512, self.steps // 16))
+        self.regimes = (0, 1, 2, 3, 0, 3, 2, 1)
+        self.complexities = (1, 2, 4, 8, 16, 32, 8, 16)
+
+    def step(self):
+        torch = self.torch
+        phase = (self.t // self.phase_length) % len(self.regimes)
+        regime = self.regimes[phase]
+        complexity = self.complexities[phase]
+        # Rolls are batched over every unit.  Their strides are the local
+        # module, a module-spanning dependency, and a sparse long edge.
+        local = (self.obs + torch.roll(self.obs, 1) + torch.roll(self.obs, -1)) / 3.0
+        module = torch.roll(self.obs, self.module_width)
+        long_stride = max(self.module_width * (complexity + 1), self.units // 17)
+        distant = torch.roll(self.obs, long_stride)
+        coefficients = ((0.62, 0.18, 0.20), (0.30, 0.52, 0.18),
+                        (0.18, 0.22, 0.60), (0.42, 0.10, 0.48))
+        a, b, c = coefficients[regime]
+        # Held-out combinations use a novel mixing order after the return;
+        # the candidate sees only the current tensor and must retain useful
+        # structure across the regime change.
+        if phase in (5, 6, 7):
+            logits = (a * distant + b * local + c * module
+                      + 0.18 * torch.sin(self.index * (0.013 + regime * 0.003) + self.t * 0.017))
+            heldout = True
+        else:
+            logits = a * local + b * module + c * distant
+            heldout = False
+        noise = 0.08 * torch.randn(self.units, device=self.device, generator=self.generator)
+        target = torch.sigmoid((logits - 0.5) * 5.0 + noise)
+        target = (target > 0.5).to(dtype=torch.float32)
+        current = self.obs
+        self.obs = target
+        self.t += 1
+        return current, target, phase, regime, complexity, heldout
+
+
+def _gpu_module_path(candidate_dir):
+    gpu_path = candidate_dir / "principle_gpu.py"
+    cpu_path = candidate_dir / "principle.py"
+    if gpu_path.is_file():
+        return gpu_path.resolve(), cpu_path.resolve() if cpu_path.is_file() else None
+    if cpu_path.is_file():
+        return cpu_path.resolve(), None
+    raise FileNotFoundError(f"candidate must contain {gpu_path} or {cpu_path}")
+
+
+def _load_gpu_system(path, units, device, seed, params):
+    spec = importlib.util.spec_from_file_location("genesis_gpu_candidate", str(path))
+    if spec is None or spec.loader is None:
+        raise RuntimeError(f"cannot load {path}")
+    module = importlib.util.module_from_spec(spec)
+    with contextlib.redirect_stdout(io.StringIO()), contextlib.redirect_stderr(io.StringIO()):
+        spec.loader.exec_module(module)
+    if params:
+        module.PARAMS = params
+    cls = getattr(module, "SystemGPU", None)
+    if cls is None:
+        cls = getattr(module, "System", None)
+    if cls is None:
+        raise RuntimeError("GPU candidate must define SystemGPU or System")
+    constructors = ((units, device, seed), (units, device), (units,))
+    last_error = None
+    for args in constructors:
+        try:
+            return cls(*args), module
+        except TypeError as exc:
+            last_error = exc
+    raise RuntimeError(f"GPU system constructor must accept (n_units, device, seed): {last_error}")
+
+
+def _gpu_prediction(value, torch, units, device):
+    if isinstance(value, dict):
+        value = value.get("prediction", value.get("pred", value.get("output")))
+    if value is None:
+        raise ValueError("GPU step must return a tensor or {'prediction': tensor}")
+    if not torch.is_tensor(value):
+        value = torch.as_tensor(value, device=device)
+    value = value.to(device=device, dtype=torch.float32)
+    if value.numel() != units:
+        raise ValueError(f"GPU prediction has {value.numel()} values; expected {units}")
+    return value.reshape(units).clamp(0.0, 1.0)
+
+
+def _gpu_structure(value, torch, device):
+    if isinstance(value, dict):
+        for key in ("mass", "complexity", "activity", "structure"):
+            if key in value:
+                return _gpu_structure(value[key], torch, device)
+        values = [_gpu_structure(item, torch, device) for item in value.values()]
+        return sum(values) / max(1, len(values))
+    if torch.is_tensor(value):
+        return float(value.detach().to(device=device, dtype=torch.float32).abs().mean().item())
+    if isinstance(value, (list, tuple)):
+        values = [_gpu_structure(item, torch, device) for item in value]
+        return sum(values) / max(1, len(values))
+    try:
+        return float(value)
+    except (TypeError, ValueError):
+        return 0.0
+
+
+def _gpu_system_structure(system, torch, device):
+    method = getattr(system, "structure", None)
+    if method is None:
+        return 0.0
+    return _gpu_structure(method(), torch, device)
+
+
+def _gpu_run_scale(path, params, units, steps, seed, deadline):
+    import torch
+    if not torch.cuda.is_available():
+        raise RuntimeError("CUDA is unavailable; install the torch CUDA environment")
+    device = torch.device("cuda:0")
+    torch.cuda.synchronize(device)
+    started = time.monotonic()
+    system, module = _load_gpu_system(path, units, device, seed, params)
+    world = _GPUWorld(units, seed, device, steps)
+    phase_errors = {}
+    phase_quality = {}
+    structures, complexities, qualities, checkpoints = [], [], [], []
+    error_sum = torch.zeros((), device=device)
+    sample_stride = max(1, steps // CURVE_POINTS)
+    previous = None
+    try:
+        with torch.no_grad():
+            for step in range(steps):
+                if time.monotonic() > deadline:
+                    raise TimeoutError("GPU candidate exceeded the judge limit")
+                observation, target, phase, regime, complexity, heldout = world.step()
+                prediction = _gpu_prediction(system.step(observation), torch, units, device)
+                error = (prediction - target).square().mean()
+                error_sum = error_sum + error
+                phase_errors.setdefault(regime, []).append(error)
+                phase_quality.setdefault(("heldout" if heldout else "known"), []).append(error)
+                if step % sample_stride == 0 or step + 1 == steps:
+                    structures.append(_gpu_system_structure(system, torch, device))
+                    complexities.append(float(complexity))
+                    qualities.append(float((1.0 - error.clamp(0.0, 0.25) / 0.25).item()))
+                    checkpoints.append(step)
+        torch.cuda.synchronize(device)
+        total_error = float((error_sum / max(1, steps)).item())
+    finally:
+        close = getattr(system, "close", None)
+        if close is not None:
+            close()
+    elapsed = time.monotonic() - started
+    def mean_errors(rows):
+        if not rows:
+            return 0.25
+        return float(torch.stack(rows).mean().item())
+    early_late = []
+    for rows in phase_errors.values():
+        width = max(1, min(32, len(rows) // 4))
+        early_late.append((mean_errors(rows[:width]), mean_errors(rows[-width:])))
+    adaptation = sum(max(0.0, early - late) for early, late in early_late)
+    adaptation = max(0.0, min(1.0, adaptation / max(0.05, 0.25 * len(early_late))))
+    return_memory = []
+    seen = {}
+    for regime, rows in phase_errors.items():
+        current = mean_errors(rows)
+        if regime in seen:
+            return_memory.append(max(0.0, min(1.0, (seen[regime] - current) / 0.25)))
+        else:
+            seen[regime] = current
+    return_memory_score = sum(return_memory) / max(1, len(return_memory))
+    structure_corr = _correlation(structures, complexities)
+    structure_score = max(0.0, min(1.0, structure_corr))
+    prediction = max(0.0, min(1.0, 1.0 - total_error / 0.25))
+    known = [1.0 - float(value.item()) / 0.25 for value in phase_quality.get("known", [])]
+    heldout = [1.0 - float(value.item()) / 0.25 for value in phase_quality.get("heldout", [])]
+    heldout_jump = ((sum(heldout[-max(1, len(heldout) // 4):]) / max(1, len(heldout) // 4))
+                    - (sum(heldout[:max(1, len(heldout) // 4)]) / max(1, len(heldout) // 4))) if heldout else 0.0
+    curve = [{"step": int(step), "quality": float(quality), "structure": float(structure)}
+             for step, quality, structure in zip(checkpoints, qualities, structures)]
+    memory_bytes = units * 4
+    return {
+        "units": units, "steps": steps, "seed": seed,
+        "prediction_skill_vs_constant": prediction,
+        "adaptation_score": adaptation,
+        "return_memory_score": return_memory_score,
+        "structure_score": structure_score,
+        "structure_correlation": structure_corr,
+        "cost_score": 1.0 / (1.0 + elapsed / max(0.001, steps * units / 1.0e8)),
+        "mean_brier": total_error,
+        "heldout_jump": heldout_jump,
+        "grokking_detected": bool(heldout_jump >= 0.15),
+        "known_quality": sum(known) / max(1, len(known)),
+        "heldout_quality": sum(heldout) / max(1, len(heldout)),
+        "learning_curve": curve,
+        "resources": {"wall_seconds": elapsed, "wall_ms_per_step": 1000.0 * elapsed / max(1, steps),
+                      "reported_state_bytes": memory_bytes,
+                      "reported_state_mb": memory_bytes / (1024 ** 2),
+                      "peak_cuda_allocated_mb": torch.cuda.max_memory_allocated(device) / (1024 ** 2)},
+        "transitions": steps,
+    }
+
+
+def _gpu_consistency(gpu_path, cpu_path, params):
+    if cpu_path is None or gpu_path == cpu_path:
+        return {"checked": False, "passed": True, "reason": "no separate CPU implementation"}
+    import torch
+    try:
+        system, _module = _load_gpu_system(gpu_path, 16, torch.device("cuda:0"), 7, params)
+        cpu_spec = importlib.util.spec_from_file_location("genesis_cpu_probe", str(cpu_path))
+        cpu_module = importlib.util.module_from_spec(cpu_spec)
+        with contextlib.redirect_stdout(io.StringIO()), contextlib.redirect_stderr(io.StringIO()):
+            cpu_spec.loader.exec_module(cpu_module)
+        cpu = cpu_module.System()
+        torch.manual_seed(7)
+        values = []
+        for index in range(4):
+            observation = [float(((index * (item + 3) + item * item + 7) % 11) < 5)
+                           for item in range(16)]
+            cpu_prediction = cpu.step(observation)
+            gpu_prediction = _gpu_prediction(system.step(torch.tensor(observation, device="cuda:0")),
+                                             torch, 16, torch.device("cuda:0")).detach().cpu().tolist()
+            if isinstance(cpu_prediction, dict):
+                cpu_prediction = cpu_prediction.get("prediction", cpu_prediction.get("pred"))
+            cpu_values = torch.as_tensor(cpu_prediction, dtype=torch.float32).reshape(-1)
+            gpu_values = torch.as_tensor(gpu_prediction, dtype=torch.float32)
+            if cpu_values.numel() != gpu_values.numel():
+                return {"checked": True, "passed": False, "reason": "shape mismatch"}
+            values.append(float((cpu_values - gpu_values).abs().max().item()))
+        close = getattr(system, "close", None)
+        if close is not None:
+            close()
+        maximum = max(values) if values else 0.0
+        return {"checked": True, "passed": maximum <= 1.0e-4, "max_abs_error": maximum,
+                "tolerance": 1.0e-4}
+    except Exception as exc:
+        return {"checked": True, "passed": False, "error": f"{type(exc).__name__}: {exc}"}
+
+
+def _gpu_family_metadata(candidate, ast_hash, behavior_hash, entries):
+    excluded = _disqualified_candidates()
+    for row in entries:
+        if row.get("track") != "gpu" or row.get("candidate") == candidate:
+            continue
+        if row.get("candidate") in excluded:
+            continue
+        if row.get("behavior_signature") == behavior_hash:
+            return {"clone_of": row.get("candidate"), "family": row.get("family", row.get("candidate"))}
+    for row in entries:
+        if row.get("track") == "gpu" and row.get("candidate") != candidate \
+                and row.get("normalized_ast_sha256") == ast_hash and row.get("candidate") not in excluded:
+            return {"parameter_variant_of": row.get("candidate"),
+                    "family": row.get("family", row.get("candidate"))}
+    return {"family": candidate}
+
+
+def _gpu_judge(candidate_dir, author, timeout_seconds=None, gpu_steps=GPU_DEFAULT_STEPS):
+    import torch
+    if gpu_steps < 10000 or gpu_steps > GPU_MAX_STEPS:
+        raise ValueError(f"--gpu-steps must be between 10000 and {GPU_MAX_STEPS}")
+    gpu_path, cpu_path = _gpu_module_path(candidate_dir)
+    ast_counts, params = _read_principle(gpu_path)
+    elegance, complexity_penalty = _elegance(ast_counts)
+    started = time.monotonic()
+    deadline = started + min(timeout_seconds or 3600, 7200)
+    torch.cuda.reset_peak_memory_stats()
+    torch.cuda.set_per_process_memory_fraction(min(0.40, GPU_MEMORY_LIMIT_BYTES / torch.cuda.get_device_properties(0).total_memory))
+    scale_runs = []
+    for units in GPU_SCALE_SIZES:
+        scale_runs.append(_gpu_run_scale(gpu_path, params, units, gpu_steps, GPU_SEEDS[0], deadline))
+    # A second duration at 1k units makes time growth observable without
+    # multiplying the expensive 1e5-unit run.
+    time_run = _gpu_run_scale(gpu_path, params, 1000, min(GPU_MAX_STEPS, gpu_steps * 2), GPU_SEEDS[0], deadline)
+    prediction = sum(row["prediction_skill_vs_constant"] for row in scale_runs) / len(scale_runs)
+    adaptation = sum(row["adaptation_score"] for row in scale_runs) / len(scale_runs)
+    memory = sum(row["return_memory_score"] for row in scale_runs) / len(scale_runs)
+    structure = sum(row["structure_score"] for row in scale_runs) / len(scale_runs)
+    cost = sum(row["cost_score"] for row in scale_runs) / len(scale_runs)
+    weights = {"prediction_skill_vs_constant": 0.35, "adaptation_score": 0.20,
+               "return_memory_score": 0.15, "structure_score": 0.20, "cost_score": 0.10}
+    components = {"prediction_skill_vs_constant": prediction, "adaptation_score": adaptation,
+                  "return_memory_score": memory, "structure_score": structure, "cost_score": cost}
+    unpenalized = 100.0 * sum(weights[key] * components[key] for key in weights)
+    robustness_runs = []
+    for seed in (2029,) if params else ():
+        try:
+            robustness_runs.append(_gpu_run_scale(gpu_path, _perturb_params(params, seed)[0], 1000,
+                                                  gpu_steps, seed, deadline))
+        except Exception as exc:
+            robustness_runs.append({"seed": seed, "error": f"{type(exc).__name__}: {exc}"})
+    robust_score = sum(row.get("prediction_skill_vs_constant", 0.0) for row in robustness_runs) / max(1, len(robustness_runs))
+    robustness = max(0.0, min(1.0, (robust_score / max(0.05, prediction)))) if robustness_runs else 1.0
+    score = unpenalized * elegance * robustness
+    quality_points = [(math.log2(row["units"]), row["prediction_skill_vs_constant"])
+                      for row in scale_runs]
+    slope_size = _linear_slope(quality_points)
+    time_points = [(math.log2(scale_runs[0]["steps"]), scale_runs[0]["heldout_quality"]),
+                   (math.log2(time_run["steps"]), time_run["heldout_quality"])]
+    slope_time = _linear_slope(time_points)
+    peak = max(row["resources"]["peak_cuda_allocated_mb"] for row in scale_runs + [time_run])
+    if peak * 1024 ** 2 > GPU_MEMORY_LIMIT_BYTES:
+        raise MemoryError("GPU candidate exceeded the 40 GiB track limit")
+    return {
+        "track": "gpu", "candidate": candidate_dir.name, "author": author,
+        "score": score, "score_unpenalized": unpenalized, "robustness": robustness,
+        "score_components": {**components, "learning_passed": True,
+                             "grokking_detected": any(row["grokking_detected"] for row in scale_runs)},
+        "scaling": scale_runs, "time_probe": time_run, "robustness_runs": robustness_runs,
+        "potential": {"slope_size": slope_size, "slope_time": slope_time,
+                       "memory_exponent": _linear_slope([(math.log2(row["units"]),
+                                                            math.log2(max(1.0, row["resources"]["reported_state_bytes"])))
+                                                           for row in scale_runs])},
+        "phenomena": {"grokking": float(any(row["grokking_detected"] for row in scale_runs)),
+                      "late_generalization_jump": max(row["heldout_jump"] for row in scale_runs),
+                      "specialization_structure_slope": _linear_slope(
+                          [(math.log2(row["units"]), row["structure_score"]) for row in scale_runs])},
+        "gpu_consistency": _gpu_consistency(gpu_path, cpu_path, params),
+        "params": params, "elegance": {**ast_counts, "penalty": complexity_penalty,
+                                         "multiplier": elegance},
+        "normalized_ast_sha256": _normalized_ast_hash(gpu_path),
+        "principle_sha256": hashlib.sha256(gpu_path.read_bytes()).hexdigest(),
+        "evaluated_at_utc": datetime.now(timezone.utc).isoformat(timespec="seconds").replace("+00:00", "Z"),
+        "protocol": {"track": "gpu", "device": str(torch.cuda.get_device_name(0)),
+                     "sizes": list(GPU_SCALE_SIZES), "steps": gpu_steps,
+                     "seeds": list(GPU_SEEDS), "memory_limit_gib": 40,
+                     "world": "local modules + sparse long edges + returning regimes + held-out mixtures"},
         "wall_seconds": time.monotonic() - started,
     }
 
@@ -1481,16 +2308,66 @@ def _append_leaderboard(row):
         with path.open("a", encoding="utf-8") as handle:
             handle.write(encoded)
 
+# GPU run serialization.
+@contextmanager
+def _gpu_run_lock():
+    """Serialize accelerator runs shared with the TTS pipeline and agents."""
+    import fcntl
+    lock_path = ROOT / ".gpu.lock"
+    with lock_path.open("a+", encoding="utf-8") as handle:
+        fcntl.flock(handle.fileno(), fcntl.LOCK_EX)
+        try:
+            yield
+        finally:
+            fcntl.flock(handle.fileno(), fcntl.LOCK_UN)
+
+
+def _gpu_leaderboard_row(result, existing):
+    candidate = result["candidate"]
+    metadata = _gpu_family_metadata(candidate, result["normalized_ast_sha256"],
+                                    result["behavior_signature"], existing)
+    result.update(metadata)
+    result["nursery"] = {"eligible": not (result.get("clone_of") or result.get("parameter_variant_of")),
+                          "version": 1, "first_candidate": metadata.get("family", candidate),
+                          "progress": {"score_delta_from_first": 0.0,
+                                        "slope_size_delta_from_first": 0.0,
+                                        "slope_time_delta_from_first": 0.0}}
+    return result
+
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("candidate", type=Path, help="candidate directory containing principle.py")
+    parser.add_argument("candidate", type=Path, nargs="?", help="candidate directory containing principle.py")
+    parser.add_argument("--nursery", action="store_true",
+                        help="print family ranking by measured growth potential and progress")
     parser.add_argument("--author", default="unspecified")
     parser.add_argument("--timeout", type=int, default=None,
                         help="optional wall-clock limit per evaluated level (capped at that level's protocol limit)")
     parser.add_argument("--only-level", type=int, choices=(1, 2, 3, 4), default=None,
                         help="evaluate one level for baseline calibration; skips ladder progression")
+    parser.add_argument("--long", action="store_true",
+                        help="run the long level-1/2 track, grokking world and scaling test")
+    parser.add_argument("--gpu", action="store_true",
+                        help="run the independent large-scale CUDA track")
+    parser.add_argument("--gpu-steps", type=int, default=GPU_DEFAULT_STEPS,
+                        help="steps at each GPU scale (10000..100000)")
     args = parser.parse_args()
+    if args.nursery:
+        entries = [json.loads(line) for line in (ROOT / "leaderboard.jsonl").read_text(encoding="utf-8").splitlines()
+                   if line.strip()]
+        rankings = nursery_rankings(entries)
+        print("family\tcandidate\tsize_slope\ttime_slope\tprogress")
+        for row in rankings[:10]:
+            progress = row.get("nursery", {}).get("progress", {})
+            print(f"{row.get('family', row.get('candidate'))}\t{row.get('candidate')}\t"
+                  f"{row.get('potential', {}).get('slope_size', 0.0):+.4f}\t"
+                  f"{row.get('potential', {}).get('slope_time', 0.0):+.4f}\t"
+                  f"{sum(float(progress.get(key, 0.0)) for key in ('score_delta_from_first', 'slope_size_delta_from_first', 'slope_time_delta_from_first')):+.4f}")
+        if not rankings:
+            print("(no nursery measurements yet)")
+        return
+    if args.candidate is None:
+        parser.error("candidate directory is required unless --nursery is used")
     if args.candidate.is_absolute():
         candidate_dir = args.candidate
     else:
@@ -1501,7 +2378,73 @@ def main():
         parser.error("--timeout must be positive")
     if not candidate_dir.is_dir():
         parser.error(f"candidate directory does not exist: {candidate_dir}")
-    result = judge(candidate_dir, args.author, args.timeout, args.only_level)
+    if args.gpu:
+        if args.only_level is not None or args.long:
+            parser.error("--gpu cannot be combined with --only-level or --long")
+        if args.timeout is not None and args.timeout <= 0:
+            parser.error("--timeout must be positive")
+        import torch
+        if not torch.cuda.is_available():
+            parser.error("--gpu requires CUDA-enabled torch")
+        with _gpu_run_lock():
+            result = _gpu_judge(candidate_dir, args.author, args.timeout, args.gpu_steps)
+        signature = hashlib.sha256(json.dumps([
+            (row["units"], row["prediction_skill_vs_constant"], row["structure_score"])
+            for row in result["scaling"]], separators=(",", ":")).encode()).hexdigest()
+        result["behavior_signature"] = signature
+        result["behavior_signature_params"] = result["params"]
+        existing = [json.loads(line) for line in (ROOT / "leaderboard.jsonl").read_text(encoding="utf-8").splitlines()
+                    if line.strip()]
+        _gpu_leaderboard_row(result, existing)
+        _append_leaderboard(result)
+        print(json.dumps({"track": "gpu", "candidate": result["candidate"],
+                          "score": round(result["score"], 4), "robustness": round(result["robustness"], 4),
+                          "potential": result["potential"], "gpu_consistency": result["gpu_consistency"],
+                          "scaling": [{"units": row["units"], "steps": row["steps"],
+                                       "prediction": round(row["prediction_skill_vs_constant"], 4),
+                                       "adaptation": round(row["adaptation_score"], 4),
+                                       "return_memory": round(row["return_memory_score"], 4),
+                                       "structure": round(row["structure_score"], 4),
+                                       "seconds": round(row["resources"]["wall_seconds"], 3),
+                                       "peak_cuda_allocated_mb": round(
+                                           row["resources"]["peak_cuda_allocated_mb"], 2)}
+                                      for row in result["scaling"]],
+                          "leaderboard": str(ROOT / "leaderboard.jsonl"),
+                          "wall_seconds": round(result["wall_seconds"], 3)}, sort_keys=True))
+        return
+    result = judge(candidate_dir, args.author, args.timeout, args.only_level, args.long)
+    principle_path = (candidate_dir / "principle.py").resolve()
+    ast_hash = _normalized_ast_hash(principle_path)
+    existing = [json.loads(line) for line in (ROOT / "leaderboard.jsonl").read_text(encoding="utf-8").splitlines()
+                if line.strip()]
+    behavior_hash = None
+    for cached in existing:
+        if (cached.get("candidate") == result["candidate"]
+                and cached.get("principle_sha256") == result["principle_sha256"]
+                and cached.get("params") == result["params"]
+                and cached.get("behavior_signature")):
+            behavior_hash = cached["behavior_signature"]
+            break
+    if behavior_hash is None:
+        behavior_hash = _behavior_signature(principle_path, result["params"])
+    result["normalized_ast_sha256"] = ast_hash
+    result["behavior_signature"] = behavior_hash
+    result["behavior_signature_params"] = result["params"]
+    result["signature_source_sha256"] = result["principle_sha256"]
+    result.update(_family_metadata(result["candidate"], ast_hash, behavior_hash, existing,
+                                   principle_path, result["params"]))
+    result["potential"] = {}
+    result["phenomena"] = {}
+    if not (result.get("clone_of") or result.get("parameter_variant_of")
+            or result["candidate"] in _disqualified_candidates()):
+        try:
+            nursery = _nursery_measure(principle_path, result["params"], result)
+            result["potential"] = nursery.pop("potential")
+            result["phenomena"] = nursery.pop("phenomena")
+            result["nursery_measurements"] = nursery.pop("measurements")
+        except Exception as exc:
+            result["nursery_error"] = f"{type(exc).__name__}: {exc}"
+    result["nursery"] = _nursery_history(result, existing)
     _append_leaderboard(result)
     print(json.dumps({
         "candidate": result["candidate"],
@@ -1509,6 +2452,9 @@ def main():
         "highest_passed_level": result["highest_passed_level"],
         "reported_score_level": result["reported_score_level"],
         "world_agnostic": result["world_agnostic"],
+        "long_track_eligible": result["long_track_eligible"],
+        "grokking": result["grokking"],
+        "scaling": result["scaling"],
         "stop_reason": result["stop_reason"],
         "score": round(result["score"], 4),
         "robustness": round(result["robustness"], 4),

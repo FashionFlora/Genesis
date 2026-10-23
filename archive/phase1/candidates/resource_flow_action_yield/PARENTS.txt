@@ -1,0 +1,6 @@
+Parents:
+- candidates/resource_flow_memory/principle.py
+- candidates/resource_action_closure/principle.py
+
+Mutation/crossover:
+Use one action-conditioned relation reserve, with prediction-conditioned returned flow updating its evidence and retained mass. Select actions by predictive support per unit of retained reserve, so action persistence follows the same resource law while accumulated mass changes marginal yield. No reward, apple, body length, or explicit movement heuristic is read.

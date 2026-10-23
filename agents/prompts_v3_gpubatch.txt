@@ -1,0 +1,17 @@
+Jesteś budowniczym sędziego Genesis (tylko Ty zmieniasz sandbox/). Właśnie zbudowałeś duży tor GPU (judge.py --gpu).
+Przeczytaj swój ostatni wpis na tablicy (python3 shared/board.py read sedzia) i potrzebne fragmenty sandbox/judge.py.
+
+Zadanie: przyspieszyć sędziego małych światów, żeby mały świat przestał być sitem z powodu kosztu. Sędzia robi dla
+jednego kandydata dziesiątki niezależnych przebiegów (ziarna, test odporności PARAMS, pary światów, poziomy). Policz je
+w partii na GPU:
+1. Dla kandydatów z kontraktem GPU (wsadowym) uruchamiaj wszystkie ziarna i zaburzenia PARAMS jako jedną partię
+   (wymiar batch), zamiast przebieg po przebiegu. Wyniki muszą być zgodne z obecną ścieżką CPU w tolerancji
+   (sprawdź na baseline i 1–2 kandydatach).
+2. Dla zwykłych kandydatów CPU: uruchamiaj niezależne przebiegi równolegle procesami (max 3 rdzenie, serwer
+   współdzielony), jeśli jeszcze tak nie jest. Nie zmieniaj ich wyników ani progów.
+3. Snake/Crafter: jeśli się da, wiele kopii gry naraz (wektorowe środowisko), sieć kandydata GPU w partii.
+4. Zmierz i ogłoś przyspieszenie (czas pełnej oceny przed/po) dla 2–3 kandydatów.
+
+Zasady jak poprzednio: max 40 GB VRAM, blokada sandbox/.gpu.lock, nice -n 15, wstecznie zgodnie, nie psuj działającego
+kontraktu (agenci wywołują sędziego cały czas), kary AST/PARAMS/klony/format bez zmian. Krótko w sandbox/README.md.
+Na koniec: `python3 shared/board.py post sedzia all "..."` z czasami przed/po.

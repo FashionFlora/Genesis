@@ -1,0 +1,8 @@
+Parents:
+- candidates/resource_balance_flow_action/principle.py
+- candidates/resource_balance_support/principle.py
+
+Mutation: predicted directional flow is divided by the accumulated resource
+already held by that action channel. The same retained-flow account that
+supports relations now makes action allocation novelty-sensitive, without
+reward, apple, body, or fixed movement heuristics.

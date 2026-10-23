@@ -1,0 +1,11 @@
+Parents:
+- candidates/contextual_causal_intervention/
+- candidates/reversible_surprise/
+
+Mutation/crossover:
+Each context keeps an active and dormant conditional transition model. Only the
+active state learns; when the dormant state better predicts the observed
+transition, their roles exchange. This replaces surprise-threshold switching
+with predictive comparison. Actions are treated as interventions whose observed
+outcome uncertainty drives exploration; no reward, phase, apple, or snake length
+is used.

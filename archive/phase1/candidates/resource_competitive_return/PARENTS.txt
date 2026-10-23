@@ -1,0 +1,14 @@
+Parents:
+- candidates/resource_flow_memory/principle.py
+- candidates/coactivity_single_support_source_mass/principle.py
+
+Mutation/crossover:
+The flow-memory parent accumulated unbounded returned mass and used one target
+prediction to value every incoming relation. The crossover gives each relation
+its own local prediction, then redistributes one conserved pool per output by
+predictive return. Each relation's resource share both updates its signed
+evidence and determines its contribution to the next prediction, coupling
+learning, forgetting, and selection through conservation.
+
+Novelty check:
+python3 shared/ideas.py check "A finite resource pool per output is redistributed among source relations in proportion to prediction precision; each relation's signed predictive evidence changes only by its resource share, so learning, forgetting, and source selection emerge from conservation."

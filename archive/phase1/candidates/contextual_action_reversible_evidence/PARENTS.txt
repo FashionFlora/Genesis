@@ -1,0 +1,11 @@
+Parents:
+- candidates/action_conditioned_predictive_sufficiency/
+- candidates/contextual_causal_intervention/
+
+Mutation/crossover:
+Action-conditioned outcome evidence is retained in separate context-addressed
+predictors, so a returning context retrieves its own intervention evidence
+instead of pooling it with another regime. The action rule continues the
+parent's uncertainty-driven exploration, now querying uncertainty in the
+context-specific consequence model. This preserves causal evidence across
+context recurrence; it does not assume that lower observations are better.

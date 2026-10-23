@@ -1,0 +1,9 @@
+Parents:
+- candidates/coactivity_support_resilient/
+- candidates/coactivity_support_clean/
+
+Mutation: replace equal per-source evidence increments with one finite update
+budget per target, apportioned across source traces according to their current
+coactivity support. The prediction and persistence rule stay local. This tests
+whether resource competition among traces improves adaptation and return
+memory without introducing context labels or a separate pruning mechanism.

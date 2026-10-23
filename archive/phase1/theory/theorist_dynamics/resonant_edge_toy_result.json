@@ -1,0 +1,8 @@
+{
+  "steps": 239,
+  "warmup": 32,
+  "all_brier": 0.005258389380516522,
+  "late_brier": 0.0013587129305583502,
+  "constant_brier": 0.25,
+  "connections": 1
+}

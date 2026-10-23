@@ -1,0 +1,11 @@
+Parents:
+- candidates/action_conditioned_predictive_sufficiency/
+- candidates/contextual_causal_intervention/
+
+Mutation/crossover:
+The separate context-action evidence and causal support are replaced by one
+sparse transition field. A field entry is the sufficient state for recurrence,
+prediction, and intervention. `act()` chooses the action with the smallest
+expected next-state description (binary predictive entropy); an unseen tie is
+resolved by the current sensory address, not by a schedule, reward, apple, or
+snake length. This tests whether self-prediction alone can supply action.

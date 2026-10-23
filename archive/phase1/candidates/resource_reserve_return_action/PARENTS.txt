@@ -1,0 +1,3 @@
+Parents: resource_return_flux_action (H035) and resource_flow_memory (H011).
+Changed: replaced fixed multiplicative action-mass decay with reserve-squared self-retention; the only replenishment remains action-conditioned sensory predictability.
+Reason: test whether memory of action consequences can emerge from the same finite reserve dynamics that funds persistence, without a reward or an apple/length signal.

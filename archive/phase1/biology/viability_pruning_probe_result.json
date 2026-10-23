@@ -1,0 +1,9 @@
+{
+  "world_pairs": 40,
+  "worlds": 80,
+  "probe_trials_per_world": 20,
+  "passive_only_accuracy": 0.5,
+  "intervention_choice_accuracy": 1.0,
+  "correct_single_edge_retention_rate": 1.0,
+  "observation_sd": 0.025
+}

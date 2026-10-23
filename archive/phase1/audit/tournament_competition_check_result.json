@@ -1,0 +1,81 @@
+{
+  "coactivity_support": [
+    {
+      "allocated_edge_slots": 128,
+      "reported_edges": 1,
+      "seconds": 0.0018809500616043806,
+      "steps": 80,
+      "structure": {
+        "connections": 1,
+        "memory_bytes": 1024,
+        "units": 8
+      },
+      "width": 8
+    },
+    {
+      "allocated_edge_slots": 512,
+      "reported_edges": 1,
+      "seconds": 0.0066350591368973255,
+      "steps": 80,
+      "structure": {
+        "connections": 1,
+        "memory_bytes": 4096,
+        "units": 16
+      },
+      "width": 16
+    },
+    {
+      "allocated_edge_slots": 2048,
+      "reported_edges": 6,
+      "seconds": 0.022422451060265303,
+      "steps": 80,
+      "structure": {
+        "connections": 6,
+        "memory_bytes": 16384,
+        "units": 32
+      },
+      "width": 32
+    }
+  ],
+  "resource_flow_competition": [
+    {
+      "cell_copies": 128,
+      "distinct_edge_types": 64,
+      "duplicate_cells": 64,
+      "seconds": 0.0068162737879902124,
+      "steps": 80,
+      "structure": {
+        "connections": 128,
+        "resource": 333.17043299412256,
+        "units": 136
+      },
+      "width": 8
+    },
+    {
+      "cell_copies": 256,
+      "distinct_edge_types": 256,
+      "duplicate_cells": 0,
+      "seconds": 0.019319394137710333,
+      "steps": 80,
+      "structure": {
+        "connections": 256,
+        "resource": 658.3189148696816,
+        "units": 272
+      },
+      "width": 16
+    },
+    {
+      "cell_copies": 1024,
+      "distinct_edge_types": 1024,
+      "duplicate_cells": 0,
+      "seconds": 0.08744187001138926,
+      "steps": 80,
+      "structure": {
+        "connections": 1024,
+        "resource": 103.18225350132977,
+        "units": 1056
+      },
+      "width": 32
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "random_intervention_local_competition": {
+    "correct": 200,
+    "worlds": 200,
+    "accuracy": 1.0,
+    "correct_single_edge_retention": 1.0
+  },
+  "passive_fixed_action": {
+    "correct": 100,
+    "worlds": 200,
+    "accuracy": 0.5,
+    "correct_single_edge_retention": 1.0
+  },
+  "random_intervention_no_pruning": {
+    "correct": 200,
+    "worlds": 200,
+    "accuracy": 1.0,
+    "correct_single_edge_retention": 0.0
+  },
+  "trials_per_world": 40,
+  "world_pairs": 100,
+  "observation_sd": 0.04,
+  "note": "toy causal-identification test"
+}

@@ -1,0 +1,15 @@
+{
+  "candidate": "candidates/predictive_error_context/principle.py",
+  "seeds": 40,
+  "phase_steps": 500,
+  "target": {
+    "first_error": 0.24876988561863564,
+    "return_error": 0.24661778803896825,
+    "return_minus_first": -0.0021520975796673674,
+    "faster_fraction": 0.575
+  },
+  "null": {
+    "mean_error": 0.24615967698411262
+  },
+  "null_adjusted_gain": -0.0004581110548556311
+}

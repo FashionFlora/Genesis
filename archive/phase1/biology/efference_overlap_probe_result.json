@@ -1,0 +1,21 @@
+{
+  "worlds": 300,
+  "steps": 300,
+  "switch": 150,
+  "delay_and_overlap_window": 4,
+  "rows": {
+    "tagged": {
+      "post_switch_action_accuracy": 0.46132420091324194,
+      "correct_edge_retention": 0.7620776255707763
+    },
+    "distributed": {
+      "post_switch_action_accuracy": 0.13143835616438354,
+      "correct_edge_retention": 0.1589269406392694
+    },
+    "latest": {
+      "post_switch_action_accuracy": 0.5067808219178083,
+      "correct_edge_retention": 0.7593150684931507
+    }
+  },
+  "limitation": "Synthetic linear sensory mixture; the chosen credit rule and support update are stipulated, not biological measurements."
+}

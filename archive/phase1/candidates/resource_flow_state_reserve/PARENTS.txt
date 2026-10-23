@@ -1,0 +1,10 @@
+Parents:
+- candidates/resource_flow_memory/principle.py
+- candidates/resource_context_reserve/principle.py
+
+Mutation/crossover:
+The returned predictive flow remains the only update signal for signed
+evidence and resource. Resource is now addressed by the source's observed
+state, so a currently inactive state does not overwrite a dormant alternative.
+The same state-local reserve selects the relation when that state returns;
+there is no phase tag, schedule, or separate context memory.

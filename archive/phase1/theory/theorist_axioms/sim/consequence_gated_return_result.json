@@ -1,0 +1,37 @@
+{
+  "candidate": "candidates/consequence_gated_return_flow/principle.py",
+  "seeds": 40,
+  "A_phase_steps": 500,
+  "B_gaps": [
+    100,
+    500,
+    1500
+  ],
+  "return_window_steps": 80,
+  "results": {
+    "100": {
+      "target_first_mse": 0.2551000312160912,
+      "target_return_mse": 0.2696883101286542,
+      "null_first_mse": 0.26921165624947113,
+      "null_return_mse": 0.27087305536556683,
+      "paired_target_minus_null_gain": -0.012926879796467242,
+      "positive_seed_fraction": 0.4
+    },
+    "500": {
+      "target_first_mse": 0.2551000312160912,
+      "target_return_mse": 0.25662210481128517,
+      "null_first_mse": 0.26921165624947113,
+      "null_return_mse": 0.267455596689365,
+      "paired_target_minus_null_gain": -0.003278133155300031,
+      "positive_seed_fraction": 0.425
+    },
+    "1500": {
+      "target_first_mse": 0.2551000312160912,
+      "target_return_mse": 0.2590700959519039,
+      "null_first_mse": 0.26921165624947113,
+      "null_return_mse": 0.2710999791088,
+      "paired_target_minus_null_gain": -0.002081741876483784,
+      "positive_seed_fraction": 0.525
+    }
+  }
+}

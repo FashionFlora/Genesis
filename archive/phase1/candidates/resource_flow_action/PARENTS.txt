@@ -1,0 +1,20 @@
+Parents:
+- candidates/resource_surprise_flow/principle.py
+- candidates/coactivity_single_support_source_mass/principle.py
+
+Mutation/crossover:
+Each source-target relation carries one pair [signed evidence, returned resource].
+Prediction surprise determines returned flow; that flow accumulates relational mass,
+while the same relation's evidence is updated and selected by mass. In control,
+local sensory contact returns flow to action channels; retained action mass selects
+the direction with the largest returned resource. No reward, apple channel, snake
+length, or separate learning clock is read; all sensory planes contribute only as
+an untyped local contact signal.
+
+Result:
+Full judge 2026-10-22: L1 score 37.8683 (R 0.9935), L2 score 19.6356 (R 0.9630).
+Control calibration/full L3 score 18.8851 (R 0.9599), survival 1000 steps, mean coverage
+0.59, mean apples 1.33; learning improvement 0.0 with 1/3 pairs improved, so L3 failed.
+The act law gives survival and exploration, but retained flow alone did not yield transfer
+learning under the Snake gate. AST cost of act also lowers L1/L2 versus resource_flow_memory;
+this is a maturity result, not a leaderboard win.

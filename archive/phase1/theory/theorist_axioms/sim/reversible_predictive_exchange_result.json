@@ -1,0 +1,14 @@
+{
+  "candidate": "candidates/reversible_predictive_exchange/principle.py",
+  "seeds": 40,
+  "phase_steps": 500,
+  "target": {
+    "first_error": 0.13384528547379473,
+    "return_error": 0.14116709183673376,
+    "return_minus_first": 0.007321806362939027,
+    "faster_fraction": 0.4
+  },
+  "null": {
+    "mean_error": 0.3767412932845316
+  }
+}

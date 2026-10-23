@@ -1,0 +1,18 @@
+{
+  "candidate_mechanism": "retrieve the dormant local model with lower current prequential error",
+  "seeds": 40,
+  "phase_steps": 500,
+  "recall": {
+    "first_error": 0.08836638869852456,
+    "return_error": 0.12280767594560828,
+    "return_minus_first": 0.034441287247083716,
+    "faster_fraction": 0.15
+  },
+  "original": {
+    "first_error": 0.3177002868460914,
+    "return_error": 0.2934721152013732,
+    "return_minus_first": -0.024228171644718265,
+    "faster_fraction": 0.55
+  },
+  "null_mean_error": 0.2757844777284496
+}

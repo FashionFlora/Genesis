@@ -1,0 +1,13 @@
+Parents:
+- candidates/resource_flow_memory/principle.py
+- candidates/coactivity_single_support_source_mass/principle.py
+
+Mutation/crossover:
+The resource_flow_memory update gave every source relation the same target-only
+return, leaving resource mass behaviorally inert. This version computes each
+source's conditional prediction before the target arrives, then divides one
+finite target return among the competing source relations in proportion to
+their predictive fit. The same returned share updates relation evidence and
+retained mass, and mass-weighted evidence selects the predictor. This tests
+whether source-specific resource competition can outperform a direct
+coactivity selector without an action or reward rule.

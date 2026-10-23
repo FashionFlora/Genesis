@@ -1,0 +1,10 @@
+Parents:
+- candidates/resource_flow_contact_return/principle.py
+- candidates/resource_flow_memory/principle.py
+
+Mutation/crossover:
+The returned contact resource is now addressed by the predicted destination
+cell. When the next observation places the head at that destination, the same
+resource returns to the action that created the contact; a failed contact
+returns no resource. This replaces the parent's undirected moved bit while
+retaining its prediction flow, timescale, and reward-free action generation.

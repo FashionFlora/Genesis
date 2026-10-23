@@ -1,0 +1,17 @@
+{
+  "candidate": "candidates/consequence_trace_closure/principle.py",
+  "null": {
+    "first_error": 0.23582183801651,
+    "return_error": 0.2399188496456759,
+    "return_faster_fraction": 0.2,
+    "return_minus_first": 0.0040970116291658976
+  },
+  "phase_steps": 500,
+  "seeds": 40,
+  "target": {
+    "first_error": 0.2395248503936454,
+    "return_error": 0.2399650860176382,
+    "return_faster_fraction": 0.475,
+    "return_minus_first": 0.00044023562399278515
+  }
+}

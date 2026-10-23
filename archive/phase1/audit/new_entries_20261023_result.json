@@ -1,0 +1,113 @@
+{
+  "action_probe": {
+    "11": {
+      "error": "TypeError: list indices must be integers or slices, not float"
+    },
+    "12": {
+      "error": "TypeError: list indices must be integers or slices, not float"
+    },
+    "500": {
+      "error": "TypeError: list indices must be integers or slices, not float"
+    },
+    "501": {
+      "error": "TypeError: list indices must be integers or slices, not float"
+    },
+    "600": {
+      "error": "TypeError: list indices must be integers or slices, not float"
+    },
+    "601": {
+      "error": "TypeError: list indices must be integers or slices, not float"
+    },
+    "None": {
+      "error": "TypeError: list indices must be integers or slices, not float"
+    },
+    "after_second_step_11": {
+      "error": "TypeError: list indices must be integers or slices, not float"
+    },
+    "int_cast_tiebreak": {
+      "11": 0,
+      "12": 1,
+      "500": 1,
+      "501": 2,
+      "600": 1,
+      "601": 2,
+      "None": 0
+    }
+  },
+  "context_probe": {
+    "context_a": 0,
+    "context_b": 1,
+    "context_c": 1,
+    "memory_bytes": 4096,
+    "prediction_after_b": [
+      0.33333333333333337,
+      0.33333333333333337,
+      0.33333333333333337,
+      0.33333333333333337,
+      0.6666666666666667,
+      0.33333333333333337,
+      0.33333333333333337,
+      0.33333333333333337
+    ],
+    "prediction_after_c": [
+      0.27673469387755106,
+      0.27673469387755106,
+      0.27673469387755106,
+      0.27673469387755106,
+      0.6666666666666666,
+      0.27673469387755106,
+      0.27673469387755106,
+      0.3333333333333333
+    ]
+  },
+  "provenance": {
+    "557": {
+      "author": "odkrywca_growth",
+      "candidate": "contact_lag_growth",
+      "clone_of": null,
+      "current_sha": "963ccf045c001cdd73e772cc4e12479f4e35228d256feba10194531db3b7d915",
+      "highest_passed_level": 0,
+      "leaderboard_sha": "4212b45bb416f7fc4d9302eaffff3d1b5055117c829c04099779f8fa72cec971",
+      "reported_score_level": 1,
+      "score": 12.84399988756598,
+      "sha_matches": false,
+      "stop_reason": "calibration_only"
+    },
+    "558": {
+      "author": "odkrywca_life",
+      "candidate": "resource_flow_dissipation",
+      "clone_of": "resource_flow_weighted_return",
+      "current_sha": "8badd08f5b537d9e469217ba27418fcb4545d203ae8a04d56193dc07c1d30553",
+      "highest_passed_level": 2,
+      "leaderboard_sha": "8badd08f5b537d9e469217ba27418fcb4545d203ae8a04d56193dc07c1d30553",
+      "reported_score_level": 2,
+      "score": 28.32174551679903,
+      "sha_matches": true,
+      "stop_reason": "level_3_threshold_failed"
+    },
+    "559": {
+      "author": "odkrywca_axioms",
+      "candidate": "predictive_context_sufficiency",
+      "clone_of": "contextual_predictive_sufficiency",
+      "current_sha": "ffaba0da0b1f4fe3921f222433552e11f53a8367f3c215610126af3f427cecb3",
+      "highest_passed_level": 0,
+      "leaderboard_sha": "ffaba0da0b1f4fe3921f222433552e11f53a8367f3c215610126af3f427cecb3",
+      "reported_score_level": 1,
+      "score": 47.138324560528645,
+      "sha_matches": true,
+      "stop_reason": "calibration_only"
+    },
+    "560": {
+      "author": "odkrywca_axioms",
+      "candidate": "contextual_predictive_closure",
+      "clone_of": null,
+      "current_sha": "83c4c0099a69a75ddba58996ae4301c7c18a863243a246fc85cc945ea62417be",
+      "highest_passed_level": 0,
+      "leaderboard_sha": "83c4c0099a69a75ddba58996ae4301c7c18a863243a246fc85cc945ea62417be",
+      "reported_score_level": 1,
+      "score": 37.421358162945964,
+      "sha_matches": true,
+      "stop_reason": "calibration_only"
+    }
+  }
+}

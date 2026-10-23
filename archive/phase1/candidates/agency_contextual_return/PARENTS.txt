@@ -1,0 +1,2 @@
+Parents: candidates/agency_sensory_return/ and candidates/contextual_reversible_intervention/.
+Change: condition action-specific sensory-return means and energy on current observation parity, so the same action can be valued differently across recurrent contexts. This tests whether context-local consequences transfer to Snake without a fixed food reward.

@@ -1,0 +1,19 @@
+{
+  "worlds": 300,
+  "steps_per_world": 400,
+  "feedback_delay_steps": [
+    1,
+    8
+  ],
+  "action_effects": [
+    1.0,
+    -1.0
+  ],
+  "noise_sd": 0.25,
+  "post_warmup_correct_action_rate": {
+    "tagged_copy": 1.0,
+    "fixed_lag_4": 0.7116363931265066,
+    "current_action": 0.5048390819115547
+  },
+  "note": "synthetic stationary two-action attribution test; actions are randomized and effects supplied"
+}

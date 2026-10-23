@@ -1,0 +1,7 @@
+Parents: coactivity_support and predictive_resonance.
+
+Mutation: retain the fast coactivity winner for each target, while keeping a
+second slow predictive trace for the same local relation. The slow trace is
+blended into the winner's forecast so a returning regime can reuse evidence
+without changing the local edge-selection rule. Decay rates and blend weight
+are explicit PARAMS for robustness perturbation.

@@ -1,0 +1,5 @@
+Parent: candidates/action_effect_closure/principle.py
+Mutation: replace the all-pairs sensory transition table with one action-conditioned
+mean effect vector and scalar residual variance per action. The same compact law
+provides next-observation prediction and action ordering, keeping memory linear in
+observation width while preserving repeatable-effect selection.

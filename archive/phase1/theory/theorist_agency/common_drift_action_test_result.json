@@ -1,0 +1,12 @@
+{
+  "paired_worlds": 40,
+  "horizon": 360,
+  "late_horizon": 240,
+  "late_best_action_share": {
+    "residual": 1.0,
+    "raw": 0.4182291666666667,
+    "random": 0.32635416666666667
+  },
+  "residual_minus_raw": 0.5817708333333333,
+  "residual_minus_random": 0.6736458333333333
+}

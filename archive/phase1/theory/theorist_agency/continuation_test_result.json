@@ -1,0 +1,20 @@
+{
+  "paired_worlds": 200,
+  "probe_actions_per_world": 2,
+  "passive_observation_difference": 0,
+  "results": {
+    "0.0": {
+      "consequence_rank": 1.0,
+      "matched_random": 0.499
+    },
+    "0.35": {
+      "consequence_rank": 0.98,
+      "matched_random": 0.499
+    },
+    "1.0": {
+      "consequence_rank": 0.816,
+      "matched_random": 0.499
+    }
+  },
+  "random_baseline_accuracy": 0.5
+}

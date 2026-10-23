@@ -1,0 +1,55 @@
+{
+  "worlds": 200,
+  "steps": 240,
+  "switch_step": 120,
+  "exploration_probability": 0.15,
+  "tag_window": 4,
+  "support_total": 1.0,
+  "edge_floor": 0.05,
+  "support_step": 0.04,
+  "rows": [
+    {
+      "feedback_delay": 1,
+      "assignment": "tagged",
+      "post_switch_correct_choice": 0.7487394957983193,
+      "correct_edge_retention": 0.7983193277310925,
+      "mean_edges_above_floor": 1.3781512605042017
+    },
+    {
+      "feedback_delay": 1,
+      "assignment": "last_action",
+      "post_switch_correct_choice": 0.4894957983193277,
+      "correct_edge_retention": 0.4937394957983193,
+      "mean_edges_above_floor": 1.7646218487394958
+    },
+    {
+      "feedback_delay": 4,
+      "assignment": "tagged",
+      "post_switch_correct_choice": 0.7436637931034482,
+      "correct_edge_retention": 0.7931034482758621,
+      "mean_edges_above_floor": 1.3879310344827587
+    },
+    {
+      "feedback_delay": 4,
+      "assignment": "last_action",
+      "post_switch_correct_choice": 0.6345689655172414,
+      "correct_edge_retention": 0.6663362068965517,
+      "mean_edges_above_floor": 1.643706896551724
+    },
+    {
+      "feedback_delay": 8,
+      "assignment": "tagged",
+      "post_switch_correct_choice": 0.0727232142857143,
+      "correct_edge_retention": 0.0,
+      "mean_edges_above_floor": 2.0
+    },
+    {
+      "feedback_delay": 8,
+      "assignment": "last_action",
+      "post_switch_correct_choice": 0.5869196428571428,
+      "correct_edge_retention": 0.6095535714285715,
+      "mean_edges_above_floor": 1.755089285714286
+    }
+  ],
+  "limitation": "Synthetic binary consequences and a hand-specified support update; no neural growth, physiology, or self-generated viability signal."
+}

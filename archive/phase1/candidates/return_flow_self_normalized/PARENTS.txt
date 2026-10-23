@@ -1,0 +1,10 @@
+Parents:
+- candidates/resource_flow_memory/principle.py
+- candidates/resource_flow_returned_evidence/principle.py
+
+Mutation/crossover:
+The returned predictive flow is the sole update currency: it gates the signed
+relational evidence and the persistence mass with the same normalized update.
+Unlike the parents, the evidence itself is weighted by returned flow, so a
+relation cannot retain a stale estimate while its consequence stops returning.
+This is a mutation of the law, not a parameter-only variant.

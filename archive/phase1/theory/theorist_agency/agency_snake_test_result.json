@@ -1,0 +1,123 @@
+{
+  "seeds": [
+    1301,
+    2027,
+    4099
+  ],
+  "episodes_per_seed": 2,
+  "summary": {
+    "agency_returned_control_field": {
+      "survival_steps": 6.0,
+      "apples": 0.0,
+      "coverage": 0.06
+    },
+    "_baseline_snake_random": {
+      "survival_steps": 29.333333333333332,
+      "apples": 1.0,
+      "coverage": 0.22
+    },
+    "_baseline_snake_wall": {
+      "survival_steps": 1000.0,
+      "apples": 0.3333333333333333,
+      "coverage": 0.4000000000000001
+    }
+  },
+  "episodes": {
+    "agency_returned_control_field": [
+      {
+        "survival_steps": 6,
+        "apples": 0,
+        "coverage": 0.06
+      },
+      {
+        "survival_steps": 6,
+        "apples": 0,
+        "coverage": 0.06
+      },
+      {
+        "survival_steps": 6,
+        "apples": 0,
+        "coverage": 0.06
+      },
+      {
+        "survival_steps": 6,
+        "apples": 0,
+        "coverage": 0.06
+      },
+      {
+        "survival_steps": 6,
+        "apples": 0,
+        "coverage": 0.06
+      },
+      {
+        "survival_steps": 6,
+        "apples": 0,
+        "coverage": 0.06
+      }
+    ],
+    "_baseline_snake_random": [
+      {
+        "survival_steps": 26,
+        "apples": 2,
+        "coverage": 0.2
+      },
+      {
+        "survival_steps": 26,
+        "apples": 2,
+        "coverage": 0.2
+      },
+      {
+        "survival_steps": 31,
+        "apples": 0,
+        "coverage": 0.23
+      },
+      {
+        "survival_steps": 31,
+        "apples": 0,
+        "coverage": 0.23
+      },
+      {
+        "survival_steps": 31,
+        "apples": 1,
+        "coverage": 0.23
+      },
+      {
+        "survival_steps": 31,
+        "apples": 1,
+        "coverage": 0.23
+      }
+    ],
+    "_baseline_snake_wall": [
+      {
+        "survival_steps": 1000,
+        "apples": 1,
+        "coverage": 0.4
+      },
+      {
+        "survival_steps": 1000,
+        "apples": 1,
+        "coverage": 0.4
+      },
+      {
+        "survival_steps": 1000,
+        "apples": 0,
+        "coverage": 0.4
+      },
+      {
+        "survival_steps": 1000,
+        "apples": 0,
+        "coverage": 0.4
+      },
+      {
+        "survival_steps": 1000,
+        "apples": 0,
+        "coverage": 0.4
+      },
+      {
+        "survival_steps": 1000,
+        "apples": 0,
+        "coverage": 0.4
+      }
+    ]
+  }
+}

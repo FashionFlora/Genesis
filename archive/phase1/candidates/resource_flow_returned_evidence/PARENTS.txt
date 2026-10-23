@@ -1,0 +1,1 @@
+Parent: resource_flow_memory. Distinct law: one returned-resource mass is both evidence and persistence.

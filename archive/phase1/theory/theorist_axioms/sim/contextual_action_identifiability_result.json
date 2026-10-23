@@ -1,0 +1,10 @@
+{
+  "identified_opposite_optimum": false,
+  "interpretation": "passive evidence cannot set a value ordering; action-conditioned exploration alone does not define which consequence is preferable",
+  "mean_world0_preferred": 0.475,
+  "mean_world1_preferred": 0.5,
+  "passive_pairs_equal": true,
+  "seeds": 40,
+  "steps_per_world": 1000,
+  "uncertainty_policy_opposite_choices": false
+}

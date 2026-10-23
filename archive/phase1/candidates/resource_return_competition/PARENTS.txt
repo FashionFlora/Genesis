@@ -1,0 +1,11 @@
+Parents:
+- candidates/resource_flow_memory/principle.py
+- candidates/resource_surprise_flow/principle.py
+
+Mutation/crossover:
+Replace independently accumulated relation resources with one normalized
+resource pool per target. Each relation's current prediction error determines
+how much of its existing share returns to the pool; normalized returned shares
+both weight the next prediction and gate signed evidence uptake. This makes
+relation use and learning compete for the same conserved target-local flow.
+Unlike H005, this is a continuous relation field with no fission or edge tags.

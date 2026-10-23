@@ -1,0 +1,27 @@
+Jesteś archeologiem projektu Genesis. Pracujesz WYŁĄCZNIE w /opt/dlami/nvme/genesis_archive/archeology/ (to Twój katalog).
+Nie zapisuj nic w /opt/dlami/nvme/genesis/ ani w /opt/dlami/nvme/dataset/, nie pisz na tablicy agentów: zespół agentów
+zaczął czysty start i nie może widzieć starych wyników. Python: /opt/dlami/nvme/genesis/.venv/bin/python. Oszczędzaj
+tokeny: czytaj tylko potrzebne linie (rg, sed -n), drukuj podsumowania, nie całe pliki.
+
+Kontekst: w archiwum /opt/dlami/nvme/genesis_archive/2026-10-23_reset/ są kandydaci z pierwszej fazy projektu (candidates/,
+theory/, audit/, pełny leaderboard w sandbox/leaderboard.jsonl). Oceniano ich tylko w małych światach (8–64 kanałów,
+kilkaset kroków). Pytanie: czy coś odrzucono niesłusznie, bo jego mechanizm potrzebuje skali?
+
+Zadanie:
+1. Z families.tsv (122 wiersze, część to ten sam mechanizm pod różnymi nazwami) wyłoń unikalne MECHANIZMY: pogrupuj po
+   kodzie (principle.py) i opisie, odrzuć klony, warianty samego parametru i wpisy z disqualified.tsv archiwum.
+   Zapisz mechanisms.tsv (mechanizm, reprezentant, autor, krótki opis, najlepszy wynik CPU). Spodziewaj się ~20–40.
+2. Dla każdego mechanizmu napisz wierne przeniesienie na kontrakt GPU (candidates/<nazwa>/principle_gpu.py, wzór:
+   candidates/_baseline_gpu_online i sandbox/README.md). Wiernie = ta sama reguła, wektorowo w torch; nie ulepszaj,
+   nie strój. Jeśli mechanizmu nie da się uczciwie przenieść, zapisz dlaczego.
+3. Uruchamiaj: cd /opt/dlami/nvme/genesis_archive/archeology && nice -n 15 /opt/dlami/nvme/genesis/.venv/bin/python
+   sandbox/judge.py candidates/<nazwa> --gpu (rozmiary 1e3/1e4/1e5; zacznij od domyślnych 10k kroków, dla obiecujących
+   dłużej). Blokada GPU jest wspólna z głównym sędzią (sandbox/.gpu.lock), więc przebiegi idą po kolei; GPU dzieli się
+   też z pipeline'em TTS, max 40 GB VRAM. Porównuj zawsze z _baseline_gpu_online na tych samych ustawieniach.
+4. Kryterium: NIE wysokość wyniku, tylko czy jakość ROŚNIE z rozmiarem lub czasem (nachylenie), czy pojawia się nagły
+   skok uogólnienia, i jak koszt pamięci rośnie z n. Mechanizm słaby w małej skali, ale rosnący w dużej, to znalezisko.
+5. Wyniki: results.tsv (mechanizm, wyniki 1e3/1e4/1e5, nachylenia, koszt) i REPORT.md (najwyżej 40 linii): które
+   mechanizmy zyskują na skali, które nie, i czy mała skala coś niesłusznie zabiła. Uczciwie: jeśli nic, napisz że nic.
+   Liczby tylko z faktycznych przebiegów.
+Pracuj partiami; jeśli kończy Ci się tura, zapisz postęp w HANDOFF.md (najwyżej 25 linii) w swoim katalogu.
+Gdy przebadasz wszystkie mechanizmy i napiszesz REPORT.md, dopisz w nim ostatnią linię KONIEC.

@@ -1,0 +1,7 @@
+Parents:
+- candidates/resource_flow_contact_action/principle.py
+
+Mutation:
+Action resource is returned only when the observed head changes after the
+previous contact. The same timescale controls retention; no apple, reward, or
+snake-length signal is read.

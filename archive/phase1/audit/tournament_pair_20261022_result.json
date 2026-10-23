@@ -1,0 +1,742 @@
+{
+  "current_decay": {
+    "absolute_difference": 0.028823529411764692,
+    "clean": 0.97,
+    "resilient": 0.9411764705882353
+  },
+  "matched_decay": [
+    {
+      "clean_decay": 0.9411764705882353,
+      "mode": "resilient",
+      "prediction_mismatch_steps": 0,
+      "resilient_decay": 0.9411764705882353,
+      "winner_maps_equal": true
+    },
+    {
+      "clean_decay": 0.97,
+      "mode": "clean",
+      "prediction_mismatch_steps": 0,
+      "resilient_decay": 0.97,
+      "winner_maps_equal": true
+    }
+  ],
+  "prediction_sanity": {
+    "clean": {
+      "iid_tail_brier": 0.2608742521278286,
+      "iid_target_brier": 0.26022194909843593,
+      "predictive_tail_brier": 0.08964295816683604,
+      "predictive_target_brier": 0.09306130269814558
+    },
+    "resilient": {
+      "iid_tail_brier": 0.2661813874993241,
+      "iid_target_brier": 0.2658990691673173,
+      "predictive_tail_brier": 0.09217395720118071,
+      "predictive_target_brier": 0.09525146633701694
+    }
+  },
+  "protocol": "fresh deterministic audit; no sandbox judge; shared Bernoulli streams",
+  "scaling_and_structure": [
+    {
+      "candidates": {
+        "clean": {
+          "deep_python_state_bytes": 22760,
+          "dense_cells": 64,
+          "elapsed_seconds": 0.003942114999517798,
+          "reported_structure": {
+            "connections": 0,
+            "memory_bytes": 512,
+            "units": 8
+          },
+          "winner_map": [
+            6,
+            3,
+            0,
+            1,
+            7,
+            5,
+            6,
+            5
+          ],
+          "winner_map_cross_half": 0
+        },
+        "resilient": {
+          "deep_python_state_bytes": 22760,
+          "dense_cells": 64,
+          "elapsed_seconds": 0.003448772942647338,
+          "reported_structure": {
+            "connections": 0,
+            "memory_bytes": 512,
+            "units": 8
+          },
+          "winner_map": [
+            6,
+            3,
+            2,
+            4,
+            7,
+            5,
+            6,
+            5
+          ],
+          "winner_map_cross_half": 0
+        }
+      },
+      "steps": 160,
+      "width": 8
+    },
+    {
+      "candidates": {
+        "clean": {
+          "deep_python_state_bytes": 87876,
+          "dense_cells": 256,
+          "elapsed_seconds": 0.014259452000260353,
+          "reported_structure": {
+            "connections": 3,
+            "memory_bytes": 2048,
+            "units": 16
+          },
+          "winner_map": [
+            3,
+            10,
+            0,
+            6,
+            5,
+            12,
+            10,
+            13,
+            7,
+            2,
+            11,
+            0,
+            9,
+            10,
+            9,
+            15
+          ],
+          "winner_map_cross_half": 3
+        },
+        "resilient": {
+          "deep_python_state_bytes": 87876,
+          "dense_cells": 256,
+          "elapsed_seconds": 0.012451943010091782,
+          "reported_structure": {
+            "connections": 4,
+            "memory_bytes": 2048,
+            "units": 16
+          },
+          "winner_map": [
+            10,
+            6,
+            0,
+            6,
+            5,
+            12,
+            8,
+            6,
+            7,
+            5,
+            11,
+            0,
+            9,
+            10,
+            6,
+            15
+          ],
+          "winner_map_cross_half": 4
+        }
+      },
+      "steps": 160,
+      "width": 16
+    },
+    {
+      "candidates": {
+        "clean": {
+          "deep_python_state_bytes": 347076,
+          "dense_cells": 1024,
+          "elapsed_seconds": 0.05431435815989971,
+          "reported_structure": {
+            "connections": 6,
+            "memory_bytes": 8192,
+            "units": 32
+          },
+          "winner_map": [
+            19,
+            15,
+            6,
+            25,
+            10,
+            22,
+            27,
+            24,
+            15,
+            9,
+            17,
+            25,
+            5,
+            21,
+            5,
+            15,
+            10,
+            22,
+            28,
+            30,
+            29,
+            16,
+            14,
+            24,
+            6,
+            21,
+            26,
+            10,
+            9,
+            26,
+            6,
+            19
+          ],
+          "winner_map_cross_half": 6
+        },
+        "resilient": {
+          "deep_python_state_bytes": 347076,
+          "dense_cells": 1024,
+          "elapsed_seconds": 0.04920381586998701,
+          "reported_structure": {
+            "connections": 7,
+            "memory_bytes": 8192,
+            "units": 32
+          },
+          "winner_map": [
+            19,
+            5,
+            12,
+            25,
+            10,
+            6,
+            3,
+            24,
+            15,
+            9,
+            17,
+            25,
+            5,
+            21,
+            5,
+            30,
+            10,
+            22,
+            4,
+            30,
+            29,
+            29,
+            14,
+            24,
+            6,
+            21,
+            26,
+            10,
+            9,
+            26,
+            11,
+            25
+          ],
+          "winner_map_cross_half": 7
+        }
+      },
+      "steps": 160,
+      "width": 32
+    },
+    {
+      "candidates": {
+        "clean": {
+          "deep_python_state_bytes": 1381572,
+          "dense_cells": 4096,
+          "elapsed_seconds": 0.22325657005421817,
+          "reported_structure": {
+            "connections": 18,
+            "memory_bytes": 32768,
+            "units": 64
+          },
+          "winner_map": [
+            14,
+            60,
+            12,
+            25,
+            52,
+            35,
+            11,
+            16,
+            40,
+            44,
+            2,
+            16,
+            6,
+            46,
+            14,
+            38,
+            60,
+            17,
+            3,
+            26,
+            57,
+            38,
+            47,
+            18,
+            39,
+            40,
+            62,
+            22,
+            14,
+            57,
+            28,
+            41,
+            6,
+            3,
+            15,
+            45,
+            36,
+            2,
+            32,
+            37,
+            18,
+            48,
+            6,
+            14,
+            16,
+            45,
+            60,
+            41,
+            8,
+            20,
+            8,
+            62,
+            29,
+            2,
+            37,
+            51,
+            55,
+            57,
+            42,
+            24,
+            2,
+            21,
+            7,
+            5
+          ],
+          "winner_map_cross_half": 18
+        },
+        "resilient": {
+          "deep_python_state_bytes": 1381572,
+          "dense_cells": 4096,
+          "elapsed_seconds": 0.20867572887800634,
+          "reported_structure": {
+            "connections": 19,
+            "memory_bytes": 32768,
+            "units": 64
+          },
+          "winner_map": [
+            14,
+            1,
+            12,
+            45,
+            52,
+            35,
+            30,
+            16,
+            40,
+            44,
+            5,
+            16,
+            1,
+            46,
+            14,
+            38,
+            36,
+            2,
+            3,
+            31,
+            26,
+            38,
+            47,
+            62,
+            39,
+            46,
+            62,
+            22,
+            14,
+            57,
+            28,
+            32,
+            7,
+            3,
+            15,
+            45,
+            50,
+            2,
+            32,
+            37,
+            18,
+            48,
+            6,
+            14,
+            9,
+            15,
+            60,
+            41,
+            40,
+            20,
+            8,
+            31,
+            29,
+            2,
+            56,
+            51,
+            1,
+            57,
+            42,
+            36,
+            7,
+            24,
+            7,
+            5
+          ],
+          "winner_map_cross_half": 19
+        }
+      },
+      "steps": 160,
+      "width": 64
+    }
+  ],
+  "source": {
+    "clean": {
+      "has_file_io": false,
+      "imports": [],
+      "sha256": "05cdbc6634782bd7b5079d1418f6b07d08ff87caadf652c10c477a4cca23f19d"
+    },
+    "leaderboard_tail": [
+      {
+        "candidate": "coactivity_support_resilient",
+        "evaluated_at_utc": "2026-10-22T19:35:16Z",
+        "params": {
+          "timescale": 32.3333333333
+        },
+        "principle_sha256": "fa4ae3acfd888f3fc4e4aaf816438100d80c422c9a1e1d3cae724a613b640c0e",
+        "score": 47.32803401682017
+      },
+      {
+        "candidate": "coactivity_support_clean",
+        "evaluated_at_utc": "2026-10-22T19:35:24Z",
+        "params": {
+          "decay": 0.97
+        },
+        "principle_sha256": "05cdbc6634782bd7b5079d1418f6b07d08ff87caadf652c10c477a4cca23f19d",
+        "score": 36.63341796998898
+      },
+      {
+        "candidate": "coactivity_support_resilient",
+        "evaluated_at_utc": "2026-10-22T19:50:39Z",
+        "params": {
+          "timescale": 32.3333333333
+        },
+        "principle_sha256": "fa4ae3acfd888f3fc4e4aaf816438100d80c422c9a1e1d3cae724a613b640c0e",
+        "score": 47.333493264199156
+      },
+      {
+        "candidate": "coactivity_support_resilient",
+        "evaluated_at_utc": "2026-10-22T19:51:20Z",
+        "params": {
+          "timescale": 16
+        },
+        "principle_sha256": "edb40774237ed977119150f298e2016f806cf2fcb02df881fa6f298f1ed3a808",
+        "score": 50.551572389185175
+      },
+      {
+        "candidate": "coactivity_support_resilient",
+        "evaluated_at_utc": "2026-10-22T19:51:28Z",
+        "params": {
+          "timescale": 24
+        },
+        "principle_sha256": "80d974dfd1353b7fbc3dfd28c16a817b30ea26b78587554e7c05690508ef9905",
+        "score": 48.95780370508911
+      },
+      {
+        "candidate": "coactivity_support_resilient",
+        "evaluated_at_utc": "2026-10-22T19:51:36Z",
+        "params": {
+          "timescale": 32.3333333333
+        },
+        "principle_sha256": "fa4ae3acfd888f3fc4e4aaf816438100d80c422c9a1e1d3cae724a613b640c0e",
+        "score": 47.33022410775451
+      },
+      {
+        "candidate": "coactivity_support_resilient",
+        "evaluated_at_utc": "2026-10-22T19:51:43Z",
+        "params": {
+          "timescale": 40
+        },
+        "principle_sha256": "24c73963a587cd78d6c102b6652d8e6687bddcd04c18c6efdc20ebba83eeb006",
+        "score": 46.16282019009363
+      },
+      {
+        "candidate": "coactivity_support_resilient",
+        "evaluated_at_utc": "2026-10-22T19:51:51Z",
+        "params": {
+          "timescale": 50
+        },
+        "principle_sha256": "b203955e5872404d21f3584ebd074ee1b8164ef0397f504ed39c0d42e5d879b0",
+        "score": 44.36184620837142
+      },
+      {
+        "candidate": "coactivity_support_resilient",
+        "evaluated_at_utc": "2026-10-22T19:51:59Z",
+        "params": {
+          "timescale": 64
+        },
+        "principle_sha256": "48fec65e1d3b832e9fceca099bf31774c1d62206bd3abd1e73266e2ec9985c29",
+        "score": 42.760243459372255
+      },
+      {
+        "candidate": "coactivity_support_resilient",
+        "evaluated_at_utc": "2026-10-22T19:52:07Z",
+        "params": {
+          "timescale": 96
+        },
+        "principle_sha256": "f1e7ac48359e0cf26d190740ac9b67866d385c3c78c86e7cb0c4b22f3ee6074e",
+        "score": 40.04643962201536
+      },
+      {
+        "candidate": "coactivity_support_resilient",
+        "evaluated_at_utc": "2026-10-22T19:53:06Z",
+        "params": {
+          "timescale": 16
+        },
+        "principle_sha256": "edb40774237ed977119150f298e2016f806cf2fcb02df881fa6f298f1ed3a808",
+        "score": 32.37616585218789
+      },
+      {
+        "candidate": "coactivity_support_resilient",
+        "evaluated_at_utc": "2026-10-22T19:53:45Z",
+        "params": {
+          "timescale": 16
+        },
+        "principle_sha256": "edb40774237ed977119150f298e2016f806cf2fcb02df881fa6f298f1ed3a808",
+        "score": 32.37549383026902
+      },
+      {
+        "candidate": "coactivity_support_resilient",
+        "evaluated_at_utc": "2026-10-22T19:54:06Z",
+        "params": {
+          "timescale": 8
+        },
+        "principle_sha256": "dfb357c4c56bf8a8ac6c1f328cb2d813e339c3d0a0a2e691655385d1bfd39b77",
+        "score": 51.394207764209206
+      },
+      {
+        "candidate": "coactivity_support_resilient",
+        "evaluated_at_utc": "2026-10-22T19:54:13Z",
+        "params": {
+          "timescale": 10
+        },
+        "principle_sha256": "a782fe6aa0240361626908abe5ac4b9dde775828a20ed85e79e5fb8cd0b08e05",
+        "score": 51.41553628069486
+      },
+      {
+        "candidate": "coactivity_support_resilient",
+        "evaluated_at_utc": "2026-10-22T19:54:21Z",
+        "params": {
+          "timescale": 12
+        },
+        "principle_sha256": "1026f7da6bf3965b67210a44488f9eba1e5c9687bcd6a7797e5a23cf0933df94",
+        "score": 51.187102424369506
+      },
+      {
+        "candidate": "coactivity_support_resilient",
+        "evaluated_at_utc": "2026-10-22T19:54:29Z",
+        "params": {
+          "timescale": 14
+        },
+        "principle_sha256": "06994454ac1b161b73a20864088f27ad8786876657f89164efaa0762c7bd5bcc",
+        "score": 50.848487290273994
+      },
+      {
+        "candidate": "coactivity_support_resilient",
+        "evaluated_at_utc": "2026-10-22T19:54:37Z",
+        "params": {
+          "timescale": 16
+        },
+        "principle_sha256": "edb40774237ed977119150f298e2016f806cf2fcb02df881fa6f298f1ed3a808",
+        "score": 50.55065603970336
+      },
+      {
+        "candidate": "coactivity_support_resilient",
+        "evaluated_at_utc": "2026-10-22T19:54:45Z",
+        "params": {
+          "timescale": 18
+        },
+        "principle_sha256": "83dec340c0dbe82f5a46d72720cb36eb20dcb1ad6e219046250931d15c2cdc4d",
+        "score": 50.177240015810014
+      },
+      {
+        "candidate": "coactivity_support_resilient",
+        "evaluated_at_utc": "2026-10-22T19:54:54Z",
+        "params": {
+          "timescale": 20
+        },
+        "principle_sha256": "41b738fb8f49eb34743a26ba772995f4327cf094fc091060478c07c0130bb572",
+        "score": 49.63625805569432
+      },
+      {
+        "candidate": "coactivity_support_resilient",
+        "evaluated_at_utc": "2026-10-22T19:55:52Z",
+        "params": {
+          "timescale": 10
+        },
+        "principle_sha256": "a782fe6aa0240361626908abe5ac4b9dde775828a20ed85e79e5fb8cd0b08e05",
+        "score": 31.991355377021957
+      },
+      {
+        "candidate": "coactivity_support_resilient",
+        "evaluated_at_utc": "2026-10-22T19:56:53Z",
+        "params": {
+          "timescale": 8
+        },
+        "principle_sha256": "a782fe6aa0240361626908abe5ac4b9dde775828a20ed85e79e5fb8cd0b08e05",
+        "score": 31.320681989148316
+      },
+      {
+        "candidate": "coactivity_support_resilient",
+        "evaluated_at_utc": "2026-10-22T19:57:23Z",
+        "params": {
+          "timescale": 10
+        },
+        "principle_sha256": "a782fe6aa0240361626908abe5ac4b9dde775828a20ed85e79e5fb8cd0b08e05",
+        "score": 31.97090007219459
+      },
+      {
+        "candidate": "coactivity_support_resilient",
+        "evaluated_at_utc": "2026-10-22T19:58:08Z",
+        "params": {
+          "timescale": 12
+        },
+        "principle_sha256": "1026f7da6bf3965b67210a44488f9eba1e5c9687bcd6a7797e5a23cf0933df94",
+        "score": 32.06533316603665
+      },
+      {
+        "candidate": "coactivity_support_resilient",
+        "evaluated_at_utc": "2026-10-22T19:58:50Z",
+        "params": {
+          "timescale": 14
+        },
+        "principle_sha256": "edb40774237ed977119150f298e2016f806cf2fcb02df881fa6f298f1ed3a808",
+        "score": 32.16880587181347
+      },
+      {
+        "candidate": "coactivity_support_resilient",
+        "evaluated_at_utc": "2026-10-22T19:59:16Z",
+        "params": {
+          "timescale": 16
+        },
+        "principle_sha256": "edb40774237ed977119150f298e2016f806cf2fcb02df881fa6f298f1ed3a808",
+        "score": 32.40851087838229
+      },
+      {
+        "candidate": "coactivity_support_resilient",
+        "evaluated_at_utc": "2026-10-22T19:59:54Z",
+        "params": {
+          "timescale": 18
+        },
+        "principle_sha256": "41b738fb8f49eb34743a26ba772995f4327cf094fc091060478c07c0130bb572",
+        "score": 32.22349209328368
+      },
+      {
+        "candidate": "coactivity_support_resilient",
+        "evaluated_at_utc": "2026-10-22T20:00:11Z",
+        "params": {
+          "timescale": 18
+        },
+        "principle_sha256": "41b738fb8f49eb34743a26ba772995f4327cf094fc091060478c07c0130bb572",
+        "score": 32.1971174118861
+      },
+      {
+        "candidate": "coactivity_support_resilient",
+        "evaluated_at_utc": "2026-10-22T20:00:27Z",
+        "params": {
+          "timescale": 20
+        },
+        "principle_sha256": "41b738fb8f49eb34743a26ba772995f4327cf094fc091060478c07c0130bb572",
+        "score": 32.13216442179537
+      },
+      {
+        "candidate": "coactivity_support_resilient",
+        "evaluated_at_utc": "2026-10-22T20:02:58Z",
+        "params": {
+          "timescale": 16
+        },
+        "principle_sha256": "edb40774237ed977119150f298e2016f806cf2fcb02df881fa6f298f1ed3a808",
+        "score": 32.4360798394849
+      },
+      {
+        "candidate": "coactivity_support_resilient",
+        "evaluated_at_utc": "2026-10-22T20:07:03Z",
+        "params": {
+          "timescale": 16
+        },
+        "principle_sha256": "edb40774237ed977119150f298e2016f806cf2fcb02df881fa6f298f1ed3a808",
+        "score": 32.431514273412844
+      }
+    ],
+    "resilient": {
+      "has_file_io": false,
+      "imports": [],
+      "sha256": "edb40774237ed977119150f298e2016f806cf2fcb02df881fa6f298f1ed3a808"
+    }
+  },
+  "structure_collision": {
+    "different_winner_maps": true,
+    "runs": [
+      {
+        "connections": 5,
+        "seed": 1,
+        "winner_map": [
+          8,
+          3,
+          5,
+          7,
+          10,
+          11,
+          1,
+          5,
+          1,
+          12,
+          4,
+          1,
+          7,
+          4,
+          14,
+          11
+        ]
+      },
+      {
+        "connections": 5,
+        "seed": 2,
+        "winner_map": [
+          1,
+          4,
+          5,
+          0,
+          9,
+          12,
+          14,
+          0,
+          1,
+          2,
+          5,
+          11,
+          12,
+          7,
+          0,
+          10
+        ]
+      }
+    ],
+    "same_reported_connections": true
+  }
+}

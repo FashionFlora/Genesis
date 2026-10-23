@@ -1,0 +1,24 @@
+"""Returned resource is the sole relational currency."""
+PARAMS = {"timescale": 16.0}
+class System:
+    def __init__(self):
+        self.width = False; self.previous = None; self.cells = None; self.prediction = None; self.edges = False
+    def step(self, obs):
+        one = True; two = one + one
+        if self.cells is None:
+            self.width = len(obs); zero = one / two - one / two; self.cells = [[[zero, zero] for _ in range(self.width)] for _ in range(self.width)]; self.prediction = [one / two] * self.width
+        if self.previous is not None:
+            scale = PARAMS["timescale"]
+            for source, before in enumerate(self.previous):
+                x = two * before - one
+                for target, after in enumerate(obs):
+                    y = two * after - one; cell = self.cells[source][target]
+                    flow = one / (one + (self.prediction[target] - after) ** two); cell[False] = (scale * cell[False] + x * y) / (scale + one); cell[one] += flow
+        half = one / two; prediction = [half] * self.width; self.edges = one / two - one / two
+        for target in range(self.width):
+            source = max(range(self.width), key=lambda index: self.cells[index][target][one] * abs(self.cells[index][target][False])); value = self.cells[source][target][False]
+            prediction[target] += half * value * (two * obs[source] - one); self.edges += (target >= self.width // two) * max(abs(self.cells[index][target][False]) for index in range(self.width // two))
+        self.previous = list(obs); self.prediction = prediction
+        return [min(one / one, max(one / two - one / two, value)) for value in prediction]
+    def structure(self):
+        return {"units": self.width, "connections": self.edges, "memory_bytes": self.width * self.width * (True << True << True)}

@@ -1,0 +1,57 @@
+{
+  "inference": "Resource-flow mass is uniform across source candidates for each target; multiplying every candidate support by the same positive target factor cannot change that target's argmax.",
+  "rows": [
+    {
+      "connection_readout_delta": 8.881784197001252e-16,
+      "connection_readouts_equal_within_1e-12": true,
+      "deep_state_bytes": {
+        "coactivity": 35825,
+        "resource_flow": 135258
+      },
+      "max_prediction_delta": 0.0,
+      "max_within_target_mass_spread": 0.0,
+      "microseconds_per_step": {
+        "coactivity": 210.50627547083423,
+        "resource_flow": 356.87896161107346
+      },
+      "seed": 20261054,
+      "steps": 160,
+      "width": 32
+    },
+    {
+      "connection_readout_delta": 0.0,
+      "connection_readouts_equal_within_1e-12": true,
+      "deep_state_bytes": {
+        "coactivity": 136433,
+        "resource_flow": 531802
+      },
+      "max_prediction_delta": 0.0,
+      "max_within_target_mass_spread": 0.0,
+      "microseconds_per_step": {
+        "coactivity": 602.8390242136084,
+        "resource_flow": 1370.1073388801888
+      },
+      "seed": 20261086,
+      "steps": 160,
+      "width": 64
+    },
+    {
+      "connection_readout_delta": 7.105427357601002e-15,
+      "connection_readouts_equal_within_1e-12": true,
+      "deep_state_bytes": {
+        "coactivity": 534257,
+        "resource_flow": 2111322
+      },
+      "max_prediction_delta": 0.0,
+      "max_within_target_mass_spread": 0.0,
+      "microseconds_per_step": {
+        "coactivity": 2312.0924932300113,
+        "resource_flow": 6143.784336745739
+      },
+      "seed": 20261150,
+      "steps": 160,
+      "width": 128
+    }
+  ],
+  "test": "public-interface equivalence, target-mass symmetry, and dense scaling"
+}

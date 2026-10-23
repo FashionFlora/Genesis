@@ -1,0 +1,3 @@
+Parents: coactivity_flux_scale9, coactivity_flux_mass9.
+H013 survivor: local conditional evidence is the resource; useful contact persists,
+unreliable contact loses mass through decay. The 12-source stress matched Hebb.

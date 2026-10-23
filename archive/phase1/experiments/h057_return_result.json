@@ -1,0 +1,16 @@
+{
+  "candidate": "candidates/return_flow_self_normalized/principle.py",
+  "seeds": 40,
+  "phase_steps": 500,
+  "target": {
+    "first_error": 0.2626031784373962,
+    "return_error": 0.25564989130010685,
+    "return_minus_first": -0.006953287137289356,
+    "faster_fraction": 0.575
+  },
+  "null": {
+    "first_error": 0.27129461459959664,
+    "return_error": 0.26122858290810286
+  },
+  "paired_gain_vs_null": -0.003112744554204399
+}

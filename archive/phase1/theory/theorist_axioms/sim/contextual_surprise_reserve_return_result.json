@@ -1,0 +1,10 @@
+{
+  "candidate": "candidates/contextual_surprise_reserve/principle.py",
+  "seeds": 40,
+  "phase_steps": 500,
+  "first_a_mse": 0.2666914442416195,
+  "late_a_mse": 0.26643727880308204,
+  "return_a_mse": 0.2678829893903554,
+  "return_faster_fraction": 0.4,
+  "null_mean_mse": 0.26505701152690686
+}

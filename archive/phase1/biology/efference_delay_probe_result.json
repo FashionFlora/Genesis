@@ -1,0 +1,16 @@
+{
+  "tagged": {
+    "post_switch_choice_accuracy": 0.9077586206896552,
+    "final_correct_edge_retention_rate": 1.0
+  },
+  "last_action_credit": {
+    "post_switch_choice_accuracy": 0.540301724137931,
+    "final_correct_edge_retention_rate": 0.0
+  },
+  "worlds": 200,
+  "steps": 240,
+  "switch_step": 120,
+  "feedback_delay": 4,
+  "noise_sd": 0.08,
+  "note": "toy identifiability test; actions randomized and action effects supplied"
+}

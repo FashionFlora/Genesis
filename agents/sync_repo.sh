@@ -1,15 +1,16 @@
 #!/usr/bin/env bash
 # Kopiuje stan projektu GENESIS do repozytorium gita (bez venv, cache, logów i plików >5 MB) i robi commit + push.
+# Obecny system -> katalog główny; faza 1 (archiwum sprzed resetu) -> archive/phase1; archeolog -> archive/archeology.
 set -e
-SRC=/opt/dlami/nvme/genesis; DST=/opt/dlami/nvme/genesis_repo
-rsync -a --delete --max-size=5m \
-  --exclude .git --exclude README.md --exclude .gitignore --exclude docs \
-  --exclude .venv --exclude shared/cache --exclude logs --exclude __pycache__ --exclude '*.pyc' \
-  --exclude registry/sources --exclude HANDOFF.md --exclude run_area.sh --exclude supervisor.py \
-  "$SRC"/ "$DST"/
-# HANDOFF.md agentów (pamięć między turami) zostawiamy, pomijamy tylko luźny w katalogu głównym
-for f in $(cd "$SRC" && find . -path ./.venv -prune -o -name HANDOFF.md -print | grep -v '^./HANDOFF.md$'); do
-  mkdir -p "$DST/$(dirname "$f")"; cp "$SRC/$f" "$DST/$f"; done
+SRC=/opt/dlami/nvme/genesis; DST=/opt/dlami/nvme/genesis_repo; ARC=/opt/dlami/nvme/genesis_archive
+COMMON=(--max-size=5m --exclude .venv --exclude cache --exclude logs --exclude __pycache__ --exclude '*.pyc'
+        --exclude registry/sources --exclude run.jsonl --exclude run.err --exclude cont_prompt.txt)
+rsync -a --delete "${COMMON[@]}" --exclude .git --exclude README.md --exclude .gitignore --exclude docs \
+  --exclude archive --exclude /HANDOFF.md --exclude run_area.sh --exclude supervisor.py "$SRC"/ "$DST"/
+mkdir -p "$DST/archive"
+rsync -a --delete "${COMMON[@]}" --exclude /HANDOFF.md --exclude run_area.sh --exclude supervisor.py \
+  "$ARC/2026-10-23_reset"/ "$DST/archive/phase1"/
+[ -d "$ARC/archeology" ] && rsync -a --delete "${COMMON[@]}" --exclude sandbox "$ARC/archeology"/ "$DST/archive/archeology"/
 cd "$DST"
 git add -A
 git commit -q -m "${1:-Stan projektu $(date '+%Y-%m-%d %H:%M')}" && git push -q origin HEAD 2>&1 | tail -2 || echo "brak zmian"

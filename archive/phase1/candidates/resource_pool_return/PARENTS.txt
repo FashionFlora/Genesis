@@ -1,0 +1,4 @@
+Parents: resource_flow_replicator, resource_flow_returned_evidence.
+Change: each target owns one conserved pool of source shares. Returned predictive
+flow multiplies and renormalizes those shares; the same share weights evidence.
+There is no independent mutation, reward, or pruning schedule.

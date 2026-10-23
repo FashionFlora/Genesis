@@ -1,0 +1,10 @@
+Parents:
+- candidates/context_action_sufficiency/
+- candidates/reversible_surprise/
+
+Mutation/crossover:
+Retains action-conditioned local outcomes but replaces explicit context
+addresses and surprise-triggered exchanges with two predictive states per
+relation. The state with lower accumulated prequential error supplies the
+prediction and receives the observation. This tests whether context retrieval
+can emerge from predictive fit without a phase/context label.

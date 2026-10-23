@@ -1,0 +1,10 @@
+Parents:
+- candidates/coactivity_single_support_source_mass/
+- candidates/resource_flow_memory/
+
+Mutation: keep relation support in context-addressed banks, and let the
+prediction-derived flow set each local update rate. The shared resource-flow
+weighting is applied inside each context bank to test whether context separation
+prevents A/B interference while preserving the source-mass candidate's compact
+relational representation. No reward, regime ID, action preference, or Snake
+strategy is encoded.

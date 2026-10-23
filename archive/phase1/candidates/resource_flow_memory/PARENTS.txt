@@ -1,0 +1,13 @@
+Parents:
+- candidates/resource_surprise_flow/principle.py
+- candidates/coactivity_single_support_source_mass/principle.py
+
+Mutation/crossover:
+Each source-target relation carries one pair [signed evidence, returned resource].
+Prediction surprise determines returned flow; that flow accumulates relational mass,
+while the same relation's evidence is updated and selected by mass. No separate
+learning clock, reward, or structural mutation rule is introduced.
+
+Result:
+Full judge passed levels 1 and 2. L1 score 52.9364 (R 0.9935), L2 score 27.6001
+(R 0.9632). Level 3 stops because this stream candidate has no act().

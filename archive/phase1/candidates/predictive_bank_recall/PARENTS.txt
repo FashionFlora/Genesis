@@ -1,0 +1,2 @@
+Parents: reversible_surprise and reversible_predictive_exchange.
+Change: retain two local predictors and select each target's predictor using only its accumulated prequential error; update only that selected predictor. This replaces surprise-triggered exchange with fit-based recall. The independent A-B-A simulation refuted the change, so this candidate is retained only to record the required cross-island test.

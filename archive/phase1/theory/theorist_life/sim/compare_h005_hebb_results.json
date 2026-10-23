@@ -1,0 +1,301 @@
+{
+  "world": {
+    "sources": 12,
+    "schedule": [
+      0,
+      3,
+      7,
+      11,
+      0
+    ],
+    "segment_length": 800,
+    "seeds": 10
+  },
+  "summary": {
+    "resource_match": 0.24276212531984648,
+    "resource_mse": 0.40289892505220787,
+    "hebb_match": 1.0
+  },
+  "paired": [
+    {
+      "seed": 0,
+      "phase": 1,
+      "resource_match": 0.279241749667786,
+      "resource_mse": 0.36033938741496147,
+      "hebb_match": 1.0
+    },
+    {
+      "seed": 0,
+      "phase": 2,
+      "resource_match": 0.22935572590280473,
+      "resource_mse": 0.3587350045344927,
+      "hebb_match": 1.0
+    },
+    {
+      "seed": 0,
+      "phase": 3,
+      "resource_match": 0.31514578019056694,
+      "resource_mse": 0.3062340336587452,
+      "hebb_match": 1.0
+    },
+    {
+      "seed": 0,
+      "phase": 4,
+      "resource_match": 0.26561374864779125,
+      "resource_mse": 0.41103817807394943,
+      "hebb_match": 1.0
+    },
+    {
+      "seed": 1,
+      "phase": 1,
+      "resource_match": 0.28603656467016336,
+      "resource_mse": 0.34239258051419713,
+      "hebb_match": 1.0
+    },
+    {
+      "seed": 1,
+      "phase": 2,
+      "resource_match": 0.1933881867934016,
+      "resource_mse": 0.45620241908660286,
+      "hebb_match": 1.0
+    },
+    {
+      "seed": 1,
+      "phase": 3,
+      "resource_match": 0.20959033337713873,
+      "resource_mse": 0.3814289384525589,
+      "hebb_match": 1.0
+    },
+    {
+      "seed": 1,
+      "phase": 4,
+      "resource_match": 0.1667197215993045,
+      "resource_mse": 0.3504076815914378,
+      "hebb_match": 1.0
+    },
+    {
+      "seed": 2,
+      "phase": 1,
+      "resource_match": 0.1937102877899815,
+      "resource_mse": 0.4873900298463339,
+      "hebb_match": 1.0
+    },
+    {
+      "seed": 2,
+      "phase": 2,
+      "resource_match": 0.27513117586284913,
+      "resource_mse": 0.4127957415590764,
+      "hebb_match": 1.0
+    },
+    {
+      "seed": 2,
+      "phase": 3,
+      "resource_match": 0.21895657401191537,
+      "resource_mse": 0.440954659375712,
+      "hebb_match": 1.0
+    },
+    {
+      "seed": 2,
+      "phase": 4,
+      "resource_match": 0.24849336882093548,
+      "resource_mse": 0.43532420983407094,
+      "hebb_match": 1.0
+    },
+    {
+      "seed": 3,
+      "phase": 1,
+      "resource_match": 0.301533540078973,
+      "resource_mse": 0.4329122050441061,
+      "hebb_match": 1.0
+    },
+    {
+      "seed": 3,
+      "phase": 2,
+      "resource_match": 0.19363868524789474,
+      "resource_mse": 0.3942347167347286,
+      "hebb_match": 1.0
+    },
+    {
+      "seed": 3,
+      "phase": 3,
+      "resource_match": 0.27404645764749924,
+      "resource_mse": 0.43283159331097554,
+      "hebb_match": 1.0
+    },
+    {
+      "seed": 3,
+      "phase": 4,
+      "resource_match": 0.21411601549941472,
+      "resource_mse": 0.4293479060905944,
+      "hebb_match": 1.0
+    },
+    {
+      "seed": 4,
+      "phase": 1,
+      "resource_match": 0.19647943016024666,
+      "resource_mse": 0.4533853337469302,
+      "hebb_match": 1.0
+    },
+    {
+      "seed": 4,
+      "phase": 2,
+      "resource_match": 0.2484189903511195,
+      "resource_mse": 0.4191453177069494,
+      "hebb_match": 1.0
+    },
+    {
+      "seed": 4,
+      "phase": 3,
+      "resource_match": 0.32342342459635,
+      "resource_mse": 0.3313208079504614,
+      "hebb_match": 1.0
+    },
+    {
+      "seed": 4,
+      "phase": 4,
+      "resource_match": 0.26000632914252864,
+      "resource_mse": 0.47493268996805776,
+      "hebb_match": 1.0
+    },
+    {
+      "seed": 5,
+      "phase": 1,
+      "resource_match": 0.2985130365119771,
+      "resource_mse": 0.37685205104379266,
+      "hebb_match": 1.0
+    },
+    {
+      "seed": 5,
+      "phase": 2,
+      "resource_match": 0.2071168926418131,
+      "resource_mse": 0.3506681010972116,
+      "hebb_match": 1.0
+    },
+    {
+      "seed": 5,
+      "phase": 3,
+      "resource_match": 0.22271080850626304,
+      "resource_mse": 0.42105764010104874,
+      "hebb_match": 1.0
+    },
+    {
+      "seed": 5,
+      "phase": 4,
+      "resource_match": 0.204785497917864,
+      "resource_mse": 0.43427817898152116,
+      "hebb_match": 1.0
+    },
+    {
+      "seed": 6,
+      "phase": 1,
+      "resource_match": 0.2826552152734014,
+      "resource_mse": 0.37939589483742575,
+      "hebb_match": 1.0
+    },
+    {
+      "seed": 6,
+      "phase": 2,
+      "resource_match": 0.2453246650096452,
+      "resource_mse": 0.41848179994679924,
+      "hebb_match": 1.0
+    },
+    {
+      "seed": 6,
+      "phase": 3,
+      "resource_match": 0.24733489793175592,
+      "resource_mse": 0.41102678542494825,
+      "hebb_match": 1.0
+    },
+    {
+      "seed": 6,
+      "phase": 4,
+      "resource_match": 0.20532952147053155,
+      "resource_mse": 0.39739045310749416,
+      "hebb_match": 1.0
+    },
+    {
+      "seed": 7,
+      "phase": 1,
+      "resource_match": 0.20355649318797034,
+      "resource_mse": 0.47324999235587994,
+      "hebb_match": 1.0
+    },
+    {
+      "seed": 7,
+      "phase": 2,
+      "resource_match": 0.27722347730153607,
+      "resource_mse": 0.37195219668068424,
+      "hebb_match": 1.0
+    },
+    {
+      "seed": 7,
+      "phase": 3,
+      "resource_match": 0.2178454853889732,
+      "resource_mse": 0.44725723122897826,
+      "hebb_match": 1.0
+    },
+    {
+      "seed": 7,
+      "phase": 4,
+      "resource_match": 0.2521079799005519,
+      "resource_mse": 0.2887765318293853,
+      "hebb_match": 1.0
+    },
+    {
+      "seed": 8,
+      "phase": 1,
+      "resource_match": 0.31997055901156474,
+      "resource_mse": 0.4283871696276571,
+      "hebb_match": 1.0
+    },
+    {
+      "seed": 8,
+      "phase": 2,
+      "resource_match": 0.3087374739028345,
+      "resource_mse": 0.3167574743740316,
+      "hebb_match": 1.0
+    },
+    {
+      "seed": 8,
+      "phase": 3,
+      "resource_match": 0.21189067639806977,
+      "resource_mse": 0.43553778005032184,
+      "hebb_match": 1.0
+    },
+    {
+      "seed": 8,
+      "phase": 4,
+      "resource_match": 0.2165334522590383,
+      "resource_mse": 0.3942334236521213,
+      "hebb_match": 1.0
+    },
+    {
+      "seed": 9,
+      "phase": 1,
+      "resource_match": 0.21303291651518627,
+      "resource_mse": 0.37787340290501803,
+      "hebb_match": 1.0
+    },
+    {
+      "seed": 9,
+      "phase": 2,
+      "resource_match": 0.21079426201312523,
+      "resource_mse": 0.40608771176535724,
+      "hebb_match": 1.0
+    },
+    {
+      "seed": 9,
+      "phase": 3,
+      "resource_match": 0.25144225864590775,
+      "resource_mse": 0.4789964116293324,
+      "hebb_match": 1.0
+    },
+    {
+      "seed": 9,
+      "phase": 4,
+      "resource_match": 0.22053335294718487,
+      "resource_mse": 0.3963433369543631,
+      "hebb_match": 1.0
+    }
+  ]
+}

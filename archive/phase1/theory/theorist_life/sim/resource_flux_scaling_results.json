@@ -1,0 +1,153 @@
+{
+  "world": {
+    "source_count": 12,
+    "schedule": [
+      0,
+      3,
+      7,
+      11
+    ],
+    "segment_length": 250,
+    "steps": 1000,
+    "seeds": 8,
+    "measurement_window": [
+      50,
+      200
+    ]
+  },
+  "summary": {
+    "selected": {
+      "matching_source_fraction": 0.19619901402891393,
+      "target_mse": 0.41654184331771155
+    },
+    "neutral": {
+      "matching_source_fraction": 0.08167984709471393,
+      "target_mse": 0.4656127080524566
+    },
+    "hebb": {
+      "matching_source_fraction": 0.9973958333333334,
+      "target_mse": null
+    },
+    "paired_selected_minus_neutral_share": 0.1145191669342
+  },
+  "per_seed": {
+    "selected": [
+      {
+        "seed": 0,
+        "matching_source_fraction": 0.19896547017527508,
+        "target_mse": 0.43662516300549165
+      },
+      {
+        "seed": 1,
+        "matching_source_fraction": 0.20899437546992708,
+        "target_mse": 0.4244009145302337
+      },
+      {
+        "seed": 2,
+        "matching_source_fraction": 0.19028088160814863,
+        "target_mse": 0.4075055221409121
+      },
+      {
+        "seed": 3,
+        "matching_source_fraction": 0.20926461212456135,
+        "target_mse": 0.3719191829750885
+      },
+      {
+        "seed": 4,
+        "matching_source_fraction": 0.18721197502033218,
+        "target_mse": 0.4355640683529788
+      },
+      {
+        "seed": 5,
+        "matching_source_fraction": 0.19781138688735622,
+        "target_mse": 0.4420262978501133
+      },
+      {
+        "seed": 6,
+        "matching_source_fraction": 0.17730416350547915,
+        "target_mse": 0.3874952826234964
+      },
+      {
+        "seed": 7,
+        "matching_source_fraction": 0.19975924744023185,
+        "target_mse": 0.4267983150633777
+      }
+    ],
+    "neutral": [
+      {
+        "seed": 0,
+        "matching_source_fraction": 0.07263796780090935,
+        "target_mse": 0.4955934087425992
+      },
+      {
+        "seed": 1,
+        "matching_source_fraction": 0.09202278879251416,
+        "target_mse": 0.48852958153037424
+      },
+      {
+        "seed": 2,
+        "matching_source_fraction": 0.08774083440082207,
+        "target_mse": 0.46375149907483
+      },
+      {
+        "seed": 3,
+        "matching_source_fraction": 0.09325181482820813,
+        "target_mse": 0.41183771265475744
+      },
+      {
+        "seed": 4,
+        "matching_source_fraction": 0.07503528673073027,
+        "target_mse": 0.4629320337439916
+      },
+      {
+        "seed": 5,
+        "matching_source_fraction": 0.07837327068687214,
+        "target_mse": 0.49565889312346867
+      },
+      {
+        "seed": 6,
+        "matching_source_fraction": 0.0727389338157795,
+        "target_mse": 0.43554208377390047
+      },
+      {
+        "seed": 7,
+        "matching_source_fraction": 0.08163787970187586,
+        "target_mse": 0.47105645177573097
+      }
+    ],
+    "hebb": [
+      {
+        "seed": 0,
+        "matching_source_fraction": 1.0
+      },
+      {
+        "seed": 1,
+        "matching_source_fraction": 1.0
+      },
+      {
+        "seed": 2,
+        "matching_source_fraction": 1.0
+      },
+      {
+        "seed": 3,
+        "matching_source_fraction": 1.0
+      },
+      {
+        "seed": 4,
+        "matching_source_fraction": 1.0
+      },
+      {
+        "seed": 5,
+        "matching_source_fraction": 0.9791666666666666
+      },
+      {
+        "seed": 6,
+        "matching_source_fraction": 1.0
+      },
+      {
+        "seed": 7,
+        "matching_source_fraction": 1.0
+      }
+    ]
+  }
+}

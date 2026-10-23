@@ -1,0 +1,11 @@
+Parents:
+- candidates/resource_flow_memory/principle.py
+- candidates/resonant_edge_dynamics/principle.py
+
+Mutation/crossover:
+The predictive returned-flow update from resource_flow_memory is retained for
+all streams.  Action selection uses the same local edge resource: a proposed
+neighbor is an addressed target, and the next observed state returns mass only
+when its local address reaches that target.  Returned mass decays and weights
+later contacts, so persistence and action share one resource rather than a
+separate goal or reward heuristic.

@@ -1,0 +1,217 @@
+{
+  "candidate": "candidates/contextual_predictive_sufficiency/principle.py",
+  "streams": 24,
+  "independent_bernoulli_null": {
+    "mse": {
+      "mean": 0.2502861667993797,
+      "sd": 0.0009659903411860674
+    },
+    "tail_mse": {
+      "mean": 0.25040372426686786,
+      "sd": 0.012045504618823897
+    },
+    "connections": {
+      "mean": 3.1666666666666665,
+      "sd": 1.0671873729054748
+    },
+    "memory_bytes": {
+      "mean": 9216,
+      "sd": 0.0
+    }
+  },
+  "chance_mse": 0.25,
+  "rows": [
+    {
+      "seed": 40,
+      "mse": 0.2500016171639439,
+      "tail_mse": 0.2468075412609148,
+      "units": 12,
+      "connections": 2,
+      "memory_bytes": 9216
+    },
+    {
+      "seed": 41,
+      "mse": 0.25270868774404254,
+      "tail_mse": 0.26845532527700433,
+      "units": 12,
+      "connections": 2,
+      "memory_bytes": 9216
+    },
+    {
+      "seed": 42,
+      "mse": 0.25038434890635597,
+      "tail_mse": 0.23571385715325507,
+      "units": 12,
+      "connections": 4,
+      "memory_bytes": 9216
+    },
+    {
+      "seed": 43,
+      "mse": 0.24972420390246947,
+      "tail_mse": 0.24123951230433216,
+      "units": 12,
+      "connections": 3,
+      "memory_bytes": 9216
+    },
+    {
+      "seed": 44,
+      "mse": 0.2502186715607165,
+      "tail_mse": 0.24015009341503168,
+      "units": 12,
+      "connections": 3,
+      "memory_bytes": 9216
+    },
+    {
+      "seed": 45,
+      "mse": 0.24816990783047635,
+      "tail_mse": 0.24592197185351589,
+      "units": 12,
+      "connections": 5,
+      "memory_bytes": 9216
+    },
+    {
+      "seed": 46,
+      "mse": 0.25145822972656434,
+      "tail_mse": 0.24945103402742724,
+      "units": 12,
+      "connections": 3,
+      "memory_bytes": 9216
+    },
+    {
+      "seed": 47,
+      "mse": 0.2504734889308501,
+      "tail_mse": 0.25549235544935406,
+      "units": 12,
+      "connections": 3,
+      "memory_bytes": 9216
+    },
+    {
+      "seed": 48,
+      "mse": 0.24961269888722248,
+      "tail_mse": 0.27302708383080754,
+      "units": 12,
+      "connections": 3,
+      "memory_bytes": 9216
+    },
+    {
+      "seed": 49,
+      "mse": 0.24908800847724089,
+      "tail_mse": 0.24695131605423373,
+      "units": 12,
+      "connections": 3,
+      "memory_bytes": 9216
+    },
+    {
+      "seed": 50,
+      "mse": 0.2493119101234368,
+      "tail_mse": 0.24883110919297124,
+      "units": 12,
+      "connections": 3,
+      "memory_bytes": 9216
+    },
+    {
+      "seed": 51,
+      "mse": 0.2514479973566298,
+      "tail_mse": 0.2525176726336823,
+      "units": 12,
+      "connections": 6,
+      "memory_bytes": 9216
+    },
+    {
+      "seed": 52,
+      "mse": 0.25049488624982535,
+      "tail_mse": 0.2520634450651202,
+      "units": 12,
+      "connections": 3,
+      "memory_bytes": 9216
+    },
+    {
+      "seed": 53,
+      "mse": 0.24907883475437884,
+      "tail_mse": 0.2495711331962848,
+      "units": 12,
+      "connections": 3,
+      "memory_bytes": 9216
+    },
+    {
+      "seed": 54,
+      "mse": 0.2511099465686834,
+      "tail_mse": 0.2775624733023038,
+      "units": 12,
+      "connections": 4,
+      "memory_bytes": 9216
+    },
+    {
+      "seed": 55,
+      "mse": 0.2505127778754523,
+      "tail_mse": 0.23805843981244967,
+      "units": 12,
+      "connections": 3,
+      "memory_bytes": 9216
+    },
+    {
+      "seed": 56,
+      "mse": 0.25162290958192357,
+      "tail_mse": 0.2586105072008898,
+      "units": 12,
+      "connections": 1,
+      "memory_bytes": 9216
+    },
+    {
+      "seed": 57,
+      "mse": 0.2503838966818,
+      "tail_mse": 0.24448907134715497,
+      "units": 12,
+      "connections": 3,
+      "memory_bytes": 9216
+    },
+    {
+      "seed": 58,
+      "mse": 0.2503333014404012,
+      "tail_mse": 0.2606996361396921,
+      "units": 12,
+      "connections": 2,
+      "memory_bytes": 9216
+    },
+    {
+      "seed": 59,
+      "mse": 0.249591198514711,
+      "tail_mse": 0.2437048163992201,
+      "units": 12,
+      "connections": 2,
+      "memory_bytes": 9216
+    },
+    {
+      "seed": 60,
+      "mse": 0.2511271202433284,
+      "tail_mse": 0.2314461141935645,
+      "units": 12,
+      "connections": 4,
+      "memory_bytes": 9216
+    },
+    {
+      "seed": 61,
+      "mse": 0.24992051099566437,
+      "tail_mse": 0.2704601754133993,
+      "units": 12,
+      "connections": 3,
+      "memory_bytes": 9216
+    },
+    {
+      "seed": 62,
+      "mse": 0.25058098354906483,
+      "tail_mse": 0.2379930590899767,
+      "units": 12,
+      "connections": 3,
+      "memory_bytes": 9216
+    },
+    {
+      "seed": 63,
+      "mse": 0.24951186611993106,
+      "tail_mse": 0.2404716387922423,
+      "units": 12,
+      "connections": 5,
+      "memory_bytes": 9216
+    }
+  ]
+}

@@ -1,0 +1,262 @@
+{
+  "world": {
+    "sources": 12,
+    "schedule": [
+      0,
+      3,
+      7,
+      11,
+      0
+    ],
+    "segment_length": 800,
+    "seeds": 10,
+    "flow_timescale": 9.0,
+    "hebb_timescale": 33.333333333333
+  },
+  "summary": {
+    "flow_match": 1.0,
+    "hebb_match": 1.0
+  },
+  "paired": [
+    {
+      "seed": 0,
+      "phase": 1,
+      "flow_match": 1.0,
+      "hebb_match": 1.0
+    },
+    {
+      "seed": 0,
+      "phase": 2,
+      "flow_match": 1.0,
+      "hebb_match": 1.0
+    },
+    {
+      "seed": 0,
+      "phase": 3,
+      "flow_match": 1.0,
+      "hebb_match": 1.0
+    },
+    {
+      "seed": 0,
+      "phase": 4,
+      "flow_match": 1.0,
+      "hebb_match": 1.0
+    },
+    {
+      "seed": 1,
+      "phase": 1,
+      "flow_match": 1.0,
+      "hebb_match": 1.0
+    },
+    {
+      "seed": 1,
+      "phase": 2,
+      "flow_match": 1.0,
+      "hebb_match": 1.0
+    },
+    {
+      "seed": 1,
+      "phase": 3,
+      "flow_match": 1.0,
+      "hebb_match": 1.0
+    },
+    {
+      "seed": 1,
+      "phase": 4,
+      "flow_match": 1.0,
+      "hebb_match": 1.0
+    },
+    {
+      "seed": 2,
+      "phase": 1,
+      "flow_match": 1.0,
+      "hebb_match": 1.0
+    },
+    {
+      "seed": 2,
+      "phase": 2,
+      "flow_match": 1.0,
+      "hebb_match": 1.0
+    },
+    {
+      "seed": 2,
+      "phase": 3,
+      "flow_match": 1.0,
+      "hebb_match": 1.0
+    },
+    {
+      "seed": 2,
+      "phase": 4,
+      "flow_match": 1.0,
+      "hebb_match": 1.0
+    },
+    {
+      "seed": 3,
+      "phase": 1,
+      "flow_match": 1.0,
+      "hebb_match": 1.0
+    },
+    {
+      "seed": 3,
+      "phase": 2,
+      "flow_match": 1.0,
+      "hebb_match": 1.0
+    },
+    {
+      "seed": 3,
+      "phase": 3,
+      "flow_match": 1.0,
+      "hebb_match": 1.0
+    },
+    {
+      "seed": 3,
+      "phase": 4,
+      "flow_match": 1.0,
+      "hebb_match": 1.0
+    },
+    {
+      "seed": 4,
+      "phase": 1,
+      "flow_match": 1.0,
+      "hebb_match": 1.0
+    },
+    {
+      "seed": 4,
+      "phase": 2,
+      "flow_match": 1.0,
+      "hebb_match": 1.0
+    },
+    {
+      "seed": 4,
+      "phase": 3,
+      "flow_match": 1.0,
+      "hebb_match": 1.0
+    },
+    {
+      "seed": 4,
+      "phase": 4,
+      "flow_match": 1.0,
+      "hebb_match": 1.0
+    },
+    {
+      "seed": 5,
+      "phase": 1,
+      "flow_match": 1.0,
+      "hebb_match": 1.0
+    },
+    {
+      "seed": 5,
+      "phase": 2,
+      "flow_match": 1.0,
+      "hebb_match": 1.0
+    },
+    {
+      "seed": 5,
+      "phase": 3,
+      "flow_match": 1.0,
+      "hebb_match": 1.0
+    },
+    {
+      "seed": 5,
+      "phase": 4,
+      "flow_match": 1.0,
+      "hebb_match": 1.0
+    },
+    {
+      "seed": 6,
+      "phase": 1,
+      "flow_match": 1.0,
+      "hebb_match": 1.0
+    },
+    {
+      "seed": 6,
+      "phase": 2,
+      "flow_match": 1.0,
+      "hebb_match": 1.0
+    },
+    {
+      "seed": 6,
+      "phase": 3,
+      "flow_match": 1.0,
+      "hebb_match": 1.0
+    },
+    {
+      "seed": 6,
+      "phase": 4,
+      "flow_match": 1.0,
+      "hebb_match": 1.0
+    },
+    {
+      "seed": 7,
+      "phase": 1,
+      "flow_match": 1.0,
+      "hebb_match": 1.0
+    },
+    {
+      "seed": 7,
+      "phase": 2,
+      "flow_match": 1.0,
+      "hebb_match": 1.0
+    },
+    {
+      "seed": 7,
+      "phase": 3,
+      "flow_match": 1.0,
+      "hebb_match": 1.0
+    },
+    {
+      "seed": 7,
+      "phase": 4,
+      "flow_match": 1.0,
+      "hebb_match": 1.0
+    },
+    {
+      "seed": 8,
+      "phase": 1,
+      "flow_match": 1.0,
+      "hebb_match": 1.0
+    },
+    {
+      "seed": 8,
+      "phase": 2,
+      "flow_match": 1.0,
+      "hebb_match": 1.0
+    },
+    {
+      "seed": 8,
+      "phase": 3,
+      "flow_match": 1.0,
+      "hebb_match": 1.0
+    },
+    {
+      "seed": 8,
+      "phase": 4,
+      "flow_match": 1.0,
+      "hebb_match": 1.0
+    },
+    {
+      "seed": 9,
+      "phase": 1,
+      "flow_match": 1.0,
+      "hebb_match": 1.0
+    },
+    {
+      "seed": 9,
+      "phase": 2,
+      "flow_match": 1.0,
+      "hebb_match": 1.0
+    },
+    {
+      "seed": 9,
+      "phase": 3,
+      "flow_match": 1.0,
+      "hebb_match": 1.0
+    },
+    {
+      "seed": 9,
+      "phase": 4,
+      "flow_match": 1.0,
+      "hebb_match": 1.0
+    }
+  ]
+}

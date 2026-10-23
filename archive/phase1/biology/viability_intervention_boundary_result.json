@@ -1,0 +1,39 @@
+{
+  "worlds": 200,
+  "need_magnitude": 0.2,
+  "action_effect_magnitude": 0.2,
+  "observation_sd": 0.08,
+  "results": [
+    {
+      "probe_trials": 1,
+      "worlds": 200,
+      "action_accuracy": 1.0,
+      "correct_single_edge_rate": 0.5
+    },
+    {
+      "probe_trials": 2,
+      "worlds": 200,
+      "action_accuracy": 1.0,
+      "correct_single_edge_rate": 0.995
+    },
+    {
+      "probe_trials": 4,
+      "worlds": 200,
+      "action_accuracy": 1.0,
+      "correct_single_edge_rate": 1.0
+    },
+    {
+      "probe_trials": 8,
+      "worlds": 200,
+      "action_accuracy": 1.0,
+      "correct_single_edge_rate": 1.0
+    },
+    {
+      "probe_trials": 16,
+      "worlds": 200,
+      "action_accuracy": 1.0,
+      "correct_single_edge_rate": 1.0
+    }
+  ],
+  "limitation": "Supplied binary actions and target; no organismal resource dynamics or neuron growth."
+}

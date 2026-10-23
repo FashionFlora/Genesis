@@ -1,0 +1,9 @@
+Parents: candidates/predictive_context_sufficiency/principle.py
+
+Derivation:
+The principle treats a context as a predictive equivalence class: histories
+that give different next-step distributions must keep separate local evidence.
+The address is a permutation-invariant weighted summary of the current sensory
+state, and the global model is only the low-evidence fallback. This removes
+the privileged sensor-half address from the parent while retaining one law:
+internal distinctions persist exactly to the extent that they predict.

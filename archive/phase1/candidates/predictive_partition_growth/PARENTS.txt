@@ -1,0 +1,2 @@
+Parents: adaptive_contact_flux (sparse, phase-sensitive predictive structure); contextual_predictive_equivalence (contexts retained only when predictions distinguish them).
+Change: a target's predictive context is a single partition node. Split it by one observed channel only while the rolling prediction loss improves on the unsplit self-context; expiry of the evidence removes both child units and branch connections. The same signed predictive distinction governs both directions of structural change.

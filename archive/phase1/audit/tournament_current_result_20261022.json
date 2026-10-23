@@ -1,0 +1,133 @@
+{
+  "generated_by": "audit/tournament_current_20261022.py",
+  "candidates": {
+    "single_support_source_mass": {
+      "path": "candidates/coactivity_single_support_source_mass/principle.py",
+      "timescale": 16.0,
+      "prediction_sanity": {
+        "lagged_correlated": 0.08628224062818834,
+        "lagged_correlated_tail": 0.08013305861414377,
+        "iid": 0.2752785610609419,
+        "iid_tail": 0.27683308158804065,
+        "lagged_minus_iid_brier": -0.18899632043275355
+      },
+      "return_probe": {
+        "first_A_tail_brier": 0.3981400872384477,
+        "B_tail_brier": 0.44616928475482115,
+        "return_A_tail_brier": 0.4780108219284456,
+        "return_minus_first": 0.07987073468999789,
+        "final_structure": {
+          "units": 12,
+          "connections": 4.896225760905874,
+          "memory_bytes": 576
+        }
+      },
+      "scaling": [
+        {
+          "width": 8,
+          "steps": 80,
+          "seconds": 0.001131837023422122,
+          "microseconds_per_step": 14.147962792776525,
+          "declared_memory_bytes": 256,
+          "deep_state_bytes": 3353
+        },
+        {
+          "width": 16,
+          "steps": 80,
+          "seconds": 0.003630297025665641,
+          "microseconds_per_step": 45.37871282082051,
+          "declared_memory_bytes": 1024,
+          "deep_state_bytes": 10065
+        },
+        {
+          "width": 32,
+          "steps": 80,
+          "seconds": 0.012557592010125518,
+          "microseconds_per_step": 156.96990012656897,
+          "declared_memory_bytes": 4096,
+          "deep_state_bytes": 35785
+        },
+        {
+          "width": 64,
+          "steps": 80,
+          "seconds": 0.0524477050639689,
+          "microseconds_per_step": 655.5963132996112,
+          "declared_memory_bytes": 16384,
+          "deep_state_bytes": 136385
+        },
+        {
+          "width": 128,
+          "steps": 80,
+          "seconds": 0.19003186491318047,
+          "microseconds_per_step": 2375.398311414756,
+          "declared_memory_bytes": 65536,
+          "deep_state_bytes": 534201
+        }
+      ]
+    },
+    "flux_scale9": {
+      "path": "candidates/coactivity_flux_scale9/principle.py",
+      "timescale": 9,
+      "prediction_sanity": {
+        "lagged_correlated": 0.09130414314029643,
+        "lagged_correlated_tail": 0.08583284103700475,
+        "iid": 0.2694992555902341,
+        "iid_tail": 0.270206634016079,
+        "lagged_minus_iid_brier": -0.17819511244993763
+      },
+      "return_probe": {
+        "first_A_tail_brier": 0.34584236906296933,
+        "B_tail_brier": 0.3863767923124784,
+        "return_A_tail_brier": 0.41314345367516914,
+        "return_minus_first": 0.0673010846121998,
+        "final_structure": {
+          "units": 12,
+          "connections": 6,
+          "memory_bytes": 1152
+        }
+      },
+      "scaling": [
+        {
+          "width": 8,
+          "steps": 80,
+          "seconds": 0.0016706979367882013,
+          "microseconds_per_step": 20.883724209852517,
+          "declared_memory_bytes": 512,
+          "deep_state_bytes": 22812
+        },
+        {
+          "width": 16,
+          "steps": 80,
+          "seconds": 0.006224432960152626,
+          "microseconds_per_step": 77.80541200190783,
+          "declared_memory_bytes": 2048,
+          "deep_state_bytes": 87892
+        },
+        {
+          "width": 32,
+          "steps": 80,
+          "seconds": 0.024148793891072273,
+          "microseconds_per_step": 301.8599236384034,
+          "declared_memory_bytes": 8192,
+          "deep_state_bytes": 347084
+        },
+        {
+          "width": 64,
+          "steps": 80,
+          "seconds": 0.09974458301439881,
+          "microseconds_per_step": 1246.8072876799852,
+          "declared_memory_bytes": 32768,
+          "deep_state_bytes": 1381572
+        },
+        {
+          "width": 128,
+          "steps": 80,
+          "seconds": 0.5826832021120936,
+          "microseconds_per_step": 7283.54002640117,
+          "declared_memory_bytes": 131072,
+          "deep_state_bytes": 5514940
+        }
+      ]
+    }
+  }
+}

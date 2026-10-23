@@ -1,0 +1,623 @@
+{
+  "leaderboard_rows": [
+    {
+      "author": "eksperymentator",
+      "candidate": "coactivity_support_resilient",
+      "evaluated_at_utc": "2026-10-22T19:27:20Z",
+      "highest_passed_level": 0,
+      "params": {
+        "timescale": 32.3333333333
+      },
+      "score": 47.32672122091657,
+      "score_unpenalized": 52.85769338105458,
+      "stop_reason": "calibration_only"
+    },
+    {
+      "author": "eksperymentator",
+      "candidate": "coactivity_support_resilient",
+      "evaluated_at_utc": "2026-10-22T19:28:53Z",
+      "highest_passed_level": 2,
+      "params": {
+        "timescale": 32.3333333333
+      },
+      "score": 31.006069175227776,
+      "score_unpenalized": 34.22263271139695,
+      "stop_reason": "level_3_threshold_failed"
+    },
+    {
+      "author": "unspecified",
+      "candidate": "coactivity_support_resilient",
+      "evaluated_at_utc": "2026-10-22T19:34:52Z",
+      "highest_passed_level": 0,
+      "params": {
+        "timescale": 32.3333333333
+      },
+      "score": 47.327422917815106,
+      "score_unpenalized": 52.864169394198726,
+      "stop_reason": "calibration_only"
+    },
+    {
+      "author": "unspecified",
+      "candidate": "coactivity_support_resilient",
+      "evaluated_at_utc": "2026-10-22T19:35:16Z",
+      "highest_passed_level": 0,
+      "params": {
+        "timescale": 32.3333333333
+      },
+      "score": 47.32803401682017,
+      "score_unpenalized": 52.86706766989659,
+      "stop_reason": "calibration_only"
+    },
+    {
+      "author": "eksperymentator",
+      "candidate": "coactivity_support_resilient",
+      "evaluated_at_utc": "2026-10-22T19:50:39Z",
+      "highest_passed_level": 0,
+      "params": {
+        "timescale": 32.3333333333
+      },
+      "score": 47.333493264199156,
+      "score_unpenalized": 52.87410607556997,
+      "stop_reason": "calibration_only"
+    },
+    {
+      "author": "eksperymentator",
+      "candidate": "coactivity_support_resilient",
+      "evaluated_at_utc": "2026-10-22T19:51:20Z",
+      "highest_passed_level": 0,
+      "params": {
+        "timescale": 16
+      },
+      "score": 50.551572389185175,
+      "score_unpenalized": 55.85203190433503,
+      "stop_reason": "calibration_only"
+    },
+    {
+      "author": "eksperymentator",
+      "candidate": "coactivity_support_resilient",
+      "evaluated_at_utc": "2026-10-22T19:51:28Z",
+      "highest_passed_level": 0,
+      "params": {
+        "timescale": 24
+      },
+      "score": 48.95780370508911,
+      "score_unpenalized": 54.14249730136309,
+      "stop_reason": "calibration_only"
+    },
+    {
+      "author": "eksperymentator",
+      "candidate": "coactivity_support_resilient",
+      "evaluated_at_utc": "2026-10-22T19:51:36Z",
+      "highest_passed_level": 0,
+      "params": {
+        "timescale": 32.3333333333
+      },
+      "score": 47.33022410775451,
+      "score_unpenalized": 52.86672244949412,
+      "stop_reason": "calibration_only"
+    },
+    {
+      "author": "eksperymentator",
+      "candidate": "coactivity_support_resilient",
+      "evaluated_at_utc": "2026-10-22T19:51:43Z",
+      "highest_passed_level": 0,
+      "params": {
+        "timescale": 40
+      },
+      "score": 46.16282019009363,
+      "score_unpenalized": 51.85122426290618,
+      "stop_reason": "calibration_only"
+    },
+    {
+      "author": "eksperymentator",
+      "candidate": "coactivity_support_resilient",
+      "evaluated_at_utc": "2026-10-22T19:51:51Z",
+      "highest_passed_level": 0,
+      "params": {
+        "timescale": 50
+      },
+      "score": 44.36184620837142,
+      "score_unpenalized": 49.637347195983715,
+      "stop_reason": "calibration_only"
+    },
+    {
+      "author": "eksperymentator",
+      "candidate": "coactivity_support_resilient",
+      "evaluated_at_utc": "2026-10-22T19:51:59Z",
+      "highest_passed_level": 0,
+      "params": {
+        "timescale": 64
+      },
+      "score": 42.760243459372255,
+      "score_unpenalized": 47.985215797751316,
+      "stop_reason": "calibration_only"
+    },
+    {
+      "author": "eksperymentator",
+      "candidate": "coactivity_support_resilient",
+      "evaluated_at_utc": "2026-10-22T19:52:07Z",
+      "highest_passed_level": 0,
+      "params": {
+        "timescale": 96
+      },
+      "score": 40.04643962201536,
+      "score_unpenalized": 44.73073745844073,
+      "stop_reason": "calibration_only"
+    },
+    {
+      "author": "eksperymentator",
+      "candidate": "coactivity_support_resilient",
+      "evaluated_at_utc": "2026-10-22T19:53:06Z",
+      "highest_passed_level": 2,
+      "params": {
+        "timescale": 16
+      },
+      "score": 32.37616585218789,
+      "score_unpenalized": 35.591478910970075,
+      "stop_reason": "level_3_threshold_failed"
+    },
+    {
+      "author": "eksperymentator",
+      "candidate": "coactivity_support_resilient",
+      "evaluated_at_utc": "2026-10-22T19:53:45Z",
+      "highest_passed_level": 2,
+      "params": {
+        "timescale": 16
+      },
+      "score": 32.37549383026902,
+      "score_unpenalized": 35.627107432185014,
+      "stop_reason": "level_3_threshold_failed"
+    },
+    {
+      "author": "eksperymentator",
+      "candidate": "coactivity_support_resilient",
+      "evaluated_at_utc": "2026-10-22T19:54:06Z",
+      "highest_passed_level": 0,
+      "params": {
+        "timescale": 8
+      },
+      "score": 51.394207764209206,
+      "score_unpenalized": 56.23648066110469,
+      "stop_reason": "calibration_only"
+    },
+    {
+      "author": "eksperymentator",
+      "candidate": "coactivity_support_resilient",
+      "evaluated_at_utc": "2026-10-22T19:54:13Z",
+      "highest_passed_level": 0,
+      "params": {
+        "timescale": 10
+      },
+      "score": 51.41553628069486,
+      "score_unpenalized": 56.258156299103334,
+      "stop_reason": "calibration_only"
+    },
+    {
+      "author": "eksperymentator",
+      "candidate": "coactivity_support_resilient",
+      "evaluated_at_utc": "2026-10-22T19:54:21Z",
+      "highest_passed_level": 0,
+      "params": {
+        "timescale": 12
+      },
+      "score": 51.187102424369506,
+      "score_unpenalized": 56.18412917544643,
+      "stop_reason": "calibration_only"
+    },
+    {
+      "author": "eksperymentator",
+      "candidate": "coactivity_support_resilient",
+      "evaluated_at_utc": "2026-10-22T19:54:29Z",
+      "highest_passed_level": 0,
+      "params": {
+        "timescale": 14
+      },
+      "score": 50.848487290273994,
+      "score_unpenalized": 55.88192731215621,
+      "stop_reason": "calibration_only"
+    },
+    {
+      "author": "eksperymentator",
+      "candidate": "coactivity_support_resilient",
+      "evaluated_at_utc": "2026-10-22T19:54:37Z",
+      "highest_passed_level": 0,
+      "params": {
+        "timescale": 16
+      },
+      "score": 50.55065603970336,
+      "score_unpenalized": 55.85520015663653,
+      "stop_reason": "calibration_only"
+    },
+    {
+      "author": "eksperymentator",
+      "candidate": "coactivity_support_resilient",
+      "evaluated_at_utc": "2026-10-22T19:54:45Z",
+      "highest_passed_level": 0,
+      "params": {
+        "timescale": 18
+      },
+      "score": 50.177240015810014,
+      "score_unpenalized": 55.446160309207706,
+      "stop_reason": "calibration_only"
+    },
+    {
+      "author": "eksperymentator",
+      "candidate": "coactivity_support_resilient",
+      "evaluated_at_utc": "2026-10-22T19:54:54Z",
+      "highest_passed_level": 0,
+      "params": {
+        "timescale": 20
+      },
+      "score": 49.63625805569432,
+      "score_unpenalized": 54.87514178049327,
+      "stop_reason": "calibration_only"
+    },
+    {
+      "author": "eksperymentator",
+      "candidate": "coactivity_support_resilient",
+      "evaluated_at_utc": "2026-10-22T19:55:52Z",
+      "highest_passed_level": 2,
+      "params": {
+        "timescale": 10
+      },
+      "score": 31.991355377021957,
+      "score_unpenalized": 35.29065735424244,
+      "stop_reason": "level_3_threshold_failed"
+    },
+    {
+      "author": "eksperymentator",
+      "candidate": "coactivity_support_resilient",
+      "evaluated_at_utc": "2026-10-22T19:56:53Z",
+      "highest_passed_level": 0,
+      "params": {
+        "timescale": 8
+      },
+      "score": 31.320681989148316,
+      "score_unpenalized": 34.476122835302036,
+      "stop_reason": "calibration_only"
+    },
+    {
+      "author": "eksperymentator",
+      "candidate": "coactivity_support_resilient",
+      "evaluated_at_utc": "2026-10-22T19:57:23Z",
+      "highest_passed_level": 0,
+      "params": {
+        "timescale": 10
+      },
+      "score": 31.97090007219459,
+      "score_unpenalized": 35.29246795359756,
+      "stop_reason": "calibration_only"
+    },
+    {
+      "author": "eksperymentator",
+      "candidate": "coactivity_support_resilient",
+      "evaluated_at_utc": "2026-10-22T19:58:08Z",
+      "highest_passed_level": 0,
+      "params": {
+        "timescale": 12
+      },
+      "score": 32.06533316603665,
+      "score_unpenalized": 35.13249616717094,
+      "stop_reason": "calibration_only"
+    },
+    {
+      "author": "eksperymentator",
+      "candidate": "coactivity_support_resilient",
+      "evaluated_at_utc": "2026-10-22T19:58:50Z",
+      "highest_passed_level": 0,
+      "params": {
+        "timescale": 14
+      },
+      "score": 32.16880587181347,
+      "score_unpenalized": 35.42015713178347,
+      "stop_reason": "calibration_only"
+    },
+    {
+      "author": "eksperymentator",
+      "candidate": "coactivity_support_resilient",
+      "evaluated_at_utc": "2026-10-22T19:59:16Z",
+      "highest_passed_level": 0,
+      "params": {
+        "timescale": 16
+      },
+      "score": 32.40851087838229,
+      "score_unpenalized": 35.63767030467084,
+      "stop_reason": "calibration_only"
+    },
+    {
+      "author": "eksperymentator",
+      "candidate": "coactivity_support_resilient",
+      "evaluated_at_utc": "2026-10-22T19:59:54Z",
+      "highest_passed_level": 0,
+      "params": {
+        "timescale": 18
+      },
+      "score": 32.22349209328368,
+      "score_unpenalized": 35.519899668648556,
+      "stop_reason": "calibration_only"
+    },
+    {
+      "author": "eksperymentator",
+      "candidate": "coactivity_support_resilient",
+      "evaluated_at_utc": "2026-10-22T20:00:11Z",
+      "highest_passed_level": 2,
+      "params": {
+        "timescale": 18
+      },
+      "score": 32.1971174118861,
+      "score_unpenalized": 35.417603313258326,
+      "stop_reason": "level_3_threshold_failed"
+    },
+    {
+      "author": "eksperymentator",
+      "candidate": "coactivity_support_resilient",
+      "evaluated_at_utc": "2026-10-22T20:00:27Z",
+      "highest_passed_level": 0,
+      "params": {
+        "timescale": 20
+      },
+      "score": 32.13216442179537,
+      "score_unpenalized": 35.484762234866,
+      "stop_reason": "calibration_only"
+    },
+    {
+      "author": "eksperymentator",
+      "candidate": "coactivity_support_resilient",
+      "evaluated_at_utc": "2026-10-22T20:02:58Z",
+      "highest_passed_level": 2,
+      "params": {
+        "timescale": 16
+      },
+      "score": 32.4360798394849,
+      "score_unpenalized": 35.68308423050412,
+      "stop_reason": "level_3_threshold_failed"
+    },
+    {
+      "author": "eksperymentator",
+      "candidate": "coactivity_support_resilient",
+      "evaluated_at_utc": "2026-10-22T20:07:03Z",
+      "highest_passed_level": 2,
+      "params": {
+        "timescale": 16
+      },
+      "score": 32.431514273412844,
+      "score_unpenalized": 35.71853436398567,
+      "stop_reason": "level_3_threshold_failed"
+    },
+    {
+      "author": "odkrywca_life",
+      "candidate": "coactivity_flux_scale9",
+      "evaluated_at_utc": "2026-10-22T20:09:18Z",
+      "highest_passed_level": 0,
+      "params": {
+        "timescale": 9
+      },
+      "score": 51.44601639387687,
+      "score_unpenalized": 56.28229950601128,
+      "stop_reason": "calibration_only"
+    },
+    {
+      "author": "odkrywca_life",
+      "candidate": "coactivity_flux_scale9",
+      "evaluated_at_utc": "2026-10-22T20:10:39Z",
+      "highest_passed_level": 2,
+      "params": {
+        "timescale": 9
+      },
+      "score": 31.666918698915286,
+      "score_unpenalized": 35.13088233702728,
+      "stop_reason": "level_3_threshold_failed"
+    },
+    {
+      "author": "eksperymentator",
+      "candidate": "coactivity_flux_scale9",
+      "evaluated_at_utc": "2026-10-22T20:24:11Z",
+      "highest_passed_level": 2,
+      "params": {
+        "timescale": 9
+      },
+      "score": 31.649203350078036,
+      "score_unpenalized": 35.164832036389214,
+      "stop_reason": "level_3_threshold_failed"
+    },
+    {
+      "author": "unspecified",
+      "candidate": "coactivity_flux_scale9",
+      "evaluated_at_utc": "2026-10-22T20:39:11Z",
+      "highest_passed_level": 0,
+      "params": {
+        "timescale": 9
+      },
+      "score": 51.43285922053498,
+      "score_unpenalized": 56.266159388809314,
+      "stop_reason": "calibration_only"
+    }
+  ],
+  "matched_rule": {
+    "prediction_mismatch_steps": 0,
+    "timescale": 9,
+    "winner_maps_equal": true
+  },
+  "normalized_ast_equal": true,
+  "prediction_sanity": {
+    "flux_scale9": {
+      "iid_brier": 0.2724683813273102,
+      "iid_tail_brier": 0.2695908038777106,
+      "predictive_brier": 0.10488241997572975,
+      "predictive_tail_brier": 0.08682320045616444
+    },
+    "support_resilient": {
+      "iid_brier": 0.26673032582859724,
+      "iid_tail_brier": 0.2635403679140395,
+      "predictive_brier": 0.1013251018437577,
+      "predictive_tail_brier": 0.08326108000483794
+    }
+  },
+  "prior_art_opened": {
+    "finding": "rate-based covariance/generalized Hebbian rules use pre/post activity correlation; the family predates both candidates",
+    "source": "Fr\u00e9gnac et al., 2010, PMC3059677"
+  },
+  "protocol": "fresh deterministic pair audit; no sandbox judge",
+  "scaling": [
+    {
+      "candidates": {
+        "flux_scale9": {
+          "deep_python_state_bytes": 22760,
+          "elapsed_seconds": 0.006273627979680896,
+          "reported_structure": {
+            "connections": 1,
+            "memory_bytes": 512,
+            "units": 8
+          }
+        },
+        "support_resilient": {
+          "deep_python_state_bytes": 22760,
+          "elapsed_seconds": 0.006869592936709523,
+          "reported_structure": {
+            "connections": 0,
+            "memory_bytes": 512,
+            "units": 8
+          }
+        }
+      },
+      "dense_cells": 64,
+      "width": 8
+    },
+    {
+      "candidates": {
+        "flux_scale9": {
+          "deep_python_state_bytes": 87876,
+          "elapsed_seconds": 0.020321495831012726,
+          "reported_structure": {
+            "connections": 3,
+            "memory_bytes": 2048,
+            "units": 16
+          }
+        },
+        "support_resilient": {
+          "deep_python_state_bytes": 87876,
+          "elapsed_seconds": 0.014198174001649022,
+          "reported_structure": {
+            "connections": 4,
+            "memory_bytes": 2048,
+            "units": 16
+          }
+        }
+      },
+      "dense_cells": 256,
+      "width": 16
+    },
+    {
+      "candidates": {
+        "flux_scale9": {
+          "deep_python_state_bytes": 347076,
+          "elapsed_seconds": 0.05260834307409823,
+          "reported_structure": {
+            "connections": 5,
+            "memory_bytes": 8192,
+            "units": 32
+          }
+        },
+        "support_resilient": {
+          "deep_python_state_bytes": 347076,
+          "elapsed_seconds": 0.05162541312165558,
+          "reported_structure": {
+            "connections": 7,
+            "memory_bytes": 8192,
+            "units": 32
+          }
+        }
+      },
+      "dense_cells": 1024,
+      "width": 32
+    },
+    {
+      "candidates": {
+        "flux_scale9": {
+          "deep_python_state_bytes": 1381572,
+          "elapsed_seconds": 0.20697933388873935,
+          "reported_structure": {
+            "connections": 19,
+            "memory_bytes": 32768,
+            "units": 64
+          }
+        },
+        "support_resilient": {
+          "deep_python_state_bytes": 1381572,
+          "elapsed_seconds": 0.21704698516987264,
+          "reported_structure": {
+            "connections": 19,
+            "memory_bytes": 32768,
+            "units": 64
+          }
+        }
+      },
+      "dense_cells": 4096,
+      "width": 64
+    }
+  ],
+  "source": {
+    "flux_scale9": {
+      "imports": [],
+      "nominal_timescale": 9,
+      "normalized_ast_sha256": "eb4ad4d11205c3bac5e7de30950972e4dc2a70e15c48b2ead490c1570c6c7948",
+      "sha256": "d50702fe7cf5f11e087c702871ab717a337e9e85e41e781389e209a7fad47d95"
+    },
+    "support_resilient": {
+      "imports": [],
+      "nominal_timescale": 16,
+      "normalized_ast_sha256": "eb4ad4d11205c3bac5e7de30950972e4dc2a70e15c48b2ead490c1570c6c7948",
+      "sha256": "edb40774237ed977119150f298e2016f806cf2fcb02df881fa6f298f1ed3a808"
+    }
+  },
+  "structure_collision": {
+    "different_winner_maps": true,
+    "runs": [
+      {
+        "connections": 5,
+        "seed": 1,
+        "winner_map": [
+          8,
+          3,
+          5,
+          7,
+          10,
+          11,
+          1,
+          5,
+          1,
+          12,
+          4,
+          1,
+          7,
+          4,
+          14,
+          11
+        ]
+      },
+      {
+        "connections": 5,
+        "seed": 2,
+        "winner_map": [
+          1,
+          4,
+          5,
+          0,
+          9,
+          12,
+          14,
+          0,
+          1,
+          2,
+          5,
+          11,
+          12,
+          7,
+          0,
+          10
+        ]
+      }
+    ],
+    "same_connection_count": true
+  }
+}

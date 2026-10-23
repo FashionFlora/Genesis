@@ -1,0 +1,2 @@
+Parents: candidates/predictive_context_sufficiency/principle.py; candidates/temporal_coherence_closure/principle.py; candidates/contextual_predictive_closure/principle.py
+Mutation/crossover: replaced the raw sensory hash used to retrieve local transition evidence with a bucketed signature of the preceding prediction errors. The global model remains the fallback, local evidence is mixed by its observed support, and temporal decay is retained. Rationale: a memory should be retrieved by the unresolved distinction that made it necessary, not by a fixed sensory partition.

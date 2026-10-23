@@ -1,0 +1,3294 @@
+{
+  "parameters": {
+    "steps": 3200,
+    "segment_length": 800,
+    "schedule": [
+      0,
+      1,
+      2,
+      0
+    ],
+    "source_count": 3,
+    "initial_population": 45,
+    "initial_sources": [
+      0,
+      1
+    ],
+    "initial_mass": 1.0,
+    "substrate_inflow": 7.7625,
+    "maintenance": 0.1,
+    "error_cost": 0.25,
+    "flip_probability": 0.08
+  },
+  "summary": {
+    "selected_tagged_fission": {
+      "active_edge_share": 0.597615449712737,
+      "target_mse": 0.2541661902298383,
+      "runs": 30
+    },
+    "neutral_tagged_fission": {
+      "active_edge_share": 0.3361998531050806,
+      "target_mse": 0.3573283808355537,
+      "runs": 30
+    },
+    "selected_untyped_fission": {
+      "active_edge_share": 0.6033142807957717,
+      "target_mse": 0.25300156664219925,
+      "runs": 30
+    }
+  },
+  "runs": [
+    {
+      "seed": 0,
+      "condition": "selected_tagged_fission",
+      "steps": 3200,
+      "segment_length": 800,
+      "schedule": [
+        0,
+        1,
+        2,
+        0
+      ],
+      "source_count": 3,
+      "initial_sources": [
+        0,
+        1
+      ],
+      "initial_population": 45,
+      "initial_mass": 1.0,
+      "substrate_inflow": 7.7625,
+      "maintenance": 0.1,
+      "error_cost": 0.25,
+      "flip_probability": 0.08,
+      "final_population": 54,
+      "final_distinct_connections": 3,
+      "total_births": 8456,
+      "total_deaths": 8447,
+      "packet_total": 24979,
+      "packet_labels_total": [
+        8197,
+        8384,
+        8398
+      ],
+      "tagged_variant_daughters": 5652,
+      "variant_daughters_per_birth": 0.6684011352885525,
+      "extinct_at_step": null
+    },
+    {
+      "seed": 0,
+      "condition": "neutral_tagged_fission",
+      "steps": 3200,
+      "segment_length": 800,
+      "schedule": [
+        0,
+        1,
+        2,
+        0
+      ],
+      "source_count": 3,
+      "initial_sources": [
+        0,
+        1
+      ],
+      "initial_population": 45,
+      "initial_mass": 1.0,
+      "substrate_inflow": 7.7625,
+      "maintenance": 0.1,
+      "error_cost": 0.25,
+      "flip_probability": 0.08,
+      "final_population": 41,
+      "final_distinct_connections": 3,
+      "total_births": 7974,
+      "total_deaths": 7978,
+      "packet_total": 24979,
+      "packet_labels_total": [
+        8197,
+        8384,
+        8398
+      ],
+      "tagged_variant_daughters": 5315,
+      "variant_daughters_per_birth": 0.6665412590920492,
+      "extinct_at_step": null
+    },
+    {
+      "seed": 0,
+      "condition": "selected_untyped_fission",
+      "steps": 3200,
+      "segment_length": 800,
+      "schedule": [
+        0,
+        1,
+        2,
+        0
+      ],
+      "source_count": 3,
+      "initial_sources": [
+        0,
+        1
+      ],
+      "initial_population": 45,
+      "initial_mass": 1.0,
+      "substrate_inflow": 7.7625,
+      "maintenance": 0.1,
+      "error_cost": 0.25,
+      "flip_probability": 0.08,
+      "final_population": 54,
+      "final_distinct_connections": 3,
+      "total_births": 8499,
+      "total_deaths": 8490,
+      "packet_total": 24979,
+      "packet_labels_total": [
+        8197,
+        8384,
+        8398
+      ],
+      "tagged_variant_daughters": 5622,
+      "variant_daughters_per_birth": 0.6614895870102365,
+      "extinct_at_step": null
+    },
+    {
+      "seed": 1,
+      "condition": "selected_tagged_fission",
+      "steps": 3200,
+      "segment_length": 800,
+      "schedule": [
+        0,
+        1,
+        2,
+        0
+      ],
+      "source_count": 3,
+      "initial_sources": [
+        0,
+        1
+      ],
+      "initial_population": 45,
+      "initial_mass": 1.0,
+      "substrate_inflow": 7.7625,
+      "maintenance": 0.1,
+      "error_cost": 0.25,
+      "flip_probability": 0.08,
+      "final_population": 35,
+      "final_distinct_connections": 3,
+      "total_births": 8476,
+      "total_deaths": 8486,
+      "packet_total": 24639,
+      "packet_labels_total": [
+        8147,
+        8322,
+        8170
+      ],
+      "tagged_variant_daughters": 5627,
+      "variant_daughters_per_birth": 0.663874469089193,
+      "extinct_at_step": null
+    },
+    {
+      "seed": 1,
+      "condition": "neutral_tagged_fission",
+      "steps": 3200,
+      "segment_length": 800,
+      "schedule": [
+        0,
+        1,
+        2,
+        0
+      ],
+      "source_count": 3,
+      "initial_sources": [
+        0,
+        1
+      ],
+      "initial_population": 45,
+      "initial_mass": 1.0,
+      "substrate_inflow": 7.7625,
+      "maintenance": 0.1,
+      "error_cost": 0.25,
+      "flip_probability": 0.08,
+      "final_population": 22,
+      "final_distinct_connections": 3,
+      "total_births": 7775,
+      "total_deaths": 7798,
+      "packet_total": 24639,
+      "packet_labels_total": [
+        8147,
+        8322,
+        8170
+      ],
+      "tagged_variant_daughters": 5210,
+      "variant_daughters_per_birth": 0.670096463022508,
+      "extinct_at_step": null
+    },
+    {
+      "seed": 1,
+      "condition": "selected_untyped_fission",
+      "steps": 3200,
+      "segment_length": 800,
+      "schedule": [
+        0,
+        1,
+        2,
+        0
+      ],
+      "source_count": 3,
+      "initial_sources": [
+        0,
+        1
+      ],
+      "initial_population": 45,
+      "initial_mass": 1.0,
+      "substrate_inflow": 7.7625,
+      "maintenance": 0.1,
+      "error_cost": 0.25,
+      "flip_probability": 0.08,
+      "final_population": 34,
+      "final_distinct_connections": 3,
+      "total_births": 8341,
+      "total_deaths": 8352,
+      "packet_total": 24639,
+      "packet_labels_total": [
+        8147,
+        8322,
+        8170
+      ],
+      "tagged_variant_daughters": 5636,
+      "variant_daughters_per_birth": 0.6756983575110898,
+      "extinct_at_step": null
+    },
+    {
+      "seed": 2,
+      "condition": "selected_tagged_fission",
+      "steps": 3200,
+      "segment_length": 800,
+      "schedule": [
+        0,
+        1,
+        2,
+        0
+      ],
+      "source_count": 3,
+      "initial_sources": [
+        0,
+        1
+      ],
+      "initial_population": 45,
+      "initial_mass": 1.0,
+      "substrate_inflow": 7.7625,
+      "maintenance": 0.1,
+      "error_cost": 0.25,
+      "flip_probability": 0.08,
+      "final_population": 66,
+      "final_distinct_connections": 3,
+      "total_births": 8430,
+      "total_deaths": 8409,
+      "packet_total": 24729,
+      "packet_labels_total": [
+        8214,
+        8223,
+        8292
+      ],
+      "tagged_variant_daughters": 5601,
+      "variant_daughters_per_birth": 0.6644128113879003,
+      "extinct_at_step": null
+    },
+    {
+      "seed": 2,
+      "condition": "neutral_tagged_fission",
+      "steps": 3200,
+      "segment_length": 800,
+      "schedule": [
+        0,
+        1,
+        2,
+        0
+      ],
+      "source_count": 3,
+      "initial_sources": [
+        0,
+        1
+      ],
+      "initial_population": 45,
+      "initial_mass": 1.0,
+      "substrate_inflow": 7.7625,
+      "maintenance": 0.1,
+      "error_cost": 0.25,
+      "flip_probability": 0.08,
+      "final_population": 61,
+      "final_distinct_connections": 3,
+      "total_births": 7840,
+      "total_deaths": 7824,
+      "packet_total": 24729,
+      "packet_labels_total": [
+        8214,
+        8223,
+        8292
+      ],
+      "tagged_variant_daughters": 5168,
+      "variant_daughters_per_birth": 0.6591836734693878,
+      "extinct_at_step": null
+    },
+    {
+      "seed": 2,
+      "condition": "selected_untyped_fission",
+      "steps": 3200,
+      "segment_length": 800,
+      "schedule": [
+        0,
+        1,
+        2,
+        0
+      ],
+      "source_count": 3,
+      "initial_sources": [
+        0,
+        1
+      ],
+      "initial_population": 45,
+      "initial_mass": 1.0,
+      "substrate_inflow": 7.7625,
+      "maintenance": 0.1,
+      "error_cost": 0.25,
+      "flip_probability": 0.08,
+      "final_population": 65,
+      "final_distinct_connections": 3,
+      "total_births": 8431,
+      "total_deaths": 8411,
+      "packet_total": 24729,
+      "packet_labels_total": [
+        8214,
+        8223,
+        8292
+      ],
+      "tagged_variant_daughters": 5654,
+      "variant_daughters_per_birth": 0.6706203297354999,
+      "extinct_at_step": null
+    },
+    {
+      "seed": 3,
+      "condition": "selected_tagged_fission",
+      "steps": 3200,
+      "segment_length": 800,
+      "schedule": [
+        0,
+        1,
+        2,
+        0
+      ],
+      "source_count": 3,
+      "initial_sources": [
+        0,
+        1
+      ],
+      "initial_population": 45,
+      "initial_mass": 1.0,
+      "substrate_inflow": 7.7625,
+      "maintenance": 0.1,
+      "error_cost": 0.25,
+      "flip_probability": 0.08,
+      "final_population": 50,
+      "final_distinct_connections": 3,
+      "total_births": 8450,
+      "total_deaths": 8445,
+      "packet_total": 24792,
+      "packet_labels_total": [
+        8236,
+        8171,
+        8385
+      ],
+      "tagged_variant_daughters": 5534,
+      "variant_daughters_per_birth": 0.6549112426035503,
+      "extinct_at_step": null
+    },
+    {
+      "seed": 3,
+      "condition": "neutral_tagged_fission",
+      "steps": 3200,
+      "segment_length": 800,
+      "schedule": [
+        0,
+        1,
+        2,
+        0
+      ],
+      "source_count": 3,
+      "initial_sources": [
+        0,
+        1
+      ],
+      "initial_population": 45,
+      "initial_mass": 1.0,
+      "substrate_inflow": 7.7625,
+      "maintenance": 0.1,
+      "error_cost": 0.25,
+      "flip_probability": 0.08,
+      "final_population": 40,
+      "final_distinct_connections": 3,
+      "total_births": 7805,
+      "total_deaths": 7810,
+      "packet_total": 24792,
+      "packet_labels_total": [
+        8236,
+        8171,
+        8385
+      ],
+      "tagged_variant_daughters": 5114,
+      "variant_daughters_per_birth": 0.6552210121716848,
+      "extinct_at_step": null
+    },
+    {
+      "seed": 3,
+      "condition": "selected_untyped_fission",
+      "steps": 3200,
+      "segment_length": 800,
+      "schedule": [
+        0,
+        1,
+        2,
+        0
+      ],
+      "source_count": 3,
+      "initial_sources": [
+        0,
+        1
+      ],
+      "initial_population": 45,
+      "initial_mass": 1.0,
+      "substrate_inflow": 7.7625,
+      "maintenance": 0.1,
+      "error_cost": 0.25,
+      "flip_probability": 0.08,
+      "final_population": 53,
+      "final_distinct_connections": 3,
+      "total_births": 8430,
+      "total_deaths": 8422,
+      "packet_total": 24792,
+      "packet_labels_total": [
+        8236,
+        8171,
+        8385
+      ],
+      "tagged_variant_daughters": 5611,
+      "variant_daughters_per_birth": 0.6655990510083036,
+      "extinct_at_step": null
+    },
+    {
+      "seed": 4,
+      "condition": "selected_tagged_fission",
+      "steps": 3200,
+      "segment_length": 800,
+      "schedule": [
+        0,
+        1,
+        2,
+        0
+      ],
+      "source_count": 3,
+      "initial_sources": [
+        0,
+        1
+      ],
+      "initial_population": 45,
+      "initial_mass": 1.0,
+      "substrate_inflow": 7.7625,
+      "maintenance": 0.1,
+      "error_cost": 0.25,
+      "flip_probability": 0.08,
+      "final_population": 43,
+      "final_distinct_connections": 3,
+      "total_births": 8466,
+      "total_deaths": 8468,
+      "packet_total": 24880,
+      "packet_labels_total": [
+        8125,
+        8327,
+        8428
+      ],
+      "tagged_variant_daughters": 5613,
+      "variant_daughters_per_birth": 0.6630049610205528,
+      "extinct_at_step": null
+    },
+    {
+      "seed": 4,
+      "condition": "neutral_tagged_fission",
+      "steps": 3200,
+      "segment_length": 800,
+      "schedule": [
+        0,
+        1,
+        2,
+        0
+      ],
+      "source_count": 3,
+      "initial_sources": [
+        0,
+        1
+      ],
+      "initial_population": 45,
+      "initial_mass": 1.0,
+      "substrate_inflow": 7.7625,
+      "maintenance": 0.1,
+      "error_cost": 0.25,
+      "flip_probability": 0.08,
+      "final_population": 36,
+      "final_distinct_connections": 3,
+      "total_births": 7823,
+      "total_deaths": 7832,
+      "packet_total": 24880,
+      "packet_labels_total": [
+        8125,
+        8327,
+        8428
+      ],
+      "tagged_variant_daughters": 5106,
+      "variant_daughters_per_birth": 0.6526907835868593,
+      "extinct_at_step": null
+    },
+    {
+      "seed": 4,
+      "condition": "selected_untyped_fission",
+      "steps": 3200,
+      "segment_length": 800,
+      "schedule": [
+        0,
+        1,
+        2,
+        0
+      ],
+      "source_count": 3,
+      "initial_sources": [
+        0,
+        1
+      ],
+      "initial_population": 45,
+      "initial_mass": 1.0,
+      "substrate_inflow": 7.7625,
+      "maintenance": 0.1,
+      "error_cost": 0.25,
+      "flip_probability": 0.08,
+      "final_population": 43,
+      "final_distinct_connections": 3,
+      "total_births": 8451,
+      "total_deaths": 8453,
+      "packet_total": 24880,
+      "packet_labels_total": [
+        8125,
+        8327,
+        8428
+      ],
+      "tagged_variant_daughters": 5645,
+      "variant_daughters_per_birth": 0.6679682877765944,
+      "extinct_at_step": null
+    },
+    {
+      "seed": 5,
+      "condition": "selected_tagged_fission",
+      "steps": 3200,
+      "segment_length": 800,
+      "schedule": [
+        0,
+        1,
+        2,
+        0
+      ],
+      "source_count": 3,
+      "initial_sources": [
+        0,
+        1
+      ],
+      "initial_population": 45,
+      "initial_mass": 1.0,
+      "substrate_inflow": 7.7625,
+      "maintenance": 0.1,
+      "error_cost": 0.25,
+      "flip_probability": 0.08,
+      "final_population": 71,
+      "final_distinct_connections": 3,
+      "total_births": 8513,
+      "total_deaths": 8487,
+      "packet_total": 24813,
+      "packet_labels_total": [
+        8314,
+        8391,
+        8108
+      ],
+      "tagged_variant_daughters": 5601,
+      "variant_daughters_per_birth": 0.6579349230588512,
+      "extinct_at_step": null
+    },
+    {
+      "seed": 5,
+      "condition": "neutral_tagged_fission",
+      "steps": 3200,
+      "segment_length": 800,
+      "schedule": [
+        0,
+        1,
+        2,
+        0
+      ],
+      "source_count": 3,
+      "initial_sources": [
+        0,
+        1
+      ],
+      "initial_population": 45,
+      "initial_mass": 1.0,
+      "substrate_inflow": 7.7625,
+      "maintenance": 0.1,
+      "error_cost": 0.25,
+      "flip_probability": 0.08,
+      "final_population": 54,
+      "final_distinct_connections": 3,
+      "total_births": 7876,
+      "total_deaths": 7867,
+      "packet_total": 24813,
+      "packet_labels_total": [
+        8314,
+        8391,
+        8108
+      ],
+      "tagged_variant_daughters": 5206,
+      "variant_daughters_per_birth": 0.6609954291518537,
+      "extinct_at_step": null
+    },
+    {
+      "seed": 5,
+      "condition": "selected_untyped_fission",
+      "steps": 3200,
+      "segment_length": 800,
+      "schedule": [
+        0,
+        1,
+        2,
+        0
+      ],
+      "source_count": 3,
+      "initial_sources": [
+        0,
+        1
+      ],
+      "initial_population": 45,
+      "initial_mass": 1.0,
+      "substrate_inflow": 7.7625,
+      "maintenance": 0.1,
+      "error_cost": 0.25,
+      "flip_probability": 0.08,
+      "final_population": 63,
+      "final_distinct_connections": 3,
+      "total_births": 8514,
+      "total_deaths": 8496,
+      "packet_total": 24813,
+      "packet_labels_total": [
+        8314,
+        8391,
+        8108
+      ],
+      "tagged_variant_daughters": 5646,
+      "variant_daughters_per_birth": 0.6631430584918957,
+      "extinct_at_step": null
+    },
+    {
+      "seed": 6,
+      "condition": "selected_tagged_fission",
+      "steps": 3200,
+      "segment_length": 800,
+      "schedule": [
+        0,
+        1,
+        2,
+        0
+      ],
+      "source_count": 3,
+      "initial_sources": [
+        0,
+        1
+      ],
+      "initial_population": 45,
+      "initial_mass": 1.0,
+      "substrate_inflow": 7.7625,
+      "maintenance": 0.1,
+      "error_cost": 0.25,
+      "flip_probability": 0.08,
+      "final_population": 53,
+      "final_distinct_connections": 3,
+      "total_births": 8411,
+      "total_deaths": 8403,
+      "packet_total": 24527,
+      "packet_labels_total": [
+        8112,
+        8240,
+        8175
+      ],
+      "tagged_variant_daughters": 5531,
+      "variant_daughters_per_birth": 0.6575912495541553,
+      "extinct_at_step": null
+    },
+    {
+      "seed": 6,
+      "condition": "neutral_tagged_fission",
+      "steps": 3200,
+      "segment_length": 800,
+      "schedule": [
+        0,
+        1,
+        2,
+        0
+      ],
+      "source_count": 3,
+      "initial_sources": [
+        0,
+        1
+      ],
+      "initial_population": 45,
+      "initial_mass": 1.0,
+      "substrate_inflow": 7.7625,
+      "maintenance": 0.1,
+      "error_cost": 0.25,
+      "flip_probability": 0.08,
+      "final_population": 46,
+      "final_distinct_connections": 3,
+      "total_births": 7733,
+      "total_deaths": 7732,
+      "packet_total": 24527,
+      "packet_labels_total": [
+        8112,
+        8240,
+        8175
+      ],
+      "tagged_variant_daughters": 5118,
+      "variant_daughters_per_birth": 0.6618388723651881,
+      "extinct_at_step": null
+    },
+    {
+      "seed": 6,
+      "condition": "selected_untyped_fission",
+      "steps": 3200,
+      "segment_length": 800,
+      "schedule": [
+        0,
+        1,
+        2,
+        0
+      ],
+      "source_count": 3,
+      "initial_sources": [
+        0,
+        1
+      ],
+      "initial_population": 45,
+      "initial_mass": 1.0,
+      "substrate_inflow": 7.7625,
+      "maintenance": 0.1,
+      "error_cost": 0.25,
+      "flip_probability": 0.08,
+      "final_population": 48,
+      "final_distinct_connections": 3,
+      "total_births": 8377,
+      "total_deaths": 8374,
+      "packet_total": 24527,
+      "packet_labels_total": [
+        8112,
+        8240,
+        8175
+      ],
+      "tagged_variant_daughters": 5595,
+      "variant_daughters_per_birth": 0.6679002029366121,
+      "extinct_at_step": null
+    },
+    {
+      "seed": 7,
+      "condition": "selected_tagged_fission",
+      "steps": 3200,
+      "segment_length": 800,
+      "schedule": [
+        0,
+        1,
+        2,
+        0
+      ],
+      "source_count": 3,
+      "initial_sources": [
+        0,
+        1
+      ],
+      "initial_population": 45,
+      "initial_mass": 1.0,
+      "substrate_inflow": 7.7625,
+      "maintenance": 0.1,
+      "error_cost": 0.25,
+      "flip_probability": 0.08,
+      "final_population": 44,
+      "final_distinct_connections": 3,
+      "total_births": 8487,
+      "total_deaths": 8488,
+      "packet_total": 24875,
+      "packet_labels_total": [
+        8016,
+        8380,
+        8479
+      ],
+      "tagged_variant_daughters": 5694,
+      "variant_daughters_per_birth": 0.6709084482149169,
+      "extinct_at_step": null
+    },
+    {
+      "seed": 7,
+      "condition": "neutral_tagged_fission",
+      "steps": 3200,
+      "segment_length": 800,
+      "schedule": [
+        0,
+        1,
+        2,
+        0
+      ],
+      "source_count": 3,
+      "initial_sources": [
+        0,
+        1
+      ],
+      "initial_population": 45,
+      "initial_mass": 1.0,
+      "substrate_inflow": 7.7625,
+      "maintenance": 0.1,
+      "error_cost": 0.25,
+      "flip_probability": 0.08,
+      "final_population": 35,
+      "final_distinct_connections": 3,
+      "total_births": 7900,
+      "total_deaths": 7910,
+      "packet_total": 24875,
+      "packet_labels_total": [
+        8016,
+        8380,
+        8479
+      ],
+      "tagged_variant_daughters": 5236,
+      "variant_daughters_per_birth": 0.6627848101265823,
+      "extinct_at_step": null
+    },
+    {
+      "seed": 7,
+      "condition": "selected_untyped_fission",
+      "steps": 3200,
+      "segment_length": 800,
+      "schedule": [
+        0,
+        1,
+        2,
+        0
+      ],
+      "source_count": 3,
+      "initial_sources": [
+        0,
+        1
+      ],
+      "initial_population": 45,
+      "initial_mass": 1.0,
+      "substrate_inflow": 7.7625,
+      "maintenance": 0.1,
+      "error_cost": 0.25,
+      "flip_probability": 0.08,
+      "final_population": 48,
+      "final_distinct_connections": 3,
+      "total_births": 8476,
+      "total_deaths": 8473,
+      "packet_total": 24875,
+      "packet_labels_total": [
+        8016,
+        8380,
+        8479
+      ],
+      "tagged_variant_daughters": 5564,
+      "variant_daughters_per_birth": 0.656441717791411,
+      "extinct_at_step": null
+    },
+    {
+      "seed": 8,
+      "condition": "selected_tagged_fission",
+      "steps": 3200,
+      "segment_length": 800,
+      "schedule": [
+        0,
+        1,
+        2,
+        0
+      ],
+      "source_count": 3,
+      "initial_sources": [
+        0,
+        1
+      ],
+      "initial_population": 45,
+      "initial_mass": 1.0,
+      "substrate_inflow": 7.7625,
+      "maintenance": 0.1,
+      "error_cost": 0.25,
+      "flip_probability": 0.08,
+      "final_population": 55,
+      "final_distinct_connections": 3,
+      "total_births": 8457,
+      "total_deaths": 8447,
+      "packet_total": 24874,
+      "packet_labels_total": [
+        8312,
+        8356,
+        8206
+      ],
+      "tagged_variant_daughters": 5629,
+      "variant_daughters_per_birth": 0.665602459501005,
+      "extinct_at_step": null
+    },
+    {
+      "seed": 8,
+      "condition": "neutral_tagged_fission",
+      "steps": 3200,
+      "segment_length": 800,
+      "schedule": [
+        0,
+        1,
+        2,
+        0
+      ],
+      "source_count": 3,
+      "initial_sources": [
+        0,
+        1
+      ],
+      "initial_population": 45,
+      "initial_mass": 1.0,
+      "substrate_inflow": 7.7625,
+      "maintenance": 0.1,
+      "error_cost": 0.25,
+      "flip_probability": 0.08,
+      "final_population": 53,
+      "final_distinct_connections": 3,
+      "total_births": 7866,
+      "total_deaths": 7858,
+      "packet_total": 24874,
+      "packet_labels_total": [
+        8312,
+        8356,
+        8206
+      ],
+      "tagged_variant_daughters": 5117,
+      "variant_daughters_per_birth": 0.6505212306127638,
+      "extinct_at_step": null
+    },
+    {
+      "seed": 8,
+      "condition": "selected_untyped_fission",
+      "steps": 3200,
+      "segment_length": 800,
+      "schedule": [
+        0,
+        1,
+        2,
+        0
+      ],
+      "source_count": 3,
+      "initial_sources": [
+        0,
+        1
+      ],
+      "initial_population": 45,
+      "initial_mass": 1.0,
+      "substrate_inflow": 7.7625,
+      "maintenance": 0.1,
+      "error_cost": 0.25,
+      "flip_probability": 0.08,
+      "final_population": 58,
+      "final_distinct_connections": 3,
+      "total_births": 8490,
+      "total_deaths": 8477,
+      "packet_total": 24874,
+      "packet_labels_total": [
+        8312,
+        8356,
+        8206
+      ],
+      "tagged_variant_daughters": 5652,
+      "variant_daughters_per_birth": 0.6657243816254417,
+      "extinct_at_step": null
+    },
+    {
+      "seed": 9,
+      "condition": "selected_tagged_fission",
+      "steps": 3200,
+      "segment_length": 800,
+      "schedule": [
+        0,
+        1,
+        2,
+        0
+      ],
+      "source_count": 3,
+      "initial_sources": [
+        0,
+        1
+      ],
+      "initial_population": 45,
+      "initial_mass": 1.0,
+      "substrate_inflow": 7.7625,
+      "maintenance": 0.1,
+      "error_cost": 0.25,
+      "flip_probability": 0.08,
+      "final_population": 38,
+      "final_distinct_connections": 3,
+      "total_births": 8365,
+      "total_deaths": 8372,
+      "packet_total": 24457,
+      "packet_labels_total": [
+        8148,
+        8094,
+        8215
+      ],
+      "tagged_variant_daughters": 5568,
+      "variant_daughters_per_birth": 0.6656306037059175,
+      "extinct_at_step": null
+    },
+    {
+      "seed": 9,
+      "condition": "neutral_tagged_fission",
+      "steps": 3200,
+      "segment_length": 800,
+      "schedule": [
+        0,
+        1,
+        2,
+        0
+      ],
+      "source_count": 3,
+      "initial_sources": [
+        0,
+        1
+      ],
+      "initial_population": 45,
+      "initial_mass": 1.0,
+      "substrate_inflow": 7.7625,
+      "maintenance": 0.1,
+      "error_cost": 0.25,
+      "flip_probability": 0.08,
+      "final_population": 38,
+      "final_distinct_connections": 3,
+      "total_births": 7722,
+      "total_deaths": 7729,
+      "packet_total": 24457,
+      "packet_labels_total": [
+        8148,
+        8094,
+        8215
+      ],
+      "tagged_variant_daughters": 5099,
+      "variant_daughters_per_birth": 0.6603211603211603,
+      "extinct_at_step": null
+    },
+    {
+      "seed": 9,
+      "condition": "selected_untyped_fission",
+      "steps": 3200,
+      "segment_length": 800,
+      "schedule": [
+        0,
+        1,
+        2,
+        0
+      ],
+      "source_count": 3,
+      "initial_sources": [
+        0,
+        1
+      ],
+      "initial_population": 45,
+      "initial_mass": 1.0,
+      "substrate_inflow": 7.7625,
+      "maintenance": 0.1,
+      "error_cost": 0.25,
+      "flip_probability": 0.08,
+      "final_population": 47,
+      "final_distinct_connections": 3,
+      "total_births": 8337,
+      "total_deaths": 8335,
+      "packet_total": 24457,
+      "packet_labels_total": [
+        8148,
+        8094,
+        8215
+      ],
+      "tagged_variant_daughters": 5570,
+      "variant_daughters_per_birth": 0.668106033345328,
+      "extinct_at_step": null
+    },
+    {
+      "seed": 10,
+      "condition": "selected_tagged_fission",
+      "steps": 3200,
+      "segment_length": 800,
+      "schedule": [
+        0,
+        1,
+        2,
+        0
+      ],
+      "source_count": 3,
+      "initial_sources": [
+        0,
+        1
+      ],
+      "initial_population": 45,
+      "initial_mass": 1.0,
+      "substrate_inflow": 7.7625,
+      "maintenance": 0.1,
+      "error_cost": 0.25,
+      "flip_probability": 0.08,
+      "final_population": 51,
+      "final_distinct_connections": 3,
+      "total_births": 8496,
+      "total_deaths": 8490,
+      "packet_total": 24757,
+      "packet_labels_total": [
+        8253,
+        8229,
+        8275
+      ],
+      "tagged_variant_daughters": 5564,
+      "variant_daughters_per_birth": 0.6548964218455744,
+      "extinct_at_step": null
+    },
+    {
+      "seed": 10,
+      "condition": "neutral_tagged_fission",
+      "steps": 3200,
+      "segment_length": 800,
+      "schedule": [
+        0,
+        1,
+        2,
+        0
+      ],
+      "source_count": 3,
+      "initial_sources": [
+        0,
+        1
+      ],
+      "initial_population": 45,
+      "initial_mass": 1.0,
+      "substrate_inflow": 7.7625,
+      "maintenance": 0.1,
+      "error_cost": 0.25,
+      "flip_probability": 0.08,
+      "final_population": 44,
+      "final_distinct_connections": 3,
+      "total_births": 7844,
+      "total_deaths": 7845,
+      "packet_total": 24757,
+      "packet_labels_total": [
+        8253,
+        8229,
+        8275
+      ],
+      "tagged_variant_daughters": 5275,
+      "variant_daughters_per_birth": 0.6724885262621112,
+      "extinct_at_step": null
+    },
+    {
+      "seed": 10,
+      "condition": "selected_untyped_fission",
+      "steps": 3200,
+      "segment_length": 800,
+      "schedule": [
+        0,
+        1,
+        2,
+        0
+      ],
+      "source_count": 3,
+      "initial_sources": [
+        0,
+        1
+      ],
+      "initial_population": 45,
+      "initial_mass": 1.0,
+      "substrate_inflow": 7.7625,
+      "maintenance": 0.1,
+      "error_cost": 0.25,
+      "flip_probability": 0.08,
+      "final_population": 46,
+      "final_distinct_connections": 3,
+      "total_births": 8341,
+      "total_deaths": 8340,
+      "packet_total": 24757,
+      "packet_labels_total": [
+        8253,
+        8229,
+        8275
+      ],
+      "tagged_variant_daughters": 5585,
+      "variant_daughters_per_birth": 0.6695839827358829,
+      "extinct_at_step": null
+    },
+    {
+      "seed": 11,
+      "condition": "selected_tagged_fission",
+      "steps": 3200,
+      "segment_length": 800,
+      "schedule": [
+        0,
+        1,
+        2,
+        0
+      ],
+      "source_count": 3,
+      "initial_sources": [
+        0,
+        1
+      ],
+      "initial_population": 45,
+      "initial_mass": 1.0,
+      "substrate_inflow": 7.7625,
+      "maintenance": 0.1,
+      "error_cost": 0.25,
+      "flip_probability": 0.08,
+      "final_population": 64,
+      "final_distinct_connections": 3,
+      "total_births": 8472,
+      "total_deaths": 8453,
+      "packet_total": 25072,
+      "packet_labels_total": [
+        8226,
+        8560,
+        8286
+      ],
+      "tagged_variant_daughters": 5686,
+      "variant_daughters_per_birth": 0.6711520302171861,
+      "extinct_at_step": null
+    },
+    {
+      "seed": 11,
+      "condition": "neutral_tagged_fission",
+      "steps": 3200,
+      "segment_length": 800,
+      "schedule": [
+        0,
+        1,
+        2,
+        0
+      ],
+      "source_count": 3,
+      "initial_sources": [
+        0,
+        1
+      ],
+      "initial_population": 45,
+      "initial_mass": 1.0,
+      "substrate_inflow": 7.7625,
+      "maintenance": 0.1,
+      "error_cost": 0.25,
+      "flip_probability": 0.08,
+      "final_population": 55,
+      "final_distinct_connections": 3,
+      "total_births": 7904,
+      "total_deaths": 7894,
+      "packet_total": 25072,
+      "packet_labels_total": [
+        8226,
+        8560,
+        8286
+      ],
+      "tagged_variant_daughters": 5235,
+      "variant_daughters_per_birth": 0.6623228744939271,
+      "extinct_at_step": null
+    },
+    {
+      "seed": 11,
+      "condition": "selected_untyped_fission",
+      "steps": 3200,
+      "segment_length": 800,
+      "schedule": [
+        0,
+        1,
+        2,
+        0
+      ],
+      "source_count": 3,
+      "initial_sources": [
+        0,
+        1
+      ],
+      "initial_population": 45,
+      "initial_mass": 1.0,
+      "substrate_inflow": 7.7625,
+      "maintenance": 0.1,
+      "error_cost": 0.25,
+      "flip_probability": 0.08,
+      "final_population": 66,
+      "final_distinct_connections": 3,
+      "total_births": 8531,
+      "total_deaths": 8510,
+      "packet_total": 25072,
+      "packet_labels_total": [
+        8226,
+        8560,
+        8286
+      ],
+      "tagged_variant_daughters": 5690,
+      "variant_daughters_per_birth": 0.6669792521392568,
+      "extinct_at_step": null
+    },
+    {
+      "seed": 12,
+      "condition": "selected_tagged_fission",
+      "steps": 3200,
+      "segment_length": 800,
+      "schedule": [
+        0,
+        1,
+        2,
+        0
+      ],
+      "source_count": 3,
+      "initial_sources": [
+        0,
+        1
+      ],
+      "initial_population": 45,
+      "initial_mass": 1.0,
+      "substrate_inflow": 7.7625,
+      "maintenance": 0.1,
+      "error_cost": 0.25,
+      "flip_probability": 0.08,
+      "final_population": 60,
+      "final_distinct_connections": 3,
+      "total_births": 8387,
+      "total_deaths": 8372,
+      "packet_total": 24677,
+      "packet_labels_total": [
+        8200,
+        8121,
+        8356
+      ],
+      "tagged_variant_daughters": 5570,
+      "variant_daughters_per_birth": 0.6641230475736258,
+      "extinct_at_step": null
+    },
+    {
+      "seed": 12,
+      "condition": "neutral_tagged_fission",
+      "steps": 3200,
+      "segment_length": 800,
+      "schedule": [
+        0,
+        1,
+        2,
+        0
+      ],
+      "source_count": 3,
+      "initial_sources": [
+        0,
+        1
+      ],
+      "initial_population": 45,
+      "initial_mass": 1.0,
+      "substrate_inflow": 7.7625,
+      "maintenance": 0.1,
+      "error_cost": 0.25,
+      "flip_probability": 0.08,
+      "final_population": 57,
+      "final_distinct_connections": 3,
+      "total_births": 7878,
+      "total_deaths": 7866,
+      "packet_total": 24677,
+      "packet_labels_total": [
+        8200,
+        8121,
+        8356
+      ],
+      "tagged_variant_daughters": 5246,
+      "variant_daughters_per_birth": 0.6659050520436659,
+      "extinct_at_step": null
+    },
+    {
+      "seed": 12,
+      "condition": "selected_untyped_fission",
+      "steps": 3200,
+      "segment_length": 800,
+      "schedule": [
+        0,
+        1,
+        2,
+        0
+      ],
+      "source_count": 3,
+      "initial_sources": [
+        0,
+        1
+      ],
+      "initial_population": 45,
+      "initial_mass": 1.0,
+      "substrate_inflow": 7.7625,
+      "maintenance": 0.1,
+      "error_cost": 0.25,
+      "flip_probability": 0.08,
+      "final_population": 62,
+      "final_distinct_connections": 3,
+      "total_births": 8485,
+      "total_deaths": 8468,
+      "packet_total": 24677,
+      "packet_labels_total": [
+        8200,
+        8121,
+        8356
+      ],
+      "tagged_variant_daughters": 5654,
+      "variant_daughters_per_birth": 0.6663523865645257,
+      "extinct_at_step": null
+    },
+    {
+      "seed": 13,
+      "condition": "selected_tagged_fission",
+      "steps": 3200,
+      "segment_length": 800,
+      "schedule": [
+        0,
+        1,
+        2,
+        0
+      ],
+      "source_count": 3,
+      "initial_sources": [
+        0,
+        1
+      ],
+      "initial_population": 45,
+      "initial_mass": 1.0,
+      "substrate_inflow": 7.7625,
+      "maintenance": 0.1,
+      "error_cost": 0.25,
+      "flip_probability": 0.08,
+      "final_population": 52,
+      "final_distinct_connections": 3,
+      "total_births": 8575,
+      "total_deaths": 8568,
+      "packet_total": 24935,
+      "packet_labels_total": [
+        8369,
+        8297,
+        8269
+      ],
+      "tagged_variant_daughters": 5732,
+      "variant_daughters_per_birth": 0.6684548104956268,
+      "extinct_at_step": null
+    },
+    {
+      "seed": 13,
+      "condition": "neutral_tagged_fission",
+      "steps": 3200,
+      "segment_length": 800,
+      "schedule": [
+        0,
+        1,
+        2,
+        0
+      ],
+      "source_count": 3,
+      "initial_sources": [
+        0,
+        1
+      ],
+      "initial_population": 45,
+      "initial_mass": 1.0,
+      "substrate_inflow": 7.7625,
+      "maintenance": 0.1,
+      "error_cost": 0.25,
+      "flip_probability": 0.08,
+      "final_population": 38,
+      "final_distinct_connections": 3,
+      "total_births": 7865,
+      "total_deaths": 7872,
+      "packet_total": 24935,
+      "packet_labels_total": [
+        8369,
+        8297,
+        8269
+      ],
+      "tagged_variant_daughters": 5230,
+      "variant_daughters_per_birth": 0.6649713922441195,
+      "extinct_at_step": null
+    },
+    {
+      "seed": 13,
+      "condition": "selected_untyped_fission",
+      "steps": 3200,
+      "segment_length": 800,
+      "schedule": [
+        0,
+        1,
+        2,
+        0
+      ],
+      "source_count": 3,
+      "initial_sources": [
+        0,
+        1
+      ],
+      "initial_population": 45,
+      "initial_mass": 1.0,
+      "substrate_inflow": 7.7625,
+      "maintenance": 0.1,
+      "error_cost": 0.25,
+      "flip_probability": 0.08,
+      "final_population": 51,
+      "final_distinct_connections": 3,
+      "total_births": 8475,
+      "total_deaths": 8469,
+      "packet_total": 24935,
+      "packet_labels_total": [
+        8369,
+        8297,
+        8269
+      ],
+      "tagged_variant_daughters": 5616,
+      "variant_daughters_per_birth": 0.6626548672566371,
+      "extinct_at_step": null
+    },
+    {
+      "seed": 14,
+      "condition": "selected_tagged_fission",
+      "steps": 3200,
+      "segment_length": 800,
+      "schedule": [
+        0,
+        1,
+        2,
+        0
+      ],
+      "source_count": 3,
+      "initial_sources": [
+        0,
+        1
+      ],
+      "initial_population": 45,
+      "initial_mass": 1.0,
+      "substrate_inflow": 7.7625,
+      "maintenance": 0.1,
+      "error_cost": 0.25,
+      "flip_probability": 0.08,
+      "final_population": 58,
+      "final_distinct_connections": 3,
+      "total_births": 8458,
+      "total_deaths": 8445,
+      "packet_total": 25001,
+      "packet_labels_total": [
+        8417,
+        8207,
+        8377
+      ],
+      "tagged_variant_daughters": 5660,
+      "variant_daughters_per_birth": 0.6691889335540316,
+      "extinct_at_step": null
+    },
+    {
+      "seed": 14,
+      "condition": "neutral_tagged_fission",
+      "steps": 3200,
+      "segment_length": 800,
+      "schedule": [
+        0,
+        1,
+        2,
+        0
+      ],
+      "source_count": 3,
+      "initial_sources": [
+        0,
+        1
+      ],
+      "initial_population": 45,
+      "initial_mass": 1.0,
+      "substrate_inflow": 7.7625,
+      "maintenance": 0.1,
+      "error_cost": 0.25,
+      "flip_probability": 0.08,
+      "final_population": 40,
+      "final_distinct_connections": 3,
+      "total_births": 7890,
+      "total_deaths": 7895,
+      "packet_total": 25001,
+      "packet_labels_total": [
+        8417,
+        8207,
+        8377
+      ],
+      "tagged_variant_daughters": 5225,
+      "variant_daughters_per_birth": 0.6622306717363752,
+      "extinct_at_step": null
+    },
+    {
+      "seed": 14,
+      "condition": "selected_untyped_fission",
+      "steps": 3200,
+      "segment_length": 800,
+      "schedule": [
+        0,
+        1,
+        2,
+        0
+      ],
+      "source_count": 3,
+      "initial_sources": [
+        0,
+        1
+      ],
+      "initial_population": 45,
+      "initial_mass": 1.0,
+      "substrate_inflow": 7.7625,
+      "maintenance": 0.1,
+      "error_cost": 0.25,
+      "flip_probability": 0.08,
+      "final_population": 57,
+      "final_distinct_connections": 3,
+      "total_births": 8489,
+      "total_deaths": 8477,
+      "packet_total": 25001,
+      "packet_labels_total": [
+        8417,
+        8207,
+        8377
+      ],
+      "tagged_variant_daughters": 5772,
+      "variant_daughters_per_birth": 0.6799387442572741,
+      "extinct_at_step": null
+    },
+    {
+      "seed": 15,
+      "condition": "selected_tagged_fission",
+      "steps": 3200,
+      "segment_length": 800,
+      "schedule": [
+        0,
+        1,
+        2,
+        0
+      ],
+      "source_count": 3,
+      "initial_sources": [
+        0,
+        1
+      ],
+      "initial_population": 45,
+      "initial_mass": 1.0,
+      "substrate_inflow": 7.7625,
+      "maintenance": 0.1,
+      "error_cost": 0.25,
+      "flip_probability": 0.08,
+      "final_population": 48,
+      "final_distinct_connections": 3,
+      "total_births": 8292,
+      "total_deaths": 8289,
+      "packet_total": 24562,
+      "packet_labels_total": [
+        8177,
+        8128,
+        8257
+      ],
+      "tagged_variant_daughters": 5606,
+      "variant_daughters_per_birth": 0.67607332368548,
+      "extinct_at_step": null
+    },
+    {
+      "seed": 15,
+      "condition": "neutral_tagged_fission",
+      "steps": 3200,
+      "segment_length": 800,
+      "schedule": [
+        0,
+        1,
+        2,
+        0
+      ],
+      "source_count": 3,
+      "initial_sources": [
+        0,
+        1
+      ],
+      "initial_population": 45,
+      "initial_mass": 1.0,
+      "substrate_inflow": 7.7625,
+      "maintenance": 0.1,
+      "error_cost": 0.25,
+      "flip_probability": 0.08,
+      "final_population": 43,
+      "final_distinct_connections": 3,
+      "total_births": 7744,
+      "total_deaths": 7746,
+      "packet_total": 24562,
+      "packet_labels_total": [
+        8177,
+        8128,
+        8257
+      ],
+      "tagged_variant_daughters": 5115,
+      "variant_daughters_per_birth": 0.6605113636363636,
+      "extinct_at_step": null
+    },
+    {
+      "seed": 15,
+      "condition": "selected_untyped_fission",
+      "steps": 3200,
+      "segment_length": 800,
+      "schedule": [
+        0,
+        1,
+        2,
+        0
+      ],
+      "source_count": 3,
+      "initial_sources": [
+        0,
+        1
+      ],
+      "initial_population": 45,
+      "initial_mass": 1.0,
+      "substrate_inflow": 7.7625,
+      "maintenance": 0.1,
+      "error_cost": 0.25,
+      "flip_probability": 0.08,
+      "final_population": 48,
+      "final_distinct_connections": 3,
+      "total_births": 8275,
+      "total_deaths": 8272,
+      "packet_total": 24562,
+      "packet_labels_total": [
+        8177,
+        8128,
+        8257
+      ],
+      "tagged_variant_daughters": 5493,
+      "variant_daughters_per_birth": 0.6638066465256798,
+      "extinct_at_step": null
+    },
+    {
+      "seed": 16,
+      "condition": "selected_tagged_fission",
+      "steps": 3200,
+      "segment_length": 800,
+      "schedule": [
+        0,
+        1,
+        2,
+        0
+      ],
+      "source_count": 3,
+      "initial_sources": [
+        0,
+        1
+      ],
+      "initial_population": 45,
+      "initial_mass": 1.0,
+      "substrate_inflow": 7.7625,
+      "maintenance": 0.1,
+      "error_cost": 0.25,
+      "flip_probability": 0.08,
+      "final_population": 58,
+      "final_distinct_connections": 3,
+      "total_births": 8473,
+      "total_deaths": 8460,
+      "packet_total": 24899,
+      "packet_labels_total": [
+        8184,
+        8386,
+        8329
+      ],
+      "tagged_variant_daughters": 5700,
+      "variant_daughters_per_birth": 0.6727251268735985,
+      "extinct_at_step": null
+    },
+    {
+      "seed": 16,
+      "condition": "neutral_tagged_fission",
+      "steps": 3200,
+      "segment_length": 800,
+      "schedule": [
+        0,
+        1,
+        2,
+        0
+      ],
+      "source_count": 3,
+      "initial_sources": [
+        0,
+        1
+      ],
+      "initial_population": 45,
+      "initial_mass": 1.0,
+      "substrate_inflow": 7.7625,
+      "maintenance": 0.1,
+      "error_cost": 0.25,
+      "flip_probability": 0.08,
+      "final_population": 49,
+      "final_distinct_connections": 3,
+      "total_births": 7881,
+      "total_deaths": 7877,
+      "packet_total": 24899,
+      "packet_labels_total": [
+        8184,
+        8386,
+        8329
+      ],
+      "tagged_variant_daughters": 5209,
+      "variant_daughters_per_birth": 0.6609567313792666,
+      "extinct_at_step": null
+    },
+    {
+      "seed": 16,
+      "condition": "selected_untyped_fission",
+      "steps": 3200,
+      "segment_length": 800,
+      "schedule": [
+        0,
+        1,
+        2,
+        0
+      ],
+      "source_count": 3,
+      "initial_sources": [
+        0,
+        1
+      ],
+      "initial_population": 45,
+      "initial_mass": 1.0,
+      "substrate_inflow": 7.7625,
+      "maintenance": 0.1,
+      "error_cost": 0.25,
+      "flip_probability": 0.08,
+      "final_population": 55,
+      "final_distinct_connections": 3,
+      "total_births": 8481,
+      "total_deaths": 8471,
+      "packet_total": 24899,
+      "packet_labels_total": [
+        8184,
+        8386,
+        8329
+      ],
+      "tagged_variant_daughters": 5616,
+      "variant_daughters_per_birth": 0.6621860629642731,
+      "extinct_at_step": null
+    },
+    {
+      "seed": 17,
+      "condition": "selected_tagged_fission",
+      "steps": 3200,
+      "segment_length": 800,
+      "schedule": [
+        0,
+        1,
+        2,
+        0
+      ],
+      "source_count": 3,
+      "initial_sources": [
+        0,
+        1
+      ],
+      "initial_population": 45,
+      "initial_mass": 1.0,
+      "substrate_inflow": 7.7625,
+      "maintenance": 0.1,
+      "error_cost": 0.25,
+      "flip_probability": 0.08,
+      "final_population": 58,
+      "final_distinct_connections": 3,
+      "total_births": 8374,
+      "total_deaths": 8361,
+      "packet_total": 24800,
+      "packet_labels_total": [
+        8297,
+        8245,
+        8258
+      ],
+      "tagged_variant_daughters": 5550,
+      "variant_daughters_per_birth": 0.6627657033675662,
+      "extinct_at_step": null
+    },
+    {
+      "seed": 17,
+      "condition": "neutral_tagged_fission",
+      "steps": 3200,
+      "segment_length": 800,
+      "schedule": [
+        0,
+        1,
+        2,
+        0
+      ],
+      "source_count": 3,
+      "initial_sources": [
+        0,
+        1
+      ],
+      "initial_population": 45,
+      "initial_mass": 1.0,
+      "substrate_inflow": 7.7625,
+      "maintenance": 0.1,
+      "error_cost": 0.25,
+      "flip_probability": 0.08,
+      "final_population": 46,
+      "final_distinct_connections": 3,
+      "total_births": 7895,
+      "total_deaths": 7894,
+      "packet_total": 24800,
+      "packet_labels_total": [
+        8297,
+        8245,
+        8258
+      ],
+      "tagged_variant_daughters": 5248,
+      "variant_daughters_per_birth": 0.6647245091830273,
+      "extinct_at_step": null
+    },
+    {
+      "seed": 17,
+      "condition": "selected_untyped_fission",
+      "steps": 3200,
+      "segment_length": 800,
+      "schedule": [
+        0,
+        1,
+        2,
+        0
+      ],
+      "source_count": 3,
+      "initial_sources": [
+        0,
+        1
+      ],
+      "initial_population": 45,
+      "initial_mass": 1.0,
+      "substrate_inflow": 7.7625,
+      "maintenance": 0.1,
+      "error_cost": 0.25,
+      "flip_probability": 0.08,
+      "final_population": 61,
+      "final_distinct_connections": 3,
+      "total_births": 8392,
+      "total_deaths": 8376,
+      "packet_total": 24800,
+      "packet_labels_total": [
+        8297,
+        8245,
+        8258
+      ],
+      "tagged_variant_daughters": 5603,
+      "variant_daughters_per_birth": 0.6676596758817922,
+      "extinct_at_step": null
+    },
+    {
+      "seed": 18,
+      "condition": "selected_tagged_fission",
+      "steps": 3200,
+      "segment_length": 800,
+      "schedule": [
+        0,
+        1,
+        2,
+        0
+      ],
+      "source_count": 3,
+      "initial_sources": [
+        0,
+        1
+      ],
+      "initial_population": 45,
+      "initial_mass": 1.0,
+      "substrate_inflow": 7.7625,
+      "maintenance": 0.1,
+      "error_cost": 0.25,
+      "flip_probability": 0.08,
+      "final_population": 49,
+      "final_distinct_connections": 3,
+      "total_births": 8496,
+      "total_deaths": 8492,
+      "packet_total": 24815,
+      "packet_labels_total": [
+        8140,
+        8389,
+        8286
+      ],
+      "tagged_variant_daughters": 5616,
+      "variant_daughters_per_birth": 0.6610169491525424,
+      "extinct_at_step": null
+    },
+    {
+      "seed": 18,
+      "condition": "neutral_tagged_fission",
+      "steps": 3200,
+      "segment_length": 800,
+      "schedule": [
+        0,
+        1,
+        2,
+        0
+      ],
+      "source_count": 3,
+      "initial_sources": [
+        0,
+        1
+      ],
+      "initial_population": 45,
+      "initial_mass": 1.0,
+      "substrate_inflow": 7.7625,
+      "maintenance": 0.1,
+      "error_cost": 0.25,
+      "flip_probability": 0.08,
+      "final_population": 32,
+      "final_distinct_connections": 3,
+      "total_births": 7905,
+      "total_deaths": 7918,
+      "packet_total": 24815,
+      "packet_labels_total": [
+        8140,
+        8389,
+        8286
+      ],
+      "tagged_variant_daughters": 5212,
+      "variant_daughters_per_birth": 0.6593295382669196,
+      "extinct_at_step": null
+    },
+    {
+      "seed": 18,
+      "condition": "selected_untyped_fission",
+      "steps": 3200,
+      "segment_length": 800,
+      "schedule": [
+        0,
+        1,
+        2,
+        0
+      ],
+      "source_count": 3,
+      "initial_sources": [
+        0,
+        1
+      ],
+      "initial_population": 45,
+      "initial_mass": 1.0,
+      "substrate_inflow": 7.7625,
+      "maintenance": 0.1,
+      "error_cost": 0.25,
+      "flip_probability": 0.08,
+      "final_population": 48,
+      "final_distinct_connections": 3,
+      "total_births": 8498,
+      "total_deaths": 8495,
+      "packet_total": 24815,
+      "packet_labels_total": [
+        8140,
+        8389,
+        8286
+      ],
+      "tagged_variant_daughters": 5669,
+      "variant_daughters_per_birth": 0.6670981407389974,
+      "extinct_at_step": null
+    },
+    {
+      "seed": 19,
+      "condition": "selected_tagged_fission",
+      "steps": 3200,
+      "segment_length": 800,
+      "schedule": [
+        0,
+        1,
+        2,
+        0
+      ],
+      "source_count": 3,
+      "initial_sources": [
+        0,
+        1
+      ],
+      "initial_population": 45,
+      "initial_mass": 1.0,
+      "substrate_inflow": 7.7625,
+      "maintenance": 0.1,
+      "error_cost": 0.25,
+      "flip_probability": 0.08,
+      "final_population": 43,
+      "final_distinct_connections": 3,
+      "total_births": 8455,
+      "total_deaths": 8457,
+      "packet_total": 24878,
+      "packet_labels_total": [
+        8259,
+        8268,
+        8351
+      ],
+      "tagged_variant_daughters": 5662,
+      "variant_daughters_per_birth": 0.6696629213483146,
+      "extinct_at_step": null
+    },
+    {
+      "seed": 19,
+      "condition": "neutral_tagged_fission",
+      "steps": 3200,
+      "segment_length": 800,
+      "schedule": [
+        0,
+        1,
+        2,
+        0
+      ],
+      "source_count": 3,
+      "initial_sources": [
+        0,
+        1
+      ],
+      "initial_population": 45,
+      "initial_mass": 1.0,
+      "substrate_inflow": 7.7625,
+      "maintenance": 0.1,
+      "error_cost": 0.25,
+      "flip_probability": 0.08,
+      "final_population": 32,
+      "final_distinct_connections": 3,
+      "total_births": 7861,
+      "total_deaths": 7874,
+      "packet_total": 24878,
+      "packet_labels_total": [
+        8259,
+        8268,
+        8351
+      ],
+      "tagged_variant_daughters": 5136,
+      "variant_daughters_per_birth": 0.6533519908408599,
+      "extinct_at_step": null
+    },
+    {
+      "seed": 19,
+      "condition": "selected_untyped_fission",
+      "steps": 3200,
+      "segment_length": 800,
+      "schedule": [
+        0,
+        1,
+        2,
+        0
+      ],
+      "source_count": 3,
+      "initial_sources": [
+        0,
+        1
+      ],
+      "initial_population": 45,
+      "initial_mass": 1.0,
+      "substrate_inflow": 7.7625,
+      "maintenance": 0.1,
+      "error_cost": 0.25,
+      "flip_probability": 0.08,
+      "final_population": 41,
+      "final_distinct_connections": 3,
+      "total_births": 8417,
+      "total_deaths": 8421,
+      "packet_total": 24878,
+      "packet_labels_total": [
+        8259,
+        8268,
+        8351
+      ],
+      "tagged_variant_daughters": 5600,
+      "variant_daughters_per_birth": 0.6653201853391945,
+      "extinct_at_step": null
+    },
+    {
+      "seed": 20,
+      "condition": "selected_tagged_fission",
+      "steps": 3200,
+      "segment_length": 800,
+      "schedule": [
+        0,
+        1,
+        2,
+        0
+      ],
+      "source_count": 3,
+      "initial_sources": [
+        0,
+        1
+      ],
+      "initial_population": 45,
+      "initial_mass": 1.0,
+      "substrate_inflow": 7.7625,
+      "maintenance": 0.1,
+      "error_cost": 0.25,
+      "flip_probability": 0.08,
+      "final_population": 53,
+      "final_distinct_connections": 3,
+      "total_births": 8515,
+      "total_deaths": 8507,
+      "packet_total": 24946,
+      "packet_labels_total": [
+        8309,
+        8333,
+        8304
+      ],
+      "tagged_variant_daughters": 5629,
+      "variant_daughters_per_birth": 0.6610687022900763,
+      "extinct_at_step": null
+    },
+    {
+      "seed": 20,
+      "condition": "neutral_tagged_fission",
+      "steps": 3200,
+      "segment_length": 800,
+      "schedule": [
+        0,
+        1,
+        2,
+        0
+      ],
+      "source_count": 3,
+      "initial_sources": [
+        0,
+        1
+      ],
+      "initial_population": 45,
+      "initial_mass": 1.0,
+      "substrate_inflow": 7.7625,
+      "maintenance": 0.1,
+      "error_cost": 0.25,
+      "flip_probability": 0.08,
+      "final_population": 46,
+      "final_distinct_connections": 3,
+      "total_births": 7933,
+      "total_deaths": 7932,
+      "packet_total": 24946,
+      "packet_labels_total": [
+        8309,
+        8333,
+        8304
+      ],
+      "tagged_variant_daughters": 5246,
+      "variant_daughters_per_birth": 0.6612882894239254,
+      "extinct_at_step": null
+    },
+    {
+      "seed": 20,
+      "condition": "selected_untyped_fission",
+      "steps": 3200,
+      "segment_length": 800,
+      "schedule": [
+        0,
+        1,
+        2,
+        0
+      ],
+      "source_count": 3,
+      "initial_sources": [
+        0,
+        1
+      ],
+      "initial_population": 45,
+      "initial_mass": 1.0,
+      "substrate_inflow": 7.7625,
+      "maintenance": 0.1,
+      "error_cost": 0.25,
+      "flip_probability": 0.08,
+      "final_population": 53,
+      "final_distinct_connections": 3,
+      "total_births": 8410,
+      "total_deaths": 8402,
+      "packet_total": 24946,
+      "packet_labels_total": [
+        8309,
+        8333,
+        8304
+      ],
+      "tagged_variant_daughters": 5594,
+      "variant_daughters_per_birth": 0.6651605231866825,
+      "extinct_at_step": null
+    },
+    {
+      "seed": 21,
+      "condition": "selected_tagged_fission",
+      "steps": 3200,
+      "segment_length": 800,
+      "schedule": [
+        0,
+        1,
+        2,
+        0
+      ],
+      "source_count": 3,
+      "initial_sources": [
+        0,
+        1
+      ],
+      "initial_population": 45,
+      "initial_mass": 1.0,
+      "substrate_inflow": 7.7625,
+      "maintenance": 0.1,
+      "error_cost": 0.25,
+      "flip_probability": 0.08,
+      "final_population": 49,
+      "final_distinct_connections": 3,
+      "total_births": 8557,
+      "total_deaths": 8553,
+      "packet_total": 24996,
+      "packet_labels_total": [
+        8386,
+        8273,
+        8337
+      ],
+      "tagged_variant_daughters": 5680,
+      "variant_daughters_per_birth": 0.6637840364613766,
+      "extinct_at_step": null
+    },
+    {
+      "seed": 21,
+      "condition": "neutral_tagged_fission",
+      "steps": 3200,
+      "segment_length": 800,
+      "schedule": [
+        0,
+        1,
+        2,
+        0
+      ],
+      "source_count": 3,
+      "initial_sources": [
+        0,
+        1
+      ],
+      "initial_population": 45,
+      "initial_mass": 1.0,
+      "substrate_inflow": 7.7625,
+      "maintenance": 0.1,
+      "error_cost": 0.25,
+      "flip_probability": 0.08,
+      "final_population": 43,
+      "final_distinct_connections": 3,
+      "total_births": 7910,
+      "total_deaths": 7912,
+      "packet_total": 24996,
+      "packet_labels_total": [
+        8386,
+        8273,
+        8337
+      ],
+      "tagged_variant_daughters": 5174,
+      "variant_daughters_per_birth": 0.6541087231352718,
+      "extinct_at_step": null
+    },
+    {
+      "seed": 21,
+      "condition": "selected_untyped_fission",
+      "steps": 3200,
+      "segment_length": 800,
+      "schedule": [
+        0,
+        1,
+        2,
+        0
+      ],
+      "source_count": 3,
+      "initial_sources": [
+        0,
+        1
+      ],
+      "initial_population": 45,
+      "initial_mass": 1.0,
+      "substrate_inflow": 7.7625,
+      "maintenance": 0.1,
+      "error_cost": 0.25,
+      "flip_probability": 0.08,
+      "final_population": 50,
+      "final_distinct_connections": 3,
+      "total_births": 8569,
+      "total_deaths": 8564,
+      "packet_total": 24996,
+      "packet_labels_total": [
+        8386,
+        8273,
+        8337
+      ],
+      "tagged_variant_daughters": 5727,
+      "variant_daughters_per_birth": 0.6683393628194655,
+      "extinct_at_step": null
+    },
+    {
+      "seed": 22,
+      "condition": "selected_tagged_fission",
+      "steps": 3200,
+      "segment_length": 800,
+      "schedule": [
+        0,
+        1,
+        2,
+        0
+      ],
+      "source_count": 3,
+      "initial_sources": [
+        0,
+        1
+      ],
+      "initial_population": 45,
+      "initial_mass": 1.0,
+      "substrate_inflow": 7.7625,
+      "maintenance": 0.1,
+      "error_cost": 0.25,
+      "flip_probability": 0.08,
+      "final_population": 47,
+      "final_distinct_connections": 3,
+      "total_births": 8446,
+      "total_deaths": 8444,
+      "packet_total": 24975,
+      "packet_labels_total": [
+        8284,
+        8435,
+        8256
+      ],
+      "tagged_variant_daughters": 5614,
+      "variant_daughters_per_birth": 0.6646933459625859,
+      "extinct_at_step": null
+    },
+    {
+      "seed": 22,
+      "condition": "neutral_tagged_fission",
+      "steps": 3200,
+      "segment_length": 800,
+      "schedule": [
+        0,
+        1,
+        2,
+        0
+      ],
+      "source_count": 3,
+      "initial_sources": [
+        0,
+        1
+      ],
+      "initial_population": 45,
+      "initial_mass": 1.0,
+      "substrate_inflow": 7.7625,
+      "maintenance": 0.1,
+      "error_cost": 0.25,
+      "flip_probability": 0.08,
+      "final_population": 43,
+      "final_distinct_connections": 3,
+      "total_births": 7811,
+      "total_deaths": 7813,
+      "packet_total": 24975,
+      "packet_labels_total": [
+        8284,
+        8435,
+        8256
+      ],
+      "tagged_variant_daughters": 5202,
+      "variant_daughters_per_birth": 0.6659838689028293,
+      "extinct_at_step": null
+    },
+    {
+      "seed": 22,
+      "condition": "selected_untyped_fission",
+      "steps": 3200,
+      "segment_length": 800,
+      "schedule": [
+        0,
+        1,
+        2,
+        0
+      ],
+      "source_count": 3,
+      "initial_sources": [
+        0,
+        1
+      ],
+      "initial_population": 45,
+      "initial_mass": 1.0,
+      "substrate_inflow": 7.7625,
+      "maintenance": 0.1,
+      "error_cost": 0.25,
+      "flip_probability": 0.08,
+      "final_population": 51,
+      "final_distinct_connections": 3,
+      "total_births": 8553,
+      "total_deaths": 8547,
+      "packet_total": 24975,
+      "packet_labels_total": [
+        8284,
+        8435,
+        8256
+      ],
+      "tagged_variant_daughters": 5722,
+      "variant_daughters_per_birth": 0.6690050274757395,
+      "extinct_at_step": null
+    },
+    {
+      "seed": 23,
+      "condition": "selected_tagged_fission",
+      "steps": 3200,
+      "segment_length": 800,
+      "schedule": [
+        0,
+        1,
+        2,
+        0
+      ],
+      "source_count": 3,
+      "initial_sources": [
+        0,
+        1
+      ],
+      "initial_population": 45,
+      "initial_mass": 1.0,
+      "substrate_inflow": 7.7625,
+      "maintenance": 0.1,
+      "error_cost": 0.25,
+      "flip_probability": 0.08,
+      "final_population": 60,
+      "final_distinct_connections": 3,
+      "total_births": 8453,
+      "total_deaths": 8438,
+      "packet_total": 24727,
+      "packet_labels_total": [
+        8333,
+        8153,
+        8241
+      ],
+      "tagged_variant_daughters": 5567,
+      "variant_daughters_per_birth": 0.6585827516857921,
+      "extinct_at_step": null
+    },
+    {
+      "seed": 23,
+      "condition": "neutral_tagged_fission",
+      "steps": 3200,
+      "segment_length": 800,
+      "schedule": [
+        0,
+        1,
+        2,
+        0
+      ],
+      "source_count": 3,
+      "initial_sources": [
+        0,
+        1
+      ],
+      "initial_population": 45,
+      "initial_mass": 1.0,
+      "substrate_inflow": 7.7625,
+      "maintenance": 0.1,
+      "error_cost": 0.25,
+      "flip_probability": 0.08,
+      "final_population": 49,
+      "final_distinct_connections": 3,
+      "total_births": 7788,
+      "total_deaths": 7784,
+      "packet_total": 24727,
+      "packet_labels_total": [
+        8333,
+        8153,
+        8241
+      ],
+      "tagged_variant_daughters": 5180,
+      "variant_daughters_per_birth": 0.6651258346173601,
+      "extinct_at_step": null
+    },
+    {
+      "seed": 23,
+      "condition": "selected_untyped_fission",
+      "steps": 3200,
+      "segment_length": 800,
+      "schedule": [
+        0,
+        1,
+        2,
+        0
+      ],
+      "source_count": 3,
+      "initial_sources": [
+        0,
+        1
+      ],
+      "initial_population": 45,
+      "initial_mass": 1.0,
+      "substrate_inflow": 7.7625,
+      "maintenance": 0.1,
+      "error_cost": 0.25,
+      "flip_probability": 0.08,
+      "final_population": 49,
+      "final_distinct_connections": 3,
+      "total_births": 8434,
+      "total_deaths": 8430,
+      "packet_total": 24727,
+      "packet_labels_total": [
+        8333,
+        8153,
+        8241
+      ],
+      "tagged_variant_daughters": 5675,
+      "variant_daughters_per_birth": 0.6728717097462651,
+      "extinct_at_step": null
+    },
+    {
+      "seed": 24,
+      "condition": "selected_tagged_fission",
+      "steps": 3200,
+      "segment_length": 800,
+      "schedule": [
+        0,
+        1,
+        2,
+        0
+      ],
+      "source_count": 3,
+      "initial_sources": [
+        0,
+        1
+      ],
+      "initial_population": 45,
+      "initial_mass": 1.0,
+      "substrate_inflow": 7.7625,
+      "maintenance": 0.1,
+      "error_cost": 0.25,
+      "flip_probability": 0.08,
+      "final_population": 49,
+      "final_distinct_connections": 3,
+      "total_births": 8498,
+      "total_deaths": 8494,
+      "packet_total": 25120,
+      "packet_labels_total": [
+        8371,
+        8322,
+        8427
+      ],
+      "tagged_variant_daughters": 5572,
+      "variant_daughters_per_birth": 0.6556836902800659,
+      "extinct_at_step": null
+    },
+    {
+      "seed": 24,
+      "condition": "neutral_tagged_fission",
+      "steps": 3200,
+      "segment_length": 800,
+      "schedule": [
+        0,
+        1,
+        2,
+        0
+      ],
+      "source_count": 3,
+      "initial_sources": [
+        0,
+        1
+      ],
+      "initial_population": 45,
+      "initial_mass": 1.0,
+      "substrate_inflow": 7.7625,
+      "maintenance": 0.1,
+      "error_cost": 0.25,
+      "flip_probability": 0.08,
+      "final_population": 43,
+      "final_distinct_connections": 3,
+      "total_births": 8023,
+      "total_deaths": 8025,
+      "packet_total": 25120,
+      "packet_labels_total": [
+        8371,
+        8322,
+        8427
+      ],
+      "tagged_variant_daughters": 5258,
+      "variant_daughters_per_birth": 0.6553658232581329,
+      "extinct_at_step": null
+    },
+    {
+      "seed": 24,
+      "condition": "selected_untyped_fission",
+      "steps": 3200,
+      "segment_length": 800,
+      "schedule": [
+        0,
+        1,
+        2,
+        0
+      ],
+      "source_count": 3,
+      "initial_sources": [
+        0,
+        1
+      ],
+      "initial_population": 45,
+      "initial_mass": 1.0,
+      "substrate_inflow": 7.7625,
+      "maintenance": 0.1,
+      "error_cost": 0.25,
+      "flip_probability": 0.08,
+      "final_population": 50,
+      "final_distinct_connections": 3,
+      "total_births": 8580,
+      "total_deaths": 8575,
+      "packet_total": 25120,
+      "packet_labels_total": [
+        8371,
+        8322,
+        8427
+      ],
+      "tagged_variant_daughters": 5763,
+      "variant_daughters_per_birth": 0.6716783216783216,
+      "extinct_at_step": null
+    },
+    {
+      "seed": 25,
+      "condition": "selected_tagged_fission",
+      "steps": 3200,
+      "segment_length": 800,
+      "schedule": [
+        0,
+        1,
+        2,
+        0
+      ],
+      "source_count": 3,
+      "initial_sources": [
+        0,
+        1
+      ],
+      "initial_population": 45,
+      "initial_mass": 1.0,
+      "substrate_inflow": 7.7625,
+      "maintenance": 0.1,
+      "error_cost": 0.25,
+      "flip_probability": 0.08,
+      "final_population": 52,
+      "final_distinct_connections": 3,
+      "total_births": 8477,
+      "total_deaths": 8470,
+      "packet_total": 24957,
+      "packet_labels_total": [
+        8415,
+        8250,
+        8292
+      ],
+      "tagged_variant_daughters": 5591,
+      "variant_daughters_per_birth": 0.6595493688805002,
+      "extinct_at_step": null
+    },
+    {
+      "seed": 25,
+      "condition": "neutral_tagged_fission",
+      "steps": 3200,
+      "segment_length": 800,
+      "schedule": [
+        0,
+        1,
+        2,
+        0
+      ],
+      "source_count": 3,
+      "initial_sources": [
+        0,
+        1
+      ],
+      "initial_population": 45,
+      "initial_mass": 1.0,
+      "substrate_inflow": 7.7625,
+      "maintenance": 0.1,
+      "error_cost": 0.25,
+      "flip_probability": 0.08,
+      "final_population": 41,
+      "final_distinct_connections": 3,
+      "total_births": 7874,
+      "total_deaths": 7878,
+      "packet_total": 24957,
+      "packet_labels_total": [
+        8415,
+        8250,
+        8292
+      ],
+      "tagged_variant_daughters": 5188,
+      "variant_daughters_per_birth": 0.6588773177546355,
+      "extinct_at_step": null
+    },
+    {
+      "seed": 25,
+      "condition": "selected_untyped_fission",
+      "steps": 3200,
+      "segment_length": 800,
+      "schedule": [
+        0,
+        1,
+        2,
+        0
+      ],
+      "source_count": 3,
+      "initial_sources": [
+        0,
+        1
+      ],
+      "initial_population": 45,
+      "initial_mass": 1.0,
+      "substrate_inflow": 7.7625,
+      "maintenance": 0.1,
+      "error_cost": 0.25,
+      "flip_probability": 0.08,
+      "final_population": 50,
+      "final_distinct_connections": 3,
+      "total_births": 8467,
+      "total_deaths": 8462,
+      "packet_total": 24957,
+      "packet_labels_total": [
+        8415,
+        8250,
+        8292
+      ],
+      "tagged_variant_daughters": 5619,
+      "variant_daughters_per_birth": 0.6636352899492146,
+      "extinct_at_step": null
+    },
+    {
+      "seed": 26,
+      "condition": "selected_tagged_fission",
+      "steps": 3200,
+      "segment_length": 800,
+      "schedule": [
+        0,
+        1,
+        2,
+        0
+      ],
+      "source_count": 3,
+      "initial_sources": [
+        0,
+        1
+      ],
+      "initial_population": 45,
+      "initial_mass": 1.0,
+      "substrate_inflow": 7.7625,
+      "maintenance": 0.1,
+      "error_cost": 0.25,
+      "flip_probability": 0.08,
+      "final_population": 49,
+      "final_distinct_connections": 3,
+      "total_births": 8548,
+      "total_deaths": 8544,
+      "packet_total": 24970,
+      "packet_labels_total": [
+        8341,
+        8290,
+        8339
+      ],
+      "tagged_variant_daughters": 5697,
+      "variant_daughters_per_birth": 0.6664716892840431,
+      "extinct_at_step": null
+    },
+    {
+      "seed": 26,
+      "condition": "neutral_tagged_fission",
+      "steps": 3200,
+      "segment_length": 800,
+      "schedule": [
+        0,
+        1,
+        2,
+        0
+      ],
+      "source_count": 3,
+      "initial_sources": [
+        0,
+        1
+      ],
+      "initial_population": 45,
+      "initial_mass": 1.0,
+      "substrate_inflow": 7.7625,
+      "maintenance": 0.1,
+      "error_cost": 0.25,
+      "flip_probability": 0.08,
+      "final_population": 47,
+      "final_distinct_connections": 3,
+      "total_births": 7927,
+      "total_deaths": 7925,
+      "packet_total": 24970,
+      "packet_labels_total": [
+        8341,
+        8290,
+        8339
+      ],
+      "tagged_variant_daughters": 5392,
+      "variant_daughters_per_birth": 0.6802068878516463,
+      "extinct_at_step": null
+    },
+    {
+      "seed": 26,
+      "condition": "selected_untyped_fission",
+      "steps": 3200,
+      "segment_length": 800,
+      "schedule": [
+        0,
+        1,
+        2,
+        0
+      ],
+      "source_count": 3,
+      "initial_sources": [
+        0,
+        1
+      ],
+      "initial_population": 45,
+      "initial_mass": 1.0,
+      "substrate_inflow": 7.7625,
+      "maintenance": 0.1,
+      "error_cost": 0.25,
+      "flip_probability": 0.08,
+      "final_population": 52,
+      "final_distinct_connections": 3,
+      "total_births": 8503,
+      "total_deaths": 8496,
+      "packet_total": 24970,
+      "packet_labels_total": [
+        8341,
+        8290,
+        8339
+      ],
+      "tagged_variant_daughters": 5633,
+      "variant_daughters_per_birth": 0.6624720686816418,
+      "extinct_at_step": null
+    },
+    {
+      "seed": 27,
+      "condition": "selected_tagged_fission",
+      "steps": 3200,
+      "segment_length": 800,
+      "schedule": [
+        0,
+        1,
+        2,
+        0
+      ],
+      "source_count": 3,
+      "initial_sources": [
+        0,
+        1
+      ],
+      "initial_population": 45,
+      "initial_mass": 1.0,
+      "substrate_inflow": 7.7625,
+      "maintenance": 0.1,
+      "error_cost": 0.25,
+      "flip_probability": 0.08,
+      "final_population": 45,
+      "final_distinct_connections": 3,
+      "total_births": 8341,
+      "total_deaths": 8341,
+      "packet_total": 24372,
+      "packet_labels_total": [
+        8146,
+        8033,
+        8193
+      ],
+      "tagged_variant_daughters": 5541,
+      "variant_daughters_per_birth": 0.6643088358709986,
+      "extinct_at_step": null
+    },
+    {
+      "seed": 27,
+      "condition": "neutral_tagged_fission",
+      "steps": 3200,
+      "segment_length": 800,
+      "schedule": [
+        0,
+        1,
+        2,
+        0
+      ],
+      "source_count": 3,
+      "initial_sources": [
+        0,
+        1
+      ],
+      "initial_population": 45,
+      "initial_mass": 1.0,
+      "substrate_inflow": 7.7625,
+      "maintenance": 0.1,
+      "error_cost": 0.25,
+      "flip_probability": 0.08,
+      "final_population": 44,
+      "final_distinct_connections": 3,
+      "total_births": 7774,
+      "total_deaths": 7775,
+      "packet_total": 24372,
+      "packet_labels_total": [
+        8146,
+        8033,
+        8193
+      ],
+      "tagged_variant_daughters": 5189,
+      "variant_daughters_per_birth": 0.6674813480833548,
+      "extinct_at_step": null
+    },
+    {
+      "seed": 27,
+      "condition": "selected_untyped_fission",
+      "steps": 3200,
+      "segment_length": 800,
+      "schedule": [
+        0,
+        1,
+        2,
+        0
+      ],
+      "source_count": 3,
+      "initial_sources": [
+        0,
+        1
+      ],
+      "initial_population": 45,
+      "initial_mass": 1.0,
+      "substrate_inflow": 7.7625,
+      "maintenance": 0.1,
+      "error_cost": 0.25,
+      "flip_probability": 0.08,
+      "final_population": 43,
+      "final_distinct_connections": 3,
+      "total_births": 8354,
+      "total_deaths": 8356,
+      "packet_total": 24372,
+      "packet_labels_total": [
+        8146,
+        8033,
+        8193
+      ],
+      "tagged_variant_daughters": 5588,
+      "variant_daughters_per_birth": 0.6689011252094805,
+      "extinct_at_step": null
+    },
+    {
+      "seed": 28,
+      "condition": "selected_tagged_fission",
+      "steps": 3200,
+      "segment_length": 800,
+      "schedule": [
+        0,
+        1,
+        2,
+        0
+      ],
+      "source_count": 3,
+      "initial_sources": [
+        0,
+        1
+      ],
+      "initial_population": 45,
+      "initial_mass": 1.0,
+      "substrate_inflow": 7.7625,
+      "maintenance": 0.1,
+      "error_cost": 0.25,
+      "flip_probability": 0.08,
+      "final_population": 38,
+      "final_distinct_connections": 3,
+      "total_births": 8505,
+      "total_deaths": 8512,
+      "packet_total": 25006,
+      "packet_labels_total": [
+        8327,
+        8297,
+        8382
+      ],
+      "tagged_variant_daughters": 5630,
+      "variant_daughters_per_birth": 0.6619635508524397,
+      "extinct_at_step": null
+    },
+    {
+      "seed": 28,
+      "condition": "neutral_tagged_fission",
+      "steps": 3200,
+      "segment_length": 800,
+      "schedule": [
+        0,
+        1,
+        2,
+        0
+      ],
+      "source_count": 3,
+      "initial_sources": [
+        0,
+        1
+      ],
+      "initial_population": 45,
+      "initial_mass": 1.0,
+      "substrate_inflow": 7.7625,
+      "maintenance": 0.1,
+      "error_cost": 0.25,
+      "flip_probability": 0.08,
+      "final_population": 29,
+      "final_distinct_connections": 3,
+      "total_births": 7937,
+      "total_deaths": 7953,
+      "packet_total": 25006,
+      "packet_labels_total": [
+        8327,
+        8297,
+        8382
+      ],
+      "tagged_variant_daughters": 5223,
+      "variant_daughters_per_birth": 0.6580572004535719,
+      "extinct_at_step": null
+    },
+    {
+      "seed": 28,
+      "condition": "selected_untyped_fission",
+      "steps": 3200,
+      "segment_length": 800,
+      "schedule": [
+        0,
+        1,
+        2,
+        0
+      ],
+      "source_count": 3,
+      "initial_sources": [
+        0,
+        1
+      ],
+      "initial_population": 45,
+      "initial_mass": 1.0,
+      "substrate_inflow": 7.7625,
+      "maintenance": 0.1,
+      "error_cost": 0.25,
+      "flip_probability": 0.08,
+      "final_population": 38,
+      "final_distinct_connections": 3,
+      "total_births": 8522,
+      "total_deaths": 8529,
+      "packet_total": 25006,
+      "packet_labels_total": [
+        8327,
+        8297,
+        8382
+      ],
+      "tagged_variant_daughters": 5733,
+      "variant_daughters_per_birth": 0.6727294062426661,
+      "extinct_at_step": null
+    },
+    {
+      "seed": 29,
+      "condition": "selected_tagged_fission",
+      "steps": 3200,
+      "segment_length": 800,
+      "schedule": [
+        0,
+        1,
+        2,
+        0
+      ],
+      "source_count": 3,
+      "initial_sources": [
+        0,
+        1
+      ],
+      "initial_population": 45,
+      "initial_mass": 1.0,
+      "substrate_inflow": 7.7625,
+      "maintenance": 0.1,
+      "error_cost": 0.25,
+      "flip_probability": 0.08,
+      "final_population": 46,
+      "final_distinct_connections": 3,
+      "total_births": 8348,
+      "total_deaths": 8347,
+      "packet_total": 24734,
+      "packet_labels_total": [
+        8174,
+        8281,
+        8279
+      ],
+      "tagged_variant_daughters": 5540,
+      "variant_daughters_per_birth": 0.663632007666507,
+      "extinct_at_step": null
+    },
+    {
+      "seed": 29,
+      "condition": "neutral_tagged_fission",
+      "steps": 3200,
+      "segment_length": 800,
+      "schedule": [
+        0,
+        1,
+        2,
+        0
+      ],
+      "source_count": 3,
+      "initial_sources": [
+        0,
+        1
+      ],
+      "initial_population": 45,
+      "initial_mass": 1.0,
+      "substrate_inflow": 7.7625,
+      "maintenance": 0.1,
+      "error_cost": 0.25,
+      "flip_probability": 0.08,
+      "final_population": 39,
+      "final_distinct_connections": 3,
+      "total_births": 7887,
+      "total_deaths": 7893,
+      "packet_total": 24734,
+      "packet_labels_total": [
+        8174,
+        8281,
+        8279
+      ],
+      "tagged_variant_daughters": 5159,
+      "variant_daughters_per_birth": 0.6541143654114365,
+      "extinct_at_step": null
+    },
+    {
+      "seed": 29,
+      "condition": "selected_untyped_fission",
+      "steps": 3200,
+      "segment_length": 800,
+      "schedule": [
+        0,
+        1,
+        2,
+        0
+      ],
+      "source_count": 3,
+      "initial_sources": [
+        0,
+        1
+      ],
+      "initial_population": 45,
+      "initial_mass": 1.0,
+      "substrate_inflow": 7.7625,
+      "maintenance": 0.1,
+      "error_cost": 0.25,
+      "flip_probability": 0.08,
+      "final_population": 48,
+      "final_distinct_connections": 3,
+      "total_births": 8459,
+      "total_deaths": 8456,
+      "packet_total": 24734,
+      "packet_labels_total": [
+        8174,
+        8281,
+        8279
+      ],
+      "tagged_variant_daughters": 5620,
+      "variant_daughters_per_birth": 0.6643811325215746,
+      "extinct_at_step": null
+    }
+  ],
+  "paired_selected_minus_neutral": {
+    "active_share_left_minus_right": 0.2614155966076563,
+    "target_mse_left_minus_right": -0.1031621906057154,
+    "active_share_same_direction": 30,
+    "target_mse_same_direction": 30
+  },
+  "paired_selected_minus_untyped": {
+    "active_share_left_minus_right": -0.005698831083034724,
+    "target_mse_left_minus_right": 0.0011646235876390512,
+    "active_share_same_direction": 12,
+    "target_mse_same_direction": 12
+  }
+}

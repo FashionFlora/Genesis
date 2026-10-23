@@ -1,0 +1,15 @@
+{
+  "candidate": "candidates/context_error_reversible_memory/principle.py",
+  "seeds": 40,
+  "phase_steps": 500,
+  "target": {
+    "first_error": 0.2720533206957131,
+    "return_error": 0.2745388738400993,
+    "return_gain": -0.0024855531443862414,
+    "faster_fraction": 0.475
+  },
+  "null": {
+    "mean_error": 0.27606820020997724
+  },
+  "paired_target_minus_null_gain": -0.0009004869429656663
+}

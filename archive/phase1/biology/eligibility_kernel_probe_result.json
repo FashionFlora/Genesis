@@ -1,0 +1,26 @@
+{
+  "config": {
+    "seed": 9100,
+    "worlds": 300,
+    "steps": 240,
+    "switch": 120,
+    "true_consequence_kernel": "uniform over current and previous 3 issued actions",
+    "effect_pair": [
+      0.6,
+      -0.6
+    ],
+    "effect_reversal": true,
+    "noise_sd": 0.15,
+    "learning_rate": 0.08,
+    "action_policy": "independent random interventions"
+  },
+  "post_switch_correct_action_edge_fraction": {
+    "newest_only": 0.9241369047619047,
+    "exp_tau_0.5": 0.8980059523809524,
+    "exp_tau_1": 0.8188690476190477,
+    "exp_tau_2": 0.7166071428571429,
+    "exp_tau_4": 0.6609821428571429,
+    "matched_box4": 0.6334821428571429
+  },
+  "limitation": "Synthetic four-step delayed mixture with abrupt effect reversal and independent actions; does not model neural eligibility, physiology, or pruning. Kernel match is supplied as a candidate, not learned."
+}

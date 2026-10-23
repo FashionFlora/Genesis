@@ -1,0 +1,11 @@
+Parents:
+- candidates/resource_flow_action/principle.py
+- candidates/resource_flow_contact_trace/principle.py
+
+Mutation/crossover:
+The parent's predictive returned-flow relation is unchanged for stream learning.
+Action resource is now addressed by the proposed destination cell. A chosen
+contact returns mass only when the next observation reaches that destination;
+the same retained field mass then weights future local contacts. The action is
+therefore a consequence of resource persistence and observed transition, with
+no apple, length, reward, or fixed movement strategy.

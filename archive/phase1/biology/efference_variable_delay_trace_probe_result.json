@@ -1,0 +1,69 @@
+{
+  "worlds": 300,
+  "steps": 360,
+  "switch_step": 180,
+  "delay_range": [
+    1,
+    8
+  ],
+  "noise_sd": 0.1,
+  "exploration_probability": 0.2,
+  "fixed_lag": 4,
+  "trace_tau": 2.0,
+  "trace_max_age": 12,
+  "learning_rate": 0.12,
+  "support_rate": 0.06,
+  "edge_floor": 0.08,
+  "rows": [
+    {
+      "mode": "tagged",
+      "trace_tau": null,
+      "post_switch_correct_choice": 0.8413565891472868,
+      "correct_edge_retention": 0.9220930232558139,
+      "mean_edges_above_floor": 1.1571511627906979
+    },
+    {
+      "mode": "trace_tau_0.5",
+      "trace_tau": 0.5,
+      "post_switch_correct_choice": 0.7816860465116279,
+      "correct_edge_retention": 0.7547093023255814,
+      "mean_edges_above_floor": 1.3926550387596899
+    },
+    {
+      "mode": "trace_tau_2",
+      "trace_tau": 2.0,
+      "post_switch_correct_choice": 0.8459496124031007,
+      "correct_edge_retention": 0.7883333333333333,
+      "mean_edges_above_floor": 1.283391472868217
+    },
+    {
+      "mode": "trace_tau_4",
+      "trace_tau": 4.0,
+      "post_switch_correct_choice": 0.8654844961240311,
+      "correct_edge_retention": 0.8097093023255814,
+      "mean_edges_above_floor": 1.2604651162790699
+    },
+    {
+      "mode": "trace_tau_8",
+      "trace_tau": 8.0,
+      "post_switch_correct_choice": 0.8750387596899225,
+      "correct_edge_retention": 0.8243023255813953,
+      "mean_edges_above_floor": 1.261686046511628
+    },
+    {
+      "mode": "fixed_lag",
+      "trace_tau": null,
+      "post_switch_correct_choice": 0.8561046511627907,
+      "correct_edge_retention": 0.8466279069767442,
+      "mean_edges_above_floor": 1.2939922480620156
+    },
+    {
+      "mode": "current",
+      "trace_tau": null,
+      "post_switch_correct_choice": 0.7691666666666667,
+      "correct_edge_retention": 0.7588953488372092,
+      "mean_edges_above_floor": 1.4167635658914728
+    }
+  ],
+  "limitation": "Synthetic two-action effects, random delays and reversal; no neural physiology, endogenous need, or growth mechanism."
+}

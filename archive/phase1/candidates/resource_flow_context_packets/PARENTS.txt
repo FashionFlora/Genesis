@@ -1,0 +1,7 @@
+Parent: candidates/resource_flow_stream/
+
+Mutation: partition each edge's predictive evidence and resource mass by the
+previous source-target transition (four local context packets). The active
+packet receives flow and fast evidence updates; inactive packets retain a
+slower decaying trace. This makes an earlier local model reachable when a
+causal regime returns, without a phase input or a hand-written schedule.

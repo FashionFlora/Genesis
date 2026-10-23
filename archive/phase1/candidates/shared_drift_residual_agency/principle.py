@@ -1,0 +1,115 @@
+"""Predict transitions and order actions by repeatable residual effects."""
+
+PARAMS = {"timescale": 16.0, "exploration": 1.0}
+
+
+class System:
+    def __init__(self):
+        self.width = 0
+        self.previous = None
+        self.prediction = None
+        self.support = None
+        self.mass = None
+        self.edges = 0.0
+        self.mobility = 0.0
+        self.last = None
+        self.count = [0.0] * 4
+        self.effect = [0.0] * 4
+        self.variance = [0.0] * 4
+        self.ambient = 0.0
+        self.ambient_count = 0.0
+
+    def _layout(self, obs):
+        cells = len(obs) // 7
+        side = int(cells ** 0.5)
+        direction = next((a for a in range(4)
+                          if any(obs[a * cells:(a + 1) * cells])), 0)
+        head = next((i for i, value in enumerate(
+            obs[direction * cells:(direction + 1) * cells]) if value), 0)
+        body = obs[4 * cells:5 * cells]
+        return side, direction, head, body
+
+    def _mobility(self, side, direction, head, body):
+        x, y = head % side, head // side
+        moves = ((0, -1), (1, 0), (0, 1), (-1, 0))
+        return sum(0 <= x + dx < side and 0 <= y + dy < side
+                   and a != (direction + 2) % 4
+                   and not body[(y + dy) * side + x + dx]
+                   for a, (dx, dy) in enumerate(moves))
+
+    def step(self, obs):
+        self.width = len(obs)
+        side, direction, head, body = self._layout(obs)
+        now = self._mobility(side, direction, head, body)
+        if self.last is not None:
+            action, before = self.last
+            delta = now - before
+            n = self.ambient_count + 1.0
+            self.ambient += (delta - self.ambient) / n
+            self.ambient_count = n
+            residual = delta - self.ambient
+            an = self.count[action] + 1.0
+            error = residual - self.effect[action]
+            self.variance[action] += (error * error - self.variance[action]) / an
+            self.effect[action] += (residual - self.effect[action]) / an
+            self.count[action] = an
+            self.last = None
+        if self.previous is None:
+            self.previous = list(obs)
+            self.prediction = [0.5] * self.width
+            self.mobility = now
+            return list(self.prediction)
+        if self.support is None and self.width <= 64:
+            self.support = [[0.0] * self.width for _ in range(self.width)]
+            self.mass = [[1.0 / self.width] * self.width
+                         for _ in range(self.width)]
+        if self.support is not None:
+            for target, after in enumerate(obs):
+                flows = []
+                for source, before in enumerate(self.previous):
+                    x, y = 2.0 * before - 1.0, 2.0 * after - 1.0
+                    old = self.support[source][target]
+                    error = (0.5 + 0.5 * old * x - after) ** 2
+                    flow = self.mass[source][target] / (1.0 + error)
+                    flows.append(flow)
+                    scale = PARAMS["timescale"]
+                    self.support[source][target] = (
+                        scale * old + flow * x * y) / (scale + flow)
+                total = sum(flows)
+                if total:
+                    for source, flow in enumerate(flows):
+                        self.mass[source][target] = flow / total
+            prediction = [0.5] * self.width
+            self.edges = 0.0
+            for target in range(self.width):
+                for source in range(self.width):
+                    value = self.mass[source][target] * self.support[source][target]
+                    prediction[target] += 0.5 * value * (2.0 * obs[source] - 1.0)
+                    self.edges += abs(value)
+            self.prediction = [min(1.0, max(0.0, x)) for x in prediction]
+        self.previous = list(obs)
+        self.mobility = now
+        return list(self.prediction or [0.5] * self.width)
+
+    def act(self, obs):
+        side, direction, head, body = self._layout(obs)
+        x, y = head % side, head // side
+        moves = ((0, -1), (1, 0), (0, 1), (-1, 0))
+        legal = [a for a, (dx, dy) in enumerate(moves)
+                 if a != (direction + 2) % 4 and 0 <= x + dx < side
+                 and 0 <= y + dy < side and not body[(y + dy) * side + x + dx]]
+        if not legal:
+            return direction
+        scores = [self.effect[a] / (self.variance[a] + 0.05)
+                  + PARAMS["exploration"] / (self.count[a] + 1.0) ** 0.5
+                  for a in legal]
+        choice = legal[max(range(len(legal)), key=scores.__getitem__)]
+        self.last = (choice, self.mobility)
+        return choice
+
+    def structure(self):
+        units = self.width + self.mobility
+        connections = self.edges + sum(self.count)
+        memory = 8 * self.width * self.width + 16 * self.width
+        return {"units": units, "connections": connections,
+                "memory_bytes": memory}

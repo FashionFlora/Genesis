@@ -1,0 +1,61 @@
+{
+  "worlds": 300,
+  "trials_per_world": 160,
+  "calibration_trials": 40,
+  "noise_sd": 0.12,
+  "event_probability": 0.1,
+  "event_size": 0.5,
+  "broad_gate_gain": 0.25,
+  "threshold": 0.35,
+  "rows": [
+    {
+      "event_relation": "predicted_feature",
+      "mode": "raw",
+      "recall": 1.0,
+      "false_positive_rate": 0.9804272404830455
+    },
+    {
+      "event_relation": "predicted_feature",
+      "mode": "broad_gate",
+      "recall": 0.009302501148089384,
+      "false_positive_rate": 0.0
+    },
+    {
+      "event_relation": "predicted_feature",
+      "mode": "feature_prediction",
+      "recall": 0.8964352922905554,
+      "false_positive_rate": 0.006658161293956904
+    },
+    {
+      "event_relation": "predicted_feature",
+      "mode": "gate_plus_prediction",
+      "recall": 0.0,
+      "false_positive_rate": 0.0
+    },
+    {
+      "event_relation": "orthogonal_feature",
+      "mode": "raw",
+      "recall": 0.997810606060606,
+      "false_positive_rate": 0.9804272404830455
+    },
+    {
+      "event_relation": "orthogonal_feature",
+      "mode": "broad_gate",
+      "recall": 0.0,
+      "false_positive_rate": 0.0
+    },
+    {
+      "event_relation": "orthogonal_feature",
+      "mode": "feature_prediction",
+      "recall": 0.8920952223730861,
+      "false_positive_rate": 0.006658161293956904
+    },
+    {
+      "event_relation": "orthogonal_feature",
+      "mode": "gate_plus_prediction",
+      "recall": 0.0,
+      "false_positive_rate": 0.0
+    }
+  ],
+  "limitation": "Synthetic two-feature signal; gate, prediction and event are stipulated, with no neural circuit or learned synapses."
+}

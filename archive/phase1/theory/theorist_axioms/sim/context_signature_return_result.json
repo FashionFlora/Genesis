@@ -1,0 +1,8 @@
+{
+  "candidate": "candidates/coactivity_context_blend9/principle.py",
+  "seeds": 12,
+  "first_a_mse": 0.2563340296535092,
+  "return_a_mse": 0.24579559184293598,
+  "b_mse": 0.253672167408651,
+  "return_minus_first": -0.010538437810573252
+}

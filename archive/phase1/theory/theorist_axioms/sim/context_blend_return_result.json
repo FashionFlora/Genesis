@@ -1,0 +1,8 @@
+{
+  "seeds": 12,
+  "first_a_mse": 0.22800786010996363,
+  "return_a_mse": 0.23760685354629776,
+  "b_mse": 0.22097424481728878,
+  "return_minus_first": 0.009598993436334163,
+  "note": "Diagnostic uses a phase bit in the context channel; it checks that the harness can expose recurrence, not a world-general claim."
+}

@@ -1,0 +1,37 @@
+{
+  "intervention": {
+    "balanced_actions": 1.0,
+    "return_window_error": 0.25
+  },
+  "models": {
+    "context": {
+      "cells": 4,
+      "first_A": 0.2971979909250201,
+      "mse": 0.2537686314083244,
+      "return_A": 0.2503476841862388
+    },
+    "context_action": {
+      "cells": 8,
+      "first_A": 0.15176637367141685,
+      "mse": 0.07770860267691848,
+      "return_A": 0.06981339048583404
+    },
+    "pooled": {
+      "cells": 2,
+      "first_A": 0.2971979909250201,
+      "mse": 0.25213696608740466,
+      "return_A": 0.250160767531032
+    }
+  },
+  "null_context_action": {
+    "cells": 8,
+    "first_A": 0.32183671561146926,
+    "mse": 0.2565382798491068,
+    "return_A": 0.2531305648590616
+  },
+  "parameters": {
+    "noise": 0.08,
+    "phase": 600,
+    "seeds": 40
+  }
+}

@@ -1,0 +1,539 @@
+{
+  "_baseline_hardcoded": {
+    "apple_or_length": [
+      "length"
+    ],
+    "has_act": true,
+    "literal_constants": [
+      "0",
+      "1",
+      "10",
+      "100",
+      "400",
+      "500"
+    ],
+    "reads_action_state": false,
+    "reads_prediction_or_cells": false,
+    "snake_geometry": []
+  },
+  "_baseline_snake_random": {
+    "apple_or_length": [],
+    "has_act": true,
+    "literal_constants": [
+      "1000",
+      "17",
+      "4"
+    ],
+    "reads_action_state": false,
+    "reads_prediction_or_cells": false,
+    "snake_geometry": []
+  },
+  "_baseline_snake_wall": {
+    "apple_or_length": [],
+    "has_act": true,
+    "literal_constants": [
+      "0",
+      "1",
+      "10",
+      "100",
+      "4",
+      "400",
+      "500"
+    ],
+    "reads_action_state": false,
+    "reads_prediction_or_cells": false,
+    "snake_geometry": [
+      "body",
+      "direction",
+      "head",
+      "moves"
+    ]
+  },
+  "agency_contextual_return": {
+    "apple_or_length": [],
+    "has_act": true,
+    "literal_constants": [
+      "'memory'",
+      "0",
+      "0.5",
+      "1",
+      "1.0",
+      "2",
+      "4"
+    ],
+    "reads_action_state": false,
+    "reads_prediction_or_cells": false,
+    "snake_geometry": [
+      "body",
+      "direction",
+      "head",
+      "moves",
+      "side"
+    ]
+  },
+  "agency_continuation": {
+    "apple_or_length": [],
+    "has_act": true,
+    "literal_constants": [
+      "'memory'",
+      "0",
+      "1",
+      "1.0",
+      "2",
+      "4"
+    ],
+    "reads_action_state": false,
+    "reads_prediction_or_cells": true,
+    "snake_geometry": [
+      "body",
+      "direction",
+      "head",
+      "moves",
+      "side"
+    ]
+  },
+  "agency_control_closure": {
+    "apple_or_length": [],
+    "has_act": true,
+    "literal_constants": [
+      "'timescale'",
+      "0",
+      "0.25",
+      "0.5",
+      "1",
+      "1.0",
+      "2",
+      "4",
+      "4.0"
+    ],
+    "reads_action_state": true,
+    "reads_prediction_or_cells": true,
+    "snake_geometry": [
+      "body",
+      "direction",
+      "free",
+      "head",
+      "moves",
+      "side"
+    ]
+  },
+  "agency_geometric_return": {
+    "apple_or_length": [],
+    "has_act": true,
+    "literal_constants": [
+      "'memory'",
+      "0",
+      "0.5",
+      "1",
+      "1.0",
+      "2",
+      "4"
+    ],
+    "reads_action_state": false,
+    "reads_prediction_or_cells": false,
+    "snake_geometry": [
+      "body",
+      "direction",
+      "head",
+      "moves",
+      "side"
+    ]
+  },
+  "agency_predictive_closure": {
+    "apple_or_length": [],
+    "has_act": true,
+    "literal_constants": [
+      "'memory'",
+      "0",
+      "0.5",
+      "1",
+      "1.0",
+      "2",
+      "4"
+    ],
+    "reads_action_state": false,
+    "reads_prediction_or_cells": false,
+    "snake_geometry": [
+      "body",
+      "direction",
+      "head",
+      "moves",
+      "side"
+    ]
+  },
+  "agency_sensory_return": {
+    "apple_or_length": [],
+    "has_act": true,
+    "literal_constants": [
+      "'memory'",
+      "0",
+      "0.5",
+      "1",
+      "1.0",
+      "2",
+      "4"
+    ],
+    "reads_action_state": false,
+    "reads_prediction_or_cells": false,
+    "snake_geometry": [
+      "body",
+      "direction",
+      "head",
+      "moves",
+      "side"
+    ]
+  },
+  "axiom_reversible": {
+    "apple_or_length": [
+      "length"
+    ],
+    "has_act": true,
+    "literal_constants": [
+      "0",
+      "1",
+      "10",
+      "100",
+      "400",
+      "500"
+    ],
+    "reads_action_state": false,
+    "reads_prediction_or_cells": false,
+    "snake_geometry": []
+  },
+  "coactivity_single_support_source_mass_action": {
+    "apple_or_length": [],
+    "has_act": true,
+    "literal_constants": [
+      "True"
+    ],
+    "reads_action_state": false,
+    "reads_prediction_or_cells": true,
+    "snake_geometry": []
+  },
+  "context_action_sufficiency": {
+    "apple_or_length": [],
+    "has_act": true,
+    "literal_constants": [
+      "'actions'",
+      "0.0",
+      "1",
+      "1.0",
+      "2"
+    ],
+    "reads_action_state": true,
+    "reads_prediction_or_cells": false,
+    "snake_geometry": []
+  },
+  "context_action_transition_field": {
+    "apple_or_length": [],
+    "has_act": true,
+    "literal_constants": [
+      "'actions'",
+      "'contexts'",
+      "0",
+      "0.0",
+      "1",
+      "1.0",
+      "2"
+    ],
+    "reads_action_state": true,
+    "reads_prediction_or_cells": false,
+    "snake_geometry": []
+  },
+  "contextual_action_reversible_evidence": {
+    "apple_or_length": [],
+    "has_act": true,
+    "literal_constants": [
+      "'actions'",
+      "'contexts'",
+      "0.0",
+      "1.0"
+    ],
+    "reads_action_state": true,
+    "reads_prediction_or_cells": true,
+    "snake_geometry": []
+  },
+  "contextual_causal_intervention": {
+    "apple_or_length": [],
+    "has_act": true,
+    "literal_constants": [
+      "'Choose the intervention whose observed outcome remains most uncertain.'",
+      "0.5",
+      "1.0"
+    ],
+    "reads_action_state": true,
+    "reads_prediction_or_cells": false,
+    "snake_geometry": []
+  },
+  "contextual_flow_recall": {
+    "apple_or_length": [],
+    "has_act": true,
+    "literal_constants": [],
+    "reads_action_state": true,
+    "reads_prediction_or_cells": false,
+    "snake_geometry": []
+  },
+  "contextual_predictive_closure": {
+    "apple_or_length": [],
+    "has_act": true,
+    "literal_constants": [
+      "'Use the same field to choose the shortest expected next-state code.'",
+      "'actions'",
+      "4"
+    ],
+    "reads_action_state": true,
+    "reads_prediction_or_cells": true,
+    "snake_geometry": []
+  },
+  "contextual_predictive_exchange": {
+    "apple_or_length": [],
+    "has_act": true,
+    "literal_constants": [
+      "'actions'",
+      "0.0",
+      "1",
+      "1.0",
+      "2"
+    ],
+    "reads_action_state": true,
+    "reads_prediction_or_cells": false,
+    "snake_geometry": []
+  },
+  "contextual_reversible_intervention": {
+    "apple_or_length": [],
+    "has_act": true,
+    "literal_constants": [
+      "0.5",
+      "1.0"
+    ],
+    "reads_action_state": true,
+    "reads_prediction_or_cells": false,
+    "snake_geometry": []
+  },
+  "resource_action_closure": {
+    "apple_or_length": [],
+    "has_act": true,
+    "literal_constants": [],
+    "reads_action_state": true,
+    "reads_prediction_or_cells": false,
+    "snake_geometry": []
+  },
+  "resource_balance_flow_action": {
+    "apple_or_length": [],
+    "has_act": true,
+    "literal_constants": [
+      "False",
+      "True"
+    ],
+    "reads_action_state": false,
+    "reads_prediction_or_cells": true,
+    "snake_geometry": []
+  },
+  "resource_balance_novel_action": {
+    "apple_or_length": [],
+    "has_act": true,
+    "literal_constants": [
+      "'decay'",
+      "True"
+    ],
+    "reads_action_state": false,
+    "reads_prediction_or_cells": true,
+    "snake_geometry": [
+      "flow"
+    ]
+  },
+  "resource_closure_action": {
+    "apple_or_length": [],
+    "has_act": true,
+    "literal_constants": [
+      "False",
+      "True"
+    ],
+    "reads_action_state": true,
+    "reads_prediction_or_cells": true,
+    "snake_geometry": [
+      "body",
+      "direction",
+      "head",
+      "moves",
+      "side"
+    ]
+  },
+  "resource_flow_action": {
+    "apple_or_length": [],
+    "has_act": true,
+    "literal_constants": [
+      "'timescale'",
+      "False",
+      "True"
+    ],
+    "reads_action_state": true,
+    "reads_prediction_or_cells": true,
+    "snake_geometry": [
+      "body",
+      "direction",
+      "flow",
+      "free",
+      "head",
+      "moves",
+      "side"
+    ]
+  },
+  "resource_flow_action_yield": {
+    "apple_or_length": [],
+    "has_act": true,
+    "literal_constants": [
+      "True"
+    ],
+    "reads_action_state": true,
+    "reads_prediction_or_cells": false,
+    "snake_geometry": []
+  },
+  "resource_flow_contact_action": {
+    "apple_or_length": [],
+    "has_act": true,
+    "literal_constants": [
+      "'timescale'",
+      "False",
+      "True"
+    ],
+    "reads_action_state": true,
+    "reads_prediction_or_cells": true,
+    "snake_geometry": [
+      "body",
+      "direction",
+      "flow",
+      "head",
+      "moves",
+      "side"
+    ]
+  },
+  "resource_flow_contact_return": {
+    "apple_or_length": [],
+    "has_act": true,
+    "literal_constants": [
+      "'timescale'",
+      "False",
+      "True"
+    ],
+    "reads_action_state": true,
+    "reads_prediction_or_cells": true,
+    "snake_geometry": [
+      "body",
+      "direction",
+      "flow",
+      "head",
+      "moves",
+      "side"
+    ]
+  },
+  "resource_flow_contact_trace": {
+    "apple_or_length": [],
+    "has_act": true,
+    "literal_constants": [
+      "'timescale'",
+      "False",
+      "True"
+    ],
+    "reads_action_state": true,
+    "reads_prediction_or_cells": true,
+    "snake_geometry": [
+      "body",
+      "direction",
+      "flow",
+      "head",
+      "moves",
+      "side"
+    ]
+  },
+  "resource_flow_reserve_action": {
+    "apple_or_length": [],
+    "has_act": true,
+    "literal_constants": [
+      "False",
+      "True"
+    ],
+    "reads_action_state": true,
+    "reads_prediction_or_cells": false,
+    "snake_geometry": [
+      "body",
+      "direction",
+      "flow",
+      "free",
+      "head",
+      "moves",
+      "side"
+    ]
+  },
+  "resource_flow_return_action": {
+    "apple_or_length": [],
+    "has_act": true,
+    "literal_constants": [
+      "'timescale'",
+      "False",
+      "True"
+    ],
+    "reads_action_state": true,
+    "reads_prediction_or_cells": true,
+    "snake_geometry": [
+      "body",
+      "direction",
+      "head",
+      "moves",
+      "side"
+    ]
+  },
+  "resource_flow_return_field": {
+    "apple_or_length": [],
+    "has_act": true,
+    "literal_constants": [
+      "False",
+      "True"
+    ],
+    "reads_action_state": true,
+    "reads_prediction_or_cells": true,
+    "snake_geometry": [
+      "body",
+      "direction",
+      "flow",
+      "free",
+      "head",
+      "moves",
+      "side"
+    ]
+  },
+  "resource_flow_snake": {
+    "apple_or_length": [
+      "apple"
+    ],
+    "has_act": true,
+    "literal_constants": [],
+    "reads_action_state": false,
+    "reads_prediction_or_cells": false,
+    "snake_geometry": [
+      "direction",
+      "head",
+      "moves"
+    ]
+  },
+  "resource_reserve_return_action": {
+    "apple_or_length": [],
+    "has_act": true,
+    "literal_constants": [
+      "4"
+    ],
+    "reads_action_state": false,
+    "reads_prediction_or_cells": false,
+    "snake_geometry": []
+  },
+  "resource_return_flux_action": {
+    "apple_or_length": [],
+    "has_act": true,
+    "literal_constants": [
+      "4"
+    ],
+    "reads_action_state": false,
+    "reads_prediction_or_cells": false,
+    "snake_geometry": []
+  }
+}

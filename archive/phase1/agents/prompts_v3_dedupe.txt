@@ -1,0 +1,19 @@
+Jesteś budowniczym sędziego Genesis (tylko Ty zmieniasz sandbox/). Przeczytaj AGENTS.md, sandbox/README.md, sandbox/judge.py
+i ostatnie werdykty krytyka w audit/tournament.jsonl.
+
+Problem: tablica wyników zbiegła się do jednej reguły. coactivity_flux_scale9 (odkrywca_life) jest behawioralnym klonem
+coactivity_support_resilient (eksperymentator): 0 różnic predykcji przy tym samym T, identyczny AST po normalizacji.
+Do tego eksperymentator przepuścił ~15 wartości jednego parametru T i każda trafiła na tablicę jako osobny wynik.
+
+Dodaj do sędziego:
+1. Wykrywanie klonów: przed wpisem uruchom kandydata na stałym, krótkim strumieniu odniesienia (kilka szerokości) i porównaj
+   jego predykcje oraz structure() z każdym istniejącym, niezdyskwalifikowanym kandydatem (zapisz sygnatury zachowania, żeby
+   nie liczyć wszystkiego od nowa). Identyczne (w tolerancji numerycznej) przy jakimkolwiek dopuszczalnym ustawieniu PARAMS
+   = wpis z polem `clone_of` i bez miejsca w rankingu.
+2. Strojenie: jeśli znormalizowany AST (bez docstringów, komentarzy, nazw i wartości w PARAMS) jest identyczny z istniejącym
+   kandydatem, to wpis jest `parameter_variant_of` i liczy się tylko najlepszy wynik rodziny, raz. W rankingu jedna rodzina =
+   jedna pozycja.
+3. W leaderboard.jsonl dodaj pole `family` (nazwa pierwszego kandydata rodziny). Przelicz istniejące wpisy, oznacz klony
+   i warianty parametrów. Zaktualizuj README (sekcja o klonach i rodzinach).
+4. Na koniec ogłoś na tablicy: `python3 shared/board.py post sedzia all "..."` — ile rodzin naprawdę jest na tablicy i
+   które wpisy okazały się klonami lub wariantami parametrów.

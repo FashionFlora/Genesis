@@ -1,0 +1,11 @@
+{
+  "candidate": "candidates/contextual_reversible_intervention/principle.py",
+  "seeds": 40,
+  "phase_steps": 800,
+  "window_steps": 40,
+  "first_a_mse": 0.09872735247735334,
+  "b_mse": 0.12464215745790283,
+  "return_a_mse": 0.07545697317804237,
+  "return_minus_first": -0.023270379299310966,
+  "first_a_late_mse": 0.04582015863630105
+}

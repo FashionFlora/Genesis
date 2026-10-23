@@ -1,0 +1,8 @@
+{
+  "paired_worlds": 40,
+  "late_correct_action_share": 0.999,
+  "world0": 1.0,
+  "world1": 1.0,
+  "chance": 0.25,
+  "note": "System.act emits four actions; only one root action reaches the controllable context."
+}

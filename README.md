@@ -26,9 +26,15 @@ that each good result is an artefact until shown otherwise.
 |---|---|
 | **Discoverer · life** | Starts from life itself: resources, metabolism, division, death. |
 | **Discoverer · axioms** | Starts from the conditions any self-building, ever-learning system must satisfy. |
+| **Discoverer · agency** | Starts from action: how a system without external reward comes to want something. |
+| **Discoverer · growth** | Units and connections appear only where the world needs them and vanish when they do not. |
+| **Discoverer · dynamics** | Starts from the physics of dynamical systems. |
+| **Biologist** | Distils principles from neuroscience and developmental biology, with sources. |
 | **Experimenter** | Replicates results independently and ports principles to the judge's format. |
 | **Critic** | Searches for prior art, smuggled mechanisms and attempts to game the judge. |
-| *Biologist (earlier phase)* | Distilled principles from neuroscience and developmental biology into [`biology/PRINCIPLES.md`](biology/PRINCIPLES.md). |
+
+Internal reward that the system produces itself, as a human does, is allowed. Only reward from the environment is
+forbidden. The answer may be one principle or a few that interlock, as in the brain, but never a module per ability.
 
 Each turn is a fresh session. Memory lives in files: a short `HANDOFF.md` per agent, a shared message board
 ([`shared/board.jsonl`](shared/board.jsonl)) and a hypothesis registry ([`shared/hypotheses.json`](shared/hypotheses.json))
@@ -52,10 +58,15 @@ A candidate is a single file, `candidates/<name>/principle.py`. The judge, in [`
   the phenomena survive. A principle that works only when finely tuned is not a principle.
 - **Learning.** The end of a run must beat its start, so a hand-written strategy cannot pass.
 
-In progress: a *grokking* probe that holds out combinations of a hidden rule to see whether a system can, after a long
-silence, suddenly generalise; a long GPU track for late bloomers; and a scaling test from 8 to 64 channels.
+- **Nursery.** A judge that only rewards how good a candidate is *now* kills young ideas before they mature. A new
+  family that is not a clone is protected: it is measured against its own first version and by how its score grows with
+  world size and run length, not by its distance to the leader (`judge.py --nursery`).
+- **Large GPU track.** Small worlds cannot refute an idea whose mechanism needs scale. Candidates can provide a
+  vectorised torch version and run with 10³, 10⁴ and 10⁵ units for up to 10⁵ steps (`judge.py --gpu`). The reference
+  scale is the fruit fly brain, about 10⁵ neurons, which grows from the same developmental principles as ours.
+- **Grokking and scaling probes.** Held-out combinations of a hidden rule test for sudden late generalisation.
 
-## What we have found so far
+## Phase 1: what we found (archived)
 
 <p align="center"><img src="docs/resource-flow.svg" width="100%" alt="The resource-flow principle"></p>
 
@@ -68,11 +79,25 @@ silence, suddenly generalise; a long GPU track for late bloomers; and a scaling 
 - **Minimum description length (H002)** and two further hypotheses were refuted, two of them by their own authors.
 - **Three attempts to game the judge** were caught: a hard-coded Hamiltonian cycle in Snake, constants hidden as strings,
   and a hand-written path search. They are kept, with explanations, in
-  [`sandbox/disqualified.tsv`](sandbox/disqualified.tsv), because Goodhart's law turned out to be one of the project's
+  [`archive/phase1/sandbox/disqualified.tsv`](archive/phase1/sandbox/disqualified.tsv), because Goodhart's law turned out to be one of the project's
   most instructive results.
 
+- **Prediction alone does not yield wanting.** In 40 of 40 paired worlds with identical observations and opposite best
+  actions, passive prediction could not tell them apart. Action needs the observed consequences of one's own
+  interventions and an internal criterion that orders them.
+- **Most local learning rules collapse into Hebb.** Many "new" rules proved behaviourally identical to a covariance rule,
+  and every `act()` written so far turned out to be a hidden Snake heuristic.
+
 Honestly, these are careful variants of known ideas (Darwinian selection, MDL, synaptic tagging, homeostasis) in toy
-worlds, not yet a new paradigm. The full critiques live in [`audit/`](audit/).
+worlds, not yet a new paradigm. The full record of phase 1 (theories, critiques, candidates, board, hypotheses) lives in
+[`archive/phase1/`](archive/phase1/).
+
+## Phase 2: clean start
+
+On 23 October 2026 the team was restarted with no memory of phase 1: same charter, same judge (now with the nursery and
+the GPU track), empty board. Separately, an *archaeologist* agent the team cannot see ports every distinct phase-1
+mechanism to the GPU and asks one question: was anything discarded only because the worlds were too small? Its results
+appear in [`archive/archeology/`](archive/archeology/).
 
 ## Repository map
 
@@ -84,8 +109,7 @@ worlds, not yet a new paradigm. The full critiques live in [`audit/`](audit/).
 | [`sandbox/`](sandbox/) | the judge, leaderboard and disqualifications |
 | [`candidates/`](candidates/) | candidates, baselines and the test cheats |
 | [`shared/`](shared/) | board, hypothesis registry, idea bank, literature tool |
-| [`engine/`](engine/) | stream benchmarks and the Crafter harness |
 | [`agents/`](agents/) | supervisors and agent prompts |
-| [`registry/`](registry/) | literature catalogue from the first phase, kept as memory against repetition |
+| [`archive/`](archive/) | phase 1 in full, and the archaeologist's re-tests at scale |
 
 Working notes, prompts and the message board are partly in Polish, the project's working language.

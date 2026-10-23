@@ -1,0 +1,5 @@
+Parent: candidates/dynamics_phase_lock
+Mutation: replace oscillator phase updates and strongest-edge selection with local
+conditional forecasts whose normalized per-target weights compete by prequential
+prediction error. Failed forecasts lose share, allowing relations to reorganize
+without a hand-written pruning threshold.

@@ -1,0 +1,600 @@
+{
+  "act_interfaces": [
+    [
+      [
+        "coactivity",
+        false
+      ],
+      [
+        "resource_flow",
+        false
+      ]
+    ]
+  ],
+  "all_winner_maps_equal": true,
+  "max_prediction_delta": 0.0,
+  "max_target_mass_spread": 0.0,
+  "rows": [
+    {
+      "brier": {
+        "coactivity": 0.44211577309039396,
+        "resource_flow": 0.44211577309039396
+      },
+      "deep_state_bytes": {
+        "coactivity": 3377,
+        "resource_flow": 9882
+      },
+      "has_act": {
+        "coactivity": false,
+        "resource_flow": false
+      },
+      "microseconds_per_step": {
+        "coactivity": 14.337288359036812,
+        "resource_flow": 28.56342695080317
+      },
+      "prediction_delta": 0.0,
+      "same_winners": true,
+      "seed": 17,
+      "target_mass_spread": 0.0,
+      "timescale": 1.0,
+      "width": 8
+    },
+    {
+      "brier": {
+        "coactivity": 0.4455460161460832,
+        "resource_flow": 0.4455460161460832
+      },
+      "deep_state_bytes": {
+        "coactivity": 3377,
+        "resource_flow": 9882
+      },
+      "has_act": {
+        "coactivity": false,
+        "resource_flow": false
+      },
+      "microseconds_per_step": {
+        "coactivity": 16.42183454420704,
+        "resource_flow": 27.852238585742622
+      },
+      "prediction_delta": 0.0,
+      "same_winners": true,
+      "seed": 20261022,
+      "target_mass_spread": 0.0,
+      "timescale": 1.0,
+      "width": 8
+    },
+    {
+      "brier": {
+        "coactivity": 0.2737439200453282,
+        "resource_flow": 0.2737439200453282
+      },
+      "deep_state_bytes": {
+        "coactivity": 3377,
+        "resource_flow": 9882
+      },
+      "has_act": {
+        "coactivity": false,
+        "resource_flow": false
+      },
+      "microseconds_per_step": {
+        "coactivity": 15.078049797851305,
+        "resource_flow": 30.832107250507057
+      },
+      "prediction_delta": 0.0,
+      "same_winners": true,
+      "seed": 17,
+      "target_mass_spread": 0.0,
+      "timescale": 16.0,
+      "width": 8
+    },
+    {
+      "brier": {
+        "coactivity": 0.2695949955773471,
+        "resource_flow": 0.2695949955773471
+      },
+      "deep_state_bytes": {
+        "coactivity": 3377,
+        "resource_flow": 9882
+      },
+      "has_act": {
+        "coactivity": false,
+        "resource_flow": false
+      },
+      "microseconds_per_step": {
+        "coactivity": 13.988715811417652,
+        "resource_flow": 27.145461465876835
+      },
+      "prediction_delta": 0.0,
+      "same_winners": true,
+      "seed": 20261022,
+      "target_mass_spread": 0.0,
+      "timescale": 16.0,
+      "width": 8
+    },
+    {
+      "brier": {
+        "coactivity": 0.2552630100201079,
+        "resource_flow": 0.2552630100201079
+      },
+      "deep_state_bytes": {
+        "coactivity": 3377,
+        "resource_flow": 9882
+      },
+      "has_act": {
+        "coactivity": false,
+        "resource_flow": false
+      },
+      "microseconds_per_step": {
+        "coactivity": 18.16155048660361,
+        "resource_flow": 36.42456498570167
+      },
+      "prediction_delta": 0.0,
+      "same_winners": true,
+      "seed": 17,
+      "target_mass_spread": 0.0,
+      "timescale": 64.0,
+      "width": 8
+    },
+    {
+      "brier": {
+        "coactivity": 0.2497706619619303,
+        "resource_flow": 0.2497706619619303
+      },
+      "deep_state_bytes": {
+        "coactivity": 3377,
+        "resource_flow": 9882
+      },
+      "has_act": {
+        "coactivity": false,
+        "resource_flow": false
+      },
+      "microseconds_per_step": {
+        "coactivity": 18.004357564048124,
+        "resource_flow": 40.266519555678734
+      },
+      "prediction_delta": 0.0,
+      "same_winners": true,
+      "seed": 20261022,
+      "target_mass_spread": 0.0,
+      "timescale": 64.0,
+      "width": 8
+    },
+    {
+      "brier": {
+        "coactivity": 0.4838335045369632,
+        "resource_flow": 0.4838335045369632
+      },
+      "deep_state_bytes": {
+        "coactivity": 35825,
+        "resource_flow": 135258
+      },
+      "has_act": {
+        "coactivity": false,
+        "resource_flow": false
+      },
+      "microseconds_per_step": {
+        "coactivity": 237.22386596581111,
+        "resource_flow": 459.5284189025943
+      },
+      "prediction_delta": 0.0,
+      "same_winners": true,
+      "seed": 17,
+      "target_mass_spread": 0.0,
+      "timescale": 1.0,
+      "width": 32
+    },
+    {
+      "brier": {
+        "coactivity": 0.4875566316112122,
+        "resource_flow": 0.4875566316112122
+      },
+      "deep_state_bytes": {
+        "coactivity": 35825,
+        "resource_flow": 135258
+      },
+      "has_act": {
+        "coactivity": false,
+        "resource_flow": false
+      },
+      "microseconds_per_step": {
+        "coactivity": 170.31294544442343,
+        "resource_flow": 543.9072381705046
+      },
+      "prediction_delta": 0.0,
+      "same_winners": true,
+      "seed": 20261022,
+      "target_mass_spread": 0.0,
+      "timescale": 1.0,
+      "width": 32
+    },
+    {
+      "brier": {
+        "coactivity": 0.28884800896903196,
+        "resource_flow": 0.28884800896903196
+      },
+      "deep_state_bytes": {
+        "coactivity": 35825,
+        "resource_flow": 135258
+      },
+      "has_act": {
+        "coactivity": false,
+        "resource_flow": false
+      },
+      "microseconds_per_step": {
+        "coactivity": 249.45102632045746,
+        "resource_flow": 488.60487295314675
+      },
+      "prediction_delta": 0.0,
+      "same_winners": true,
+      "seed": 17,
+      "target_mass_spread": 0.0,
+      "timescale": 16.0,
+      "width": 32
+    },
+    {
+      "brier": {
+        "coactivity": 0.28788832639263656,
+        "resource_flow": 0.28788832639263656
+      },
+      "deep_state_bytes": {
+        "coactivity": 35825,
+        "resource_flow": 135258
+      },
+      "has_act": {
+        "coactivity": false,
+        "resource_flow": false
+      },
+      "microseconds_per_step": {
+        "coactivity": 233.0802810879854,
+        "resource_flow": 536.7029959765764
+      },
+      "prediction_delta": 0.0,
+      "same_winners": true,
+      "seed": 20261022,
+      "target_mass_spread": 0.0,
+      "timescale": 16.0,
+      "width": 32
+    },
+    {
+      "brier": {
+        "coactivity": 0.26023239117349684,
+        "resource_flow": 0.26023239117349684
+      },
+      "deep_state_bytes": {
+        "coactivity": 35825,
+        "resource_flow": 135258
+      },
+      "has_act": {
+        "coactivity": false,
+        "resource_flow": false
+      },
+      "microseconds_per_step": {
+        "coactivity": 222.03306613776547,
+        "resource_flow": 532.9015736396495
+      },
+      "prediction_delta": 0.0,
+      "same_winners": true,
+      "seed": 17,
+      "target_mass_spread": 0.0,
+      "timescale": 64.0,
+      "width": 32
+    },
+    {
+      "brier": {
+        "coactivity": 0.2610325775926063,
+        "resource_flow": 0.2610325775926063
+      },
+      "deep_state_bytes": {
+        "coactivity": 35825,
+        "resource_flow": 135258
+      },
+      "has_act": {
+        "coactivity": false,
+        "resource_flow": false
+      },
+      "microseconds_per_step": {
+        "coactivity": 190.0547918362113,
+        "resource_flow": 359.5954693782215
+      },
+      "prediction_delta": 0.0,
+      "same_winners": true,
+      "seed": 20261022,
+      "target_mass_spread": 0.0,
+      "timescale": 64.0,
+      "width": 32
+    },
+    {
+      "brier": {
+        "coactivity": 0.48647457050062803,
+        "resource_flow": 0.48647457050062803
+      },
+      "deep_state_bytes": {
+        "coactivity": 136433,
+        "resource_flow": 531802
+      },
+      "has_act": {
+        "coactivity": false,
+        "resource_flow": false
+      },
+      "microseconds_per_step": {
+        "coactivity": 609.6583844807285,
+        "resource_flow": 1581.7801038233133
+      },
+      "prediction_delta": 0.0,
+      "same_winners": true,
+      "seed": 17,
+      "target_mass_spread": 0.0,
+      "timescale": 1.0,
+      "width": 64
+    },
+    {
+      "brier": {
+        "coactivity": 0.4936784641244126,
+        "resource_flow": 0.4936784641244126
+      },
+      "deep_state_bytes": {
+        "coactivity": 136433,
+        "resource_flow": 531802
+      },
+      "has_act": {
+        "coactivity": false,
+        "resource_flow": false
+      },
+      "microseconds_per_step": {
+        "coactivity": 610.04108373219,
+        "resource_flow": 1372.038011546605
+      },
+      "prediction_delta": 0.0,
+      "same_winners": true,
+      "seed": 20261022,
+      "target_mass_spread": 0.0,
+      "timescale": 1.0,
+      "width": 64
+    },
+    {
+      "brier": {
+        "coactivity": 0.29876207107669933,
+        "resource_flow": 0.29876207107669933
+      },
+      "deep_state_bytes": {
+        "coactivity": 136433,
+        "resource_flow": 531802
+      },
+      "has_act": {
+        "coactivity": false,
+        "resource_flow": false
+      },
+      "microseconds_per_step": {
+        "coactivity": 618.9041421748698,
+        "resource_flow": 1870.6835000417552
+      },
+      "prediction_delta": 0.0,
+      "same_winners": true,
+      "seed": 17,
+      "target_mass_spread": 0.0,
+      "timescale": 16.0,
+      "width": 64
+    },
+    {
+      "brier": {
+        "coactivity": 0.29924307645781195,
+        "resource_flow": 0.29924307645781195
+      },
+      "deep_state_bytes": {
+        "coactivity": 136433,
+        "resource_flow": 531802
+      },
+      "has_act": {
+        "coactivity": false,
+        "resource_flow": false
+      },
+      "microseconds_per_step": {
+        "coactivity": 747.7802887129095,
+        "resource_flow": 1883.8056998972136
+      },
+      "prediction_delta": 0.0,
+      "same_winners": true,
+      "seed": 20261022,
+      "target_mass_spread": 0.0,
+      "timescale": 16.0,
+      "width": 64
+    },
+    {
+      "brier": {
+        "coactivity": 0.26406597227047696,
+        "resource_flow": 0.26406597227047696
+      },
+      "deep_state_bytes": {
+        "coactivity": 136433,
+        "resource_flow": 531802
+      },
+      "has_act": {
+        "coactivity": false,
+        "resource_flow": false
+      },
+      "microseconds_per_step": {
+        "coactivity": 848.0741463315029,
+        "resource_flow": 1791.4987034880771
+      },
+      "prediction_delta": 0.0,
+      "same_winners": true,
+      "seed": 17,
+      "target_mass_spread": 0.0,
+      "timescale": 64.0,
+      "width": 64
+    },
+    {
+      "brier": {
+        "coactivity": 0.2622794474368575,
+        "resource_flow": 0.2622794474368575
+      },
+      "deep_state_bytes": {
+        "coactivity": 136433,
+        "resource_flow": 531802
+      },
+      "has_act": {
+        "coactivity": false,
+        "resource_flow": false
+      },
+      "microseconds_per_step": {
+        "coactivity": 666.9149035587907,
+        "resource_flow": 1789.7416810648372
+      },
+      "prediction_delta": 0.0,
+      "same_winners": true,
+      "seed": 20261022,
+      "target_mass_spread": 0.0,
+      "timescale": 64.0,
+      "width": 64
+    },
+    {
+      "brier": {
+        "coactivity": 0.4887176763065294,
+        "resource_flow": 0.4887176763065294
+      },
+      "deep_state_bytes": {
+        "coactivity": 302673,
+        "resource_flow": 1199802
+      },
+      "has_act": {
+        "coactivity": false,
+        "resource_flow": false
+      },
+      "microseconds_per_step": {
+        "coactivity": 1334.1624459896525,
+        "resource_flow": 3368.880438546722
+      },
+      "prediction_delta": 0.0,
+      "same_winners": true,
+      "seed": 17,
+      "target_mass_spread": 0.0,
+      "timescale": 1.0,
+      "width": 96
+    },
+    {
+      "brier": {
+        "coactivity": 0.48646694863207246,
+        "resource_flow": 0.48646694863207246
+      },
+      "deep_state_bytes": {
+        "coactivity": 302673,
+        "resource_flow": 1199802
+      },
+      "has_act": {
+        "coactivity": false,
+        "resource_flow": false
+      },
+      "microseconds_per_step": {
+        "coactivity": 1318.8397073043652,
+        "resource_flow": 3319.5207459637177
+      },
+      "prediction_delta": 0.0,
+      "same_winners": true,
+      "seed": 20261022,
+      "target_mass_spread": 0.0,
+      "timescale": 1.0,
+      "width": 96
+    },
+    {
+      "brier": {
+        "coactivity": 0.3035938411679299,
+        "resource_flow": 0.3035938411679299
+      },
+      "deep_state_bytes": {
+        "coactivity": 302673,
+        "resource_flow": 1199802
+      },
+      "has_act": {
+        "coactivity": false,
+        "resource_flow": false
+      },
+      "microseconds_per_step": {
+        "coactivity": 1344.4233461856268,
+        "resource_flow": 3306.0142036097554
+      },
+      "prediction_delta": 0.0,
+      "same_winners": true,
+      "seed": 17,
+      "target_mass_spread": 0.0,
+      "timescale": 16.0,
+      "width": 96
+    },
+    {
+      "brier": {
+        "coactivity": 0.30511705508910436,
+        "resource_flow": 0.30511705508910436
+      },
+      "deep_state_bytes": {
+        "coactivity": 302673,
+        "resource_flow": 1199802
+      },
+      "has_act": {
+        "coactivity": false,
+        "resource_flow": false
+      },
+      "microseconds_per_step": {
+        "coactivity": 1503.7476147811574,
+        "resource_flow": 3327.605141720806
+      },
+      "prediction_delta": 0.0,
+      "same_winners": true,
+      "seed": 20261022,
+      "target_mass_spread": 0.0,
+      "timescale": 16.0,
+      "width": 96
+    },
+    {
+      "brier": {
+        "coactivity": 0.26281789525302435,
+        "resource_flow": 0.26281789525302435
+      },
+      "deep_state_bytes": {
+        "coactivity": 302673,
+        "resource_flow": 1199802
+      },
+      "has_act": {
+        "coactivity": false,
+        "resource_flow": false
+      },
+      "microseconds_per_step": {
+        "coactivity": 1398.767854194515,
+        "resource_flow": 3875.1246425538106
+      },
+      "prediction_delta": 0.0,
+      "same_winners": true,
+      "seed": 17,
+      "target_mass_spread": 0.0,
+      "timescale": 64.0,
+      "width": 96
+    },
+    {
+      "brier": {
+        "coactivity": 0.2627501241658137,
+        "resource_flow": 0.2627501241658137
+      },
+      "deep_state_bytes": {
+        "coactivity": 302673,
+        "resource_flow": 1199802
+      },
+      "has_act": {
+        "coactivity": false,
+        "resource_flow": false
+      },
+      "microseconds_per_step": {
+        "coactivity": 1654.1772925008374,
+        "resource_flow": 3645.5887692192423
+      },
+      "prediction_delta": 0.0,
+      "same_winners": true,
+      "seed": 20261022,
+      "target_mass_spread": 0.0,
+      "timescale": 64.0,
+      "width": 96
+    }
+  ],
+  "source_sha256": {
+    "coactivity": "64dd2615cf696ddff6552ceeafd1491dc6c981066f3188bba0bdbfee9909e47a",
+    "resource_flow": "b1d94cc214f963343cc3690967cb018e6a309bef38d7fb56d28d538b89cde40f"
+  },
+  "test": "fresh random/lagged public-interface pair audit"
+}

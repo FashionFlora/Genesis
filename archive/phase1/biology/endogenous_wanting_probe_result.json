@@ -1,0 +1,37 @@
+{
+  "experiment": "endogenous action variability under a drifting viability target",
+  "steps": 200,
+  "switch_step": 100,
+  "observation_sd": 0.08,
+  "edge_threshold": 0.35,
+  "modes": {
+    "endogenous_uncertainty": {
+      "worlds": 200,
+      "pre_switch_helpful_choice": 0.9988750000000001,
+      "post_switch_helpful_choice": 1.0,
+      "mean_recovery_steps": 0.02,
+      "single_edge_rate": 1.0,
+      "correct_single_edge_rate": 1.0,
+      "mean_energy_remaining": 0.0
+    },
+    "greedy_predictive": {
+      "worlds": 200,
+      "pre_switch_helpful_choice": 1.0,
+      "post_switch_helpful_choice": 1.0,
+      "mean_recovery_steps": 0.025,
+      "single_edge_rate": 1.0,
+      "correct_single_edge_rate": 1.0,
+      "mean_energy_remaining": 0.0
+    },
+    "passive_fixed": {
+      "worlds": 200,
+      "pre_switch_helpful_choice": 0.505,
+      "post_switch_helpful_choice": 0.495,
+      "mean_recovery_steps": 50.51,
+      "single_edge_rate": 0.495,
+      "correct_single_edge_rate": 0.495,
+      "mean_energy_remaining": 0.0
+    }
+  },
+  "limitation": "The viability variable, action set, and initial candidate edges are supplied; this is an identifiability/boundary toy, not evidence for biological autopoiesis."
+}

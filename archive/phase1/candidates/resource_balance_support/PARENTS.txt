@@ -1,0 +1,14 @@
+Parents:
+- candidates/coactivity_support_clean/principle.py
+- candidates/predictive_resonance/principle.py
+
+Mutation/crossover:
+- Keep the clean coactivity contact memory and online prediction update.
+- Use the retained total resource (the two state masses) to weight each
+  source-target contrast, so persistence and relation selection share one
+  resource quantity instead of a separate Hebbian edge score.
+- No new mutation clock, threshold, reward, or world-format branch was added.
+
+Rationale: a well-supported relation is one whose predictive contrast has
+survived resource decay. This tests whether mass-as-memory improves return
+memory and robustness while retaining the parents' low-complexity behavior.

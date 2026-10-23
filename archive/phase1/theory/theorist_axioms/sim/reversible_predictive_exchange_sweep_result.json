@@ -1,0 +1,69 @@
+{
+  "candidate": "candidates/reversible_predictive_exchange/principle.py",
+  "seeds": 40,
+  "rows": [
+    {
+      "decay": 0.5,
+      "margin": 0.0,
+      "first": 0.14234172528921427,
+      "return": 0.14703125,
+      "return_minus_first": 0.004689524710785725
+    },
+    {
+      "decay": 0.5,
+      "margin": 0.01,
+      "first": 0.14234172528921427,
+      "return": 0.14703125,
+      "return_minus_first": 0.004689524710785725
+    },
+    {
+      "decay": 0.5,
+      "margin": 0.05,
+      "first": 0.17061262216566597,
+      "return": 0.16734375,
+      "return_minus_first": -0.0032688721656659826
+    },
+    {
+      "decay": 0.8,
+      "margin": 0.0,
+      "first": 0.13384528547379473,
+      "return": 0.14116709183673376,
+      "return_minus_first": 0.007321806362939027
+    },
+    {
+      "decay": 0.8,
+      "margin": 0.01,
+      "first": 0.13384528547379473,
+      "return": 0.14116709183673376,
+      "return_minus_first": 0.007321806362939027
+    },
+    {
+      "decay": 0.8,
+      "margin": 0.05,
+      "first": 0.12830125717809632,
+      "return": 0.13491709183673378,
+      "return_minus_first": 0.006615834658637477
+    },
+    {
+      "decay": 0.95,
+      "margin": 0.0,
+      "first": 0.14061293849873627,
+      "return": 0.15575302674900782,
+      "return_minus_first": 0.015140088250271556
+    },
+    {
+      "decay": 0.95,
+      "margin": 0.01,
+      "first": 0.14061293849873627,
+      "return": 0.15575302674900782,
+      "return_minus_first": 0.015140088250271556
+    },
+    {
+      "decay": 0.95,
+      "margin": 0.05,
+      "first": 0.1339877065296605,
+      "return": 0.147798828320995,
+      "return_minus_first": 0.013811121791334511
+    }
+  ]
+}

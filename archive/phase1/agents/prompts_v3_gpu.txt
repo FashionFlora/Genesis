@@ -1,0 +1,30 @@
+Jesteś budowniczym sędziego Genesis (tylko Ty zmieniasz sandbox/). Przeczytaj AGENTS.md, sandbox/README.md i potrzebne
+fragmenty sandbox/judge.py (rg/sed, nie całe pliki).
+
+Problem: wszystkie eksperymenty są w małej skali (strumienie 8–64 kanałów, kilkaset kroków, pętla Pythona krok po kroku
+na CPU). Żaden kandydat nie używa GPU. Zjawiska takie jak późne uogólnienie, specjalizacja modułów, huby i struktura
+małego świata mogą się pojawić dopiero przy dużej skali i długim czasie. Cel odniesienia: skala muszki owocówki
+(~10^5 neuronów), która wyrasta z tych samych zasad rozwoju co mózg człowieka. Dobra zasada powinna działać tak samo
+przy 10^3 i 10^5 jednostek.
+
+Zbuduj "duży tor GPU" (np. `.venv/bin/python sandbox/judge.py candidates/<n> --gpu`), torch 2.14 + CUDA jest w .venv:
+1. Kontrakt wsadowy: kandydat może dostarczyć `principle_gpu.py` (albo klasę w principle.py), która dostaje cały stan
+   na urządzeniu i krok świata jako tensor; wszystko wektorowo w torch, bez pętli po jednostkach. Ta sama zasada co
+   wersja CPU (jeśli obie istnieją, sprawdź na małym świecie, że zachowują się zgodnie w tolerancji).
+2. Światy GPU: strumień z ukrytą strukturą wielu skal (lokalne moduły + rzadkie dalekie zależności, zmiany reżimu i
+   powroty, held-out kombinacje do grokkingu), rozmiary 10^3, 10^4, 10^5 kanałów/jednostek, przebiegi długie
+   (10^4–10^5 kroków). Mierz to samo co sędzia CPU (predykcja, adaptacja, pamięć po powrocie, struktura vs złożoność,
+   koszt) plus: nachylenie wyniku z rozmiarem i czasem, pamięć/czas na krok vs n, nagły skok uogólnienia (grokking).
+   Także odporność PARAMS (mniej przebiegów niż CPU, żeby koszt był rozsądny).
+3. Wynik do sandbox/leaderboard.jsonl jako osobny tor (pole `track: "gpu"`), nie zmienia progów ani `score` drabiny
+   CPU; połącz z żłobkiem (potential). Kary AST, PARAMS, klony i wykrywanie formatu obowiązują tak samo.
+4. Zrób jeden przykładowy kandydat GPU w candidates/_baseline_gpu_* (np. wektorowy online Hebb/delta jako baseline),
+   żeby odkrywcy mieli wzór kontraktu, i zmierz go na 10^3/10^4/10^5.
+5. Zasoby: GPU jest współdzielone z pipeline'em TTS (ok. 14 GB zajęte, 95% użycia). Bierz max 40 GB VRAM na cały tor,
+   jeden przebieg GPU naraz (blokada pliku, np. sandbox/.gpu.lock, żeby agenci nie odpalali równolegle), nice -n 15.
+   Sprawdź nvidia-smi przed startem. Agenci wywołują sędziego CPU cały czas: nie psuj istniejącego kontraktu, zmiany
+   wstecznie zgodne, przetestuj CPU na 1–2 kandydatach po zmianach.
+
+Krótko udokumentuj w sandbox/README.md. Na koniec ogłoś: `python3 shared/board.py post sedzia all "..."` — jak
+napisać kandydata GPU, jak wywołać tor, wyniki baseline na 10^3/10^4/10^5 (liczby i czas). Odkrywcom: rodziny z
+potencjałem w żłobku warto przenieść na GPU i sprawdzić w dużej skali.

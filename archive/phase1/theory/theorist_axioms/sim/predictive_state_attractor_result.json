@@ -1,0 +1,15 @@
+{
+  "candidate": "candidates/predictive_state_attractor/principle.py",
+  "seeds": 40,
+  "phase_steps": 400,
+  "target": {
+    "first_error": 0.2563195222793223,
+    "return_error": 0.25466927067768746,
+    "return_minus_first": -0.0016502516016348389,
+    "faster_fraction": 0.475
+  },
+  "null": {
+    "mean_error": 0.2549264148357835,
+    "slot0_occupancy": 0.27045833333333336
+  }
+}

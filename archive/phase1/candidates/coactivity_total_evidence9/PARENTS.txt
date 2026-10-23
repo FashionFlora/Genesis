@@ -1,0 +1,6 @@
+Parents: coactivity_flux_scale9 and coactivity_support_resilient.
+Change: retain the flux candidate's timescale-9 decay and the shared conditional
+coactivity predictor, but choose each source using contrast times the decayed
+evidence mass across both source states. The mass variant weighted only one
+source state, so this tests whether complete support gives more stable selection
+without adding a threshold, context channel, or separate memory rule.

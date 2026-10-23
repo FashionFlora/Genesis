@@ -1,0 +1,3814 @@
+{
+  "protocol": {
+    "seeds": 30,
+    "sources": 8,
+    "segment_length": 80,
+    "noise": 0.15,
+    "schedule": [
+      0,
+      3,
+      7,
+      0,
+      6,
+      2,
+      5,
+      1,
+      4,
+      0
+    ]
+  },
+  "summary": {
+    "flow": {
+      "match": 0.12160493827160493,
+      "brier": 0.27020004139067944
+    },
+    "hebb": {
+      "match": 0.1259259259259259,
+      "brier": 0.2588499481478147
+    },
+    "flow_minus_hebb_match": -0.004320987654320985,
+    "flow_minus_hebb_brier": 0.011350093242864734
+  },
+  "paired": [
+    {
+      "seed": 0,
+      "phase": 1,
+      "mode": "flow",
+      "match": 0.0,
+      "brier": 0.32929965312125065
+    },
+    {
+      "seed": 0,
+      "phase": 1,
+      "mode": "hebb",
+      "match": 0.0,
+      "brier": 0.28325543122633634
+    },
+    {
+      "seed": 0,
+      "phase": 2,
+      "mode": "flow",
+      "match": 0.0,
+      "brier": 0.3235231685293983
+    },
+    {
+      "seed": 0,
+      "phase": 2,
+      "mode": "hebb",
+      "match": 0.0,
+      "brier": 0.2990358626268921
+    },
+    {
+      "seed": 0,
+      "phase": 3,
+      "mode": "flow",
+      "match": 0.0,
+      "brier": 0.32467444567385356
+    },
+    {
+      "seed": 0,
+      "phase": 3,
+      "mode": "hebb",
+      "match": 0.0,
+      "brier": 0.21148745865478052
+    },
+    {
+      "seed": 0,
+      "phase": 4,
+      "mode": "flow",
+      "match": 0.0,
+      "brier": 0.24351614373457828
+    },
+    {
+      "seed": 0,
+      "phase": 4,
+      "mode": "hebb",
+      "match": 0.0,
+      "brier": 0.2628549526954237
+    },
+    {
+      "seed": 0,
+      "phase": 5,
+      "mode": "flow",
+      "match": 0.6666666666666666,
+      "brier": 0.28511781491353194
+    },
+    {
+      "seed": 0,
+      "phase": 5,
+      "mode": "hebb",
+      "match": 0.6666666666666666,
+      "brier": 0.27107198312394054
+    },
+    {
+      "seed": 0,
+      "phase": 6,
+      "mode": "flow",
+      "match": 0.16666666666666666,
+      "brier": 0.11230175166840971
+    },
+    {
+      "seed": 0,
+      "phase": 6,
+      "mode": "hebb",
+      "match": 0.0,
+      "brier": 0.20597797442531862
+    },
+    {
+      "seed": 0,
+      "phase": 7,
+      "mode": "flow",
+      "match": 0.0,
+      "brier": 0.1831234991404615
+    },
+    {
+      "seed": 0,
+      "phase": 7,
+      "mode": "hebb",
+      "match": 0.0,
+      "brier": 0.18070418807594027
+    },
+    {
+      "seed": 0,
+      "phase": 8,
+      "mode": "flow",
+      "match": 0.0,
+      "brier": 0.28623718603125153
+    },
+    {
+      "seed": 0,
+      "phase": 8,
+      "mode": "hebb",
+      "match": 0.0,
+      "brier": 0.2750750806804892
+    },
+    {
+      "seed": 0,
+      "phase": 9,
+      "mode": "flow",
+      "match": 0.0,
+      "brier": 0.3705736054183919
+    },
+    {
+      "seed": 0,
+      "phase": 9,
+      "mode": "hebb",
+      "match": 0.0,
+      "brier": 0.30900446082468713
+    },
+    {
+      "seed": 1,
+      "phase": 1,
+      "mode": "flow",
+      "match": 0.16666666666666666,
+      "brier": 0.3030435534715737
+    },
+    {
+      "seed": 1,
+      "phase": 1,
+      "mode": "hebb",
+      "match": 0.16666666666666666,
+      "brier": 0.2663208899786231
+    },
+    {
+      "seed": 1,
+      "phase": 2,
+      "mode": "flow",
+      "match": 0.0,
+      "brier": 0.3386754160166089
+    },
+    {
+      "seed": 1,
+      "phase": 2,
+      "mode": "hebb",
+      "match": 0.0,
+      "brier": 0.34690015570506244
+    },
+    {
+      "seed": 1,
+      "phase": 3,
+      "mode": "flow",
+      "match": 0.3333333333333333,
+      "brier": 0.27652376641887444
+    },
+    {
+      "seed": 1,
+      "phase": 3,
+      "mode": "hebb",
+      "match": 0.5,
+      "brier": 0.29557122470083874
+    },
+    {
+      "seed": 1,
+      "phase": 4,
+      "mode": "flow",
+      "match": 0.0,
+      "brier": 0.3143196328141502
+    },
+    {
+      "seed": 1,
+      "phase": 4,
+      "mode": "hebb",
+      "match": 0.0,
+      "brier": 0.2658572536613991
+    },
+    {
+      "seed": 1,
+      "phase": 5,
+      "mode": "flow",
+      "match": 0.5,
+      "brier": 0.09855048889790204
+    },
+    {
+      "seed": 1,
+      "phase": 5,
+      "mode": "hebb",
+      "match": 0.16666666666666666,
+      "brier": 0.12949784646369752
+    },
+    {
+      "seed": 1,
+      "phase": 6,
+      "mode": "flow",
+      "match": 0.3333333333333333,
+      "brier": 0.2295001343906101
+    },
+    {
+      "seed": 1,
+      "phase": 6,
+      "mode": "hebb",
+      "match": 0.5,
+      "brier": 0.16907094483271448
+    },
+    {
+      "seed": 1,
+      "phase": 7,
+      "mode": "flow",
+      "match": 0.0,
+      "brier": 0.20644097487576513
+    },
+    {
+      "seed": 1,
+      "phase": 7,
+      "mode": "hebb",
+      "match": 0.0,
+      "brier": 0.1853066359930572
+    },
+    {
+      "seed": 1,
+      "phase": 8,
+      "mode": "flow",
+      "match": 0.0,
+      "brier": 0.1737118316840168
+    },
+    {
+      "seed": 1,
+      "phase": 8,
+      "mode": "hebb",
+      "match": 0.0,
+      "brier": 0.2096095660610388
+    },
+    {
+      "seed": 1,
+      "phase": 9,
+      "mode": "flow",
+      "match": 0.3333333333333333,
+      "brier": 0.25965549765728946
+    },
+    {
+      "seed": 1,
+      "phase": 9,
+      "mode": "hebb",
+      "match": 0.16666666666666666,
+      "brier": 0.22726750699822854
+    },
+    {
+      "seed": 2,
+      "phase": 1,
+      "mode": "flow",
+      "match": 0.0,
+      "brier": 0.2914936927913323
+    },
+    {
+      "seed": 2,
+      "phase": 1,
+      "mode": "hebb",
+      "match": 0.0,
+      "brier": 0.26435910061486856
+    },
+    {
+      "seed": 2,
+      "phase": 2,
+      "mode": "flow",
+      "match": 0.16666666666666666,
+      "brier": 0.2264643741346172
+    },
+    {
+      "seed": 2,
+      "phase": 2,
+      "mode": "hebb",
+      "match": 0.0,
+      "brier": 0.2798103654079396
+    },
+    {
+      "seed": 2,
+      "phase": 3,
+      "mode": "flow",
+      "match": 0.16666666666666666,
+      "brier": 0.36309480754951884
+    },
+    {
+      "seed": 2,
+      "phase": 3,
+      "mode": "hebb",
+      "match": 0.16666666666666666,
+      "brier": 0.24809430490695064
+    },
+    {
+      "seed": 2,
+      "phase": 4,
+      "mode": "flow",
+      "match": 0.0,
+      "brier": 0.3427018059496903
+    },
+    {
+      "seed": 2,
+      "phase": 4,
+      "mode": "hebb",
+      "match": 0.0,
+      "brier": 0.2723168057129827
+    },
+    {
+      "seed": 2,
+      "phase": 5,
+      "mode": "flow",
+      "match": 0.0,
+      "brier": 0.2575787903308596
+    },
+    {
+      "seed": 2,
+      "phase": 5,
+      "mode": "hebb",
+      "match": 0.0,
+      "brier": 0.3082102167104653
+    },
+    {
+      "seed": 2,
+      "phase": 6,
+      "mode": "flow",
+      "match": 0.16666666666666666,
+      "brier": 0.2869888006218001
+    },
+    {
+      "seed": 2,
+      "phase": 6,
+      "mode": "hebb",
+      "match": 0.16666666666666666,
+      "brier": 0.25955006734782815
+    },
+    {
+      "seed": 2,
+      "phase": 7,
+      "mode": "flow",
+      "match": 0.0,
+      "brier": 0.3042695133570011
+    },
+    {
+      "seed": 2,
+      "phase": 7,
+      "mode": "hebb",
+      "match": 0.0,
+      "brier": 0.2785393358322335
+    },
+    {
+      "seed": 2,
+      "phase": 8,
+      "mode": "flow",
+      "match": 0.16666666666666666,
+      "brier": 0.3194159680782954
+    },
+    {
+      "seed": 2,
+      "phase": 8,
+      "mode": "hebb",
+      "match": 0.16666666666666666,
+      "brier": 0.26409002969552525
+    },
+    {
+      "seed": 2,
+      "phase": 9,
+      "mode": "flow",
+      "match": 0.0,
+      "brier": 0.29297261526913443
+    },
+    {
+      "seed": 2,
+      "phase": 9,
+      "mode": "hebb",
+      "match": 0.0,
+      "brier": 0.26444678506035585
+    },
+    {
+      "seed": 3,
+      "phase": 1,
+      "mode": "flow",
+      "match": 0.0,
+      "brier": 0.2569819033768204
+    },
+    {
+      "seed": 3,
+      "phase": 1,
+      "mode": "hebb",
+      "match": 0.0,
+      "brier": 0.23920864257251767
+    },
+    {
+      "seed": 3,
+      "phase": 2,
+      "mode": "flow",
+      "match": 0.16666666666666666,
+      "brier": 0.2958561922930951
+    },
+    {
+      "seed": 3,
+      "phase": 2,
+      "mode": "hebb",
+      "match": 0.0,
+      "brier": 0.2753015619184335
+    },
+    {
+      "seed": 3,
+      "phase": 3,
+      "mode": "flow",
+      "match": 0.0,
+      "brier": 0.4256263192477923
+    },
+    {
+      "seed": 3,
+      "phase": 3,
+      "mode": "hebb",
+      "match": 0.16666666666666666,
+      "brier": 0.39647715361841446
+    },
+    {
+      "seed": 3,
+      "phase": 4,
+      "mode": "flow",
+      "match": 0.16666666666666666,
+      "brier": 0.364048948602222
+    },
+    {
+      "seed": 3,
+      "phase": 4,
+      "mode": "hebb",
+      "match": 0.16666666666666666,
+      "brier": 0.354919984018035
+    },
+    {
+      "seed": 3,
+      "phase": 5,
+      "mode": "flow",
+      "match": 0.3333333333333333,
+      "brier": 0.18552859650297665
+    },
+    {
+      "seed": 3,
+      "phase": 5,
+      "mode": "hebb",
+      "match": 0.3333333333333333,
+      "brier": 0.19785023385461342
+    },
+    {
+      "seed": 3,
+      "phase": 6,
+      "mode": "flow",
+      "match": 0.0,
+      "brier": 0.22076093635340593
+    },
+    {
+      "seed": 3,
+      "phase": 6,
+      "mode": "hebb",
+      "match": 0.0,
+      "brier": 0.18093957227008722
+    },
+    {
+      "seed": 3,
+      "phase": 7,
+      "mode": "flow",
+      "match": 0.0,
+      "brier": 0.2899367074007847
+    },
+    {
+      "seed": 3,
+      "phase": 7,
+      "mode": "hebb",
+      "match": 0.0,
+      "brier": 0.26679577628012435
+    },
+    {
+      "seed": 3,
+      "phase": 8,
+      "mode": "flow",
+      "match": 0.3333333333333333,
+      "brier": 0.4239201577246301
+    },
+    {
+      "seed": 3,
+      "phase": 8,
+      "mode": "hebb",
+      "match": 0.3333333333333333,
+      "brier": 0.3749548011759884
+    },
+    {
+      "seed": 3,
+      "phase": 9,
+      "mode": "flow",
+      "match": 0.0,
+      "brier": 0.3982170200919178
+    },
+    {
+      "seed": 3,
+      "phase": 9,
+      "mode": "hebb",
+      "match": 0.0,
+      "brier": 0.2940340014246424
+    },
+    {
+      "seed": 4,
+      "phase": 1,
+      "mode": "flow",
+      "match": 0.0,
+      "brier": 0.18731798909804384
+    },
+    {
+      "seed": 4,
+      "phase": 1,
+      "mode": "hebb",
+      "match": 0.0,
+      "brier": 0.22077436296144914
+    },
+    {
+      "seed": 4,
+      "phase": 2,
+      "mode": "flow",
+      "match": 0.0,
+      "brier": 0.21388280857372274
+    },
+    {
+      "seed": 4,
+      "phase": 2,
+      "mode": "hebb",
+      "match": 0.0,
+      "brier": 0.2556540765647141
+    },
+    {
+      "seed": 4,
+      "phase": 3,
+      "mode": "flow",
+      "match": 0.0,
+      "brier": 0.18032080564803382
+    },
+    {
+      "seed": 4,
+      "phase": 3,
+      "mode": "hebb",
+      "match": 0.0,
+      "brier": 0.2006091575016675
+    },
+    {
+      "seed": 4,
+      "phase": 4,
+      "mode": "flow",
+      "match": 0.16666666666666666,
+      "brier": 0.37733289577467244
+    },
+    {
+      "seed": 4,
+      "phase": 4,
+      "mode": "hebb",
+      "match": 0.0,
+      "brier": 0.36831820587951347
+    },
+    {
+      "seed": 4,
+      "phase": 5,
+      "mode": "flow",
+      "match": 0.16666666666666666,
+      "brier": 0.3642239527373898
+    },
+    {
+      "seed": 4,
+      "phase": 5,
+      "mode": "hebb",
+      "match": 0.3333333333333333,
+      "brier": 0.2678605125498696
+    },
+    {
+      "seed": 4,
+      "phase": 6,
+      "mode": "flow",
+      "match": 0.3333333333333333,
+      "brier": 0.2697415759010413
+    },
+    {
+      "seed": 4,
+      "phase": 6,
+      "mode": "hebb",
+      "match": 0.3333333333333333,
+      "brier": 0.18837275404207707
+    },
+    {
+      "seed": 4,
+      "phase": 7,
+      "mode": "flow",
+      "match": 0.0,
+      "brier": 0.27279614363808863
+    },
+    {
+      "seed": 4,
+      "phase": 7,
+      "mode": "hebb",
+      "match": 0.0,
+      "brier": 0.22718891135726757
+    },
+    {
+      "seed": 4,
+      "phase": 8,
+      "mode": "flow",
+      "match": 0.16666666666666666,
+      "brier": 0.3777137280442286
+    },
+    {
+      "seed": 4,
+      "phase": 8,
+      "mode": "hebb",
+      "match": 0.16666666666666666,
+      "brier": 0.3419801175542845
+    },
+    {
+      "seed": 4,
+      "phase": 9,
+      "mode": "flow",
+      "match": 0.16666666666666666,
+      "brier": 0.25257553628629786
+    },
+    {
+      "seed": 4,
+      "phase": 9,
+      "mode": "hebb",
+      "match": 0.0,
+      "brier": 0.22156876307474077
+    },
+    {
+      "seed": 5,
+      "phase": 1,
+      "mode": "flow",
+      "match": 0.0,
+      "brier": 0.2509231798487516
+    },
+    {
+      "seed": 5,
+      "phase": 1,
+      "mode": "hebb",
+      "match": 0.16666666666666666,
+      "brier": 0.24783830330199952
+    },
+    {
+      "seed": 5,
+      "phase": 2,
+      "mode": "flow",
+      "match": 0.0,
+      "brier": 0.27572880172555947
+    },
+    {
+      "seed": 5,
+      "phase": 2,
+      "mode": "hebb",
+      "match": 0.0,
+      "brier": 0.27368731505499183
+    },
+    {
+      "seed": 5,
+      "phase": 3,
+      "mode": "flow",
+      "match": 0.16666666666666666,
+      "brier": 0.29181991515432193
+    },
+    {
+      "seed": 5,
+      "phase": 3,
+      "mode": "hebb",
+      "match": 0.0,
+      "brier": 0.23057067785911764
+    },
+    {
+      "seed": 5,
+      "phase": 4,
+      "mode": "flow",
+      "match": 0.0,
+      "brier": 0.1775198778851886
+    },
+    {
+      "seed": 5,
+      "phase": 4,
+      "mode": "hebb",
+      "match": 0.0,
+      "brier": 0.22652770021502255
+    },
+    {
+      "seed": 5,
+      "phase": 5,
+      "mode": "flow",
+      "match": 0.0,
+      "brier": 0.32430046155466735
+    },
+    {
+      "seed": 5,
+      "phase": 5,
+      "mode": "hebb",
+      "match": 0.0,
+      "brier": 0.2588632420429426
+    },
+    {
+      "seed": 5,
+      "phase": 6,
+      "mode": "flow",
+      "match": 0.3333333333333333,
+      "brier": 0.2779353147331694
+    },
+    {
+      "seed": 5,
+      "phase": 6,
+      "mode": "hebb",
+      "match": 0.16666666666666666,
+      "brier": 0.2656026550704782
+    },
+    {
+      "seed": 5,
+      "phase": 7,
+      "mode": "flow",
+      "match": 0.16666666666666666,
+      "brier": 0.26941553098398546
+    },
+    {
+      "seed": 5,
+      "phase": 7,
+      "mode": "hebb",
+      "match": 0.0,
+      "brier": 0.2728262109375591
+    },
+    {
+      "seed": 5,
+      "phase": 8,
+      "mode": "flow",
+      "match": 0.0,
+      "brier": 0.2519666691209702
+    },
+    {
+      "seed": 5,
+      "phase": 8,
+      "mode": "hebb",
+      "match": 0.0,
+      "brier": 0.2425427400321185
+    },
+    {
+      "seed": 5,
+      "phase": 9,
+      "mode": "flow",
+      "match": 0.3333333333333333,
+      "brier": 0.23568274463563726
+    },
+    {
+      "seed": 5,
+      "phase": 9,
+      "mode": "hebb",
+      "match": 0.3333333333333333,
+      "brier": 0.26968575723533034
+    },
+    {
+      "seed": 6,
+      "phase": 1,
+      "mode": "flow",
+      "match": 0.0,
+      "brier": 0.15773907202800197
+    },
+    {
+      "seed": 6,
+      "phase": 1,
+      "mode": "hebb",
+      "match": 0.0,
+      "brier": 0.18597294100286593
+    },
+    {
+      "seed": 6,
+      "phase": 2,
+      "mode": "flow",
+      "match": 0.0,
+      "brier": 0.2624308771144031
+    },
+    {
+      "seed": 6,
+      "phase": 2,
+      "mode": "hebb",
+      "match": 0.0,
+      "brier": 0.2625906704681629
+    },
+    {
+      "seed": 6,
+      "phase": 3,
+      "mode": "flow",
+      "match": 0.0,
+      "brier": 0.3669899455472934
+    },
+    {
+      "seed": 6,
+      "phase": 3,
+      "mode": "hebb",
+      "match": 0.0,
+      "brier": 0.3182757473315022
+    },
+    {
+      "seed": 6,
+      "phase": 4,
+      "mode": "flow",
+      "match": 0.16666666666666666,
+      "brier": 0.28836408746920383
+    },
+    {
+      "seed": 6,
+      "phase": 4,
+      "mode": "hebb",
+      "match": 0.16666666666666666,
+      "brier": 0.2566401258270405
+    },
+    {
+      "seed": 6,
+      "phase": 5,
+      "mode": "flow",
+      "match": 0.0,
+      "brier": 0.2575301969303961
+    },
+    {
+      "seed": 6,
+      "phase": 5,
+      "mode": "hebb",
+      "match": 0.0,
+      "brier": 0.2496487306680846
+    },
+    {
+      "seed": 6,
+      "phase": 6,
+      "mode": "flow",
+      "match": 0.3333333333333333,
+      "brier": 0.28013206389503986
+    },
+    {
+      "seed": 6,
+      "phase": 6,
+      "mode": "hebb",
+      "match": 0.5,
+      "brier": 0.24984345218464923
+    },
+    {
+      "seed": 6,
+      "phase": 7,
+      "mode": "flow",
+      "match": 0.0,
+      "brier": 0.3231308406367898
+    },
+    {
+      "seed": 6,
+      "phase": 7,
+      "mode": "hebb",
+      "match": 0.0,
+      "brier": 0.3163573326752179
+    },
+    {
+      "seed": 6,
+      "phase": 8,
+      "mode": "flow",
+      "match": 0.16666666666666666,
+      "brier": 0.14238347162360343
+    },
+    {
+      "seed": 6,
+      "phase": 8,
+      "mode": "hebb",
+      "match": 0.16666666666666666,
+      "brier": 0.15838877100467386
+    },
+    {
+      "seed": 6,
+      "phase": 9,
+      "mode": "flow",
+      "match": 0.3333333333333333,
+      "brier": 0.23334043427330048
+    },
+    {
+      "seed": 6,
+      "phase": 9,
+      "mode": "hebb",
+      "match": 0.16666666666666666,
+      "brier": 0.2527115488912379
+    },
+    {
+      "seed": 7,
+      "phase": 1,
+      "mode": "flow",
+      "match": 0.0,
+      "brier": 0.4007150639744937
+    },
+    {
+      "seed": 7,
+      "phase": 1,
+      "mode": "hebb",
+      "match": 0.0,
+      "brier": 0.31706959629461984
+    },
+    {
+      "seed": 7,
+      "phase": 2,
+      "mode": "flow",
+      "match": 0.0,
+      "brier": 0.20353593946970922
+    },
+    {
+      "seed": 7,
+      "phase": 2,
+      "mode": "hebb",
+      "match": 0.0,
+      "brier": 0.20956700389366936
+    },
+    {
+      "seed": 7,
+      "phase": 3,
+      "mode": "flow",
+      "match": 0.0,
+      "brier": 0.33251768837287643
+    },
+    {
+      "seed": 7,
+      "phase": 3,
+      "mode": "hebb",
+      "match": 0.0,
+      "brier": 0.30712975494361144
+    },
+    {
+      "seed": 7,
+      "phase": 4,
+      "mode": "flow",
+      "match": 0.16666666666666666,
+      "brier": 0.3391735781078065
+    },
+    {
+      "seed": 7,
+      "phase": 4,
+      "mode": "hebb",
+      "match": 0.16666666666666666,
+      "brier": 0.3125256099748948
+    },
+    {
+      "seed": 7,
+      "phase": 5,
+      "mode": "flow",
+      "match": 0.0,
+      "brier": 0.3428002229607394
+    },
+    {
+      "seed": 7,
+      "phase": 5,
+      "mode": "hebb",
+      "match": 0.0,
+      "brier": 0.3015922574722378
+    },
+    {
+      "seed": 7,
+      "phase": 6,
+      "mode": "flow",
+      "match": 0.16666666666666666,
+      "brier": 0.23793351736762636
+    },
+    {
+      "seed": 7,
+      "phase": 6,
+      "mode": "hebb",
+      "match": 0.3333333333333333,
+      "brier": 0.22272270805347763
+    },
+    {
+      "seed": 7,
+      "phase": 7,
+      "mode": "flow",
+      "match": 0.16666666666666666,
+      "brier": 0.24698070575681677
+    },
+    {
+      "seed": 7,
+      "phase": 7,
+      "mode": "hebb",
+      "match": 0.16666666666666666,
+      "brier": 0.24888165947730206
+    },
+    {
+      "seed": 7,
+      "phase": 8,
+      "mode": "flow",
+      "match": 0.16666666666666666,
+      "brier": 0.12719933083238455
+    },
+    {
+      "seed": 7,
+      "phase": 8,
+      "mode": "hebb",
+      "match": 0.0,
+      "brier": 0.20257970605670936
+    },
+    {
+      "seed": 7,
+      "phase": 9,
+      "mode": "flow",
+      "match": 0.16666666666666666,
+      "brier": 0.27354792242738113
+    },
+    {
+      "seed": 7,
+      "phase": 9,
+      "mode": "hebb",
+      "match": 0.0,
+      "brier": 0.29291264309545273
+    },
+    {
+      "seed": 8,
+      "phase": 1,
+      "mode": "flow",
+      "match": 0.0,
+      "brier": 0.31194083712078735
+    },
+    {
+      "seed": 8,
+      "phase": 1,
+      "mode": "hebb",
+      "match": 0.0,
+      "brier": 0.33069766516980065
+    },
+    {
+      "seed": 8,
+      "phase": 2,
+      "mode": "flow",
+      "match": 0.0,
+      "brier": 0.28809379172766075
+    },
+    {
+      "seed": 8,
+      "phase": 2,
+      "mode": "hebb",
+      "match": 0.0,
+      "brier": 0.21622755655509815
+    },
+    {
+      "seed": 8,
+      "phase": 3,
+      "mode": "flow",
+      "match": 0.0,
+      "brier": 0.19907470068835795
+    },
+    {
+      "seed": 8,
+      "phase": 3,
+      "mode": "hebb",
+      "match": 0.0,
+      "brier": 0.2131581574233315
+    },
+    {
+      "seed": 8,
+      "phase": 4,
+      "mode": "flow",
+      "match": 0.3333333333333333,
+      "brier": 0.2664865741702273
+    },
+    {
+      "seed": 8,
+      "phase": 4,
+      "mode": "hebb",
+      "match": 0.3333333333333333,
+      "brier": 0.2558330077279024
+    },
+    {
+      "seed": 8,
+      "phase": 5,
+      "mode": "flow",
+      "match": 0.0,
+      "brier": 0.3219051156277929
+    },
+    {
+      "seed": 8,
+      "phase": 5,
+      "mode": "hebb",
+      "match": 0.16666666666666666,
+      "brier": 0.28591161309437046
+    },
+    {
+      "seed": 8,
+      "phase": 6,
+      "mode": "flow",
+      "match": 0.3333333333333333,
+      "brier": 0.37597771554795917
+    },
+    {
+      "seed": 8,
+      "phase": 6,
+      "mode": "hebb",
+      "match": 0.3333333333333333,
+      "brier": 0.3803818593823513
+    },
+    {
+      "seed": 8,
+      "phase": 7,
+      "mode": "flow",
+      "match": 0.16666666666666666,
+      "brier": 0.3365443224093417
+    },
+    {
+      "seed": 8,
+      "phase": 7,
+      "mode": "hebb",
+      "match": 0.0,
+      "brier": 0.18702227701990645
+    },
+    {
+      "seed": 8,
+      "phase": 8,
+      "mode": "flow",
+      "match": 0.0,
+      "brier": 0.42109530439562576
+    },
+    {
+      "seed": 8,
+      "phase": 8,
+      "mode": "hebb",
+      "match": 0.0,
+      "brier": 0.35104587109945995
+    },
+    {
+      "seed": 8,
+      "phase": 9,
+      "mode": "flow",
+      "match": 0.16666666666666666,
+      "brier": 0.21402660167879317
+    },
+    {
+      "seed": 8,
+      "phase": 9,
+      "mode": "hebb",
+      "match": 0.0,
+      "brier": 0.1963163845394624
+    },
+    {
+      "seed": 9,
+      "phase": 1,
+      "mode": "flow",
+      "match": 0.16666666666666666,
+      "brier": 0.3129869347296678
+    },
+    {
+      "seed": 9,
+      "phase": 1,
+      "mode": "hebb",
+      "match": 0.16666666666666666,
+      "brier": 0.29053339880215906
+    },
+    {
+      "seed": 9,
+      "phase": 2,
+      "mode": "flow",
+      "match": 0.16666666666666666,
+      "brier": 0.23263785235677303
+    },
+    {
+      "seed": 9,
+      "phase": 2,
+      "mode": "hebb",
+      "match": 0.16666666666666666,
+      "brier": 0.20129154418976825
+    },
+    {
+      "seed": 9,
+      "phase": 3,
+      "mode": "flow",
+      "match": 0.16666666666666666,
+      "brier": 0.29866676629255046
+    },
+    {
+      "seed": 9,
+      "phase": 3,
+      "mode": "hebb",
+      "match": 0.16666666666666666,
+      "brier": 0.31833976416004617
+    },
+    {
+      "seed": 9,
+      "phase": 4,
+      "mode": "flow",
+      "match": 0.16666666666666666,
+      "brier": 0.3040487356801891
+    },
+    {
+      "seed": 9,
+      "phase": 4,
+      "mode": "hebb",
+      "match": 0.6666666666666666,
+      "brier": 0.3687018222720914
+    },
+    {
+      "seed": 9,
+      "phase": 5,
+      "mode": "flow",
+      "match": 0.16666666666666666,
+      "brier": 0.342915898634937
+    },
+    {
+      "seed": 9,
+      "phase": 5,
+      "mode": "hebb",
+      "match": 0.16666666666666666,
+      "brier": 0.3130704451211509
+    },
+    {
+      "seed": 9,
+      "phase": 6,
+      "mode": "flow",
+      "match": 0.0,
+      "brier": 0.23185015854919322
+    },
+    {
+      "seed": 9,
+      "phase": 6,
+      "mode": "hebb",
+      "match": 0.0,
+      "brier": 0.30456476701114793
+    },
+    {
+      "seed": 9,
+      "phase": 7,
+      "mode": "flow",
+      "match": 0.16666666666666666,
+      "brier": 0.2841877615232512
+    },
+    {
+      "seed": 9,
+      "phase": 7,
+      "mode": "hebb",
+      "match": 0.16666666666666666,
+      "brier": 0.2604896690801729
+    },
+    {
+      "seed": 9,
+      "phase": 8,
+      "mode": "flow",
+      "match": 0.6666666666666666,
+      "brier": 0.22565037341356547
+    },
+    {
+      "seed": 9,
+      "phase": 8,
+      "mode": "hebb",
+      "match": 0.6666666666666666,
+      "brier": 0.22919461287497386
+    },
+    {
+      "seed": 9,
+      "phase": 9,
+      "mode": "flow",
+      "match": 0.0,
+      "brier": 0.18091139561292122
+    },
+    {
+      "seed": 9,
+      "phase": 9,
+      "mode": "hebb",
+      "match": 0.16666666666666666,
+      "brier": 0.2656549066191527
+    },
+    {
+      "seed": 10,
+      "phase": 1,
+      "mode": "flow",
+      "match": 0.0,
+      "brier": 0.228335276700211
+    },
+    {
+      "seed": 10,
+      "phase": 1,
+      "mode": "hebb",
+      "match": 0.0,
+      "brier": 0.22105443052786145
+    },
+    {
+      "seed": 10,
+      "phase": 2,
+      "mode": "flow",
+      "match": 0.0,
+      "brier": 0.21859582372967473
+    },
+    {
+      "seed": 10,
+      "phase": 2,
+      "mode": "hebb",
+      "match": 0.0,
+      "brier": 0.2159699918045374
+    },
+    {
+      "seed": 10,
+      "phase": 3,
+      "mode": "flow",
+      "match": 0.0,
+      "brier": 0.3502795496420919
+    },
+    {
+      "seed": 10,
+      "phase": 3,
+      "mode": "hebb",
+      "match": 0.0,
+      "brier": 0.29386328341851464
+    },
+    {
+      "seed": 10,
+      "phase": 4,
+      "mode": "flow",
+      "match": 0.16666666666666666,
+      "brier": 0.33004150334026783
+    },
+    {
+      "seed": 10,
+      "phase": 4,
+      "mode": "hebb",
+      "match": 0.5,
+      "brier": 0.33768631172598185
+    },
+    {
+      "seed": 10,
+      "phase": 5,
+      "mode": "flow",
+      "match": 0.0,
+      "brier": 0.14666609487308804
+    },
+    {
+      "seed": 10,
+      "phase": 5,
+      "mode": "hebb",
+      "match": 0.0,
+      "brier": 0.17342256649432836
+    },
+    {
+      "seed": 10,
+      "phase": 6,
+      "mode": "flow",
+      "match": 0.0,
+      "brier": 0.2192708294204644
+    },
+    {
+      "seed": 10,
+      "phase": 6,
+      "mode": "hebb",
+      "match": 0.16666666666666666,
+      "brier": 0.22289047839568998
+    },
+    {
+      "seed": 10,
+      "phase": 7,
+      "mode": "flow",
+      "match": 0.0,
+      "brier": 0.38083316040969384
+    },
+    {
+      "seed": 10,
+      "phase": 7,
+      "mode": "hebb",
+      "match": 0.3333333333333333,
+      "brier": 0.25933193702264395
+    },
+    {
+      "seed": 10,
+      "phase": 8,
+      "mode": "flow",
+      "match": 0.0,
+      "brier": 0.3724685999767445
+    },
+    {
+      "seed": 10,
+      "phase": 8,
+      "mode": "hebb",
+      "match": 0.0,
+      "brier": 0.32850120709149544
+    },
+    {
+      "seed": 10,
+      "phase": 9,
+      "mode": "flow",
+      "match": 0.16666666666666666,
+      "brier": 0.20724618631875832
+    },
+    {
+      "seed": 10,
+      "phase": 9,
+      "mode": "hebb",
+      "match": 0.16666666666666666,
+      "brier": 0.22426453841234872
+    },
+    {
+      "seed": 11,
+      "phase": 1,
+      "mode": "flow",
+      "match": 0.0,
+      "brier": 0.39925445014408567
+    },
+    {
+      "seed": 11,
+      "phase": 1,
+      "mode": "hebb",
+      "match": 0.0,
+      "brier": 0.35690986084260096
+    },
+    {
+      "seed": 11,
+      "phase": 2,
+      "mode": "flow",
+      "match": 0.0,
+      "brier": 0.39303652166560604
+    },
+    {
+      "seed": 11,
+      "phase": 2,
+      "mode": "hebb",
+      "match": 0.16666666666666666,
+      "brier": 0.2994405220125478
+    },
+    {
+      "seed": 11,
+      "phase": 3,
+      "mode": "flow",
+      "match": 0.0,
+      "brier": 0.24804467401696484
+    },
+    {
+      "seed": 11,
+      "phase": 3,
+      "mode": "hebb",
+      "match": 0.0,
+      "brier": 0.2422913975440249
+    },
+    {
+      "seed": 11,
+      "phase": 4,
+      "mode": "flow",
+      "match": 0.0,
+      "brier": 0.36298869171768755
+    },
+    {
+      "seed": 11,
+      "phase": 4,
+      "mode": "hebb",
+      "match": 0.0,
+      "brier": 0.32109038972388443
+    },
+    {
+      "seed": 11,
+      "phase": 5,
+      "mode": "flow",
+      "match": 0.0,
+      "brier": 0.3355629731620078
+    },
+    {
+      "seed": 11,
+      "phase": 5,
+      "mode": "hebb",
+      "match": 0.0,
+      "brier": 0.2653847941191742
+    },
+    {
+      "seed": 11,
+      "phase": 6,
+      "mode": "flow",
+      "match": 0.0,
+      "brier": 0.21958204245064922
+    },
+    {
+      "seed": 11,
+      "phase": 6,
+      "mode": "hebb",
+      "match": 0.0,
+      "brier": 0.1817109835825636
+    },
+    {
+      "seed": 11,
+      "phase": 7,
+      "mode": "flow",
+      "match": 0.16666666666666666,
+      "brier": 0.22909177806606468
+    },
+    {
+      "seed": 11,
+      "phase": 7,
+      "mode": "hebb",
+      "match": 0.16666666666666666,
+      "brier": 0.24857935941209128
+    },
+    {
+      "seed": 11,
+      "phase": 8,
+      "mode": "flow",
+      "match": 0.0,
+      "brier": 0.3147486744713112
+    },
+    {
+      "seed": 11,
+      "phase": 8,
+      "mode": "hebb",
+      "match": 0.16666666666666666,
+      "brier": 0.23207892493118984
+    },
+    {
+      "seed": 11,
+      "phase": 9,
+      "mode": "flow",
+      "match": 0.0,
+      "brier": 0.2780079410491372
+    },
+    {
+      "seed": 11,
+      "phase": 9,
+      "mode": "hebb",
+      "match": 0.16666666666666666,
+      "brier": 0.27147147897079904
+    },
+    {
+      "seed": 12,
+      "phase": 1,
+      "mode": "flow",
+      "match": 0.16666666666666666,
+      "brier": 0.279646107181672
+    },
+    {
+      "seed": 12,
+      "phase": 1,
+      "mode": "hebb",
+      "match": 0.0,
+      "brier": 0.2882593813087526
+    },
+    {
+      "seed": 12,
+      "phase": 2,
+      "mode": "flow",
+      "match": 0.16666666666666666,
+      "brier": 0.20653622314015468
+    },
+    {
+      "seed": 12,
+      "phase": 2,
+      "mode": "hebb",
+      "match": 0.16666666666666666,
+      "brier": 0.21572816434368502
+    },
+    {
+      "seed": 12,
+      "phase": 3,
+      "mode": "flow",
+      "match": 0.0,
+      "brier": 0.3618164246801461
+    },
+    {
+      "seed": 12,
+      "phase": 3,
+      "mode": "hebb",
+      "match": 0.0,
+      "brier": 0.31932940746607036
+    },
+    {
+      "seed": 12,
+      "phase": 4,
+      "mode": "flow",
+      "match": 0.0,
+      "brier": 0.334029355514837
+    },
+    {
+      "seed": 12,
+      "phase": 4,
+      "mode": "hebb",
+      "match": 0.0,
+      "brier": 0.30452482401303066
+    },
+    {
+      "seed": 12,
+      "phase": 5,
+      "mode": "flow",
+      "match": 0.16666666666666666,
+      "brier": 0.367686048055612
+    },
+    {
+      "seed": 12,
+      "phase": 5,
+      "mode": "hebb",
+      "match": 0.0,
+      "brier": 0.3651845955320737
+    },
+    {
+      "seed": 12,
+      "phase": 6,
+      "mode": "flow",
+      "match": 0.0,
+      "brier": 0.3653268312516377
+    },
+    {
+      "seed": 12,
+      "phase": 6,
+      "mode": "hebb",
+      "match": 0.0,
+      "brier": 0.32377895983002314
+    },
+    {
+      "seed": 12,
+      "phase": 7,
+      "mode": "flow",
+      "match": 0.16666666666666666,
+      "brier": 0.23274036207255203
+    },
+    {
+      "seed": 12,
+      "phase": 7,
+      "mode": "hebb",
+      "match": 0.0,
+      "brier": 0.2646472599326972
+    },
+    {
+      "seed": 12,
+      "phase": 8,
+      "mode": "flow",
+      "match": 0.0,
+      "brier": 0.337743407578754
+    },
+    {
+      "seed": 12,
+      "phase": 8,
+      "mode": "hebb",
+      "match": 0.0,
+      "brier": 0.30352811114648576
+    },
+    {
+      "seed": 12,
+      "phase": 9,
+      "mode": "flow",
+      "match": 0.16666666666666666,
+      "brier": 0.1685003964333802
+    },
+    {
+      "seed": 12,
+      "phase": 9,
+      "mode": "hebb",
+      "match": 0.0,
+      "brier": 0.18557498537963116
+    },
+    {
+      "seed": 13,
+      "phase": 1,
+      "mode": "flow",
+      "match": 0.0,
+      "brier": 0.18333665090734783
+    },
+    {
+      "seed": 13,
+      "phase": 1,
+      "mode": "hebb",
+      "match": 0.0,
+      "brier": 0.200199286302921
+    },
+    {
+      "seed": 13,
+      "phase": 2,
+      "mode": "flow",
+      "match": 0.3333333333333333,
+      "brier": 0.31932628921888995
+    },
+    {
+      "seed": 13,
+      "phase": 2,
+      "mode": "hebb",
+      "match": 0.3333333333333333,
+      "brier": 0.29580327585367694
+    },
+    {
+      "seed": 13,
+      "phase": 3,
+      "mode": "flow",
+      "match": 0.5,
+      "brier": 0.19429895248109919
+    },
+    {
+      "seed": 13,
+      "phase": 3,
+      "mode": "hebb",
+      "match": 0.0,
+      "brier": 0.23585964518700625
+    },
+    {
+      "seed": 13,
+      "phase": 4,
+      "mode": "flow",
+      "match": 0.16666666666666666,
+      "brier": 0.17858090383603192
+    },
+    {
+      "seed": 13,
+      "phase": 4,
+      "mode": "hebb",
+      "match": 0.5,
+      "brier": 0.25332834007710653
+    },
+    {
+      "seed": 13,
+      "phase": 5,
+      "mode": "flow",
+      "match": 0.0,
+      "brier": 0.4075210457058874
+    },
+    {
+      "seed": 13,
+      "phase": 5,
+      "mode": "hebb",
+      "match": 0.0,
+      "brier": 0.3292512020824794
+    },
+    {
+      "seed": 13,
+      "phase": 6,
+      "mode": "flow",
+      "match": 0.0,
+      "brier": 0.24850688351023512
+    },
+    {
+      "seed": 13,
+      "phase": 6,
+      "mode": "hebb",
+      "match": 0.0,
+      "brier": 0.25614498906643945
+    },
+    {
+      "seed": 13,
+      "phase": 7,
+      "mode": "flow",
+      "match": 0.16666666666666666,
+      "brier": 0.2748245131788095
+    },
+    {
+      "seed": 13,
+      "phase": 7,
+      "mode": "hebb",
+      "match": 0.16666666666666666,
+      "brier": 0.28884551968742345
+    },
+    {
+      "seed": 13,
+      "phase": 8,
+      "mode": "flow",
+      "match": 0.0,
+      "brier": 0.2328426335714512
+    },
+    {
+      "seed": 13,
+      "phase": 8,
+      "mode": "hebb",
+      "match": 0.0,
+      "brier": 0.1994728101790654
+    },
+    {
+      "seed": 13,
+      "phase": 9,
+      "mode": "flow",
+      "match": 0.0,
+      "brier": 0.2443806227993986
+    },
+    {
+      "seed": 13,
+      "phase": 9,
+      "mode": "hebb",
+      "match": 0.0,
+      "brier": 0.2989129776177764
+    },
+    {
+      "seed": 14,
+      "phase": 1,
+      "mode": "flow",
+      "match": 0.3333333333333333,
+      "brier": 0.1940684607728706
+    },
+    {
+      "seed": 14,
+      "phase": 1,
+      "mode": "hebb",
+      "match": 0.3333333333333333,
+      "brier": 0.23065383103689502
+    },
+    {
+      "seed": 14,
+      "phase": 2,
+      "mode": "flow",
+      "match": 0.16666666666666666,
+      "brier": 0.2599091864098558
+    },
+    {
+      "seed": 14,
+      "phase": 2,
+      "mode": "hebb",
+      "match": 0.0,
+      "brier": 0.2531025183811378
+    },
+    {
+      "seed": 14,
+      "phase": 3,
+      "mode": "flow",
+      "match": 0.16666666666666666,
+      "brier": 0.1500799993660276
+    },
+    {
+      "seed": 14,
+      "phase": 3,
+      "mode": "hebb",
+      "match": 0.16666666666666666,
+      "brier": 0.1813659690306699
+    },
+    {
+      "seed": 14,
+      "phase": 4,
+      "mode": "flow",
+      "match": 0.16666666666666666,
+      "brier": 0.3947056413288549
+    },
+    {
+      "seed": 14,
+      "phase": 4,
+      "mode": "hebb",
+      "match": 0.16666666666666666,
+      "brier": 0.3115599114953206
+    },
+    {
+      "seed": 14,
+      "phase": 5,
+      "mode": "flow",
+      "match": 0.0,
+      "brier": 0.20573101853660003
+    },
+    {
+      "seed": 14,
+      "phase": 5,
+      "mode": "hebb",
+      "match": 0.0,
+      "brier": 0.26329038789418296
+    },
+    {
+      "seed": 14,
+      "phase": 6,
+      "mode": "flow",
+      "match": 0.16666666666666666,
+      "brier": 0.252434253196273
+    },
+    {
+      "seed": 14,
+      "phase": 6,
+      "mode": "hebb",
+      "match": 0.0,
+      "brier": 0.2654829301992324
+    },
+    {
+      "seed": 14,
+      "phase": 7,
+      "mode": "flow",
+      "match": 0.0,
+      "brier": 0.274327824603281
+    },
+    {
+      "seed": 14,
+      "phase": 7,
+      "mode": "hebb",
+      "match": 0.0,
+      "brier": 0.22447830416994652
+    },
+    {
+      "seed": 14,
+      "phase": 8,
+      "mode": "flow",
+      "match": 0.0,
+      "brier": 0.3598252294045712
+    },
+    {
+      "seed": 14,
+      "phase": 8,
+      "mode": "hebb",
+      "match": 0.0,
+      "brier": 0.2770670746649687
+    },
+    {
+      "seed": 14,
+      "phase": 9,
+      "mode": "flow",
+      "match": 0.0,
+      "brier": 0.24976905459265047
+    },
+    {
+      "seed": 14,
+      "phase": 9,
+      "mode": "hebb",
+      "match": 0.16666666666666666,
+      "brier": 0.2714142196397029
+    },
+    {
+      "seed": 15,
+      "phase": 1,
+      "mode": "flow",
+      "match": 0.0,
+      "brier": 0.2937061526351791
+    },
+    {
+      "seed": 15,
+      "phase": 1,
+      "mode": "hebb",
+      "match": 0.0,
+      "brier": 0.2653180978539245
+    },
+    {
+      "seed": 15,
+      "phase": 2,
+      "mode": "flow",
+      "match": 0.3333333333333333,
+      "brier": 0.2331598132635485
+    },
+    {
+      "seed": 15,
+      "phase": 2,
+      "mode": "hebb",
+      "match": 0.5,
+      "brier": 0.26594523362377637
+    },
+    {
+      "seed": 15,
+      "phase": 3,
+      "mode": "flow",
+      "match": 0.16666666666666666,
+      "brier": 0.2627816705603795
+    },
+    {
+      "seed": 15,
+      "phase": 3,
+      "mode": "hebb",
+      "match": 0.0,
+      "brier": 0.27838128288407027
+    },
+    {
+      "seed": 15,
+      "phase": 4,
+      "mode": "flow",
+      "match": 0.16666666666666666,
+      "brier": 0.25919660417927576
+    },
+    {
+      "seed": 15,
+      "phase": 4,
+      "mode": "hebb",
+      "match": 0.16666666666666666,
+      "brier": 0.2715263666257236
+    },
+    {
+      "seed": 15,
+      "phase": 5,
+      "mode": "flow",
+      "match": 0.16666666666666666,
+      "brier": 0.18135180325095218
+    },
+    {
+      "seed": 15,
+      "phase": 5,
+      "mode": "hebb",
+      "match": 0.16666666666666666,
+      "brier": 0.26685935789618376
+    },
+    {
+      "seed": 15,
+      "phase": 6,
+      "mode": "flow",
+      "match": 0.16666666666666666,
+      "brier": 0.33776508865190125
+    },
+    {
+      "seed": 15,
+      "phase": 6,
+      "mode": "hebb",
+      "match": 0.16666666666666666,
+      "brier": 0.30022257608505376
+    },
+    {
+      "seed": 15,
+      "phase": 7,
+      "mode": "flow",
+      "match": 0.0,
+      "brier": 0.4225279241744246
+    },
+    {
+      "seed": 15,
+      "phase": 7,
+      "mode": "hebb",
+      "match": 0.0,
+      "brier": 0.3266250085842884
+    },
+    {
+      "seed": 15,
+      "phase": 8,
+      "mode": "flow",
+      "match": 0.0,
+      "brier": 0.21961930012457703
+    },
+    {
+      "seed": 15,
+      "phase": 8,
+      "mode": "hebb",
+      "match": 0.3333333333333333,
+      "brier": 0.22665217505627472
+    },
+    {
+      "seed": 15,
+      "phase": 9,
+      "mode": "flow",
+      "match": 0.0,
+      "brier": 0.1732826887596344
+    },
+    {
+      "seed": 15,
+      "phase": 9,
+      "mode": "hebb",
+      "match": 0.0,
+      "brier": 0.2139226886438249
+    },
+    {
+      "seed": 16,
+      "phase": 1,
+      "mode": "flow",
+      "match": 0.0,
+      "brier": 0.23674061413054726
+    },
+    {
+      "seed": 16,
+      "phase": 1,
+      "mode": "hebb",
+      "match": 0.0,
+      "brier": 0.19825055693679483
+    },
+    {
+      "seed": 16,
+      "phase": 2,
+      "mode": "flow",
+      "match": 0.16666666666666666,
+      "brier": 0.26228292137729614
+    },
+    {
+      "seed": 16,
+      "phase": 2,
+      "mode": "hebb",
+      "match": 0.0,
+      "brier": 0.25961842401298163
+    },
+    {
+      "seed": 16,
+      "phase": 3,
+      "mode": "flow",
+      "match": 0.0,
+      "brier": 0.26873889138407686
+    },
+    {
+      "seed": 16,
+      "phase": 3,
+      "mode": "hebb",
+      "match": 0.3333333333333333,
+      "brier": 0.26304849850562684
+    },
+    {
+      "seed": 16,
+      "phase": 4,
+      "mode": "flow",
+      "match": 0.16666666666666666,
+      "brier": 0.28835001226876744
+    },
+    {
+      "seed": 16,
+      "phase": 4,
+      "mode": "hebb",
+      "match": 0.16666666666666666,
+      "brier": 0.25605453526859945
+    },
+    {
+      "seed": 16,
+      "phase": 5,
+      "mode": "flow",
+      "match": 0.0,
+      "brier": 0.23903254820934158
+    },
+    {
+      "seed": 16,
+      "phase": 5,
+      "mode": "hebb",
+      "match": 0.16666666666666666,
+      "brier": 0.2380057699117385
+    },
+    {
+      "seed": 16,
+      "phase": 6,
+      "mode": "flow",
+      "match": 0.16666666666666666,
+      "brier": 0.27521438510772245
+    },
+    {
+      "seed": 16,
+      "phase": 6,
+      "mode": "hebb",
+      "match": 0.3333333333333333,
+      "brier": 0.2644630919001222
+    },
+    {
+      "seed": 16,
+      "phase": 7,
+      "mode": "flow",
+      "match": 0.0,
+      "brier": 0.1704522682405472
+    },
+    {
+      "seed": 16,
+      "phase": 7,
+      "mode": "hebb",
+      "match": 0.0,
+      "brier": 0.22267961311491863
+    },
+    {
+      "seed": 16,
+      "phase": 8,
+      "mode": "flow",
+      "match": 0.0,
+      "brier": 0.32971175721828894
+    },
+    {
+      "seed": 16,
+      "phase": 8,
+      "mode": "hebb",
+      "match": 0.0,
+      "brier": 0.30396107328238753
+    },
+    {
+      "seed": 16,
+      "phase": 9,
+      "mode": "flow",
+      "match": 0.16666666666666666,
+      "brier": 0.21262004191393005
+    },
+    {
+      "seed": 16,
+      "phase": 9,
+      "mode": "hebb",
+      "match": 0.16666666666666666,
+      "brier": 0.2208935926442469
+    },
+    {
+      "seed": 17,
+      "phase": 1,
+      "mode": "flow",
+      "match": 0.16666666666666666,
+      "brier": 0.30005954305090554
+    },
+    {
+      "seed": 17,
+      "phase": 1,
+      "mode": "hebb",
+      "match": 0.3333333333333333,
+      "brier": 0.2512552548790348
+    },
+    {
+      "seed": 17,
+      "phase": 2,
+      "mode": "flow",
+      "match": 0.0,
+      "brier": 0.2298325382583278
+    },
+    {
+      "seed": 17,
+      "phase": 2,
+      "mode": "hebb",
+      "match": 0.16666666666666666,
+      "brier": 0.228915530776305
+    },
+    {
+      "seed": 17,
+      "phase": 3,
+      "mode": "flow",
+      "match": 0.16666666666666666,
+      "brier": 0.2177574442994324
+    },
+    {
+      "seed": 17,
+      "phase": 3,
+      "mode": "hebb",
+      "match": 0.0,
+      "brier": 0.29100847295397053
+    },
+    {
+      "seed": 17,
+      "phase": 4,
+      "mode": "flow",
+      "match": 0.16666666666666666,
+      "brier": 0.31942506092184486
+    },
+    {
+      "seed": 17,
+      "phase": 4,
+      "mode": "hebb",
+      "match": 0.3333333333333333,
+      "brier": 0.24155095110250582
+    },
+    {
+      "seed": 17,
+      "phase": 5,
+      "mode": "flow",
+      "match": 0.5,
+      "brier": 0.2824778195000165
+    },
+    {
+      "seed": 17,
+      "phase": 5,
+      "mode": "hebb",
+      "match": 0.5,
+      "brier": 0.27363992588849834
+    },
+    {
+      "seed": 17,
+      "phase": 6,
+      "mode": "flow",
+      "match": 0.0,
+      "brier": 0.22455431064499934
+    },
+    {
+      "seed": 17,
+      "phase": 6,
+      "mode": "hebb",
+      "match": 0.16666666666666666,
+      "brier": 0.23072327504547147
+    },
+    {
+      "seed": 17,
+      "phase": 7,
+      "mode": "flow",
+      "match": 0.0,
+      "brier": 0.3449344157226933
+    },
+    {
+      "seed": 17,
+      "phase": 7,
+      "mode": "hebb",
+      "match": 0.0,
+      "brier": 0.31316442346474954
+    },
+    {
+      "seed": 17,
+      "phase": 8,
+      "mode": "flow",
+      "match": 0.16666666666666666,
+      "brier": 0.27722077561719816
+    },
+    {
+      "seed": 17,
+      "phase": 8,
+      "mode": "hebb",
+      "match": 0.16666666666666666,
+      "brier": 0.2344200903043578
+    },
+    {
+      "seed": 17,
+      "phase": 9,
+      "mode": "flow",
+      "match": 0.16666666666666666,
+      "brier": 0.17777146305979902
+    },
+    {
+      "seed": 17,
+      "phase": 9,
+      "mode": "hebb",
+      "match": 0.16666666666666666,
+      "brier": 0.18802013834997722
+    },
+    {
+      "seed": 18,
+      "phase": 1,
+      "mode": "flow",
+      "match": 0.3333333333333333,
+      "brier": 0.3232708013414867
+    },
+    {
+      "seed": 18,
+      "phase": 1,
+      "mode": "hebb",
+      "match": 0.3333333333333333,
+      "brier": 0.30395438911986394
+    },
+    {
+      "seed": 18,
+      "phase": 2,
+      "mode": "flow",
+      "match": 0.0,
+      "brier": 0.25172077446636165
+    },
+    {
+      "seed": 18,
+      "phase": 2,
+      "mode": "hebb",
+      "match": 0.0,
+      "brier": 0.2270936762128703
+    },
+    {
+      "seed": 18,
+      "phase": 3,
+      "mode": "flow",
+      "match": 0.16666666666666666,
+      "brier": 0.2341867623496698
+    },
+    {
+      "seed": 18,
+      "phase": 3,
+      "mode": "hebb",
+      "match": 0.0,
+      "brier": 0.2815632326418279
+    },
+    {
+      "seed": 18,
+      "phase": 4,
+      "mode": "flow",
+      "match": 0.0,
+      "brier": 0.12964787061451777
+    },
+    {
+      "seed": 18,
+      "phase": 4,
+      "mode": "hebb",
+      "match": 0.0,
+      "brier": 0.20006143420351674
+    },
+    {
+      "seed": 18,
+      "phase": 5,
+      "mode": "flow",
+      "match": 0.0,
+      "brier": 0.2600496977993371
+    },
+    {
+      "seed": 18,
+      "phase": 5,
+      "mode": "hebb",
+      "match": 0.0,
+      "brier": 0.25416039734180074
+    },
+    {
+      "seed": 18,
+      "phase": 6,
+      "mode": "flow",
+      "match": 0.3333333333333333,
+      "brier": 0.2450170006597594
+    },
+    {
+      "seed": 18,
+      "phase": 6,
+      "mode": "hebb",
+      "match": 0.3333333333333333,
+      "brier": 0.27369802726640197
+    },
+    {
+      "seed": 18,
+      "phase": 7,
+      "mode": "flow",
+      "match": 0.5,
+      "brier": 0.1506514202837881
+    },
+    {
+      "seed": 18,
+      "phase": 7,
+      "mode": "hebb",
+      "match": 0.3333333333333333,
+      "brier": 0.17570253303063463
+    },
+    {
+      "seed": 18,
+      "phase": 8,
+      "mode": "flow",
+      "match": 0.0,
+      "brier": 0.3296925807728024
+    },
+    {
+      "seed": 18,
+      "phase": 8,
+      "mode": "hebb",
+      "match": 0.16666666666666666,
+      "brier": 0.27747965146952747
+    },
+    {
+      "seed": 18,
+      "phase": 9,
+      "mode": "flow",
+      "match": 0.0,
+      "brier": 0.25194070919625067
+    },
+    {
+      "seed": 18,
+      "phase": 9,
+      "mode": "hebb",
+      "match": 0.0,
+      "brier": 0.27497668796950253
+    },
+    {
+      "seed": 19,
+      "phase": 1,
+      "mode": "flow",
+      "match": 0.0,
+      "brier": 0.22231556591649773
+    },
+    {
+      "seed": 19,
+      "phase": 1,
+      "mode": "hebb",
+      "match": 0.0,
+      "brier": 0.2219517252872886
+    },
+    {
+      "seed": 19,
+      "phase": 2,
+      "mode": "flow",
+      "match": 0.0,
+      "brier": 0.27473723916133397
+    },
+    {
+      "seed": 19,
+      "phase": 2,
+      "mode": "hebb",
+      "match": 0.0,
+      "brier": 0.2575720117861641
+    },
+    {
+      "seed": 19,
+      "phase": 3,
+      "mode": "flow",
+      "match": 0.0,
+      "brier": 0.2238459990043157
+    },
+    {
+      "seed": 19,
+      "phase": 3,
+      "mode": "hebb",
+      "match": 0.0,
+      "brier": 0.23068798602113555
+    },
+    {
+      "seed": 19,
+      "phase": 4,
+      "mode": "flow",
+      "match": 0.3333333333333333,
+      "brier": 0.27238975079999045
+    },
+    {
+      "seed": 19,
+      "phase": 4,
+      "mode": "hebb",
+      "match": 0.3333333333333333,
+      "brier": 0.27959722334968345
+    },
+    {
+      "seed": 19,
+      "phase": 5,
+      "mode": "flow",
+      "match": 0.0,
+      "brier": 0.24804916712080516
+    },
+    {
+      "seed": 19,
+      "phase": 5,
+      "mode": "hebb",
+      "match": 0.0,
+      "brier": 0.17530015631788956
+    },
+    {
+      "seed": 19,
+      "phase": 6,
+      "mode": "flow",
+      "match": 0.0,
+      "brier": 0.16671327466751903
+    },
+    {
+      "seed": 19,
+      "phase": 6,
+      "mode": "hebb",
+      "match": 0.0,
+      "brier": 0.21644134159487402
+    },
+    {
+      "seed": 19,
+      "phase": 7,
+      "mode": "flow",
+      "match": 0.3333333333333333,
+      "brier": 0.25421254530479637
+    },
+    {
+      "seed": 19,
+      "phase": 7,
+      "mode": "hebb",
+      "match": 0.3333333333333333,
+      "brier": 0.24441294605297276
+    },
+    {
+      "seed": 19,
+      "phase": 8,
+      "mode": "flow",
+      "match": 0.0,
+      "brier": 0.37922337228355674
+    },
+    {
+      "seed": 19,
+      "phase": 8,
+      "mode": "hebb",
+      "match": 0.0,
+      "brier": 0.33414259024082216
+    },
+    {
+      "seed": 19,
+      "phase": 9,
+      "mode": "flow",
+      "match": 0.0,
+      "brier": 0.3373059618175781
+    },
+    {
+      "seed": 19,
+      "phase": 9,
+      "mode": "hebb",
+      "match": 0.0,
+      "brier": 0.3110371575110114
+    },
+    {
+      "seed": 20,
+      "phase": 1,
+      "mode": "flow",
+      "match": 0.16666666666666666,
+      "brier": 0.2825758959675272
+    },
+    {
+      "seed": 20,
+      "phase": 1,
+      "mode": "hebb",
+      "match": 0.0,
+      "brier": 0.3161960411980541
+    },
+    {
+      "seed": 20,
+      "phase": 2,
+      "mode": "flow",
+      "match": 0.16666666666666666,
+      "brier": 0.30555825886264376
+    },
+    {
+      "seed": 20,
+      "phase": 2,
+      "mode": "hebb",
+      "match": 0.0,
+      "brier": 0.27754945782833373
+    },
+    {
+      "seed": 20,
+      "phase": 3,
+      "mode": "flow",
+      "match": 0.16666666666666666,
+      "brier": 0.25056166037792377
+    },
+    {
+      "seed": 20,
+      "phase": 3,
+      "mode": "hebb",
+      "match": 0.0,
+      "brier": 0.23403825973285516
+    },
+    {
+      "seed": 20,
+      "phase": 4,
+      "mode": "flow",
+      "match": 0.16666666666666666,
+      "brier": 0.3002908135032723
+    },
+    {
+      "seed": 20,
+      "phase": 4,
+      "mode": "hebb",
+      "match": 0.0,
+      "brier": 0.242106830105512
+    },
+    {
+      "seed": 20,
+      "phase": 5,
+      "mode": "flow",
+      "match": 0.0,
+      "brier": 0.241502856409429
+    },
+    {
+      "seed": 20,
+      "phase": 5,
+      "mode": "hebb",
+      "match": 0.0,
+      "brier": 0.2385542198501412
+    },
+    {
+      "seed": 20,
+      "phase": 6,
+      "mode": "flow",
+      "match": 0.0,
+      "brier": 0.20692781786126677
+    },
+    {
+      "seed": 20,
+      "phase": 6,
+      "mode": "hebb",
+      "match": 0.0,
+      "brier": 0.2882408554005561
+    },
+    {
+      "seed": 20,
+      "phase": 7,
+      "mode": "flow",
+      "match": 0.16666666666666666,
+      "brier": 0.3356319766395191
+    },
+    {
+      "seed": 20,
+      "phase": 7,
+      "mode": "hebb",
+      "match": 0.16666666666666666,
+      "brier": 0.26973826778706217
+    },
+    {
+      "seed": 20,
+      "phase": 8,
+      "mode": "flow",
+      "match": 0.16666666666666666,
+      "brier": 0.20169547610202346
+    },
+    {
+      "seed": 20,
+      "phase": 8,
+      "mode": "hebb",
+      "match": 0.3333333333333333,
+      "brier": 0.21057622897286152
+    },
+    {
+      "seed": 20,
+      "phase": 9,
+      "mode": "flow",
+      "match": 0.16666666666666666,
+      "brier": 0.2561006287005496
+    },
+    {
+      "seed": 20,
+      "phase": 9,
+      "mode": "hebb",
+      "match": 0.16666666666666666,
+      "brier": 0.22168278365224214
+    },
+    {
+      "seed": 21,
+      "phase": 1,
+      "mode": "flow",
+      "match": 0.0,
+      "brier": 0.1456497078918354
+    },
+    {
+      "seed": 21,
+      "phase": 1,
+      "mode": "hebb",
+      "match": 0.16666666666666666,
+      "brier": 0.215372754710517
+    },
+    {
+      "seed": 21,
+      "phase": 2,
+      "mode": "flow",
+      "match": 0.16666666666666666,
+      "brier": 0.33961807139851946
+    },
+    {
+      "seed": 21,
+      "phase": 2,
+      "mode": "hebb",
+      "match": 0.16666666666666666,
+      "brier": 0.2989681906668243
+    },
+    {
+      "seed": 21,
+      "phase": 3,
+      "mode": "flow",
+      "match": 0.0,
+      "brier": 0.280751959760899
+    },
+    {
+      "seed": 21,
+      "phase": 3,
+      "mode": "hebb",
+      "match": 0.0,
+      "brier": 0.2578845282211122
+    },
+    {
+      "seed": 21,
+      "phase": 4,
+      "mode": "flow",
+      "match": 0.16666666666666666,
+      "brier": 0.180527159434011
+    },
+    {
+      "seed": 21,
+      "phase": 4,
+      "mode": "hebb",
+      "match": 0.16666666666666666,
+      "brier": 0.1940222989733983
+    },
+    {
+      "seed": 21,
+      "phase": 5,
+      "mode": "flow",
+      "match": 0.0,
+      "brier": 0.16244675370085684
+    },
+    {
+      "seed": 21,
+      "phase": 5,
+      "mode": "hebb",
+      "match": 0.0,
+      "brier": 0.14009527868639207
+    },
+    {
+      "seed": 21,
+      "phase": 6,
+      "mode": "flow",
+      "match": 0.0,
+      "brier": 0.2932056850534184
+    },
+    {
+      "seed": 21,
+      "phase": 6,
+      "mode": "hebb",
+      "match": 0.0,
+      "brier": 0.28421237287184203
+    },
+    {
+      "seed": 21,
+      "phase": 7,
+      "mode": "flow",
+      "match": 0.3333333333333333,
+      "brier": 0.29629865706298775
+    },
+    {
+      "seed": 21,
+      "phase": 7,
+      "mode": "hebb",
+      "match": 0.16666666666666666,
+      "brier": 0.28532621754931786
+    },
+    {
+      "seed": 21,
+      "phase": 8,
+      "mode": "flow",
+      "match": 0.0,
+      "brier": 0.28918331190027396
+    },
+    {
+      "seed": 21,
+      "phase": 8,
+      "mode": "hebb",
+      "match": 0.16666666666666666,
+      "brier": 0.2227665168609444
+    },
+    {
+      "seed": 21,
+      "phase": 9,
+      "mode": "flow",
+      "match": 0.5,
+      "brier": 0.3892616720848756
+    },
+    {
+      "seed": 21,
+      "phase": 9,
+      "mode": "hebb",
+      "match": 0.5,
+      "brier": 0.2765327228734503
+    },
+    {
+      "seed": 22,
+      "phase": 1,
+      "mode": "flow",
+      "match": 0.0,
+      "brier": 0.20833013006463968
+    },
+    {
+      "seed": 22,
+      "phase": 1,
+      "mode": "hebb",
+      "match": 0.0,
+      "brier": 0.2201982198696858
+    },
+    {
+      "seed": 22,
+      "phase": 2,
+      "mode": "flow",
+      "match": 0.0,
+      "brier": 0.12995916403352797
+    },
+    {
+      "seed": 22,
+      "phase": 2,
+      "mode": "hebb",
+      "match": 0.0,
+      "brier": 0.20794425598053623
+    },
+    {
+      "seed": 22,
+      "phase": 3,
+      "mode": "flow",
+      "match": 0.0,
+      "brier": 0.1578147553892696
+    },
+    {
+      "seed": 22,
+      "phase": 3,
+      "mode": "hebb",
+      "match": 0.0,
+      "brier": 0.15108333048486886
+    },
+    {
+      "seed": 22,
+      "phase": 4,
+      "mode": "flow",
+      "match": 0.16666666666666666,
+      "brier": 0.15229277477283898
+    },
+    {
+      "seed": 22,
+      "phase": 4,
+      "mode": "hebb",
+      "match": 0.0,
+      "brier": 0.15706852143462927
+    },
+    {
+      "seed": 22,
+      "phase": 5,
+      "mode": "flow",
+      "match": 0.3333333333333333,
+      "brier": 0.23512883339136878
+    },
+    {
+      "seed": 22,
+      "phase": 5,
+      "mode": "hebb",
+      "match": 0.16666666666666666,
+      "brier": 0.29303766587366925
+    },
+    {
+      "seed": 22,
+      "phase": 6,
+      "mode": "flow",
+      "match": 0.0,
+      "brier": 0.40446795794839785
+    },
+    {
+      "seed": 22,
+      "phase": 6,
+      "mode": "hebb",
+      "match": 0.0,
+      "brier": 0.3549641494018704
+    },
+    {
+      "seed": 22,
+      "phase": 7,
+      "mode": "flow",
+      "match": 0.0,
+      "brier": 0.22721316079210419
+    },
+    {
+      "seed": 22,
+      "phase": 7,
+      "mode": "hebb",
+      "match": 0.0,
+      "brier": 0.23280767557678722
+    },
+    {
+      "seed": 22,
+      "phase": 8,
+      "mode": "flow",
+      "match": 0.16666666666666666,
+      "brier": 0.2608506616302715
+    },
+    {
+      "seed": 22,
+      "phase": 8,
+      "mode": "hebb",
+      "match": 0.16666666666666666,
+      "brier": 0.2742072541533406
+    },
+    {
+      "seed": 22,
+      "phase": 9,
+      "mode": "flow",
+      "match": 0.0,
+      "brier": 0.20220881129628657
+    },
+    {
+      "seed": 22,
+      "phase": 9,
+      "mode": "hebb",
+      "match": 0.16666666666666666,
+      "brier": 0.27344151601073186
+    },
+    {
+      "seed": 23,
+      "phase": 1,
+      "mode": "flow",
+      "match": 0.16666666666666666,
+      "brier": 0.12582333577630275
+    },
+    {
+      "seed": 23,
+      "phase": 1,
+      "mode": "hebb",
+      "match": 0.16666666666666666,
+      "brier": 0.18767112629822946
+    },
+    {
+      "seed": 23,
+      "phase": 2,
+      "mode": "flow",
+      "match": 0.3333333333333333,
+      "brier": 0.22954720691903718
+    },
+    {
+      "seed": 23,
+      "phase": 2,
+      "mode": "hebb",
+      "match": 0.3333333333333333,
+      "brier": 0.21654860755934227
+    },
+    {
+      "seed": 23,
+      "phase": 3,
+      "mode": "flow",
+      "match": 0.0,
+      "brier": 0.22689930312304993
+    },
+    {
+      "seed": 23,
+      "phase": 3,
+      "mode": "hebb",
+      "match": 0.0,
+      "brier": 0.256603025808354
+    },
+    {
+      "seed": 23,
+      "phase": 4,
+      "mode": "flow",
+      "match": 0.3333333333333333,
+      "brier": 0.37810897121844417
+    },
+    {
+      "seed": 23,
+      "phase": 4,
+      "mode": "hebb",
+      "match": 0.3333333333333333,
+      "brier": 0.3214668662430925
+    },
+    {
+      "seed": 23,
+      "phase": 5,
+      "mode": "flow",
+      "match": 0.16666666666666666,
+      "brier": 0.23797517342533825
+    },
+    {
+      "seed": 23,
+      "phase": 5,
+      "mode": "hebb",
+      "match": 0.16666666666666666,
+      "brier": 0.23368968846746208
+    },
+    {
+      "seed": 23,
+      "phase": 6,
+      "mode": "flow",
+      "match": 0.16666666666666666,
+      "brier": 0.1773899369603736
+    },
+    {
+      "seed": 23,
+      "phase": 6,
+      "mode": "hebb",
+      "match": 0.6666666666666666,
+      "brier": 0.22039552235470983
+    },
+    {
+      "seed": 23,
+      "phase": 7,
+      "mode": "flow",
+      "match": 0.5,
+      "brier": 0.41041339303435176
+    },
+    {
+      "seed": 23,
+      "phase": 7,
+      "mode": "hebb",
+      "match": 0.5,
+      "brier": 0.31888504962998176
+    },
+    {
+      "seed": 23,
+      "phase": 8,
+      "mode": "flow",
+      "match": 0.16666666666666666,
+      "brier": 0.354763127060684
+    },
+    {
+      "seed": 23,
+      "phase": 8,
+      "mode": "hebb",
+      "match": 0.0,
+      "brier": 0.29884173521648605
+    },
+    {
+      "seed": 23,
+      "phase": 9,
+      "mode": "flow",
+      "match": 0.3333333333333333,
+      "brier": 0.18560664522995607
+    },
+    {
+      "seed": 23,
+      "phase": 9,
+      "mode": "hebb",
+      "match": 0.3333333333333333,
+      "brier": 0.19534544926886183
+    },
+    {
+      "seed": 24,
+      "phase": 1,
+      "mode": "flow",
+      "match": 0.0,
+      "brier": 0.25486801935763465
+    },
+    {
+      "seed": 24,
+      "phase": 1,
+      "mode": "hebb",
+      "match": 0.0,
+      "brier": 0.29244007939813815
+    },
+    {
+      "seed": 24,
+      "phase": 2,
+      "mode": "flow",
+      "match": 0.0,
+      "brier": 0.2903249704558642
+    },
+    {
+      "seed": 24,
+      "phase": 2,
+      "mode": "hebb",
+      "match": 0.0,
+      "brier": 0.22654464969104207
+    },
+    {
+      "seed": 24,
+      "phase": 3,
+      "mode": "flow",
+      "match": 0.16666666666666666,
+      "brier": 0.2716897219904507
+    },
+    {
+      "seed": 24,
+      "phase": 3,
+      "mode": "hebb",
+      "match": 0.3333333333333333,
+      "brier": 0.2789801141295838
+    },
+    {
+      "seed": 24,
+      "phase": 4,
+      "mode": "flow",
+      "match": 0.0,
+      "brier": 0.2278798634413102
+    },
+    {
+      "seed": 24,
+      "phase": 4,
+      "mode": "hebb",
+      "match": 0.0,
+      "brier": 0.2219587752366646
+    },
+    {
+      "seed": 24,
+      "phase": 5,
+      "mode": "flow",
+      "match": 0.3333333333333333,
+      "brier": 0.23005974188635933
+    },
+    {
+      "seed": 24,
+      "phase": 5,
+      "mode": "hebb",
+      "match": 0.5,
+      "brier": 0.23954954274264195
+    },
+    {
+      "seed": 24,
+      "phase": 6,
+      "mode": "flow",
+      "match": 0.16666666666666666,
+      "brier": 0.22688139644948205
+    },
+    {
+      "seed": 24,
+      "phase": 6,
+      "mode": "hebb",
+      "match": 0.16666666666666666,
+      "brier": 0.2243896190220894
+    },
+    {
+      "seed": 24,
+      "phase": 7,
+      "mode": "flow",
+      "match": 0.0,
+      "brier": 0.3369678134665008
+    },
+    {
+      "seed": 24,
+      "phase": 7,
+      "mode": "hebb",
+      "match": 0.0,
+      "brier": 0.29371148716269885
+    },
+    {
+      "seed": 24,
+      "phase": 8,
+      "mode": "flow",
+      "match": 0.0,
+      "brier": 0.21895488070935798
+    },
+    {
+      "seed": 24,
+      "phase": 8,
+      "mode": "hebb",
+      "match": 0.0,
+      "brier": 0.22002086535189064
+    },
+    {
+      "seed": 24,
+      "phase": 9,
+      "mode": "flow",
+      "match": 0.3333333333333333,
+      "brier": 0.3241723200766832
+    },
+    {
+      "seed": 24,
+      "phase": 9,
+      "mode": "hebb",
+      "match": 0.5,
+      "brier": 0.3021562682945066
+    },
+    {
+      "seed": 25,
+      "phase": 1,
+      "mode": "flow",
+      "match": 0.0,
+      "brier": 0.2308499097686838
+    },
+    {
+      "seed": 25,
+      "phase": 1,
+      "mode": "hebb",
+      "match": 0.0,
+      "brier": 0.23287847586973165
+    },
+    {
+      "seed": 25,
+      "phase": 2,
+      "mode": "flow",
+      "match": 0.16666666666666666,
+      "brier": 0.3144587138761232
+    },
+    {
+      "seed": 25,
+      "phase": 2,
+      "mode": "hebb",
+      "match": 0.0,
+      "brier": 0.25051440554053844
+    },
+    {
+      "seed": 25,
+      "phase": 3,
+      "mode": "flow",
+      "match": 0.0,
+      "brier": 0.2788931089997739
+    },
+    {
+      "seed": 25,
+      "phase": 3,
+      "mode": "hebb",
+      "match": 0.0,
+      "brier": 0.24075818459569595
+    },
+    {
+      "seed": 25,
+      "phase": 4,
+      "mode": "flow",
+      "match": 0.16666666666666666,
+      "brier": 0.1833751668571044
+    },
+    {
+      "seed": 25,
+      "phase": 4,
+      "mode": "hebb",
+      "match": 0.16666666666666666,
+      "brier": 0.21684252553459046
+    },
+    {
+      "seed": 25,
+      "phase": 5,
+      "mode": "flow",
+      "match": 0.16666666666666666,
+      "brier": 0.12238068801227353
+    },
+    {
+      "seed": 25,
+      "phase": 5,
+      "mode": "hebb",
+      "match": 0.0,
+      "brier": 0.21102714301228756
+    },
+    {
+      "seed": 25,
+      "phase": 6,
+      "mode": "flow",
+      "match": 0.0,
+      "brier": 0.2544573153440546
+    },
+    {
+      "seed": 25,
+      "phase": 6,
+      "mode": "hebb",
+      "match": 0.0,
+      "brier": 0.22362282210158446
+    },
+    {
+      "seed": 25,
+      "phase": 7,
+      "mode": "flow",
+      "match": 0.16666666666666666,
+      "brier": 0.17648254837291552
+    },
+    {
+      "seed": 25,
+      "phase": 7,
+      "mode": "hebb",
+      "match": 0.0,
+      "brier": 0.2223436399861536
+    },
+    {
+      "seed": 25,
+      "phase": 8,
+      "mode": "flow",
+      "match": 0.0,
+      "brier": 0.30502305293465326
+    },
+    {
+      "seed": 25,
+      "phase": 8,
+      "mode": "hebb",
+      "match": 0.0,
+      "brier": 0.2721949112802047
+    },
+    {
+      "seed": 25,
+      "phase": 9,
+      "mode": "flow",
+      "match": 0.16666666666666666,
+      "brier": 0.2177852632566103
+    },
+    {
+      "seed": 25,
+      "phase": 9,
+      "mode": "hebb",
+      "match": 0.3333333333333333,
+      "brier": 0.20753797263326618
+    },
+    {
+      "seed": 26,
+      "phase": 1,
+      "mode": "flow",
+      "match": 0.0,
+      "brier": 0.34163723854325356
+    },
+    {
+      "seed": 26,
+      "phase": 1,
+      "mode": "hebb",
+      "match": 0.0,
+      "brier": 0.30278283497367164
+    },
+    {
+      "seed": 26,
+      "phase": 2,
+      "mode": "flow",
+      "match": 0.16666666666666666,
+      "brier": 0.29576538743754033
+    },
+    {
+      "seed": 26,
+      "phase": 2,
+      "mode": "hebb",
+      "match": 0.16666666666666666,
+      "brier": 0.26676988937199475
+    },
+    {
+      "seed": 26,
+      "phase": 3,
+      "mode": "flow",
+      "match": 0.5,
+      "brier": 0.38457685859433327
+    },
+    {
+      "seed": 26,
+      "phase": 3,
+      "mode": "hebb",
+      "match": 0.5,
+      "brier": 0.2687368087860447
+    },
+    {
+      "seed": 26,
+      "phase": 4,
+      "mode": "flow",
+      "match": 0.0,
+      "brier": 0.19244920707798469
+    },
+    {
+      "seed": 26,
+      "phase": 4,
+      "mode": "hebb",
+      "match": 0.0,
+      "brier": 0.26333847722134157
+    },
+    {
+      "seed": 26,
+      "phase": 5,
+      "mode": "flow",
+      "match": 0.3333333333333333,
+      "brier": 0.1526260372039892
+    },
+    {
+      "seed": 26,
+      "phase": 5,
+      "mode": "hebb",
+      "match": 0.3333333333333333,
+      "brier": 0.1830152448179102
+    },
+    {
+      "seed": 26,
+      "phase": 6,
+      "mode": "flow",
+      "match": 0.6666666666666666,
+      "brier": 0.22714136761974163
+    },
+    {
+      "seed": 26,
+      "phase": 6,
+      "mode": "hebb",
+      "match": 0.5,
+      "brier": 0.20919282964249636
+    },
+    {
+      "seed": 26,
+      "phase": 7,
+      "mode": "flow",
+      "match": 0.0,
+      "brier": 0.3766426322341267
+    },
+    {
+      "seed": 26,
+      "phase": 7,
+      "mode": "hebb",
+      "match": 0.0,
+      "brier": 0.3345259061688399
+    },
+    {
+      "seed": 26,
+      "phase": 8,
+      "mode": "flow",
+      "match": 0.0,
+      "brier": 0.3358684240769626
+    },
+    {
+      "seed": 26,
+      "phase": 8,
+      "mode": "hebb",
+      "match": 0.0,
+      "brier": 0.23630972686259893
+    },
+    {
+      "seed": 26,
+      "phase": 9,
+      "mode": "flow",
+      "match": 0.5,
+      "brier": 0.2164478217260296
+    },
+    {
+      "seed": 26,
+      "phase": 9,
+      "mode": "hebb",
+      "match": 0.3333333333333333,
+      "brier": 0.2270433960069813
+    },
+    {
+      "seed": 27,
+      "phase": 1,
+      "mode": "flow",
+      "match": 0.16666666666666666,
+      "brier": 0.368736785074311
+    },
+    {
+      "seed": 27,
+      "phase": 1,
+      "mode": "hebb",
+      "match": 0.16666666666666666,
+      "brier": 0.2950676693218467
+    },
+    {
+      "seed": 27,
+      "phase": 2,
+      "mode": "flow",
+      "match": 0.16666666666666666,
+      "brier": 0.22439404937085944
+    },
+    {
+      "seed": 27,
+      "phase": 2,
+      "mode": "hebb",
+      "match": 0.0,
+      "brier": 0.2352293163790712
+    },
+    {
+      "seed": 27,
+      "phase": 3,
+      "mode": "flow",
+      "match": 0.16666666666666666,
+      "brier": 0.19368531476809622
+    },
+    {
+      "seed": 27,
+      "phase": 3,
+      "mode": "hebb",
+      "match": 0.0,
+      "brier": 0.21993524481533347
+    },
+    {
+      "seed": 27,
+      "phase": 4,
+      "mode": "flow",
+      "match": 0.6666666666666666,
+      "brier": 0.23927168551935535
+    },
+    {
+      "seed": 27,
+      "phase": 4,
+      "mode": "hebb",
+      "match": 1.0,
+      "brier": 0.19471965607769778
+    },
+    {
+      "seed": 27,
+      "phase": 5,
+      "mode": "flow",
+      "match": 0.16666666666666666,
+      "brier": 0.3754309287472351
+    },
+    {
+      "seed": 27,
+      "phase": 5,
+      "mode": "hebb",
+      "match": 0.6666666666666666,
+      "brier": 0.304290315668735
+    },
+    {
+      "seed": 27,
+      "phase": 6,
+      "mode": "flow",
+      "match": 0.0,
+      "brier": 0.34729318973190737
+    },
+    {
+      "seed": 27,
+      "phase": 6,
+      "mode": "hebb",
+      "match": 0.0,
+      "brier": 0.352172799303371
+    },
+    {
+      "seed": 27,
+      "phase": 7,
+      "mode": "flow",
+      "match": 0.16666666666666666,
+      "brier": 0.3112919009447941
+    },
+    {
+      "seed": 27,
+      "phase": 7,
+      "mode": "hebb",
+      "match": 0.16666666666666666,
+      "brier": 0.26184129669880796
+    },
+    {
+      "seed": 27,
+      "phase": 8,
+      "mode": "flow",
+      "match": 0.0,
+      "brier": 0.2559808791390286
+    },
+    {
+      "seed": 27,
+      "phase": 8,
+      "mode": "hebb",
+      "match": 0.0,
+      "brier": 0.2449288354891396
+    },
+    {
+      "seed": 27,
+      "phase": 9,
+      "mode": "flow",
+      "match": 0.16666666666666666,
+      "brier": 0.3098785037341025
+    },
+    {
+      "seed": 27,
+      "phase": 9,
+      "mode": "hebb",
+      "match": 0.0,
+      "brier": 0.26764459868120327
+    },
+    {
+      "seed": 28,
+      "phase": 1,
+      "mode": "flow",
+      "match": 0.16666666666666666,
+      "brier": 0.4159726775796552
+    },
+    {
+      "seed": 28,
+      "phase": 1,
+      "mode": "hebb",
+      "match": 0.16666666666666666,
+      "brier": 0.34773294260702925
+    },
+    {
+      "seed": 28,
+      "phase": 2,
+      "mode": "flow",
+      "match": 0.16666666666666666,
+      "brier": 0.18529822130174306
+    },
+    {
+      "seed": 28,
+      "phase": 2,
+      "mode": "hebb",
+      "match": 0.16666666666666666,
+      "brier": 0.24129144654092338
+    },
+    {
+      "seed": 28,
+      "phase": 3,
+      "mode": "flow",
+      "match": 0.16666666666666666,
+      "brier": 0.22898064328332676
+    },
+    {
+      "seed": 28,
+      "phase": 3,
+      "mode": "hebb",
+      "match": 0.0,
+      "brier": 0.2296032259852545
+    },
+    {
+      "seed": 28,
+      "phase": 4,
+      "mode": "flow",
+      "match": 0.0,
+      "brier": 0.2531256499213504
+    },
+    {
+      "seed": 28,
+      "phase": 4,
+      "mode": "hebb",
+      "match": 0.0,
+      "brier": 0.23807326361835549
+    },
+    {
+      "seed": 28,
+      "phase": 5,
+      "mode": "flow",
+      "match": 0.16666666666666666,
+      "brier": 0.2364387779002961
+    },
+    {
+      "seed": 28,
+      "phase": 5,
+      "mode": "hebb",
+      "match": 0.0,
+      "brier": 0.21305805129577926
+    },
+    {
+      "seed": 28,
+      "phase": 6,
+      "mode": "flow",
+      "match": 0.3333333333333333,
+      "brier": 0.14643472104227273
+    },
+    {
+      "seed": 28,
+      "phase": 6,
+      "mode": "hebb",
+      "match": 0.3333333333333333,
+      "brier": 0.20086576855071678
+    },
+    {
+      "seed": 28,
+      "phase": 7,
+      "mode": "flow",
+      "match": 0.5,
+      "brier": 0.34308388574893384
+    },
+    {
+      "seed": 28,
+      "phase": 7,
+      "mode": "hebb",
+      "match": 0.5,
+      "brier": 0.34777950188231227
+    },
+    {
+      "seed": 28,
+      "phase": 8,
+      "mode": "flow",
+      "match": 0.0,
+      "brier": 0.2685035134616295
+    },
+    {
+      "seed": 28,
+      "phase": 8,
+      "mode": "hebb",
+      "match": 0.16666666666666666,
+      "brier": 0.28147836311057695
+    },
+    {
+      "seed": 28,
+      "phase": 9,
+      "mode": "flow",
+      "match": 0.16666666666666666,
+      "brier": 0.2695475072843773
+    },
+    {
+      "seed": 28,
+      "phase": 9,
+      "mode": "hebb",
+      "match": 0.16666666666666666,
+      "brier": 0.22240348921592995
+    },
+    {
+      "seed": 29,
+      "phase": 1,
+      "mode": "flow",
+      "match": 0.3333333333333333,
+      "brier": 0.26038380882584
+    },
+    {
+      "seed": 29,
+      "phase": 1,
+      "mode": "hebb",
+      "match": 0.5,
+      "brier": 0.2582022804514328
+    },
+    {
+      "seed": 29,
+      "phase": 2,
+      "mode": "flow",
+      "match": 0.0,
+      "brier": 0.30812044955355844
+    },
+    {
+      "seed": 29,
+      "phase": 2,
+      "mode": "hebb",
+      "match": 0.5,
+      "brier": 0.26287224939806647
+    },
+    {
+      "seed": 29,
+      "phase": 3,
+      "mode": "flow",
+      "match": 0.0,
+      "brier": 0.38631906537839705
+    },
+    {
+      "seed": 29,
+      "phase": 3,
+      "mode": "hebb",
+      "match": 0.0,
+      "brier": 0.3350651372916031
+    },
+    {
+      "seed": 29,
+      "phase": 4,
+      "mode": "flow",
+      "match": 0.0,
+      "brier": 0.23554747991762875
+    },
+    {
+      "seed": 29,
+      "phase": 4,
+      "mode": "hebb",
+      "match": 0.0,
+      "brier": 0.2524650446472301
+    },
+    {
+      "seed": 29,
+      "phase": 5,
+      "mode": "flow",
+      "match": 0.6666666666666666,
+      "brier": 0.2433065854382818
+    },
+    {
+      "seed": 29,
+      "phase": 5,
+      "mode": "hebb",
+      "match": 0.5,
+      "brier": 0.2601634108945882
+    },
+    {
+      "seed": 29,
+      "phase": 6,
+      "mode": "flow",
+      "match": 0.0,
+      "brier": 0.38525188745149735
+    },
+    {
+      "seed": 29,
+      "phase": 6,
+      "mode": "hebb",
+      "match": 0.0,
+      "brier": 0.33812347393405645
+    },
+    {
+      "seed": 29,
+      "phase": 7,
+      "mode": "flow",
+      "match": 0.0,
+      "brier": 0.30969314747547155
+    },
+    {
+      "seed": 29,
+      "phase": 7,
+      "mode": "hebb",
+      "match": 0.0,
+      "brier": 0.2981870144167168
+    },
+    {
+      "seed": 29,
+      "phase": 8,
+      "mode": "flow",
+      "match": 0.16666666666666666,
+      "brier": 0.3275832751872171
+    },
+    {
+      "seed": 29,
+      "phase": 8,
+      "mode": "hebb",
+      "match": 0.16666666666666666,
+      "brier": 0.3102577069811814
+    },
+    {
+      "seed": 29,
+      "phase": 9,
+      "mode": "flow",
+      "match": 0.0,
+      "brier": 0.3438385821600009
+    },
+    {
+      "seed": 29,
+      "phase": 9,
+      "mode": "hebb",
+      "match": 0.0,
+      "brier": 0.35300810523652437
+    }
+  ]
+}

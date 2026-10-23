@@ -1,0 +1,20 @@
+{
+  "protocol": {
+    "seeds": 30,
+    "sources": 8,
+    "segment_length": 80,
+    "noise": 0.15
+  },
+  "summary": {
+    "flow": {
+      "match": 0.6930555555555555,
+      "brier": 0.19425807122531913
+    },
+    "hebb": {
+      "match": 0.6611111111111111,
+      "brier": 0.19461811123422396
+    },
+    "flow_minus_hebb_match": 0.03194444444444444,
+    "flow_minus_hebb_brier": -0.00036004000890482724
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "candidate": "candidates/reversible_surprise/principle.py",
+  "seeds": 40,
+  "A_phase_steps": 500,
+  "B_gaps": [
+    100,
+    500,
+    1500
+  ],
+  "return_window_steps": 80,
+  "target_relation": "source -> output channel 1, then source -> channel 2, then channel 1",
+  "results": {
+    "100": {
+      "target_first_mse": 0.21510847404788117,
+      "target_return_mse": 0.22095251063603227,
+      "null_first_mse": 0.22916346159622802,
+      "null_return_mse": 0.22131055299857913,
+      "paired_target_minus_null_gain": -0.013696945185799997,
+      "positive_seed_fraction": 0.4
+    },
+    "500": {
+      "target_first_mse": 0.21510847404788117,
+      "target_return_mse": 0.221594465805316,
+      "null_first_mse": 0.22916346159622802,
+      "null_return_mse": 0.23087090185798118,
+      "paired_target_minus_null_gain": -0.0047785514956816735,
+      "positive_seed_fraction": 0.5
+    },
+    "1500": {
+      "target_first_mse": 0.21510847404788117,
+      "target_return_mse": 0.22409521086913078,
+      "null_first_mse": 0.22916346159622802,
+      "null_return_mse": 0.22557871024476167,
+      "paired_target_minus_null_gain": -0.012571488172715962,
+      "positive_seed_fraction": 0.4
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "paired_worlds": 40,
+  "late_preferred_action_share": {
+    "learned": 1.0,
+    "frozen": 0.5,
+    "random": 0.5037499999999999
+  },
+  "learned_minus_frozen": 0.5,
+  "learned_minus_random": 0.4962500000000001
+}

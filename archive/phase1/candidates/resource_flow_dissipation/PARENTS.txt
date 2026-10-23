@@ -1,0 +1,10 @@
+Parents:
+- candidates/resource_flow_memory/principle.py
+- candidates/resource_flow_weighted_return/principle.py
+
+Mutation/crossover:
+The returned predictive flow still updates both signed evidence and relation
+resource. Unlike the parents' fixed or uniform retention, each resource
+denominator includes the same squared prediction loss that generated the
+flow. Accurate processes therefore retain resource, while inaccurate ones
+dissipate it and relinquish selection without a separate pruning rule.

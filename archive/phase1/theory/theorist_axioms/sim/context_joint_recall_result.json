@@ -1,0 +1,16 @@
+{
+  "candidate": "candidates/context_joint_recall/principle.py",
+  "seeds": 40,
+  "phase_steps": 500,
+  "target": {
+    "first_error": 0.06063784036044683,
+    "return_error": 0.06864039076124953,
+    "return_minus_first": 0.008002550400802704,
+    "faster_fraction": 0.4
+  },
+  "null": {
+    "first_error": 0.22263611687969465,
+    "return_error": 0.22721319553858588
+  },
+  "paired_gain_vs_null": -0.003425471741911477
+}

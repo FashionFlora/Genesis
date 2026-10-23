@@ -1,0 +1,8 @@
+{
+  "seeds": 40,
+  "phase_steps": 500,
+  "exchanges_per_target_seed": 21226.8,
+  "exchanges_per_null_seed": 21459.5,
+  "exchanges_per_target_step": 14.1512,
+  "exchanges_per_null_step": 14.306333333333333
+}

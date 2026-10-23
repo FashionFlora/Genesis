@@ -1,0 +1,93 @@
+{
+  "candidate": "return_budget_growth",
+  "runs": [
+    {
+      "width": 8,
+      "pairs": 4,
+      "phases": [
+        {
+          "phase": "rich",
+          "brier": 0.17685424337788097,
+          "mean_connections": 64.0,
+          "units": 8,
+          "connections": 63,
+          "memory_bytes": 2584
+        },
+        {
+          "phase": "simple",
+          "brier": 0.22638350904359156,
+          "mean_connections": 64.0,
+          "units": 8,
+          "connections": 64,
+          "memory_bytes": 2624
+        }
+      ]
+    },
+    {
+      "width": 16,
+      "pairs": 8,
+      "phases": [
+        {
+          "phase": "rich",
+          "brier": 0.18172527422482648,
+          "mean_connections": 255.6875,
+          "units": 16,
+          "connections": 256,
+          "memory_bytes": 10368
+        },
+        {
+          "phase": "simple",
+          "brier": 0.22423559947006644,
+          "mean_connections": 255.78125,
+          "units": 16,
+          "connections": 256,
+          "memory_bytes": 10368
+        }
+      ]
+    },
+    {
+      "width": 32,
+      "pairs": 16,
+      "phases": [
+        {
+          "phase": "rich",
+          "brier": 0.19362864206364863,
+          "mean_connections": 1023.3125,
+          "units": 32,
+          "connections": 1023,
+          "memory_bytes": 41176
+        },
+        {
+          "phase": "simple",
+          "brier": 0.22350471031925764,
+          "mean_connections": 1022.9375,
+          "units": 32,
+          "connections": 1023,
+          "memory_bytes": 41176
+        }
+      ]
+    },
+    {
+      "width": 64,
+      "pairs": 32,
+      "phases": [
+        {
+          "phase": "rich",
+          "brier": 0.2026141706018955,
+          "mean_connections": 4091.5,
+          "units": 64,
+          "connections": 4087,
+          "memory_bytes": 163992
+        },
+        {
+          "phase": "simple",
+          "brier": 0.2228468838205649,
+          "mean_connections": 4091.5,
+          "units": 64,
+          "connections": 4093,
+          "memory_bytes": 164232
+        }
+      ]
+    }
+  ]
+}

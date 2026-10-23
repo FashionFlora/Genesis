@@ -1,0 +1,14 @@
+{
+  "candidate": "candidates/contextual_predictive_equivalence/principle.py",
+  "seeds": 40,
+  "phase_steps": 500,
+  "target": {
+    "first_error": 0.2524554561277396,
+    "return_error": 0.2507787477150099,
+    "return_minus_first": -0.0016767084127297272,
+    "faster_fraction": 0.575
+  },
+  "null": {
+    "mean_error": 0.24862608955317037
+  }
+}

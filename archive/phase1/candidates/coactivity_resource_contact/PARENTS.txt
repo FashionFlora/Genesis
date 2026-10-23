@@ -1,0 +1,7 @@
+Parents: candidates/coactivity_support/ and candidates/resource_flow_contact/.
+Mutation: preserve coactivity's conditional-bit predictors and contrast-based
+edge selection, while resource mass now receives a normalized share of each
+target's fixed flow according to prediction error. Depleted edges disappear;
+mass-funded fission produces a contact-labelled edge from the current active
+sensory channels. This couples conditional evidence, persistence, and edge
+variation to the same local flow.

@@ -1,0 +1,87 @@
+{
+  "candidate": "adaptive_contact_flux",
+  "replication": "independent_seed",
+  "seed": 1931,
+  "runs": [
+    {
+      "width": 8,
+      "active_relations": 4,
+      "phases": [
+        {
+          "phase": "rich",
+          "mean_brier": 0.13209392403506193,
+          "mean_connections": 4.0,
+          "end_connections": 4,
+          "memory_bytes": 8512
+        },
+        {
+          "phase": "simple",
+          "mean_brier": 0.2518713876351338,
+          "mean_connections": 0.21875,
+          "end_connections": 0,
+          "memory_bytes": 8192
+        }
+      ]
+    },
+    {
+      "width": 16,
+      "active_relations": 8,
+      "phases": [
+        {
+          "phase": "rich",
+          "mean_brier": 0.13218077750508794,
+          "mean_connections": 8.0,
+          "end_connections": 8,
+          "memory_bytes": 17024
+        },
+        {
+          "phase": "simple",
+          "mean_brier": 0.24956223925484022,
+          "mean_connections": 0.0,
+          "end_connections": 0,
+          "memory_bytes": 16384
+        }
+      ]
+    },
+    {
+      "width": 32,
+      "active_relations": 16,
+      "phases": [
+        {
+          "phase": "rich",
+          "mean_brier": 0.13217235509228772,
+          "mean_connections": 16.0,
+          "end_connections": 16,
+          "memory_bytes": 34048
+        },
+        {
+          "phase": "simple",
+          "mean_brier": 0.24986722402142555,
+          "mean_connections": 0.0,
+          "end_connections": 0,
+          "memory_bytes": 32768
+        }
+      ]
+    },
+    {
+      "width": 64,
+      "active_relations": 32,
+      "phases": [
+        {
+          "phase": "rich",
+          "mean_brier": 0.13227948041954657,
+          "mean_connections": 32.0,
+          "end_connections": 32,
+          "memory_bytes": 68096
+        },
+        {
+          "phase": "simple",
+          "mean_brier": 0.24928857375977861,
+          "mean_connections": 0.0,
+          "end_connections": 0,
+          "memory_bytes": 65536
+        }
+      ]
+    }
+  ]
+}

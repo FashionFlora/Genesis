@@ -1,0 +1,22 @@
+{
+  "worlds": 400,
+  "horizon": 80,
+  "metric": "late target-action choice share",
+  "results": {
+    "0.0": {
+      "reliable_return": 1.0,
+      "matched_random": 0.3390625,
+      "advantage": 0.6609375
+    },
+    "0.35": {
+      "reliable_return": 0.9997499999999999,
+      "matched_random": 0.3390625,
+      "advantage": 0.6606874999999999
+    },
+    "0.8": {
+      "reliable_return": 0.999375,
+      "matched_random": 0.3390625,
+      "advantage": 0.6603125000000001
+    }
+  }
+}

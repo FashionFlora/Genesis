@@ -1,0 +1,114 @@
+{
+  "interpretation": "Nominal prediction equality checks implementation equivalence; timings and deep state sizes are local diagnostics, not judge scores.",
+  "protocol": "120 deterministic Bernoulli observations per width; both candidates receive identical inputs",
+  "widths": [
+    {
+      "candidates": {
+        "coactivity_support": {
+          "deep_python_state_bytes": 22788,
+          "elapsed_seconds": 0.0022775300312787294,
+          "final_structure": {
+            "connections": 2,
+            "memory_bytes": 1024,
+            "units": 8
+          },
+          "reported_memory_bytes": 1024
+        },
+        "coactivity_support_clean": {
+          "deep_python_state_bytes": 22788,
+          "elapsed_seconds": 0.0029518960509449244,
+          "final_structure": {
+            "connections": 2,
+            "memory_bytes": 512,
+            "units": 8
+          },
+          "reported_memory_bytes": 512
+        }
+      },
+      "prediction_mismatch_steps": 0,
+      "steps": 120,
+      "width": 8
+    },
+    {
+      "candidates": {
+        "coactivity_support": {
+          "deep_python_state_bytes": 87876,
+          "elapsed_seconds": 0.00803964794613421,
+          "final_structure": {
+            "connections": 5,
+            "memory_bytes": 4096,
+            "units": 16
+          },
+          "reported_memory_bytes": 4096
+        },
+        "coactivity_support_clean": {
+          "deep_python_state_bytes": 87876,
+          "elapsed_seconds": 0.01095071085728705,
+          "final_structure": {
+            "connections": 5,
+            "memory_bytes": 2048,
+            "units": 16
+          },
+          "reported_memory_bytes": 2048
+        }
+      },
+      "prediction_mismatch_steps": 0,
+      "steps": 120,
+      "width": 16
+    },
+    {
+      "candidates": {
+        "coactivity_support": {
+          "deep_python_state_bytes": 347076,
+          "elapsed_seconds": 0.030070360051468015,
+          "final_structure": {
+            "connections": 8,
+            "memory_bytes": 16384,
+            "units": 32
+          },
+          "reported_memory_bytes": 16384
+        },
+        "coactivity_support_clean": {
+          "deep_python_state_bytes": 347076,
+          "elapsed_seconds": 0.040558320004493,
+          "final_structure": {
+            "connections": 8,
+            "memory_bytes": 8192,
+            "units": 32
+          },
+          "reported_memory_bytes": 8192
+        }
+      },
+      "prediction_mismatch_steps": 0,
+      "steps": 120,
+      "width": 32
+    },
+    {
+      "candidates": {
+        "coactivity_support": {
+          "deep_python_state_bytes": 1381572,
+          "elapsed_seconds": 0.1257682777941227,
+          "final_structure": {
+            "connections": 10,
+            "memory_bytes": 65536,
+            "units": 64
+          },
+          "reported_memory_bytes": 65536
+        },
+        "coactivity_support_clean": {
+          "deep_python_state_bytes": 1381572,
+          "elapsed_seconds": 0.16552707296796143,
+          "final_structure": {
+            "connections": 10,
+            "memory_bytes": 32768,
+            "units": 64
+          },
+          "reported_memory_bytes": 32768
+        }
+      },
+      "prediction_mismatch_steps": 0,
+      "steps": 120,
+      "width": 64
+    }
+  ]
+}

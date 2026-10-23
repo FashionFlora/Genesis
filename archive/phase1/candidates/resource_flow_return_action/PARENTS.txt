@@ -1,0 +1,8 @@
+Parent: candidates/resource_flow_memory/principle.py
+
+Mutation: the same returned sensory flow that retains a relation also retains
+the last intervention. Contact only gates impossible moves; no reward, apple,
+snake length, or separate action heuristic is read.
+
+This is a maturity test for deriving act from resource flow. The returned flow
+is the normalized change in the complete observation after the last action.

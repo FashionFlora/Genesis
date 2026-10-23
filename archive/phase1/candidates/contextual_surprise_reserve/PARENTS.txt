@@ -1,0 +1,11 @@
+Parents:
+- candidates/contextual_predictive_exchange/principle.py
+- candidates/resource_surprise_flow/principle.py
+
+Mutation/crossover:
+Keep context-addressed dormant traces so recurring sensory contexts can
+retrieve their own predictive history. Replace separate count/error memory
+with the parent's single signed source-target support, whose retention reserve
+is reduced by the target's prediction surprise. This tests whether one local
+evidence flow can both preserve context memory and govern how quickly it
+changes, without adding a regime label or reward.

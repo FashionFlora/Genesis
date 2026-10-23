@@ -1,0 +1,13 @@
+{
+  "candidate": "candidates/contextual_predictive_exchange/principle.py",
+  "seeds": 40,
+  "phase_steps": 500,
+  "recall": {
+    "first_error": 0.2753326746769738,
+    "first_late_error": 0.25397636326277256,
+    "return_error": 0.2531367557239225,
+    "return_minus_first": -0.022195918953051313,
+    "faster_fraction": 0.975
+  },
+  "null_mean_error": 0.255567482785575
+}

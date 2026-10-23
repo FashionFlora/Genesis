@@ -1,0 +1,32 @@
+Jesteś budowniczym sędziego Genesis (tylko Ty zmieniasz sandbox/). Przeczytaj AGENTS.md, sandbox/README.md, sandbox/judge.py
+(tylko potrzebne fragmenty: rg/sed) i ostatnie wpisy sandbox/leaderboard.jsonl.
+
+Problem: sędzia mierzy, jak dobry kandydat jest TERAZ, a nie czy może dojrzeć. Nowa, elegancka, ale na starcie słabsza
+idea odpada na progu szczebla (np. 26.2 na L1) i jest porzucana, zanim dojrzeje. Ranking wygrywa w kółko jedna rodzina
+(coactivity) i jej drobne ulepszenia. Przykład: candidates/contact_frontier_growth ma prawdziwy liniowy wzrost połączeń
+(8/16/32/64 kanałów: 4.6/9.2/18.3/36.6), a dostaje 9 pkt i wygląda na porażkę.
+
+Dodaj do sędziego "żłobek" (ochrona nowych gatunków, jak speciation w NEAT). Końcowe kryteria i obecne progi drabiny
+zostają bez zmian; to dodatkowa ocena, nie poluzowanie:
+1. Rodzina nowa = nie clone_of, nie parameter_variant_of i niezdyskwalifikowana. Dla każdej rodziny licz jej własną
+   historię wpisów. Pole `nursery` w wpisie: postęp rodziny względem jej PIERWSZEJ wersji (nie względem lidera),
+   numer wersji w rodzinie.
+2. Potencjał zamiast poziomu: zmierz nachylenie wyniku z rozmiarem świata (istniejący test skalowania 8/16/32/64) i z
+   długością przebiegu (istniejący tor --long albo krótszy wariant, żeby koszt był rozsądny). Pole `potential`
+   (np. slope_size, slope_time). Kandydat słaby na starcie, ale rosnący z czasem lub rozmiarem, ma być widoczny.
+3. Zjawiska: krótki, ogólny profil, czy z kandydata (bez wiedzy o formacie świata) wynikają: wzrost struktury,
+   przycinanie, pamięć po powrocie reżimu, działanie (jeśli ma act), koszt pamięci względem n (podkwadratowy?).
+   Pole `phenomena` z liczbami, nie tylko tak/nie. Używaj istniejących pomiarów sędziego, gdzie się da.
+4. Osobny widok rankingu "żłobka": najlepsze rodziny wg potencjału i postępu, nie wg wyniku. Np.
+   `.venv/bin/python sandbox/judge.py --nursery` drukuje krótką tabelę. Przelicz dla istniejących rodzin, jeśli koszt
+   jest rozsądny (inaczej tylko dla nowych wpisów i ostatnich ~15 rodzin).
+5. Odporność na nadużycia: żłobek nie daje awansu na kolejne szczeble ani nie zmienia `score`. Kandydat w żłobku nadal
+   podlega karze AST, testowi PARAMS, wykrywaniu klonów i formatu. Udokumentuj w sandbox/README.md (krótko).
+
+Agenci wywołują sędziego równolegle przez cały czas: nie psuj działającego kontraktu, nie zmieniaj nazw istniejących
+pól, rób zmiany wstecznie zgodne, przetestuj na 2–3 istniejących kandydatach (w tym contact_frontier_growth i jednym z
+rodziny coactivity) zanim skończysz. Zasoby: nice -n 15, max ~6 GB RAM i 3 rdzenie.
+
+Na koniec ogłoś na tablicy krótko: `python3 shared/board.py post sedzia all "..."` — co dodałeś, jak wywołać widok
+żłobka, i top 3 rodziny wg potencjału z liczbami. Odkrywcom napisz, że rodzina nowa i niebędąca klonem jest chroniona:
+liczy się jej postęp względem pierwszej wersji i nachylenie, a nie odległość od lidera.

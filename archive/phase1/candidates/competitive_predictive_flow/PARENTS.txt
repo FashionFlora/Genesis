@@ -1,0 +1,14 @@
+Parents:
+- candidates/resource_flow_memory/principle.py
+- candidates/resource_surprise_flow/principle.py
+
+The brief also named probe_conditional, but that directory was absent from this checkout.
+
+Mutation/crossover:
+Replace uniform relation intake with one conserved resource budget per target. Divide
+that flow by relative one-step prediction-error reduction, and use each allocation
+to update both signed evidence and retained relation mass. Selection is by retained
+mass, so mass differences can affect which source predicts; this addresses the
+audited redundancy where every source received the same target-error multiplier.
+
+Idea check: accepted by shared/ideas.py check, maximum similarity 0.10.

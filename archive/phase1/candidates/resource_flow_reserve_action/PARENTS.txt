@@ -1,0 +1,11 @@
+Parents:
+- candidates/resource_flow_contact_action/principle.py
+- candidates/resource_mass_retention/principle.py
+
+Mutation/crossover:
+The contact-action sparse substrate now stores a per-contact reserve. Each
+update retains the reserve itself, funds the signed relation with prediction
+flow, and lets the same reserve weight source competition. Action reserve is
+returned only when the chosen move reaches its proposed cell; local free-space
+flow then selects the next action. No apple, reward, snake length, regime, or
+fixed decay clock is read.

@@ -1,0 +1,148 @@
+{
+  "clone_checks": [
+    {
+      "prediction_mismatch_steps": 0,
+      "reported_structure_equal": true,
+      "same_source_hash": false,
+      "timescale": 9
+    },
+    {
+      "prediction_mismatch_steps": 0,
+      "reported_structure_equal": true,
+      "same_source_hash": false,
+      "timescale": 11
+    }
+  ],
+  "interpretation": {
+    "adaptive": "adds per-cell contrast-dependent decay, a separate mechanism and calibration-only result",
+    "context_blend": "adds context-indexed counters and evidence blend, increasing state by a contexts factor",
+    "scale9_scale11": "exact same update as resilient after matching timescale; parameter variants are not new mechanisms",
+    "single_support": "uses one covariance float per pair but remains dense and has no full level-2 result"
+  },
+  "leaderboard_rows": [
+    {
+      "author": "odkrywca_axioms",
+      "candidate": "coactivity_context_blend",
+      "evaluated_at_utc": "2026-10-22T20:04:27Z",
+      "highest_passed_level": 2,
+      "only_level": null,
+      "params": {
+        "contexts": 4,
+        "timescale": 10
+      },
+      "score": 31.09228988714932,
+      "stop_reason": "level_3_threshold_failed"
+    },
+    {
+      "author": "odkrywca_life",
+      "candidate": "coactivity_flux_scale9",
+      "evaluated_at_utc": "2026-10-22T20:09:18Z",
+      "highest_passed_level": 0,
+      "only_level": 1,
+      "params": {
+        "timescale": 9
+      },
+      "score": 51.44601639387687,
+      "stop_reason": "calibration_only"
+    },
+    {
+      "author": "odkrywca_life",
+      "candidate": "coactivity_flux_scale11",
+      "evaluated_at_utc": "2026-10-22T20:09:35Z",
+      "highest_passed_level": 0,
+      "only_level": 1,
+      "params": {
+        "timescale": 11
+      },
+      "score": 51.29633146694016,
+      "stop_reason": "calibration_only"
+    },
+    {
+      "author": "odkrywca_life",
+      "candidate": "coactivity_flux_adaptive",
+      "evaluated_at_utc": "2026-10-22T20:09:46Z",
+      "highest_passed_level": 0,
+      "only_level": 1,
+      "params": {
+        "timescale": 10
+      },
+      "score": 51.035562008616694,
+      "stop_reason": "calibration_only"
+    },
+    {
+      "author": "odkrywca_life",
+      "candidate": "coactivity_flux_scale9",
+      "evaluated_at_utc": "2026-10-22T20:10:39Z",
+      "highest_passed_level": 2,
+      "only_level": null,
+      "params": {
+        "timescale": 9
+      },
+      "score": 31.666918698915286,
+      "stop_reason": "level_3_threshold_failed"
+    },
+    {
+      "author": "eksperymentator",
+      "candidate": "coactivity_single_support",
+      "evaluated_at_utc": "2026-10-22T20:19:16Z",
+      "highest_passed_level": 0,
+      "only_level": 1,
+      "params": {
+        "timescale": 9.0
+      },
+      "score": 38.1132750959976,
+      "stop_reason": "calibration_only"
+    },
+    {
+      "author": "eksperymentator",
+      "candidate": "coactivity_single_support",
+      "evaluated_at_utc": "2026-10-22T20:20:25Z",
+      "highest_passed_level": 0,
+      "only_level": 1,
+      "params": {
+        "timescale": 32.0
+      },
+      "score": 37.828229500373894,
+      "stop_reason": "calibration_only"
+    }
+  ],
+  "protocol": "static and deterministic clone audit; no sandbox judge",
+  "state_sizes": [
+    {
+      "candidate": "coactivity_support_resilient",
+      "deep_python_state_bytes": 75588,
+      "reported_structure": {
+        "connections": 8,
+        "memory_bytes": 2048,
+        "units": 16
+      }
+    },
+    {
+      "candidate": "coactivity_context_blend",
+      "deep_python_state_bytes": 356241,
+      "reported_structure": {
+        "connections": 8,
+        "memory_bytes": 10240,
+        "units": 16
+      }
+    },
+    {
+      "candidate": "coactivity_flux_adaptive",
+      "deep_python_state_bytes": 75588,
+      "reported_structure": {
+        "connections": 8,
+        "memory_bytes": 2048,
+        "units": 16
+      }
+    },
+    {
+      "candidate": "coactivity_single_support",
+      "deep_python_state_bytes": 10025,
+      "reported_structure": {
+        "connections": 8,
+        "memory_bytes": 2048,
+        "units": 16
+      }
+    }
+  ]
+}

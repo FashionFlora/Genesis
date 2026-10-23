@@ -1,0 +1,10 @@
+Parents:
+- candidates/contact_lag_growth/principle.py
+- candidates/resource_flow_memory/principle.py
+
+Mutation: contact_lag_growth's sparse, demand-triggered topology now uses the
+resource_flow_memory idea that predictive return is the sole currency. A new
+edge is admitted only when its observed lag relation exceeds finite-sample
+uncertainty; its return above an uninformed predictor funds persistence, and
+the same deficit consumes the edge. This removes an independent fixed decay.
+The edge remains the sole internal unit for its target.

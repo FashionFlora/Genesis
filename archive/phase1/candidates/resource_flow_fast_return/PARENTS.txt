@@ -1,0 +1,6 @@
+Parents:
+- candidates/resource_flow_memory/principle.py
+- candidates/resource_surprise_flow/principle.py
+
+The same conserved returned resource funds evidence and persistence, with a
+shorter turnover so a relation can release stale support after a regime shift.

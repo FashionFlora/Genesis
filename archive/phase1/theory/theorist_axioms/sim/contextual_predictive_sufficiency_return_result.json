@@ -1,0 +1,8 @@
+{
+  "candidate": "candidates/contextual_predictive_sufficiency/principle.py",
+  "seeds": 12,
+  "first_a_mse": 0.2684728704102001,
+  "b_mse": 0.26330817573971943,
+  "return_a_mse": 0.24690516298344936,
+  "return_minus_first": -0.02156770742675076
+}

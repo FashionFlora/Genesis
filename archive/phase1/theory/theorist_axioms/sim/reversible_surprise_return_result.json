@@ -1,0 +1,19 @@
+{
+  "candidate": "candidates/reversible_surprise/principle.py",
+  "seeds": 40,
+  "phase_steps": 500,
+  "target": {
+    "first_error": 0.23674617390500677,
+    "return_error": 0.21315321872562948,
+    "return_minus_first": -0.023592955179377276,
+    "faster_fraction": 0.625
+  },
+  "null": {
+    "first_error": 0.2282954799775635,
+    "return_error": 0.22136991154595315,
+    "return_minus_first": -0.006925568431610337,
+    "faster_fraction": 0.475,
+    "mean_error": 0.22641225621960595
+  },
+  "target_minus_null_return_gain": 0.016667386747766938
+}

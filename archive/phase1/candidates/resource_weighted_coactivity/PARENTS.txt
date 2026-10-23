@@ -1,0 +1,3 @@
+Parents: candidates/coactivity_support_clean/ and candidates/predictive_resonance/.
+
+Mutation: retain the conditional-bit evidence and source contrast from coactivity support, but give each relation a decaying resource mass updated by its pre-update prediction error. Use that same mass, multiplied by conditional contrast, to weight each source's forecast. This tests whether predictive usefulness can govern both memory persistence and influence without a separate fast/slow trace or a fixed source winner.

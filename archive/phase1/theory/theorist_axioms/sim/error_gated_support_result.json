@@ -1,0 +1,60 @@
+{
+  "experiment": "error-gated causal support A-B-A and null",
+  "parameters": {
+    "seeds": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32,
+      33,
+      34,
+      35,
+      36,
+      37,
+      38,
+      39
+    ],
+    "phase_steps": 500,
+    "channels": 4
+  },
+  "target": {
+    "first_error": 0.25507518841048415,
+    "return_error": 0.2551944651893049,
+    "delta": 0.00011927677882069484,
+    "faster_fraction": 0.55,
+    "active_changes": 376.325
+  },
+  "null": {
+    "error": 0.25652933040072073,
+    "active_changes": 399.325
+  }
+}

@@ -1,0 +1,12 @@
+Parents:
+- candidates/action_conditioned_predictive_sufficiency/
+- candidates/contextual_causal_intervention/
+
+Mutation/crossover:
+The action-conditioned transition evidence and the context-addressed causal
+support are fused into one field keyed by (context, action, source, target,
+source-state). Exponentially retained evidence gives each relation a local
+predictive contrast; the same contrast predicts outcomes, recalls a returning
+context, and scores the intervention with least evidence. This removes the
+parent's separate action-change statistic and makes action selection use the
+same sufficient state as prediction.

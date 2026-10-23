@@ -1,0 +1,7 @@
+Parents:
+- candidates/resource_balance_support/principle.py
+
+Mutation: the same retained predictive support that selects a source also
+selects the action channel with the greatest predicted resource flow. No
+apple, snake length, free-space test, reward, or fixed movement policy is
+added.

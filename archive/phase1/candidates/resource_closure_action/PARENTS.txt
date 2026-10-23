@@ -1,0 +1,7 @@
+Parents: candidates/resource_flow_memory/ and candidates/resource_flow_return_action/
+
+Change: action resource is returned only when the transition after an action is
+more predictable than a neutral 0.5 forecast. This uses prediction error as
+the same ecological flow that reinforces relations, instead of treating raw
+observation change as action credit. Contact remains only a feasibility gate.
+No reward, apple, snake length, or named observation plane is read.

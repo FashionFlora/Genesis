@@ -1,0 +1,12 @@
+Parents:
+- candidates/resource_surprise_flow/principle.py
+- candidates/resource_flow_contact/principle.py
+
+Mutation/crossover:
+Prediction surprise now allocates a normalized, finite resource flow among
+source-target processes. The received flow updates each process's conditional
+evidence as well as its resource mass; mass-dependent retention, depletion,
+and fission therefore couple learning, memory, pruning, and growth.
+
+The mechanism removes an independent per-observation evidence update. It tests
+whether resource return can drive both adaptation speed and process survival.

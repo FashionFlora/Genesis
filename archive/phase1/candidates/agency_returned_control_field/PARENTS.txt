@@ -1,0 +1,5 @@
+Parents: action_effect_closure and context_action_transition_field.
+Mutation: effect persistence is conditioned on the observed context, and an
+action is ranked by the predicted next context's stable, distinguishable
+action effects. This replaces immediate effect magnitude/uncertainty with
+returned downstream controllability as the ordering criterion.

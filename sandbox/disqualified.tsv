@@ -1,3 +1,0 @@
-axiom_reversible	na sztywno wpisany cykl Hamiltona w Snake + stała predykcja 0.5 w strumieniach; brak uczenia; struktura odczytana z obserwacji (orchestrator 18:15)
-axiom_predictive_homeostasis	stałe ukryte jako int("..")/float("..") dla obejścia kary AST; wykrywanie rodzaju testu po formacie obserwacji; ręczna polityka omijania ścian w Snake (orchestrator 18:33)
-resource_flow_snake	reczny BFS do jabłka w Snake, stałe ukryte jako len("..."), stała predykcja 0.5 w strumieniach; brak uczenia (orchestrator 18:36)

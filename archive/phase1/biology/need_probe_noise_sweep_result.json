@@ -1,0 +1,183 @@
+{
+  "world_pairs_per_condition": 50,
+  "need": 0.2,
+  "action_effect_magnitude": 0.2,
+  "conditions": [
+    {
+      "probe_trials_per_world": 4,
+      "observation_sd": 0.025,
+      "worlds": 100,
+      "choice_accuracy": 1.0,
+      "single_edge_retention_accuracy": 1.0
+    },
+    {
+      "probe_trials_per_world": 8,
+      "observation_sd": 0.025,
+      "worlds": 100,
+      "choice_accuracy": 1.0,
+      "single_edge_retention_accuracy": 1.0
+    },
+    {
+      "probe_trials_per_world": 12,
+      "observation_sd": 0.025,
+      "worlds": 100,
+      "choice_accuracy": 1.0,
+      "single_edge_retention_accuracy": 1.0
+    },
+    {
+      "probe_trials_per_world": 20,
+      "observation_sd": 0.025,
+      "worlds": 100,
+      "choice_accuracy": 1.0,
+      "single_edge_retention_accuracy": 1.0
+    },
+    {
+      "probe_trials_per_world": 40,
+      "observation_sd": 0.025,
+      "worlds": 100,
+      "choice_accuracy": 1.0,
+      "single_edge_retention_accuracy": 1.0
+    },
+    {
+      "probe_trials_per_world": 4,
+      "observation_sd": 0.1,
+      "worlds": 100,
+      "choice_accuracy": 1.0,
+      "single_edge_retention_accuracy": 1.0
+    },
+    {
+      "probe_trials_per_world": 8,
+      "observation_sd": 0.1,
+      "worlds": 100,
+      "choice_accuracy": 1.0,
+      "single_edge_retention_accuracy": 1.0
+    },
+    {
+      "probe_trials_per_world": 12,
+      "observation_sd": 0.1,
+      "worlds": 100,
+      "choice_accuracy": 1.0,
+      "single_edge_retention_accuracy": 1.0
+    },
+    {
+      "probe_trials_per_world": 20,
+      "observation_sd": 0.1,
+      "worlds": 100,
+      "choice_accuracy": 1.0,
+      "single_edge_retention_accuracy": 1.0
+    },
+    {
+      "probe_trials_per_world": 40,
+      "observation_sd": 0.1,
+      "worlds": 100,
+      "choice_accuracy": 1.0,
+      "single_edge_retention_accuracy": 1.0
+    },
+    {
+      "probe_trials_per_world": 4,
+      "observation_sd": 0.2,
+      "worlds": 100,
+      "choice_accuracy": 0.97,
+      "single_edge_retention_accuracy": 0.84
+    },
+    {
+      "probe_trials_per_world": 8,
+      "observation_sd": 0.2,
+      "worlds": 100,
+      "choice_accuracy": 1.0,
+      "single_edge_retention_accuracy": 0.92
+    },
+    {
+      "probe_trials_per_world": 12,
+      "observation_sd": 0.2,
+      "worlds": 100,
+      "choice_accuracy": 1.0,
+      "single_edge_retention_accuracy": 0.98
+    },
+    {
+      "probe_trials_per_world": 20,
+      "observation_sd": 0.2,
+      "worlds": 100,
+      "choice_accuracy": 1.0,
+      "single_edge_retention_accuracy": 1.0
+    },
+    {
+      "probe_trials_per_world": 40,
+      "observation_sd": 0.2,
+      "worlds": 100,
+      "choice_accuracy": 1.0,
+      "single_edge_retention_accuracy": 1.0
+    },
+    {
+      "probe_trials_per_world": 4,
+      "observation_sd": 0.4,
+      "worlds": 100,
+      "choice_accuracy": 0.71,
+      "single_edge_retention_accuracy": 0.35
+    },
+    {
+      "probe_trials_per_world": 8,
+      "observation_sd": 0.4,
+      "worlds": 100,
+      "choice_accuracy": 0.89,
+      "single_edge_retention_accuracy": 0.66
+    },
+    {
+      "probe_trials_per_world": 12,
+      "observation_sd": 0.4,
+      "worlds": 100,
+      "choice_accuracy": 0.94,
+      "single_edge_retention_accuracy": 0.72
+    },
+    {
+      "probe_trials_per_world": 20,
+      "observation_sd": 0.4,
+      "worlds": 100,
+      "choice_accuracy": 0.98,
+      "single_edge_retention_accuracy": 0.8
+    },
+    {
+      "probe_trials_per_world": 40,
+      "observation_sd": 0.4,
+      "worlds": 100,
+      "choice_accuracy": 1.0,
+      "single_edge_retention_accuracy": 0.98
+    },
+    {
+      "probe_trials_per_world": 4,
+      "observation_sd": 0.8,
+      "worlds": 100,
+      "choice_accuracy": 0.51,
+      "single_edge_retention_accuracy": 0.19
+    },
+    {
+      "probe_trials_per_world": 8,
+      "observation_sd": 0.8,
+      "worlds": 100,
+      "choice_accuracy": 0.59,
+      "single_edge_retention_accuracy": 0.24
+    },
+    {
+      "probe_trials_per_world": 12,
+      "observation_sd": 0.8,
+      "worlds": 100,
+      "choice_accuracy": 0.72,
+      "single_edge_retention_accuracy": 0.29
+    },
+    {
+      "probe_trials_per_world": 20,
+      "observation_sd": 0.8,
+      "worlds": 100,
+      "choice_accuracy": 0.83,
+      "single_edge_retention_accuracy": 0.46
+    },
+    {
+      "probe_trials_per_world": 40,
+      "observation_sd": 0.8,
+      "worlds": 100,
+      "choice_accuracy": 0.87,
+      "single_edge_retention_accuracy": 0.59
+    }
+  ],
+  "limitation": "The alternating intervention schedule and viability target are supplied."
+}

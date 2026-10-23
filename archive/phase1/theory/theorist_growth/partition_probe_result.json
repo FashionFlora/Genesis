@@ -1,0 +1,93 @@
+{
+  "candidate": "predictive_partition_growth",
+  "runs": [
+    {
+      "width": 8,
+      "active_relations": 4,
+      "phases": [
+        {
+          "phase": "rich",
+          "mean_brier": 0.12284431698115109,
+          "mean_connections": 8.3125,
+          "end_connections": 8,
+          "units": 16,
+          "memory_bytes": 256
+        },
+        {
+          "phase": "simple",
+          "mean_brier": 0.24352693333599484,
+          "mean_connections": 0.6875,
+          "end_connections": 0,
+          "units": 8,
+          "memory_bytes": 192
+        }
+      ]
+    },
+    {
+      "width": 16,
+      "active_relations": 8,
+      "phases": [
+        {
+          "phase": "rich",
+          "mean_brier": 0.1231507644181105,
+          "mean_connections": 16.8125,
+          "end_connections": 16,
+          "units": 32,
+          "memory_bytes": 512
+        },
+        {
+          "phase": "simple",
+          "mean_brier": 0.24448473384023095,
+          "mean_connections": 1.125,
+          "end_connections": 2,
+          "units": 18,
+          "memory_bytes": 400
+        }
+      ]
+    },
+    {
+      "width": 32,
+      "active_relations": 16,
+      "phases": [
+        {
+          "phase": "rich",
+          "mean_brier": 0.12241888638562895,
+          "mean_connections": 33.3125,
+          "end_connections": 36,
+          "units": 68,
+          "memory_bytes": 1056
+        },
+        {
+          "phase": "simple",
+          "mean_brier": 0.24537162387202396,
+          "mean_connections": 2.3125,
+          "end_connections": 2,
+          "units": 34,
+          "memory_bytes": 784
+        }
+      ]
+    },
+    {
+      "width": 64,
+      "active_relations": 32,
+      "phases": [
+        {
+          "phase": "rich",
+          "mean_brier": 0.12305420539985815,
+          "mean_connections": 66.1875,
+          "end_connections": 68,
+          "units": 132,
+          "memory_bytes": 2080
+        },
+        {
+          "phase": "simple",
+          "mean_brier": 0.24536765727445525,
+          "mean_connections": 4.4375,
+          "end_connections": 2,
+          "units": 66,
+          "memory_bytes": 1552
+        }
+      ]
+    }
+  ]
+}

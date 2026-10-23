@@ -1,0 +1,6 @@
+Parents:
+- candidates/resource_flow_memory/principle.py
+- candidates/resource_surprise_flow/principle.py
+
+The returned resource directly sets the learning step of the relation that
+produced it, coupling retention and evidence without an independent rule.

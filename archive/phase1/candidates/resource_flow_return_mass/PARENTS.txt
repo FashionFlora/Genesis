@@ -1,0 +1,1 @@
+Parents: resource_flow_memory; new law: returned resource is the sole relational state.

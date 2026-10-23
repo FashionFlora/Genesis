@@ -1,0 +1,37 @@
+{
+  "candidate": "candidates/returned_reserve_relations/principle.py",
+  "seeds": 40,
+  "A_phase_steps": 500,
+  "B_gaps": [
+    100,
+    500,
+    1500
+  ],
+  "return_window_steps": 80,
+  "results": {
+    "100": {
+      "target_first_mse": 0.25502507951040687,
+      "target_return_mse": 0.2769264979232953,
+      "null_first_mse": 0.2762413293145989,
+      "null_return_mse": 0.2819953170522012,
+      "paired_target_minus_null_gain": -0.016147430675286133,
+      "positive_seed_fraction": 0.4
+    },
+    "500": {
+      "target_first_mse": 0.25502507951040687,
+      "target_return_mse": 0.2606555155867852,
+      "null_first_mse": 0.2762413293145989,
+      "null_return_mse": 0.27480936506026127,
+      "paired_target_minus_null_gain": -0.007062400330715908,
+      "positive_seed_fraction": 0.45
+    },
+    "1500": {
+      "target_first_mse": 0.25502507951040687,
+      "target_return_mse": 0.26170392489769684,
+      "null_first_mse": 0.2762413293145989,
+      "null_return_mse": 0.2849348012390653,
+      "paired_target_minus_null_gain": 0.0020146265371764525,
+      "positive_seed_fraction": 0.45
+    }
+  }
+}

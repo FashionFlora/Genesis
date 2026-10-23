@@ -1,0 +1,4 @@
+Parent: candidates/agency_continuation_return/principle.py
+Mutation: score an action by its observed change in next-state legal continuations,
+          rather than the absolute continuation count. This subtracts the
+          pre-intervention option level and reduces state-position bias.

@@ -1,0 +1,90 @@
+{
+  "candidate": "return_budget_growth",
+  "seed_base": 61007,
+  "runs": [
+    {
+      "width": 8,
+      "phases": [
+        {
+          "phase": "rich",
+          "brier": 0.17675131190910323,
+          "mean_connections": 63.90625,
+          "units": 8,
+          "connections": 64,
+          "memory_bytes": 2624
+        },
+        {
+          "phase": "simple",
+          "brier": 0.22597814692863755,
+          "mean_connections": 63.96875,
+          "units": 8,
+          "connections": 64,
+          "memory_bytes": 2624
+        }
+      ]
+    },
+    {
+      "width": 16,
+      "phases": [
+        {
+          "phase": "rich",
+          "brier": 0.18312423950612294,
+          "mean_connections": 255.65625,
+          "units": 16,
+          "connections": 256,
+          "memory_bytes": 10368
+        },
+        {
+          "phase": "simple",
+          "brier": 0.2240260670749707,
+          "mean_connections": 255.78125,
+          "units": 16,
+          "connections": 256,
+          "memory_bytes": 10368
+        }
+      ]
+    },
+    {
+      "width": 32,
+      "phases": [
+        {
+          "phase": "rich",
+          "brier": 0.1931739724620559,
+          "mean_connections": 1023.21875,
+          "units": 32,
+          "connections": 1021,
+          "memory_bytes": 41096
+        },
+        {
+          "phase": "simple",
+          "brier": 0.22293142759730386,
+          "mean_connections": 1022.75,
+          "units": 32,
+          "connections": 1023,
+          "memory_bytes": 41176
+        }
+      ]
+    },
+    {
+      "width": 64,
+      "phases": [
+        {
+          "phase": "rich",
+          "brier": 0.2037253941901382,
+          "mean_connections": 4091.84375,
+          "units": 64,
+          "connections": 4095,
+          "memory_bytes": 164312
+        },
+        {
+          "phase": "simple",
+          "brier": 0.22284790686722547,
+          "mean_connections": 4091.78125,
+          "units": 64,
+          "connections": 4093,
+          "memory_bytes": 164232
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,349 @@
+{
+  "max_delta": 0.0,
+  "max_mass_spread": 0.0,
+  "rows": [
+    {
+      "brier": {
+        "coactivity": 0.4238819519739153,
+        "resource_flow": 0.4238819519739153
+      },
+      "deep_state_bytes": {
+        "coactivity": 3377,
+        "resource_flow": 9882
+      },
+      "lagged": true,
+      "max_prediction_delta": 0.0,
+      "max_within_target_mass_spread": 0.0,
+      "microseconds_per_step": {
+        "coactivity": 16.73153079891601,
+        "resource_flow": 29.198095952141333
+      },
+      "timescale": 1.0,
+      "width": 8
+    },
+    {
+      "brier": {
+        "coactivity": 0.4194214096622312,
+        "resource_flow": 0.4194214096622312
+      },
+      "deep_state_bytes": {
+        "coactivity": 3377,
+        "resource_flow": 9882
+      },
+      "lagged": false,
+      "max_prediction_delta": 0.0,
+      "max_within_target_mass_spread": 0.0,
+      "microseconds_per_step": {
+        "coactivity": 13.952082625872368,
+        "resource_flow": 27.537091801337187
+      },
+      "timescale": 1.0,
+      "width": 8
+    },
+    {
+      "brier": {
+        "coactivity": 0.2698910797828579,
+        "resource_flow": 0.2698910797828579
+      },
+      "deep_state_bytes": {
+        "coactivity": 3377,
+        "resource_flow": 9882
+      },
+      "lagged": true,
+      "max_prediction_delta": 0.0,
+      "max_within_target_mass_spread": 0.0,
+      "microseconds_per_step": {
+        "coactivity": 13.910642635711,
+        "resource_flow": 27.817651760837844
+      },
+      "timescale": 16.0,
+      "width": 8
+    },
+    {
+      "brier": {
+        "coactivity": 0.27799830190169855,
+        "resource_flow": 0.27799830190169855
+      },
+      "deep_state_bytes": {
+        "coactivity": 3377,
+        "resource_flow": 9882
+      },
+      "lagged": false,
+      "max_prediction_delta": 0.0,
+      "max_within_target_mass_spread": 0.0,
+      "microseconds_per_step": {
+        "coactivity": 13.80107891108238,
+        "resource_flow": 27.477651393945283
+      },
+      "timescale": 16.0,
+      "width": 8
+    },
+    {
+      "brier": {
+        "coactivity": 0.24094443236620183,
+        "resource_flow": 0.24094443236620183
+      },
+      "deep_state_bytes": {
+        "coactivity": 3377,
+        "resource_flow": 9882
+      },
+      "lagged": true,
+      "max_prediction_delta": 0.0,
+      "max_within_target_mass_spread": 0.0,
+      "microseconds_per_step": {
+        "coactivity": 14.945800914680316,
+        "resource_flow": 27.978729989951574
+      },
+      "timescale": 64.0,
+      "width": 8
+    },
+    {
+      "brier": {
+        "coactivity": 0.25579901406582306,
+        "resource_flow": 0.25579901406582306
+      },
+      "deep_state_bytes": {
+        "coactivity": 3377,
+        "resource_flow": 9882
+      },
+      "lagged": false,
+      "max_prediction_delta": 0.0,
+      "max_within_target_mass_spread": 0.0,
+      "microseconds_per_step": {
+        "coactivity": 14.138120106765342,
+        "resource_flow": 27.650386612877803
+      },
+      "timescale": 64.0,
+      "width": 8
+    },
+    {
+      "brier": {
+        "coactivity": 0.4781977525739988,
+        "resource_flow": 0.4781977525739988
+      },
+      "deep_state_bytes": {
+        "coactivity": 35825,
+        "resource_flow": 135258
+      },
+      "lagged": true,
+      "max_prediction_delta": 0.0,
+      "max_within_target_mass_spread": 0.0,
+      "microseconds_per_step": {
+        "coactivity": 161.57815418364598,
+        "resource_flow": 358.2016763922708
+      },
+      "timescale": 1.0,
+      "width": 32
+    },
+    {
+      "brier": {
+        "coactivity": 0.4823478169577135,
+        "resource_flow": 0.4823478169577135
+      },
+      "deep_state_bytes": {
+        "coactivity": 35825,
+        "resource_flow": 135258
+      },
+      "lagged": false,
+      "max_prediction_delta": 0.0,
+      "max_within_target_mass_spread": 0.0,
+      "microseconds_per_step": {
+        "coactivity": 160.16950173867687,
+        "resource_flow": 357.78370577671967
+      },
+      "timescale": 1.0,
+      "width": 32
+    },
+    {
+      "brier": {
+        "coactivity": 0.28694352245936006,
+        "resource_flow": 0.28694352245936006
+      },
+      "deep_state_bytes": {
+        "coactivity": 35825,
+        "resource_flow": 135258
+      },
+      "lagged": true,
+      "max_prediction_delta": 0.0,
+      "max_within_target_mass_spread": 0.0,
+      "microseconds_per_step": {
+        "coactivity": 157.9486886696326,
+        "resource_flow": 355.199502039067
+      },
+      "timescale": 16.0,
+      "width": 32
+    },
+    {
+      "brier": {
+        "coactivity": 0.28908457444791646,
+        "resource_flow": 0.28908457444791646
+      },
+      "deep_state_bytes": {
+        "coactivity": 35825,
+        "resource_flow": 135258
+      },
+      "lagged": false,
+      "max_prediction_delta": 0.0,
+      "max_within_target_mass_spread": 0.0,
+      "microseconds_per_step": {
+        "coactivity": 159.1233772330017,
+        "resource_flow": 361.84735310213694
+      },
+      "timescale": 16.0,
+      "width": 32
+    },
+    {
+      "brier": {
+        "coactivity": 0.2591204109150596,
+        "resource_flow": 0.2591204109150596
+      },
+      "deep_state_bytes": {
+        "coactivity": 35825,
+        "resource_flow": 135258
+      },
+      "lagged": true,
+      "max_prediction_delta": 0.0,
+      "max_within_target_mass_spread": 0.0,
+      "microseconds_per_step": {
+        "coactivity": 164.8390961277658,
+        "resource_flow": 358.90425300357003
+      },
+      "timescale": 64.0,
+      "width": 32
+    },
+    {
+      "brier": {
+        "coactivity": 0.2608861843382527,
+        "resource_flow": 0.2608861843382527
+      },
+      "deep_state_bytes": {
+        "coactivity": 35825,
+        "resource_flow": 135258
+      },
+      "lagged": false,
+      "max_prediction_delta": 0.0,
+      "max_within_target_mass_spread": 0.0,
+      "microseconds_per_step": {
+        "coactivity": 158.5956351808369,
+        "resource_flow": 357.9370493911732
+      },
+      "timescale": 64.0,
+      "width": 32
+    },
+    {
+      "brier": {
+        "coactivity": 0.4781266035048759,
+        "resource_flow": 0.4781266035048759
+      },
+      "deep_state_bytes": {
+        "coactivity": 136433,
+        "resource_flow": 531802
+      },
+      "lagged": true,
+      "max_prediction_delta": 0.0,
+      "max_within_target_mass_spread": 0.0,
+      "microseconds_per_step": {
+        "coactivity": 597.858439195762,
+        "resource_flow": 1374.240912481586
+      },
+      "timescale": 1.0,
+      "width": 64
+    },
+    {
+      "brier": {
+        "coactivity": 0.4876998713605941,
+        "resource_flow": 0.4876998713605941
+      },
+      "deep_state_bytes": {
+        "coactivity": 136433,
+        "resource_flow": 531802
+      },
+      "lagged": false,
+      "max_prediction_delta": 0.0,
+      "max_within_target_mass_spread": 0.0,
+      "microseconds_per_step": {
+        "coactivity": 627.2069756250781,
+        "resource_flow": 1507.8920376375008
+      },
+      "timescale": 1.0,
+      "width": 64
+    },
+    {
+      "brier": {
+        "coactivity": 0.2973608328845989,
+        "resource_flow": 0.2973608328845989
+      },
+      "deep_state_bytes": {
+        "coactivity": 136433,
+        "resource_flow": 531802
+      },
+      "lagged": true,
+      "max_prediction_delta": 0.0,
+      "max_within_target_mass_spread": 0.0,
+      "microseconds_per_step": {
+        "coactivity": 599.4446303200797,
+        "resource_flow": 1395.8151535328122
+      },
+      "timescale": 16.0,
+      "width": 64
+    },
+    {
+      "brier": {
+        "coactivity": 0.29793210742241066,
+        "resource_flow": 0.29793210742241066
+      },
+      "deep_state_bytes": {
+        "coactivity": 136433,
+        "resource_flow": 531802
+      },
+      "lagged": false,
+      "max_prediction_delta": 0.0,
+      "max_within_target_mass_spread": 0.0,
+      "microseconds_per_step": {
+        "coactivity": 603.064144980858,
+        "resource_flow": 1407.5486267688857
+      },
+      "timescale": 16.0,
+      "width": 64
+    },
+    {
+      "brier": {
+        "coactivity": 0.26031207213111635,
+        "resource_flow": 0.26031207213111635
+      },
+      "deep_state_bytes": {
+        "coactivity": 136433,
+        "resource_flow": 531802
+      },
+      "lagged": true,
+      "max_prediction_delta": 0.0,
+      "max_within_target_mass_spread": 0.0,
+      "microseconds_per_step": {
+        "coactivity": 620.0621035954764,
+        "resource_flow": 1472.183270379901
+      },
+      "timescale": 64.0,
+      "width": 64
+    },
+    {
+      "brier": {
+        "coactivity": 0.2623629475149948,
+        "resource_flow": 0.2623629475149948
+      },
+      "deep_state_bytes": {
+        "coactivity": 136433,
+        "resource_flow": 531802
+      },
+      "lagged": false,
+      "max_prediction_delta": 0.0,
+      "max_within_target_mass_spread": 0.0,
+      "microseconds_per_step": {
+        "coactivity": 611.3315350859122,
+        "resource_flow": 1385.8847130723761
+      },
+      "timescale": 64.0,
+      "width": 64
+    }
+  ],
+  "test": "independent public-interface equivalence, mass symmetry, lagged versus IID control"
+}

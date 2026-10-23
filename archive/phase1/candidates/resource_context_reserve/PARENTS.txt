@@ -1,0 +1,12 @@
+Parents:
+- candidates/resource_flow_memory/principle.py
+- candidates/probe_conditional/principle.py (conditional-bank mechanism recorded in the island handoff; source file unavailable in this checkout)
+- candidates/resource_surprise_flow/principle.py
+
+Mutation/crossover:
+- Split each source-target relation into two source-state banks, as in the conditional probe.
+- Replace the probe's fixed decay with reserve-derived persistence: a bank retains mass in proportion to its existing mass against one unit of incoming flow.
+- Weight the incoming flow by prequential prediction accuracy, combining resource_flow_memory's predictive return with resource_surprise_flow's surprise-dependent allocation.
+- No fixed decay parameter, reward, action map, regime input, or observation-format branch was added.
+
+Rationale: contextual evidence competes for persistence through the same reserve that stores it, while predictive closure controls how much new resource enters. This tests whether memory and context-sensitive adaptation can share one local flow law.

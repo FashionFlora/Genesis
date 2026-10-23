@@ -1,0 +1,17 @@
+Parents:
+- candidates/resource_flow_memory/principle.py
+- candidates/resource_flow_weighted_return/principle.py
+
+Mutation/crossover:
+Resource flow is calculated per source-target relation from that relation's own
+prediction error, rather than shared across all sources for a target. The same
+edge-specific return weights signed evidence learning and retained resource, so
+accurate sources can persist and gain influence through one flow law.
+
+Novelty check: shared/ideas.py check reported max similarity 0.16 (threshold 0.30).
+
+Maturity extension: four action processes retain the mean predictive flow returned
+after each selected action; untried processes receive first allocation. This uses
+the same return rule as relation retention and does not encode Snake features.
+Judge 2026-10-23: L3=10.1818, below baseline 13.0174; mean survival 7.5 steps.
+The global prediction return is not an adequate signal for useful action choice.

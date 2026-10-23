@@ -1,0 +1,10 @@
+{
+  "seeds": 40,
+  "steps_per_seed": 1000,
+  "passive_pairs_equal": true,
+  "mean_abs_passive_difference": 0.0,
+  "worlds_choose_opposite_actions": true,
+  "world_0_best_action_fraction": 0.5,
+  "world_1_best_action_fraction": 0.5,
+  "interpretation": "passive observations alone do not identify an action preference"
+}

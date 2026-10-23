@@ -1,0 +1,10 @@
+Parents:
+- candidates/coactivity_support_resilient/
+- candidates/coactivity_context_recall/
+
+Mutation: retain the resilient candidate's global competitive support edge,
+but add a compact context-addressed dormant trace. Prediction blends global and
+local posteriors by their accumulated evidence, so a mature global rule stays
+stable while a recurring context can reuse its local trace. The context is
+derived from the preceding output half; no phase, reward, threshold, or
+handwritten world map is introduced.

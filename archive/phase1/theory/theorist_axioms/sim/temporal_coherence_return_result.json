@@ -1,0 +1,10 @@
+{
+  "seeds": 40,
+  "phase": 500,
+  "first_error": 0.08340195252464279,
+  "return_error": 0.09371979083022296,
+  "return_minus_first": 0.010317838305580168,
+  "null_error": 0.27776891342062493,
+  "null_matched_gain": 0.19436696089598215,
+  "faster_fraction": 0.4
+}

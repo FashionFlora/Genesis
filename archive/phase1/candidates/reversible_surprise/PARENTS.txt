@@ -1,0 +1,4 @@
+Parents: none (new direction from the finite-state recurrence requirement).
+Principle: when active prediction is surprised, exchange its local causal state
+with a dormant predecessor; learning changes the active state while recurrence
+can restore the predecessor without a phase or context input.

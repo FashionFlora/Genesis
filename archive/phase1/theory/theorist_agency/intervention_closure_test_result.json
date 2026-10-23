@@ -1,0 +1,22 @@
+{
+  "seeds": 100,
+  "steps": 240,
+  "late_action_counts": {
+    "conditioned": {
+      "stable": 227.45,
+      "noisy": 2.88,
+      "zero": 0.67,
+      "unused": 0.0
+    },
+    "random": {
+      "stable": 58.09,
+      "noisy": 56.76,
+      "zero": 116.15,
+      "unused": 58.48
+    }
+  },
+  "stable_gain": 169.35999999999999,
+  "stable_share_gain": 0.7331601731601731,
+  "stable_choice_share": 0.9846320346320346,
+  "unused_choice_share": 0.0
+}

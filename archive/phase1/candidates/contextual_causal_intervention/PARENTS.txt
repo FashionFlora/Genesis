@@ -1,0 +1,12 @@
+Parents:
+- candidates/coactivity_single_support_source_mass/
+- candidates/context_action_sufficiency/
+
+Mutation/crossover:
+The parent's local predictive support is retained, but each relation also has a
+context-addressed dormant support state. A context is derived from the preceding
+sensory state, so returning contexts can reuse their own evidence instead of
+being pooled with intervening regimes. The same predictive principle supplies
+act: each legal action is an intervention with a posterior outcome probability,
+and the least certain action is selected to reduce unresolved description.
+No reward, apple, snake length, phase, or action schedule is read.

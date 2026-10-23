@@ -1,0 +1,23 @@
+{
+  "candidate": "candidates/contextual_predictive_equivalence/principle.py",
+  "seeds": 40,
+  "phase_steps": 800,
+  "target": {
+    "first_error": 0.25960128669409194,
+    "return_error": 0.2466216564153659,
+    "return_minus_first": -0.012979630278726034,
+    "return_gain_vs_first": 0.012979630278726034,
+    "faster_fraction": 0.55
+  },
+  "matched_null": {
+    "first_error": 0.25960128669409194,
+    "return_error": 0.2516925710969047,
+    "return_gain_vs_first": 0.00790871559718723
+  },
+  "test_headroom": {
+    "chance_mse": 0.25,
+    "known_a_relation_mse": 0.08,
+    "meaning": "Bayes error for the noisy A relation; B is independent fair noise."
+  },
+  "paired_gain_over_null": 0.005070914681538804
+}

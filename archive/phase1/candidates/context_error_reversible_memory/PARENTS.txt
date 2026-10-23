@@ -1,0 +1,9 @@
+Parents:
+- candidates/contextual_reversible_equivalence/principle.py
+- candidates/reversible_predictive_exchange/principle.py
+
+The crossover keeps local model exchange but routes transitions through a
+context address. Each output selects between its two retained predictors by
+prequential error, rather than swapping every output after a surprise event.
+This tests whether context retrieval and local predictive competition can
+preserve A-B-A memory without a shared surprise trigger.

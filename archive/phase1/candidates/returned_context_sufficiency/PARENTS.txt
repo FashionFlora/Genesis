@@ -1,0 +1,3 @@
+Parents: candidates/consequence_gated_return_flow/ and candidates/predictive_context_sufficiency/.
+
+Mutation: replace the global/local blend with context-addressed conditional evidence. Each context-specific transition keeps support only in proportion to agreement between its prior prediction and the arriving consequence, so old addresses can remain retrievable without a phase clock.

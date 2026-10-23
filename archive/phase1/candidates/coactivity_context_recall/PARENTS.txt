@@ -1,0 +1,11 @@
+Parents:
+- candidates/coactivity_support_resilient/
+- candidates/coactivity_support_clean/
+
+Mutation: retain the resilient exponential coactivity update and one-support
+competition, but address each source/target trace by a compact context key
+computed from the preceding observation's output half. This keeps predictive
+evidence from different local contexts separate, so a returning context can
+reuse dormant evidence instead of competing with all intervening evidence.
+The key has no phase labels, reward, schedule, or external threshold; the
+context count and persistence are exposed in PARAMS for robustness tests.

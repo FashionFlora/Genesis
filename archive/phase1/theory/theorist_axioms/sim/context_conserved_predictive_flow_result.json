@@ -1,0 +1,16 @@
+{
+  "candidate": "candidates/context_conserved_predictive_flow/principle.py",
+  "seeds": 40,
+  "phase_steps": 500,
+  "target": {
+    "first_error": 0.25966212426365604,
+    "return_error": 0.2659059821657107,
+    "return_minus_first": 0.006243857902054689,
+    "faster_fraction": 0.4
+  },
+  "null": {
+    "first_error": 0.2615838038822663,
+    "return_error": 0.26638249199193414
+  },
+  "paired_gain_vs_null": -0.0014451697923868675
+}

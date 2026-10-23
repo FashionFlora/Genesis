@@ -1,0 +1,7 @@
+Parents: resource_flow_memory and resource_surprise_flow.
+
+Mutation: partition predictive relation mass by the action that preceded the
+observed sensory transition. Prediction error dissipates the selected action's
+relation mass; retained mass weights its forecasts and its future action
+selection. This closes the action-to-sensory-effect loop under the same
+resource law, without reward, apple, body-length, or movement rules.

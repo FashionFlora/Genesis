@@ -1,0 +1,11 @@
+Parents:
+- candidates/resource_flow_memory/
+- candidates/contextual_predictive_sufficiency/
+
+Mutation/crossover:
+The returned predictive flow is stored in context-addressed cells, so a context
+reappearing after another regime retrieves its own relational evidence. Unlike
+the parent dormant-model exchange, there is no separate swap or surprise gate:
+the same mass-weighted flow updates memory, predicts, and records action
+outcome uncertainty for `act`. This tests whether contextual recall follows
+from one conservation rule with lower structural complexity.

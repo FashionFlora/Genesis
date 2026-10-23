@@ -1,0 +1,14 @@
+{
+  "candidate": "candidates/predictive_context_sufficiency/principle.py",
+  "seeds": 40,
+  "phase_steps": 500,
+  "target": {
+    "first_error": 0.2535626299392915,
+    "return_error": 0.2507806803798492,
+    "return_minus_first": -0.0027819495594423303,
+    "faster_fraction": 0.6
+  },
+  "null": {
+    "mean_error": 0.25180836576335236
+  }
+}

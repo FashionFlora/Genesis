@@ -1,0 +1,301 @@
+{
+  "world": {
+    "sources": 12,
+    "schedule": [
+      0,
+      3,
+      7,
+      11,
+      0
+    ],
+    "segment_length": 800,
+    "seeds": 10
+  },
+  "summary": {
+    "contact_flow_match": 0.37123970470763346,
+    "random_tag_flow_match": 0.24276212531984648,
+    "hebb_match": 1.0
+  },
+  "paired": [
+    {
+      "seed": 0,
+      "phase": 1,
+      "contact_flow_match": 0.3977484667771577,
+      "random_tag_flow_match": 0.279241749667786,
+      "hebb_match": 1.0
+    },
+    {
+      "seed": 0,
+      "phase": 2,
+      "contact_flow_match": 0.38107600319963675,
+      "random_tag_flow_match": 0.22935572590280473,
+      "hebb_match": 1.0
+    },
+    {
+      "seed": 0,
+      "phase": 3,
+      "contact_flow_match": 0.34984568816517503,
+      "random_tag_flow_match": 0.31514578019056694,
+      "hebb_match": 1.0
+    },
+    {
+      "seed": 0,
+      "phase": 4,
+      "contact_flow_match": 0.36260077269941315,
+      "random_tag_flow_match": 0.26561374864779125,
+      "hebb_match": 1.0
+    },
+    {
+      "seed": 1,
+      "phase": 1,
+      "contact_flow_match": 0.3470045367185,
+      "random_tag_flow_match": 0.28603656467016336,
+      "hebb_match": 1.0
+    },
+    {
+      "seed": 1,
+      "phase": 2,
+      "contact_flow_match": 0.37323463339534274,
+      "random_tag_flow_match": 0.1933881867934016,
+      "hebb_match": 1.0
+    },
+    {
+      "seed": 1,
+      "phase": 3,
+      "contact_flow_match": 0.2902286083377024,
+      "random_tag_flow_match": 0.20959033337713873,
+      "hebb_match": 1.0
+    },
+    {
+      "seed": 1,
+      "phase": 4,
+      "contact_flow_match": 0.33202844536888937,
+      "random_tag_flow_match": 0.1667197215993045,
+      "hebb_match": 1.0
+    },
+    {
+      "seed": 2,
+      "phase": 1,
+      "contact_flow_match": 0.38209528959108596,
+      "random_tag_flow_match": 0.1937102877899815,
+      "hebb_match": 1.0
+    },
+    {
+      "seed": 2,
+      "phase": 2,
+      "contact_flow_match": 0.4019243459990283,
+      "random_tag_flow_match": 0.27513117586284913,
+      "hebb_match": 1.0
+    },
+    {
+      "seed": 2,
+      "phase": 3,
+      "contact_flow_match": 0.3532586066157662,
+      "random_tag_flow_match": 0.21895657401191537,
+      "hebb_match": 1.0
+    },
+    {
+      "seed": 2,
+      "phase": 4,
+      "contact_flow_match": 0.40488774034560476,
+      "random_tag_flow_match": 0.24849336882093548,
+      "hebb_match": 1.0
+    },
+    {
+      "seed": 3,
+      "phase": 1,
+      "contact_flow_match": 0.37685508345082813,
+      "random_tag_flow_match": 0.301533540078973,
+      "hebb_match": 1.0
+    },
+    {
+      "seed": 3,
+      "phase": 2,
+      "contact_flow_match": 0.3956862160070007,
+      "random_tag_flow_match": 0.19363868524789474,
+      "hebb_match": 1.0
+    },
+    {
+      "seed": 3,
+      "phase": 3,
+      "contact_flow_match": 0.3793477455457113,
+      "random_tag_flow_match": 0.27404645764749924,
+      "hebb_match": 1.0
+    },
+    {
+      "seed": 3,
+      "phase": 4,
+      "contact_flow_match": 0.3088161173808021,
+      "random_tag_flow_match": 0.21411601549941472,
+      "hebb_match": 1.0
+    },
+    {
+      "seed": 4,
+      "phase": 1,
+      "contact_flow_match": 0.2907587253838947,
+      "random_tag_flow_match": 0.19647943016024666,
+      "hebb_match": 1.0
+    },
+    {
+      "seed": 4,
+      "phase": 2,
+      "contact_flow_match": 0.2967396796817817,
+      "random_tag_flow_match": 0.2484189903511195,
+      "hebb_match": 1.0
+    },
+    {
+      "seed": 4,
+      "phase": 3,
+      "contact_flow_match": 0.34073455614614023,
+      "random_tag_flow_match": 0.32342342459635,
+      "hebb_match": 1.0
+    },
+    {
+      "seed": 4,
+      "phase": 4,
+      "contact_flow_match": 0.38203982682793347,
+      "random_tag_flow_match": 0.26000632914252864,
+      "hebb_match": 1.0
+    },
+    {
+      "seed": 5,
+      "phase": 1,
+      "contact_flow_match": 0.3620588130170565,
+      "random_tag_flow_match": 0.2985130365119771,
+      "hebb_match": 1.0
+    },
+    {
+      "seed": 5,
+      "phase": 2,
+      "contact_flow_match": 0.3976509251098392,
+      "random_tag_flow_match": 0.2071168926418131,
+      "hebb_match": 1.0
+    },
+    {
+      "seed": 5,
+      "phase": 3,
+      "contact_flow_match": 0.38128371681278317,
+      "random_tag_flow_match": 0.22271080850626304,
+      "hebb_match": 1.0
+    },
+    {
+      "seed": 5,
+      "phase": 4,
+      "contact_flow_match": 0.4130295741577171,
+      "random_tag_flow_match": 0.204785497917864,
+      "hebb_match": 1.0
+    },
+    {
+      "seed": 6,
+      "phase": 1,
+      "contact_flow_match": 0.44440426562705865,
+      "random_tag_flow_match": 0.2826552152734014,
+      "hebb_match": 1.0
+    },
+    {
+      "seed": 6,
+      "phase": 2,
+      "contact_flow_match": 0.3697761949019008,
+      "random_tag_flow_match": 0.2453246650096452,
+      "hebb_match": 1.0
+    },
+    {
+      "seed": 6,
+      "phase": 3,
+      "contact_flow_match": 0.4044567078894543,
+      "random_tag_flow_match": 0.24733489793175592,
+      "hebb_match": 1.0
+    },
+    {
+      "seed": 6,
+      "phase": 4,
+      "contact_flow_match": 0.37430615425602926,
+      "random_tag_flow_match": 0.20532952147053155,
+      "hebb_match": 1.0
+    },
+    {
+      "seed": 7,
+      "phase": 1,
+      "contact_flow_match": 0.32727339472987443,
+      "random_tag_flow_match": 0.20355649318797034,
+      "hebb_match": 1.0
+    },
+    {
+      "seed": 7,
+      "phase": 2,
+      "contact_flow_match": 0.40386171802999654,
+      "random_tag_flow_match": 0.27722347730153607,
+      "hebb_match": 1.0
+    },
+    {
+      "seed": 7,
+      "phase": 3,
+      "contact_flow_match": 0.3834107430679742,
+      "random_tag_flow_match": 0.2178454853889732,
+      "hebb_match": 1.0
+    },
+    {
+      "seed": 7,
+      "phase": 4,
+      "contact_flow_match": 0.3788192360082924,
+      "random_tag_flow_match": 0.2521079799005519,
+      "hebb_match": 1.0
+    },
+    {
+      "seed": 8,
+      "phase": 1,
+      "contact_flow_match": 0.41086809534345353,
+      "random_tag_flow_match": 0.31997055901156474,
+      "hebb_match": 1.0
+    },
+    {
+      "seed": 8,
+      "phase": 2,
+      "contact_flow_match": 0.43540029859272766,
+      "random_tag_flow_match": 0.3087374739028345,
+      "hebb_match": 1.0
+    },
+    {
+      "seed": 8,
+      "phase": 3,
+      "contact_flow_match": 0.29683123991437815,
+      "random_tag_flow_match": 0.21189067639806977,
+      "hebb_match": 1.0
+    },
+    {
+      "seed": 8,
+      "phase": 4,
+      "contact_flow_match": 0.405138651789624,
+      "random_tag_flow_match": 0.2165334522590383,
+      "hebb_match": 1.0
+    },
+    {
+      "seed": 9,
+      "phase": 1,
+      "contact_flow_match": 0.4310634439894348,
+      "random_tag_flow_match": 0.21303291651518627,
+      "hebb_match": 1.0
+    },
+    {
+      "seed": 9,
+      "phase": 2,
+      "contact_flow_match": 0.31135568240831396,
+      "random_tag_flow_match": 0.21079426201312523,
+      "hebb_match": 1.0
+    },
+    {
+      "seed": 9,
+      "phase": 3,
+      "contact_flow_match": 0.4095715951091849,
+      "random_tag_flow_match": 0.25144225864590775,
+      "hebb_match": 1.0
+    },
+    {
+      "seed": 9,
+      "phase": 4,
+      "contact_flow_match": 0.36211664991284914,
+      "random_tag_flow_match": 0.22053335294718487,
+      "hebb_match": 1.0
+    }
+  ]
+}

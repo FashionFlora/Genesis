@@ -1,0 +1,2 @@
+Parents: adaptive_contact_flux (sparse contact discovery and predictive comparison); consequence_gated_return_flow (returned prediction error as relation currency).
+Change: accumulate signed predictive advantage directly in each allocated edge's resource. Positive return grows it; negative return consumes it until deletion. This removes adaptive_contact_flux's separate fixed leak while preserving one edge per target and no retained all-pairs table.

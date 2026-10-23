@@ -1,0 +1,2 @@
+Parent: candidates/predictive_error_context/principle.py
+Mutation: action is selected by the same retained context error used for recall; each action's error is updated only from its observed next consequence.

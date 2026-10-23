@@ -1,0 +1,6 @@
+{
+  "paired_worlds": 40,
+  "late_best_action_share": 1.0,
+  "world0_share": 1.0,
+  "world1_share": 1.0
+}

@@ -1,0 +1,170 @@
+{
+  "coactivity": {
+    "same_count_different_winners": {
+      "first_winner_pairs": [
+        [
+          5,
+          0
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          4,
+          2
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          7,
+          6
+        ],
+        [
+          5,
+          7
+        ]
+      ],
+      "reported_connections": 2,
+      "second_winner_pairs": [
+        [
+          4,
+          0
+        ],
+        [
+          4,
+          1
+        ],
+        [
+          7,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          5,
+          4
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          6,
+          6
+        ],
+        [
+          3,
+          7
+        ]
+      ],
+      "seeds": [
+        0,
+        2
+      ]
+    },
+    "streams": [
+      {
+        "actual_cross_partition_connections": 4,
+        "reported_connections": 4,
+        "reported_matches_actual_partition_count": true,
+        "stream": "all_zero",
+        "winner_pairs": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            2
+          ],
+          [
+            0,
+            3
+          ],
+          [
+            0,
+            4
+          ],
+          [
+            0,
+            5
+          ],
+          [
+            0,
+            6
+          ],
+          [
+            0,
+            7
+          ]
+        ]
+      },
+      {
+        "actual_cross_partition_connections": 1,
+        "reported_connections": 1,
+        "reported_matches_actual_partition_count": true,
+        "stream": "random",
+        "winner_pairs": [
+          [
+            2,
+            0
+          ],
+          [
+            5,
+            1
+          ],
+          [
+            7,
+            2
+          ],
+          [
+            3,
+            3
+          ],
+          [
+            7,
+            4
+          ],
+          [
+            0,
+            5
+          ],
+          [
+            6,
+            6
+          ],
+          [
+            6,
+            7
+          ]
+        ]
+      }
+    ]
+  },
+  "resource_flow": {
+    "all_initial_types_still_present": true,
+    "duplicate_copies": 134,
+    "final_cell_copies": 198,
+    "final_distinct_edge_types": 64,
+    "initial_repertoire_size": 64,
+    "steps": 200,
+    "width": 8
+  }
+}

@@ -1,0 +1,6 @@
+Parents: resource_flow_local_return, resource_flow_returned_evidence, resource_flow_memory.
+Change: conserve each target's resource across competing source relations, multiplying
+each share by its local returned predictive accuracy. The same resulting share weights
+the relation update, so depletion, persistence, and learning are coupled without a
+separate mutation schedule. This tests whether relative return can replace accumulated
+absolute resource and resist stale source mass after rapid regime changes.

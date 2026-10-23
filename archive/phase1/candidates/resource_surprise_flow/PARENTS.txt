@@ -1,0 +1,11 @@
+Parents:
+- candidates/coactivity_single_support_source_mass/principle.py
+- candidates/coactivity_flux_scale9/principle.py
+
+Mutation/crossover:
+Keep the leader's one signed support per source-output pair and its
+winner-take-all prediction. Replace its fixed update flow with the
+conditional-flow idea from flux_scale9: a unit resource flow has local
+turnover increased by the target's squared prediction surprise. Zero
+surprise is exactly the leader's fixed-flow update, while small routine
+noise barely changes the retained reserve.

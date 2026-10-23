@@ -1,0 +1,10 @@
+Parents:
+- candidates/contextual_predictive_sufficiency/
+- candidates/reversible_surprise/
+
+Mutation/crossover:
+Replaced the separate context blend and surprise-triggered exchange with one
+prequential-code comparison between two retained local predictors per causal
+relation and context. Both models are scored before the current outcome; only
+the lower-code model receives that outcome as evidence. A later reversal in
+relative code reactivates the former model without resetting it.

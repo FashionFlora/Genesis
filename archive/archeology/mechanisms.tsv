@@ -1,0 +1,2 @@
+mechanizm\treprezentant\tautor\tkrótki opis\tnajlepszy wynik CPU
+dynamika bezwładna kanału\tinertial_channel_dynamics\tunspecified\tbłąd predykcji zmienia per-kanałową bezwładność; stan O(n), wierny port GPU sprawdzony\t0.0

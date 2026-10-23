@@ -1,0 +1,8 @@
+Parents:
+- candidates/resource_flow_local_return: edge-local predictive return funds persistence.
+- candidates/resource_flow_returned_evidence: returned prediction weights evidence.
+
+Change: each target's returned flow is normalized across all incoming relations,
+then the same conserved share weights correlation evidence and edge persistence.
+This tests whether a fixed per-target resource pool improves competition and
+prevents unbounded mass accumulation without adding a separate forgetting rule.

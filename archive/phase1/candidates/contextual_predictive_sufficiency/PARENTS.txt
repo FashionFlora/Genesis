@@ -1,0 +1,7 @@
+Parents: candidates/coactivity_context_blend9/ and candidates/resource_funded_evidence/.
+
+Mutation: replace global coactivity selection plus a separate local blend with one
+context-addressed predictive state. Each context/source/target state carries only
+conditional evidence; its evidence mass gates both source influence and survival.
+This tests whether contextual recall follows from predictive sufficiency and one
+resource-like state, without a surprise threshold or explicit active/dormant swap.

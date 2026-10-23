@@ -1,0 +1,44 @@
+{
+  "experiment": "internally motivated action choice with finite energy and unannounced effect reversal",
+  "parameters": {
+    "steps": 240,
+    "switch": 120,
+    "worlds": 200,
+    "need_start": 0.5,
+    "effect": 0.08,
+    "noise_sd": 0.02,
+    "action_cost": 0.005,
+    "good_replenishment": 0.006,
+    "bad_surcharge": 0.002
+  },
+  "modes": {
+    "tagged": {
+      "accuracy": 0.8009166666666667,
+      "post_switch_accuracy": 0.6295833333333334,
+      "recovery_steps": 42.56,
+      "energy_remaining": 0.1952599999999993,
+      "actions": 238.155,
+      "need_abs_final": 0.10949456609293338,
+      "retained_edges": 1.39
+    },
+    "pooled": {
+      "accuracy": 0.08660416666666666,
+      "post_switch_accuracy": 0.1085,
+      "recovery_steps": 0.0,
+      "energy_remaining": 0.003249999999999173,
+      "actions": 164.86,
+      "need_abs_final": 1.0,
+      "retained_edges": 0.0
+    },
+    "fixed": {
+      "accuracy": 0.08660416666666666,
+      "post_switch_accuracy": 0.1085,
+      "recovery_steps": 0.0,
+      "energy_remaining": 0.003249999999999173,
+      "actions": 164.86,
+      "need_abs_final": 1.0,
+      "retained_edges": 0.0
+    }
+  },
+  "limitation": "The scalar need, energy meter, two actions, and reversal are supplied. This toy tests action-conditioned causal credit under a budget; it is not a biological motivation model."
+}

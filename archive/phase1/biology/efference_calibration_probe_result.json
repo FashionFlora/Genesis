@@ -1,0 +1,90 @@
+{
+  "worlds": 200,
+  "trials_per_world": 120,
+  "calibration_trials": 60,
+  "noise_sd": 0.15,
+  "external_event_probability": 0.1,
+  "external_event_amplitude": 0.5,
+  "threshold": 0.35,
+  "conditions": [
+    {
+      "model_gain_fraction": 0.0,
+      "raw": {
+        "recall": 0.5138609307359308,
+        "precision": 0.06704506188726395,
+        "false_positive_rate": 0.8454473752251875
+      },
+      "residual": {
+        "recall": 0.5138609307359308,
+        "precision": 0.06704506188726395,
+        "false_positive_rate": 0.8454473752251875
+      }
+    },
+    {
+      "model_gain_fraction": 0.5,
+      "raw": {
+        "recall": 0.5138609307359308,
+        "precision": 0.06704506188726395,
+        "false_positive_rate": 0.8454473752251875
+      },
+      "residual": {
+        "recall": 0.6305351731601732,
+        "precision": 0.23597701354137007,
+        "false_positive_rate": 0.24902750610223678
+      }
+    },
+    {
+      "model_gain_fraction": 0.8,
+      "raw": {
+        "recall": 0.5138609307359308,
+        "precision": 0.06704506188726395,
+        "false_positive_rate": 0.8454473752251875
+      },
+      "residual": {
+        "recall": 0.7831700937950938,
+        "precision": 0.6639022227772228,
+        "false_positive_rate": 0.04715476298868771
+      }
+    },
+    {
+      "model_gain_fraction": 1.0,
+      "raw": {
+        "recall": 0.5138609307359308,
+        "precision": 0.06704506188726395,
+        "false_positive_rate": 0.8454473752251875
+      },
+      "residual": {
+        "recall": 0.8517550505050505,
+        "precision": 0.8367674963924964,
+        "false_positive_rate": 0.019392642642170676
+      }
+    },
+    {
+      "model_gain_fraction": 1.2,
+      "raw": {
+        "recall": 0.5138609307359308,
+        "precision": 0.06704506188726395,
+        "false_positive_rate": 0.8454473752251875
+      },
+      "residual": {
+        "recall": 0.8065459956709957,
+        "precision": 0.6802917221667222,
+        "false_positive_rate": 0.04632767754857941
+      }
+    },
+    {
+      "model_gain_fraction": 1.5,
+      "raw": {
+        "recall": 0.5138609307359308,
+        "precision": 0.06704506188726395,
+        "false_positive_rate": 0.8454473752251875
+      },
+      "residual": {
+        "recall": 0.6128750000000001,
+        "precision": 0.2319429568693201,
+        "false_positive_rate": 0.2500431850070913
+      }
+    }
+  ],
+  "note": "synthetic model-gain sweep; action contexts and event amplitude supplied"
+}

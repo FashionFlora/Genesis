@@ -1,0 +1,9 @@
+{
+  "worlds": 100,
+  "horizon": 200,
+  "late_correct_action_share": {
+    "conditioned": 0.5,
+    "random": 0.3275
+  },
+  "gain": 0.1725
+}

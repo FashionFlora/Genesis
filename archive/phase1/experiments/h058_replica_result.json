@@ -1,0 +1,7 @@
+{
+  "paired_worlds": 40,
+  "stable_action_0_share": 1.0,
+  "stable_action_1_share": 1.0,
+  "paired_min_share": 1.0,
+  "both_worlds_ge_0_8": 40
+}

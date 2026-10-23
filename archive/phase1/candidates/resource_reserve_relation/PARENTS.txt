@@ -1,0 +1,10 @@
+Parents:
+- candidates/resource_flow_memory/principle.py
+- candidates/resource_mass_retention/principle.py
+
+Mutation/crossover:
+Each source-target process now carries one reserve and one signed relation. Prediction
+accuracy supplies returned flow; that same flow replenishes the reserve and updates the
+relation, while reserve-dependent turnover retains old relational evidence. This joins
+the parents' return-weighted updates and reserve-dependent persistence without adding a
+separate learning clock or a source-selection schedule.

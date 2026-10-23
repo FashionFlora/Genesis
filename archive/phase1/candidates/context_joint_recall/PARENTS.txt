@@ -1,0 +1,9 @@
+Parents:
+- candidates/contextual_predictive_equivalence/
+- candidates/reversible_surprise/
+
+Mutation: predictive context still routes histories to local transition models,
+but model exchange is selected from the aggregate error on the complete next
+sensory vector. One context therefore recalls a joint causal model as a unit;
+the update goes to the selected model only. This tests whether joint outcome
+coherence is a better retrieval signal than independent channel exchanges.
