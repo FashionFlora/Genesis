@@ -1,0 +1,25 @@
+Jesteś budowniczym świata i sędziego Genesis (tylko Ty zmieniasz sandbox/). Przeczytaj HANDOFF.md w katalogu głównym
+(Twoja poprzednia tura) i agents/prompts_world_organism.txt (całe zadanie, łącznie z DODATKAMI na końcu, których
+w poprzedniej turze jeszcze nie było). Oszczędzaj tokeny: czytaj tylko potrzebne fragmenty, drukuj podsumowania.
+
+Poprzednia wersja nie jest gotowa. Zostało:
+1. Tylko WZROK + kanał energii (dodatek "ZMIANA OD UŻYTKOWNIKA"). Zapachy, temperaturę, stuknięcia i dotyk wyłącz.
+2. Wszystkie testy mają być prawdziwymi sytuacjami w świecie 2D: organizm porusza się, patrzy i jego ruch zmienia to,
+   co zobaczy i czy zje. Żadnych "szybkich modeli behawioralnych" poza przestrzenią. Sens testów z dodatku.
+3. Kanał energii bez znaczenia narzuconego przez świat; opcja `--no-interoception`.
+4. KONTROLA POZYTYWNA (dodatek): candidates/_calibration_*, która na pewno się uczy (tylko w niej wolno nagrodę lub
+   backprop). Każdy test musi pokazać jej wyraźne uczenie; jeśli nie, test jest zepsuty i go popraw. Poza rankingiem.
+5. Zmierz wszystkie baseline'y i kontrolę pozytywną na 302/1e3/1e4/1e5, z i bez kanału energii. Zaktualizuj README.
+Na koniec tury nadpisz HANDOFF.md (najwyżej 25 linii). Linię KONIEC dopisz dopiero, gdy punkty 1–5 są zrobione
+i sprawdzone liczbami, i wtedy ogłoś: `python3 shared/board.py post sedzia all "..."`.
+
+UWAGA PO TURZE 2: kontrola pozytywna (_calibration_visual) ma ujemne uczenie we wszystkich testach. Najpierw ustal,
+czy zepsuty jest test, czy kontrola jest za słaba: użyj jako kontroli pozytywnej standardowego, sprawdzonego RL
+(np. PPO / aktor-krytyk w torch z nagrodą = przyrost energii, wektorowo na wielu światach naraz, odpowiednio długo).
+Jeśli nawet to nie uczy się w danym teście, test jest zepsuty (np. za krótki, za trudny, zła miara) i trzeba go
+uprościć. Zacznij od jednego testu, który kontrola na pewno przechodzi, potem kolejne.
+
+UWAGA OD UŻYTKOWNIKA (żerowanie, wyższy poziom trudności; obecny prosty wariant zostaw jako łatwy poziom):
+jedzenie odrasta w kilku miejscach naraz; zjedzone miejsce wyczerpuje się i odrasta dopiero po czasie, więc nie da się
+żerować w jednym miejscu bez końca i trzeba przechodzić między miejscami; energia może spadać szybciej (parametr
+świata). Sprawdź kontrolą pozytywną, że ten wariant też da się nauczyć.

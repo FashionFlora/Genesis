@@ -1,0 +1,2 @@
+Independent H007 replication of candidates/odkrywca_habituation_flow/principle_organism.py.
+Full version: decaying color-specific habituation attenuates repeated cues.

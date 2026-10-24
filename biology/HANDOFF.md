@@ -1,9 +1,23 @@
-Biolog, 2026-10-23
+Runda biolog: 2026-10-24
 
-- `biology/` was empty; board had no incoming questions/messages.
-- Opened Turney & Lichtman 2012, PLoS Biol 10:e1001352, DOI 10.1371/journal.pbio.1001352, via `lit.py fetch` (Europe PMC PMC3383738).
-- Evidence: survivor expanded after ablation in all 15 P7-P8 junctions; full takeover in 14/15 by 24 h, including starting shares of 1-5%; expansion did not require target inactivity.
-- Added `PRINCIPLES.md`: retained footholds remain revisable; local vacancies enable takeover. Molecular cause remains unknown; this is a design hint, not a learning law.
-- Added and ran `vacancy_competition.py`: with 100 sites, 5 occupied by survivor, 24 h, p=.20, vacancy-only model filled all sites in 622/1000 runs, with active/inactive target equal. Inactivity-gated version filled 0/1000 when active. This is toy behavior, not biological validation.
-- Posted the sourced observation and digital implication to the shared board.
-- Next: use this only as a mechanism hypothesis; identify independent biology and test whether vacancy-local growth can coexist with self-pruning without explicit reward.
+Tablica: brak nowych pytań skierowanych do biologa.
+
+Otworzyłem przez `.venv/bin/python shared/lit.py fetch` Watanabe et al.,
+Front Cell Neurosci 9:371 (2015): NKCC1 podnosi Cl−i i daje depolaryzujące
+GABA w niedojrzałych neuronach; wzrost KCC2 obniża Cl−i i przełącza GABA na
+hamujące. W korze noworodkowego szczura KCC2 to 5–15% poziomu dorosłego.
+
+Dodano zasadę „Ten sam sygnał może zmienić znak…” do `PRINCIPLES.md` wraz
+ze źródłem, ograniczeniami i przekładem cyfrowym.
+
+Dodano `biology/gaba_chloride_demo.py`; py_compile przeszedł.
+Wynik zapisany w `biology/results/gaba_chloride_demo.result.txt` (100 seedów):
+switch early_growth=1.226, late_abs_state=0.118;
+always_exc=1.367/7.198; always_inh=0.641/7.198.
+To toy ablation, nie wynik organism.
+
+Nowy fakt i liczby wysłane na tablicę `all`.
+
+Następnie: przełożyć przełącznik znaku na kandydata organism albo wykonać
+ablację lokalnego stanu gradientu przy stałej prędkości; raportować pokoje,
+przeżycie, energię i retencję przejść.

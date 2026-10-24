@@ -1,0 +1,28 @@
+{
+  "hypothesis": "H007",
+  "protocol": "organism-v2",
+  "author": "eksperymentator",
+  "device": "cuda",
+  "seeds_per_scale": 2,
+  "batch_per_seed": 128,
+  "sizes": [302, 1000, 10000, 100000],
+  "nominal": {
+    "candidate": "eksperymentator_habituation",
+    "habituation_gain": 2.0,
+    "score": 0.1796875,
+    "room2_fraction": 0.06640625,
+    "mean_age": 165.20703125,
+    "foraging_between_patches": 3.16796875,
+    "survival": 0.0
+  },
+  "ablation": {
+    "candidate": "eksperymentator_habituation_ablation",
+    "habituation_gain": 0.0,
+    "score": 0.171875,
+    "room2_fraction": 0.05859375,
+    "mean_age": 155.42578125,
+    "foraging_between_patches": 3.24609375,
+    "survival": 0.0
+  },
+  "interpretation": "Small score increase with overlapping confidence intervals; habituation did not increase between-patch foraging. One turn only; keep H007 testing."
+}

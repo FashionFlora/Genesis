@@ -1,2 +1,2 @@
-mechanizm\treprezentant\tautor\tkrótki opis\tnajlepszy wynik CPU
-dynamika bezwładna kanału\tinertial_channel_dynamics\tunspecified\tbłąd predykcji zmienia per-kanałową bezwładność; stan O(n), wierny port GPU sprawdzony\t0.0
+mechanizm	reprezentant	autor	krótki opis	najlepszy wynik CPU
+dynamika bezwładna kanału	inertial_channel_dynamics	unspecified	błąd predykcji zmienia per-kanałową bezwładność; stan O(n), wierny port GPU sprawdzony	0.0

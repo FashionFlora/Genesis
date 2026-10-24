@@ -1,0 +1,2 @@
+Matched H007 ablation of candidates/eksperymentator_habituation.
+Only habituation_gain is set to 0; all other code and constants match.

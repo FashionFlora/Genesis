@@ -1,0 +1,2 @@
+Parents: axiom_conditional_stability and axiom_dual_trace.
+Change: replace the fast/slow banks and winner-take-all source choice with one error-modulated conditional trace. Each relation adds prediction weight in proportion to its conditional contrast and evidence support, while a smoothed target mean supplies the prior. This tests whether retention and competition can emerge from one shared evidence scale.

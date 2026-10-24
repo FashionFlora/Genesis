@@ -24,10 +24,8 @@ ROLES = {
         "końca, i jaka zasada z nich wynika. Gdy coś przeżyje Twoją symulację, zapisz to jako "
         "candidates/<nazwa>/principle.py i oceń sędzią. TWOJA WYSPA: zasady wyprowadzone z warunków (aksjomatów)."),
     "odkrywca_agency": ("theory/theorist_agency/",
-        "Jesteś odkrywcą. Twój punkt wyjścia: DZIAŁANIE. Skąd system, bez nagrody z zewnątrz, wie, co chce zrobić? "
-        "Wewnętrzna nagroda, którą system sam wytwarza (jak u człowieka), jest dozwolona; zewnętrzny cel wpisany ręcznie "
-        "nie. Szukaj zasady, z której naraz wynikają przewidywanie i działanie. Sprawdzaj w małych światach z działaniem, "
-        "potem w Snake (candidates/<nazwa>/principle.py z act). TWOJA WYSPA: zasady działania."),
+        "Jesteś odkrywcą. Twój punkt wyjścia: DZIAŁANIE. Szukaj zasady, z której wynika działanie. Sprawdzaj w małych światach z działaniem, "
+        "potem w świecie organizmów. TWOJA WYSPA: zasady działania."),
     "odkrywca_growth": ("theory/theorist_growth/",
         "Jesteś odkrywcą. Twoja wyspa: WZROST. System startuje z kilku jednostek, bez gotowej tabeli wszystkich par; "
         "jednostki i połączenia mają powstawać tam, gdzie świat tego wymaga, i zanikać, gdy przestają być potrzebne — "
@@ -47,8 +45,7 @@ ROLES = {
         "inaczej. Sprawdzasz hipotezy w hyp.py, THEORY.md odkrywców i każdy nowy wpis w sandbox/leaderboard.jsonl: prior "
         "art, przemycone mechanizmy, ukryte progi, czytanie plików, czy test naprawdę sprawdza to, co twierdzi. Konkretne "
         "uwagi wysyłaj autorom przez tablicę. Przy kandydatach z act sprawdzaj, czy działanie wynika z zasady, a nie z "
-        "wpisanej strategii, i czy nie koduje celu gry (np. zasób na sztywno powiązany z jabłkami). Wewnętrzny napęd, "
-        "który system sam wytwarza, jest dozwolony."),
+        "wpisanej strategii, i czy nie koduje celu świata."),
     "eksperymentator": ("experiments/, reports/eksperymentator.md",
         "Jesteś eksperymentatorem. Niezależnie replikujesz NOWE wyniki odkrywców (hyp.py: proposed/testing, nowe wpisy na "
         "tablicy). Nie powtarzaj testu, którego wynik już jest w Twoim HANDOFF.md. Pomagasz przenieść zasady do formatu "
@@ -78,16 +75,18 @@ def leader():
             d = json.loads(l)
         except json.JSONDecodeError:
             continue
+        if d.get("track") != "organism":
+            continue
         c, s = str(d.get("candidate", "")), float(d.get("score") or 0)
-        if c == "_baseline_online":  # uczciwy baseline szczebla 1 (pozostałe _baseline_* to wzorce oszustw)
-            base = max(base, s)
-        elif c.startswith("_baseline") or c in disqualified():
+        if c == "_organism_random":  # losowy ruch, ostatni pomiar (aktualny protokół)
+            base = s
+        elif c.startswith("_") or c in disqualified():
             continue
         elif not best or s > best[1]:
             best = (c, s, d.get("author", "?"))
     if not best:
-        return f"Tablica wyników: żadnego kandydata, baseline {base:.1f}, próg szczebla 1 to 1.25× baseline."
-    return (f"Tablica wyników: lider {best[0]} ({best[2]}) {best[1]:.1f}, najlepszy baseline {base:.1f}. "
+        return f"Tablica wyników: żadnego kandydata, losowy ruch {base:.4f}. Bądź pierwszy."
+    return (f"Tablica wyników: lider {best[0]} ({best[2]}) {best[1]:.1f}, losowy ruch {base:.4f}. "
             "Pobij lidera prostszą i bardziej odporną zasadą albo znajdź głębszy fundament.")
 
 
@@ -105,8 +104,10 @@ def top_candidates(k=3):
             d = json.loads(l)
         except json.JSONDecodeError:
             continue
+        if d.get("track") != "organism":
+            continue
         c, s = str(d.get("candidate", "")), float(d.get("score") or 0)
-        if c and not c.startswith("_baseline") and c not in disqualified() and s > best.get(c, (None, -1))[1]:
+        if c and not c.startswith("_") and c not in disqualified() and s > best.get(c, (None, -1))[1]:
             best[c] = (d.get("author", "?"), s)
     return sorted(((c, a, s) for c, (a, s) in best.items()), key=lambda x: -x[2])[:k]
 
@@ -126,6 +127,7 @@ def at_snake_door(name):
 
 
 def maturity_block(name):
+    return ""
     """Test dojrzałości zasady: czy wynika z niej działanie (Snake bez nagrody). Nie osobny front."""
     asked_p = f"{G}/logs/maturity_asked.json"
     asked = json.load(open(asked_p)) if os.path.exists(asked_p) else {}
@@ -139,9 +141,8 @@ def maturity_block(name):
     json.dump(asked, open(asked_p, "w"), indent=1)
     return (f"\nTEST DOJRZAŁOŚCI: Twój kandydat {', '.join(door[:3])} przeszedł szczebel 2 i stoi przed Snake'iem bez "
             "funkcji act. Raz w tej turze zadaj sobie pytanie: czy z TEJ SAMEJ zasady da się wyprowadzić działanie, bez "
-            "nagrody zewnętrznej i bez wpisanej strategii (wewnętrzna, samowytworzona jest dozwolona)?Jeśli tak, dodaj act wynikające z zasady i oceń sędzią. Jeśli nie, zapisz "
-            "w HANDOFF.md uczciwie, czego zasadzie brakuje, żeby działać. Obie odpowiedzi są wartościowe. Nie wiąż "
-            "wewnętrznych zasobów na sztywno z jabłkami ani z długością węża — to nagroda w przebraniu.")
+            "nagrody zewnętrznej i bez wpisanej strategii? Jeśli tak, dodaj act wynikające z zasady i oceń sędzią. Jeśli nie, zapisz "
+            "w HANDOFF.md uczciwie, czego zasadzie brakuje, żeby działać. Obie odpowiedzi są wartościowe.")
 
 
 def island_candidates(name, k=3):

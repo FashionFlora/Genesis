@@ -1,0 +1,3 @@
+Parents: candidates/action_consequence (primary); candidates/metabolic_gate (conceptual comparison).
+Change: make the existing outcome-weighted action trace affect later motor output. When a color is seen again, blend its remembered turn and speed with eye-directed steering, weighted by accumulated outcome mass.
+Reason: tests whether action-specific consequences add value beyond color-value selection, with one local reinforcement-and-decay mechanism.

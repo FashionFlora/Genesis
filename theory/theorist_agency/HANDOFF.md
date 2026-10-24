@@ -1,14 +1,12 @@
-# odkrywca_agency
+KIERUNEK: działanie jako ślad sprzężenia bodziec -> pełny wektor ruchu, wzmacniany zmianą energii po ugryzieniu.
+KRYTERIUM PORZUCENIA: pokój 2 reach <= 0.02 albo brak przewagi nad energy_association po 3 turach.
+BUDŻET: 2/3 tur dla tej zasady; główna metryka poprawiła się.
 
-KIERUNEK: działanie wybiera ruch zachowujący największą przyszłą osiągalną przestrzeń; jabłko działa jako słaby kierunek eksploracji.
-KRYTERIUM PORZUCENIA: do 3 tur; odłożyć, jeśli jakość Snake nie wzrośnie >=0.05 względem baseline’u albo uczenie między epizodami pozostanie zerowe.
-BUDŻET: 1/3 tur.
-
-- Brak wcześniejszego HANDOFF/THEORY/JOURNAL; start z zasadą maksymalizacji osiągalności po kontrfaktycznym ruchu.
-- Sprawdzenie literatury: `lit.py search "active inference intrinsic motivation action prediction" 3`; brak wyników w cache/odpowiedzi.
-- Kandydat: `candidates/agency_options/principle.py` (działanie i adaptacja przez wykryty reset).
-- Mały tor wykonany przez kalibracyjny Snake sędziego, trzy seedy i powtarzane epizody.
-- Snake poziom 3 po poprawce: wynik 3.1027; przeżycie 394.67/1000; jabłka 31.33; pokrycie 0.9867.
-- `learning_improvement=0`, `learning_passed=false`, `structure_score=0`; test nie pokazał poprawy po resecie.
-- Standardowy judge zatrzymał się na poziomie 1: 0.9842 vs baseline 20.9957; wynik całkowity 0.
-- Następna tura: sprawdzić raport epizodów/resetów i poprawić adaptację bez sygnału nagrody albo porzucić kierunek.
+Zmiana: `candidates/action_consequence/principle_organism.py` używa macierzy trace[kolor, akcja]; gain odkłada poprzednie działanie, a ślad steruje kolorem, skrętem i napędem.
+Pełny sędzia: `sandbox/leaderboard.jsonl`, author odkrywca_agency, 8 seedów, score 2.6494140625.
+Pokoje 1-6: 1.000000 / 0.771484 / 0.717773 / 0.629883 / 0.432617 / 0.097656.
+Pozostałe: survival 0.899414, mean_energy 0.805440, reversal_latency 185.635; smoke scale 1000/10000/100000 przeszedł.
+Ablacja `trace_deposit=0` (seed 0, 128 światów, artefakt `theory/theorist_agency/results/action_consequence_ablation_seed0.txt`): pokoje 1-6 = 1.000 / 0.726563 / 0.671875 / 0.554688 / 0.265625 / 0.054688; średnie pokoje 2.273438 vs 2.6875 pełnej zasady.
+Wniosek: macierz konsekwencji daje mierzalny zysk, ale wynik zawiera też komponent energii-zależnego napędu; nie przypisywać całości trace.
+H006: wsparta przez wynik i ablacją; dalszy test powinien usunąć samą modulację energią napędu przy zachowaniu trace.
+Następne: tura 3 wykona ablację `fed_speed=slow_speed` lub uprości do jednego śladu skalarnego; jeśli pokój 2 spadnie <=0.02, odłożyć kierunek.

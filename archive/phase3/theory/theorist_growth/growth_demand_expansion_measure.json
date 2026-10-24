@@ -1,0 +1,258 @@
+[
+  {
+    "capacity": 302,
+    "max_rss_kb": 525892,
+    "mean_sensor_prediction_error": 0.0010089400497845953,
+    "model_tensor_bytes": 218112,
+    "snapshots": [
+      {
+        "allocated_units": 1,
+        "connections": 3,
+        "phase": "learn",
+        "step": 0,
+        "units": 1
+      },
+      {
+        "allocated_units": 16,
+        "connections": 45,
+        "phase": "learn",
+        "step": 1919,
+        "units": 15
+      },
+      {
+        "allocated_units": 16,
+        "connections": 48,
+        "phase": "withdraw",
+        "step": 1920,
+        "units": 16
+      },
+      {
+        "allocated_units": 16,
+        "connections": 42,
+        "phase": "withdraw",
+        "step": 2019,
+        "units": 14
+      },
+      {
+        "allocated_units": 16,
+        "connections": 15,
+        "phase": "withdraw",
+        "step": 2619,
+        "units": 5
+      },
+      {
+        "allocated_units": 16,
+        "connections": 3,
+        "phase": "withdraw",
+        "step": 3319,
+        "units": 1
+      },
+      {
+        "allocated_units": 16,
+        "connections": 6,
+        "phase": "return",
+        "step": 3320,
+        "units": 2
+      },
+      {
+        "allocated_units": 16,
+        "connections": 6,
+        "phase": "return",
+        "step": 3399,
+        "units": 2
+      }
+    ]
+  },
+  {
+    "capacity": 1000,
+    "max_rss_kb": 525892,
+    "mean_sensor_prediction_error": 0.0010089400497845953,
+    "model_tensor_bytes": 218112,
+    "snapshots": [
+      {
+        "allocated_units": 1,
+        "connections": 3,
+        "phase": "learn",
+        "step": 0,
+        "units": 1
+      },
+      {
+        "allocated_units": 16,
+        "connections": 45,
+        "phase": "learn",
+        "step": 1919,
+        "units": 15
+      },
+      {
+        "allocated_units": 16,
+        "connections": 48,
+        "phase": "withdraw",
+        "step": 1920,
+        "units": 16
+      },
+      {
+        "allocated_units": 16,
+        "connections": 42,
+        "phase": "withdraw",
+        "step": 2019,
+        "units": 14
+      },
+      {
+        "allocated_units": 16,
+        "connections": 15,
+        "phase": "withdraw",
+        "step": 2619,
+        "units": 5
+      },
+      {
+        "allocated_units": 16,
+        "connections": 3,
+        "phase": "withdraw",
+        "step": 3319,
+        "units": 1
+      },
+      {
+        "allocated_units": 16,
+        "connections": 6,
+        "phase": "return",
+        "step": 3320,
+        "units": 2
+      },
+      {
+        "allocated_units": 16,
+        "connections": 6,
+        "phase": "return",
+        "step": 3399,
+        "units": 2
+      }
+    ]
+  },
+  {
+    "capacity": 10000,
+    "max_rss_kb": 525892,
+    "mean_sensor_prediction_error": 0.0010089400497845953,
+    "model_tensor_bytes": 218112,
+    "snapshots": [
+      {
+        "allocated_units": 1,
+        "connections": 3,
+        "phase": "learn",
+        "step": 0,
+        "units": 1
+      },
+      {
+        "allocated_units": 16,
+        "connections": 45,
+        "phase": "learn",
+        "step": 1919,
+        "units": 15
+      },
+      {
+        "allocated_units": 16,
+        "connections": 48,
+        "phase": "withdraw",
+        "step": 1920,
+        "units": 16
+      },
+      {
+        "allocated_units": 16,
+        "connections": 42,
+        "phase": "withdraw",
+        "step": 2019,
+        "units": 14
+      },
+      {
+        "allocated_units": 16,
+        "connections": 15,
+        "phase": "withdraw",
+        "step": 2619,
+        "units": 5
+      },
+      {
+        "allocated_units": 16,
+        "connections": 3,
+        "phase": "withdraw",
+        "step": 3319,
+        "units": 1
+      },
+      {
+        "allocated_units": 16,
+        "connections": 6,
+        "phase": "return",
+        "step": 3320,
+        "units": 2
+      },
+      {
+        "allocated_units": 16,
+        "connections": 6,
+        "phase": "return",
+        "step": 3399,
+        "units": 2
+      }
+    ]
+  },
+  {
+    "capacity": 100000,
+    "max_rss_kb": 525892,
+    "mean_sensor_prediction_error": 0.0010089400497845953,
+    "model_tensor_bytes": 218112,
+    "snapshots": [
+      {
+        "allocated_units": 1,
+        "connections": 3,
+        "phase": "learn",
+        "step": 0,
+        "units": 1
+      },
+      {
+        "allocated_units": 16,
+        "connections": 45,
+        "phase": "learn",
+        "step": 1919,
+        "units": 15
+      },
+      {
+        "allocated_units": 16,
+        "connections": 48,
+        "phase": "withdraw",
+        "step": 1920,
+        "units": 16
+      },
+      {
+        "allocated_units": 16,
+        "connections": 42,
+        "phase": "withdraw",
+        "step": 2019,
+        "units": 14
+      },
+      {
+        "allocated_units": 16,
+        "connections": 15,
+        "phase": "withdraw",
+        "step": 2619,
+        "units": 5
+      },
+      {
+        "allocated_units": 16,
+        "connections": 3,
+        "phase": "withdraw",
+        "step": 3319,
+        "units": 1
+      },
+      {
+        "allocated_units": 16,
+        "connections": 6,
+        "phase": "return",
+        "step": 3320,
+        "units": 2
+      },
+      {
+        "allocated_units": 16,
+        "connections": 6,
+        "phase": "return",
+        "step": 3399,
+        "units": 2
+      }
+    ]
+  }
+]

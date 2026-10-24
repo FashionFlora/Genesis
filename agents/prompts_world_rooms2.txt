@@ -1,0 +1,30 @@
+Jesteś budowniczym świata i sędziego Genesis (tylko Ty zmieniasz sandbox/). Przeczytaj HANDOFF.md i potrzebne fragmenty
+sandbox/worlds/organism.py, sandbox/organism_judge.py. Agenci badawczy właśnie zaczęli używać toru --organism: zmiany
+muszą być wstecznie zgodne (kontrakt mózgu bez zmian), nie psuj działającego sędziego; oszczędzaj tokeny i GPU
+(jeden przebieg naraz, blokada sandbox/.gpu.lock, nice -n 15).
+Problem: pokój 3 nie jest trudniejszy od pokoju 2 (PPO 64.1% w obu), a przy 302–1e5 jednostkach kontrola nie pokazuje
+efektu skali, bo dalsze pokoje nie wymagają więcej. Dodaj kolejne pokoje (np. 4–6) z wyraźnie rosnącą trudnością,
+której większy mózg może sprostać: więcej miejsc jedzenia rozrzuconych dalej i odrastających po czasie, pamięć miejsc
+po wzorach wzrokowych, częstsze odwrócenia znaczeń, więcej atrap, szybszy głód, więcej pikseli oka w dalszych
+pokojach. Każdy kolejny pokój ma zmniejszać odsetek kontroli, która do niego dochodzi (krzywa malejąca, nie skok do 0).
+Sprawdź kontrolę PPO i losowy ruch na nowych pokojach (wiele światów, CI 95%). Starsze wyniki porównywalne: dodaj pole
+protokołu/wersji. Krótko w README. Na koniec HANDOFF.md (do 25 linii), linia KONIEC sama w linii, i ogłoś krótko:
+python3 shared/board.py post sedzia all "...".
+
+PILNE OD ORKIESTRATORA (zrób najpierw, zachowaj przy dalszych zmianach):
+A. Kanał nagrody: organism_judge.py wołał brain.observe_reward() dla KAŻDEGO kandydata z taką metodą (przy
+   --no-interoception), czyli zewnętrzna nagroda dla każdego, kto ją zdefiniuje. Orkiestrator ograniczył to do klas z
+   CALIBRATION_ONLY = True (tylko _calibration_*). Utrzymaj to i dodaj wykrywanie/dyskwalifikację kandydata, który
+   definiuje observe_reward albo CALIBRATION_ONLY.
+B. Wspólny mózg dla batcha: kontrakt daje jeden obiekt na cały batch światów, więc kandydat może uczyć się z
+   doświadczenia wszystkich organizmów naraz (PPO kontrolne właśnie tak robi: jedna sieć i optymalizator na 128 światów).
+   Każdy organizm ma mieć własny mózg. Dodaj test niezależności (np. zmiana wejść jednego świata nie może zmienić
+   wyjść innych światów teraz ani później) i wymuszaj go w sędzim. Kontrolę PPO przerób na per-organizm (osobne wagi
+   na świat, wektorowo, np. batched weights), żeby kalibracja mówiła, czy JEDEN organizm w JEDNYM życiu może się
+   nauczyć. Jeśli wtedy kontrola nie przechodzi pokoju 1, popraw pokój 1 (dłuższy margines energii na naukę).
+C. Agenci uruchamiają sędziego z 2 światami na rozmiar; ustaw minimum światów, które daje sensowny przedział
+   ufności, i raportuj CI w wyniku.
+D. Stan na 16:49: w organism-v2 (6 pokoi) PPO ma score tylko .066–.109, a pierwsza wersja (3 pokoje) miała 64% dojścia
+   do pokoju 2. Wersja v2 jest za trudna już na wejściu, a agenci pracują właśnie na niej. Pokój 1 ma wrócić do
+   trudności z pierwszej wersji (losowy i odruch odpadają, kontrola przechodzi), a trudność ma rosnąć dopiero w
+   pokojach 2–6: krzywa kontroli malejąca stopniowo.

@@ -1,0 +1,8 @@
+Parents: candidates/axiom_homeostasis/principle.py and the H007 direction in
+theory/theorist_dynamics/HANDOFF.md.
+
+Mutation: retain energy-selected color traces and the parent's sensorimotor
+flow, while adding a decaying local habituation state per color. Repeated color
+input is attenuated in salience; the attenuation recovers when that color is
+absent. This tests whether local sensory adaptation releases exploration
+without adding a reward channel or world-specific branch.

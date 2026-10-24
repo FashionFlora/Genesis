@@ -1,0 +1,6 @@
+Parents: candidates/growth_demand_competition/ and candidates/growth_energy_vector/
+Mutation: start with one available niche instead of four, then double storage only
+when every niche is occupied and a novel sensory context arrives. Relative decayed
+use still prunes niches; energy change credits each niche's complete motor vector.
+This tests whether demand-triggered capacity improves adaptation and scales actual
+unit/connection counts, rather than retaining a fixed four-slot ceiling.

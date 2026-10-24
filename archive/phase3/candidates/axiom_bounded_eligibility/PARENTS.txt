@@ -1,0 +1,6 @@
+Parent: candidates/axiom_homeostasis/principle.py
+Mutation: replace the accumulating sensory eligibility trace with a normalized,
+bounded trace distribution. Energy change still reinforces or prunes the recent
+sensory mixture, but old activity cannot grow its credit scale without bound.
+Reason: bounded credit should reduce saturation and permit faster reversal when
+food color changes, while retaining the parent's sensorimotor law.

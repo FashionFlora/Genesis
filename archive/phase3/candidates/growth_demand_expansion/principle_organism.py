@@ -1,0 +1,9 @@
+import importlib.util
+from pathlib import Path
+
+path = Path(__file__).with_name("principle.py")
+spec = importlib.util.spec_from_file_location("growth_demand_expansion_principle", path)
+module = importlib.util.module_from_spec(spec)
+spec.loader.exec_module(module)
+OrganismBrain = module.OrganismBrain
+PARAMS = module.PARAMS

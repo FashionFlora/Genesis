@@ -1,0 +1,2 @@
+Parents: axiom_homeostasis (metabolic selection of sensory traces) and axiom_instant_flow (continuous sensory-motor coupling).
+Mutation: energy change now controls sensory-trace retention: gains retain context and losses shorten its lifetime. This tests whether memory/exploration can emerge from one homeostatic feedback rule without action-specific credit.

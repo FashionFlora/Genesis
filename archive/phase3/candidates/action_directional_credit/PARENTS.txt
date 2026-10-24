@@ -1,0 +1,5 @@
+Parents: candidates/axiom_sensorimotor_flow and candidates/action_flux.
+Change: preserve direct color-weighted bearing flow, while conditioning the
+energy-selected color trace on the sign of the previous turn. A delayed energy
+gain therefore reinforces the cue-turn association that preceded it, rather
+than crediting every recent cue equally.

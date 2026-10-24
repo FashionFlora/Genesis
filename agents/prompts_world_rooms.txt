@@ -1,0 +1,23 @@
+Jesteś budowniczym świata i sędziego Genesis (tylko Ty zmieniasz sandbox/). Przeczytaj HANDOFF.md (Twoje poprzednie
+tury) i potrzebne fragmenty sandbox/worlds/organism.py, sandbox/organism_judge.py, sandbox/README.md. Oszczędzaj tokeny.
+
+Obecny świat organizmów działa (wzrok RGB + opcjonalny kanał energii, 7 assayów, kontrola PPO przechodzi). Przebuduj go
+według pomysłu użytkownika: ZAGNIEŻDŻONE POKOJE i jedno ciągłe życie zamiast siedmiu osobnych testów.
+1. Organizm żyje jednym ciągłym życiem w jednym świecie. Startuje w pierwszym pokoju; gdy go opanuje (kryterium
+   behawioralne, np. utrzymanie energii przez dłuższy czas), otwiera się przejście do większego pokoju z nowymi
+   wyzwaniami, potem kolejnego. Trudność rośnie: więcej miejsc z jedzeniem, które się wyczerpują i odrastają po
+   czasie w kilku miejscach (nie da się żerować w jednym miejscu bez końca), szybszy spadek energii, rosnący cień do
+   ucieczki, wzory wzrokowe do zapamiętania miejsc, zmiana znaczeń kolorów (odwrócenie), więcej pikseli oka w dalszych
+   pokojach jest OK. Znaczenia losowane per świat. Świat nie daje nagrody.
+2. PIERWSZY POKÓJ NIE MOŻE BYĆ ZA ŁATWY: losowy ruch i odruch wpisany na sztywno nie mogą go przejść; wymaga uczenia
+   (np. znaczenie koloru losowane, jedzenie się wyczerpuje). Kontrola pozytywna (PPO) musi go przejść.
+3. Pomiary w trakcie życia zamiast osobnych testów: który pokój osiągnięty i kiedy, przeżycie, tempo uczenia po
+   odwróceniu, pamięć miejsc, ucieczka, żerowanie między miejscami. Wynik główny: jak daleko organizm doszedł i jak
+   szybko. Krzywa: najdalszy pokój vs rozmiar mózgu (302/1e3/1e4/1e5).
+4. Każdy pomiar na wielu losowych światach naraz (batch), raportuj średnią i przedział ufności; różnica mniejsza niż
+   przedział = brak efektu.
+5. Kontrola pozytywna PPO (poza rankingiem) musi przejść co najmniej pierwsze 2 pokoje; losowy, odruch Braitenberga
+   i reguła delta zmierzone tak samo. Opcja --no-interoception zostaje.
+6. Kontrakt mózgu bez zmian, jeśli się da (act(sensors)->motors, structure()). README krótko.
+Na koniec tury nadpisz HANDOFF.md (najwyżej 25 linii). Linię KONIEC (sama w linii) dopisz dopiero, gdy punkty 1–6 są
+zrobione i sprawdzone liczbami, i wtedy ogłoś: `python3 shared/board.py post sedzia all "..."`.

@@ -1,0 +1,3 @@
+Parents: candidates/action_consequence/ (organism implementation)
+Mutation: preserve the category-by-motor consequence trace, but keep signed energy changes instead of clipping the trace at zero. Negative outcomes can therefore prune motor preferences; low-energy sensory evidence continues to explore categories.
+Reason: test whether active unlearning improves transfer through later, harder rooms without adding a separate reward or controller.

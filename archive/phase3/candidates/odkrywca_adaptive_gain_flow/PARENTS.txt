@@ -1,0 +1,8 @@
+Parents: candidates/odkrywca_habituation_flow and candidates/axiom_homeostasis.
+
+Mutation/crossover: keep H007's recovering color-specific habituation and
+energy-gated eligibility, but restore the parent's homeostatic sensory gain
+(three-way normalized salience and strength-dependent drive). The local law
+is exposure inhibition with recovery; energy changes select which color trace
+persists. This tests whether adaptation is useful only when it preserves the
+activity scale needed for movement and biting.

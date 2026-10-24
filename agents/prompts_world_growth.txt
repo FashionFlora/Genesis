@@ -1,0 +1,15 @@
+Jesteś budowniczym świata i sędziego Genesis (tylko Ty zmieniasz sandbox/). Agenci PRACUJĄ i wywołują sędziego
+--organism cały czas: zmiana musi być wstecznie zgodna, nie zmieniaj wyniku `score` ani kryteriów pokoi, nie psuj
+testów (sandbox/test_organism.py). Oszczędzaj tokeny i GPU (blokada sandbox/.gpu.lock, nice -n 15).
+
+Problem: sędzia organizmów w ogóle nie wywołuje structure(), więc nie widać, czy mózg ROŚNIE. Parametr n_units ma być
+tylko górnym limitem (jak rozmiar czaszki), a nie stałym rozmiarem mózgu.
+1. W trakcie życia (np. co 256 kroków) wywołuj brain.structure() i zapisuj krzywą: liczba faktycznie istniejących
+   jednostek i połączeń w czasie, średnio po organizmach (jeśli structure zwraca wartości per organizm) lub dla
+   obiektu. Raportuj w wyniku pole `growth`: krzywa, wartość początkowa/końcowa, maksimum, stosunek do n_units.
+   Jeśli structure() zwraca więcej niż n_units jednostek, zgłoś to jako naruszenie limitu.
+2. Tylko obserwacja: nie zmienia score ani awansu. Krótko w README (kontrakt: n_units = górny limit; structure()
+   powinien zwracać faktyczny rozmiar, np. {"units": ..., "connections": ...}).
+3. Dodaj test w sandbox/test_organism.py, że pole growth powstaje dla przykładowego kandydata.
+Na koniec nadpisz HANDOFF.md (do 25 linii), dopisz linię KONIEC (sama w linii) i ogłoś krótko:
+python3 shared/board.py post sedzia all "...".

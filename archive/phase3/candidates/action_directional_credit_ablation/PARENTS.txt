@@ -1,0 +1,4 @@
+Parent: candidates/action_directional_credit.
+Ablation: set action_rate to zero while preserving the same sensory flow,
+energy trace, and judge protocol. This isolates the contribution of the
+cue-conditioned prior-turn credit update.

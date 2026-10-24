@@ -1,0 +1,3 @@
+Parents: dynamics_predictive_competition (H006), with a local-dynamics inspiration from dynamics_phase_lock.
+Change: conditional relation counts forget faster only after prediction surprise; stable targets retain older evidence. This makes memory turnover emerge from the same prediction error that selects relations, rather than a fixed global decay rate.
+Why: test whether target-local surprise can accelerate regime adaptation without discarding useful relations during predictable periods.

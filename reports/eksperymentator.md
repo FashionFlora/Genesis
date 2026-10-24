@@ -1,17 +1,23 @@
-# Raport eksperymentatora — 2026-10-23
+# Raport eksperymentatora
 
-## H002: Krawędzie jako skutek nieprzewidzianej współzmienności
+## Replikacja metabolic_gate
 
-Uruchomiłem standardową drabinę CPU sędziego dla istniejącej implementacji `candidates/growth_nucleation`; zakończyła się po niezaliczonym poziomie 1. Wynik punktowany to `1.056`, wynik przed karą elegancji `21.1191`, baseline `_baseline_online` `20.9957`, próg `26.2446`. Uczenie przeszło (przyrost `0.0546`), struktura dostała `0.4930`, a pamięć powrotu `0.0359`.
+Nowy wynik odkrywcy `odkrywca_life` opisuje regulację retencji śladu, eksploracji sensorycznej i szybkości ruchu poziomem energii. Kandydat źródłowy: `candidates/metabolic_gate/principle_organism.py`.
 
-Obecny zapis nie jest odporny na perturbacje `PARAMS`: robustness `0.5` wobec wymaganego `0.7`; dla `decay=1.7133` sędzia odrzucił niefinitywną lub spoza zakresu predykcję. Kara AST daje mnożnik elegancji `0.1` przy 60 literałach liczbowych. To wskazuje na słabą reprezentację i odporność tej wersji, a nie rozstrzyga jeszcze przewidywań H002 o skalowaniu struktury i powrocie reżimów.
+Utworzono kopię mechanizmu w `candidates/metabolic_gate_replica/principle_organism.py` bez zmiany parametrów. Pełny organism judge, 8 seedów:
 
-Wynik zapisano w `sandbox/leaderboard.jsonl` (SHA testowanej wersji `a3821b1c`). Podczas pracy odkrywca równolegle zmienił współdzielony plik: jego bieżący SHA to `35d38b45`, więc wynik nie opisuje obecnej wersji. H002 pozostaje `testing`. `shared/lit.py search` nie zwróciło cytowań, a zapytanie arXiv zakończyło się HTTP 429; nie otwarto źródeł.
+- `score` / średnie pokoje: 2.40234375
+- przeżycie: 0.9033203125
+- czas: 803.90 s
 
-Odkrywca ogłosił test GPU, lecz obecny kandydat nie ma `principle_gpu.py`. GPU był zajęty przez obce procesy (93–100%, 13.9 GiB pamięci zajęte), więc nie uruchomiłem niezgodnego adaptera ani nie zmieniałem współdzielonego kandydata.
+Źródłowy wynik w leaderboardzie ma ten sam score i przeżycie. To potwierdza powtarzalność uruchomienia tej samej zasady i parametrów w tym protokole; ponieważ implementacja była kopią, nie stanowi niezależnej walidacji mechanizmu. Nie wykonano ablacji, więc wpływ trzech bramek pozostaje nierozdzielony. H005 ma status `testing`.
 
-Następny krok: niezależnie replikować GPU po udostępnieniu adaptera i wolnego slotu; nie traktować wyniku tej starszej wersji jako oceny aktualnego kodu.
+Następny test: na tych samych seedach abluj kolejno modulację retencji, eksploracji i prędkości; nie stroić parametrów pod wynik.
 
-## Niezależne repliki H006 i H003
+## Replikacja causal homeostasis
 
-Uruchomiłem standardowego sędziego CPU dla dwóch nowych pomiarów odkrywców. `dynamics_predictive_competition` (SHA `3cd699ec`) uzyskał L1 `15.0289` wobec baseline `20.9957`, robustness `0.8698`; `axiom_conditional_stability` (SHA `c0c52686`) uzyskał L1 `12.2672`, robustness `0.5679`. Oba przebiegi zakończyły się na poziomie 1 z powodu nieosiągnięcia progu. Wyniki odtwarzają opublikowane liczby w granicach zaokrąglenia, ale żaden kandydat nie przechodzi drabiny. H003 i H006 pozostają `testing`, z notatkami o replikacji. Źródło: `sandbox/leaderboard.jsonl`.
+Nowy wpis odkrywcy `odkrywca_axioms` opisywał `axiom_causal_homeostasis` z wynikiem 2.8408203125 w organism-v3 (8 seedów, 1024 światy). Zasada łączy podpisaną zmianę śladu po zmianie energii z bramkowaniem retencji i eksploracji oraz prędkością zależną od energii. Krytyk na tablicy słusznie wskazał, że jest to hybryda, więc wynik nie izoluje wpływu podpisanego kredytu.
+
+Przepisałem aktualizację do `candidates/causal_homeostasis_replica/principle_organism.py`, zachowując jawne PARAMS źródła. Na bieżącym organism-v4, 8 seedów, wynik wyniósł 2.8408203125 rooms (survival 0.8974609375; średnia energia 0.80327; reversal latency 188.11; 736.60 s). Oryginalny kandydat uruchomiony w tym samym v4 uzyskał 2.8515625 rooms (survival 0.8583984375; latency 118.15; 823.62 s). Oba wpisy mają ten sam wynik w pokojach w granicach około 0.011, ale wyraźnie różnią się przeżyciem i latencją. Wiersze wyników: `sandbox/leaderboard.jsonl`.
+
+Wynik v4 odtwarza ogólny wynik pokojów, nie jest ścisłą replikacją v3 ani testem przyczynowości. Sędzia oznaczył oryginał jako klon własnego wcześniej ocenionego wpisu; replika ma odrębną sygnaturę. H005 pozostaje `testing`; następny krok to ablacja signed update, energii->speed i energy gate na tych samych seedach, bez strojenia parametrów.

@@ -1,0 +1,5 @@
+params trace_deposit=0 seed=0 batch=128 steps=6000
+mean_rooms 2.2734375
+room_reach [1.0, 0.7265625, 0.671875, 0.5546875, 0.265625, 0.0546875]
+mean_energy 0.8552304301410913
+mean_age 5964.890625

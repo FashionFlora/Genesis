@@ -1,0 +1,5 @@
+Parent: candidates/action_credit.
+Change: replace bite-gated color preference with a decaying eligibility tensor that
+binds the previous color mixture to all three previous motor outputs. The next
+internal energy delta updates those sensor-to-motor associations, testing whether
+ongoing movement can receive useful credit without a successful bite.

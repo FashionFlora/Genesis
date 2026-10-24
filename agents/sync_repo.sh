@@ -8,8 +8,12 @@ COMMON=(--max-size=5m --exclude .venv --exclude cache --exclude logs --exclude _
 rsync -a --delete "${COMMON[@]}" --exclude .git --exclude README.md --exclude .gitignore --exclude docs \
   --exclude archive --exclude /HANDOFF.md --exclude run_area.sh --exclude supervisor.py "$SRC"/ "$DST"/
 mkdir -p "$DST/archive"
-rsync -a --delete "${COMMON[@]}" --exclude /HANDOFF.md --exclude run_area.sh --exclude supervisor.py \
-  "$ARC/2026-10-23_reset"/ "$DST/archive/phase1"/
+# fazy: 1 = strumienie (do resetu 23.10 11:53), 2 = czysty start na strumieniach (20 min), 3 = pierwszy świat organizmów (v2)
+for pair in "2026-10-23_reset:phase1" "2026-10-23_phase2:phase2" "2026-10-23_phase3:phase3"; do
+  src="${pair%%:*}"; dst="${pair##*:}"
+  [ -d "$ARC/$src" ] && rsync -a --delete "${COMMON[@]}" --exclude /HANDOFF.md --exclude run_area.sh --exclude supervisor.py \
+    "$ARC/$src"/ "$DST/archive/$dst"/
+done
 [ -d "$ARC/archeology" ] && rsync -a --delete "${COMMON[@]}" --exclude sandbox "$ARC/archeology"/ "$DST/archive/archeology"/
 cd "$DST"
 git add -A

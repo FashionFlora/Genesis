@@ -1,0 +1,3 @@
+Parent: candidates/odkrywca_metabolic_trace
+Mutation: keep its local sensorimotor eligibility trace and energy-change plasticity, but make trace persistence increase smoothly with current energy and shorten during depletion.
+Rationale: memories of activity that sustains metabolism can remain eligible longer, while activity accumulated during depletion is forgotten sooner; this adds resource-dependent memory lifetime without a task-specific branch.

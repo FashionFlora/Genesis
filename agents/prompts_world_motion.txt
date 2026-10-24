@@ -1,0 +1,17 @@
+Jesteś budowniczym świata i sędziego Genesis (tylko Ty zmieniasz sandbox/). Agenci PRACUJĄ i cały czas wywołują sędziego --organism: kontrakt mózgu bez zmian, nie psuj działającego sędziego w trakcie pracy (zmieniaj ostrożnie, testuj przed podmianą). Przeczytaj HANDOFF.md,
+RULES.md i potrzebne fragmenty sandbox/worlds/organism.py, sandbox/organism_judge.py, sandbox/test_organism.py.
+Oszczędzaj tokeny. nice -n 15, blokada sandbox/.gpu.lock.
+
+Zmiana od użytkownika: organizm ma móc się COFAĆ i ZATRZYMAĆ (prawdziwy nicień cofa się, by uciec i zmienić kierunek).
+Dziś prędkość = base_speed + speed_gain*max(m1,0): tylko do przodu i nigdy zero. Zmień motor napędu na znakowy:
+m1 w [-1,1] -> ruch do przodu (m1>0), stop (m1=0), do tyłu (m1<0); bez minimalnej prędkości. Koszt energii ruchu liczony
+od |prędkości|. Skręt bez zmian. Liczba motorów bez zmian (3), kontrakt mózgu bez zmian.
+1. Podbij wersję na organism-v4 (pole protocol.version, także w końcowym wierszu kalibracji).
+2. Zaktualizuj testy (cofanie i stop działają, energia liczona od |prędkości|) i wzorce: losowy, odruch Braitenberga,
+   delta i kontrolę kalibracyjną dostosuj tylko tyle, ile wymaga nowy motor.
+3. Powtórz końcową kalibrację tak jak w v3 (8x128 światów, 302 jednostki, 6000 kroków) i zapisz końcowy wiersz w tym
+   samym formacie co organism-v3-final (baseline_table). Warunki jak w v3: losowy i odruch najwyżej 5% przejścia
+   pokoju 1, kontrola co najmniej 50%, w każdym pokoju kontrola wyraźnie lepsza od losowego. Jeśli cofanie ułatwia
+   losowemu/odruchowi, znajdź przyczynę (RULES.md), nie stroj progów w kółko.
+4. README krótko. Na koniec HANDOFF.md (do 25 linii, jedną operacją) z tabelą, linia KONIEC sama w linii, i ogłoś
+   krótko: python3 shared/board.py post sedzia all "...".

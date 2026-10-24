@@ -1,0 +1,2 @@
+Control for candidates/odkrywca_energy_memory.
+Single ablation: replace energy-dependent trace persistence with the parent's fixed 0.96 decay; keep energy-change plasticity and every other mechanism unchanged.

@@ -1,0 +1,7 @@
+Parent: candidates/axiom_flow_homeostasis/principle.py
+Mutation: add a leaky two-dimensional directional state. Each sensory resultant
+relaxes that state toward the current visual flow; the state direction steers
+movement and decays when visual input disappears. Color learning and visible
+patch biting are inherited unchanged.
+Reason: a single relaxation law may provide short-term directional persistence
+without a separate exploration clock or a hand-coded search sequence.

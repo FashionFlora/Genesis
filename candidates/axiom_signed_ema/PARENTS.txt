@@ -1,0 +1,5 @@
+Parent: candidates/axiom_causal_homeostasis
+Mutation: replace separate gain/loss deposits, a deadband, and energy-dependent
+retention with one signed energy-delta deposit and a fixed exponential leak.
+Set movement speed to a constant to isolate the signed-trace mechanism from
+the parent's direct energy-to-speed heuristic.

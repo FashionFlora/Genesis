@@ -1,0 +1,4 @@
+Parent: candidates/odkrywca_dynamics/principle_organism.py
+Mutation: add local activity-normalized synaptic competition to the existing
+energy-gated eligibility update. The parent's homeostasis parameter was unused;
+this tests whether equalizing persistent activity stabilizes useful pathways.

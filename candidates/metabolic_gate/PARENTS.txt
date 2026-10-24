@@ -1,0 +1,3 @@
+Parent: candidates/energy_association
+Mutation: replace the fixed "unlearned-only" sensory fallback with one metabolic allocation law. The feature trace is retained in proportion to current energy, while low energy shifts selection toward current visual evidence; speed is also allocated from the same energy state.
+Why: a resource stock should both preserve useful associations when fed and reopen exploration when depleted, without a separate reset branch.

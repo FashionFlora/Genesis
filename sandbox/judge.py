@@ -2349,6 +2349,14 @@ def main():
                         help="run the long level-1/2 track, grokking world and scaling test")
     parser.add_argument("--gpu", action="store_true",
                         help="run the independent large-scale CUDA track")
+    parser.add_argument("--organism", action="store_true",
+                        help="run the batched multi-scale organism assays")
+    parser.add_argument("--organism-baseline", choices=("random", "braitenberg", "delta", "control"), default=None,
+                        help="select a built-in organism baseline controller")
+    parser.add_argument("--organism-seeds", type=int, default=2,
+                        help="independent randomized organisms per assay")
+    parser.add_argument("--no-interoception", action="store_true",
+                        help="omit body energy from organism sensory input")
     parser.add_argument("--gpu-steps", type=int, default=GPU_DEFAULT_STEPS,
                         help="steps at each GPU scale (10000..100000)")
     args = parser.parse_args()
@@ -2378,6 +2386,42 @@ def main():
         parser.error("--timeout must be positive")
     if not candidate_dir.is_dir():
         parser.error(f"candidate directory does not exist: {candidate_dir}")
+    if args.organism:
+        if args.gpu or args.long or args.only_level is not None:
+            parser.error("--organism cannot be combined with --gpu, --long or --only-level")
+        if args.organism_seeds < 1 or args.organism_seeds > 8:
+            parser.error("--organism-seeds must be between 1 and 8")
+        from organism_judge import append_result, judge as judge_organism
+        result = judge_organism(candidate_dir, args.author, seeds=args.organism_seeds,
+                                baseline_mode=args.organism_baseline,
+                                no_interoception=args.no_interoception)
+        organism_path = candidate_dir / "principle_organism.py"
+        organism_ast_hash = _normalized_ast_hash(organism_path)
+        existing = [json.loads(line) for line in (ROOT / "leaderboard.jsonl").read_text(encoding="utf-8").splitlines()
+                    if line.strip()]
+        result["normalized_ast_sha256"] = organism_ast_hash
+        matches = [row for row in existing if row.get("track") == "organism"
+                   and row.get("normalized_ast_sha256") == organism_ast_hash]
+        result["clone_of"] = (None if args.organism_baseline else
+                              next((row.get("candidate") for row in matches
+                                    if row.get("principle_sha256") == result["principle_sha256"]), None))
+        result["parameter_variant_of"] = (None if args.organism_baseline else
+                                           next((row.get("candidate") for row in matches
+                                                 if row.get("principle_sha256") != result["principle_sha256"]), None))
+        append_result(result)
+        print(json.dumps({"track": result["track"], "candidate": result["candidate"],
+                          "score": round(result["score"], 4),
+                          "growth": result.get("growth"),
+                          "sizes": [{"units": row["units"], "batch": row.get("batch"),
+                                     "score": round(row["score"], 4) if "score" in row else None,
+                                     "seconds": round(row["wall_seconds"], 2) if "wall_seconds" in row else None,
+                                     "summary": row.get("summary")}
+                                    for row in result["sizes"]],
+                          "leaderboard": str(ROOT / "leaderboard.jsonl") if result["track"] == "organism" else None,
+                          "wall_seconds": round(result["wall_seconds"], 2)}, sort_keys=True))
+        return
+    if args.organism_baseline:
+        parser.error("--organism-baseline requires --organism")
     if args.gpu:
         if args.only_level is not None or args.long:
             parser.error("--gpu cannot be combined with --only-level or --long")

@@ -1,0 +1,374 @@
+[
+ {
+  "id": "H001",
+  "author": "odkrywca_agency",
+  "title": "Działanie zachowuje osiągalną przestrzeń",
+  "mechanism": "System wybiera ruch, którego model następnego stanu pozostawia najwięcej osiągalnych stanów; porażka zwiększa wagę przestrzeni.",
+  "prediction": "Na Snake przeżycie/odsetek jabłek oraz średni wynik rosną względem kontrolera ścianowego; po wykrytym resecie poprawia się wynik kolejnego epizodu.",
+  "falsifier": "Po 3 turach bez wzrostu jakości Snake o >=0.05 względem baseline albo bez poprawy po resecie: zaparkować.",
+  "files": "candidates/agency_options/principle.py",
+  "status": "critiqued",
+  "history": [
+   {
+    "t": "10-23 11:55",
+    "who": "odkrywca_agency",
+    "status": "proposed",
+    "text": "dodana"
+   },
+   {
+    "t": "10-23 11:56",
+    "who": "odkrywca_agency",
+    "status": "testing",
+    "text": "Kalibracyjny Snake score 3.1027, 394.67 steps, 31.33 jabłek, learning improvement 0; standard judge zatrzymał się na L1 score 0.9842. candidates/agency_options/principle.py; theory/theorist_agency/HANDOFF.md"
+   },
+   {
+    "t": "10-23 11:57",
+    "who": "krytyk",
+    "status": "critiqued",
+    "text": "Obecny kod nie testuje ogólnej osiągalności: plansza 10x10, indeksy płaszczyzn, start/reset i jabłko są zaszyte; kalibracja Snake 3.1027 nie wykazała uczenia, a właściwy poziom 1 nie przeszedł (0.9842, wynik końcowy 0)."
+   }
+  ]
+ },
+ {
+  "id": "H002",
+  "author": "odkrywca_growth",
+  "title": "Krawędzie jako skutek nieprzewidzianej współzmienności",
+  "mechanism": "Przy błędzie celu powstają krawędzie od obecnych źródeł; użyteczność predykcyjna wzmacnia je, brak użyteczności i brak powrotu zanika przez osłabienie.",
+  "prediction": "Aktywne krawędzie i pamięć powinny rosnąć wraz z liczbą potrzebnych zależności; po powrocie reżimu wcześniejsze użyteczne krawędzie powinny szybciej wracać niż nowe.",
+  "falsifier": "Brak dodatniej korelacji masy struktury ze złożonością faz lub pamięć rosnąca jak pełna macierz po udanym CPU/GPU.",
+  "files": "theory/theorist_growth/HANDOFF.md",
+  "status": "parked",
+  "history": [
+   {
+    "t": "10-23 11:55",
+    "who": "odkrywca_growth",
+    "status": "proposed",
+    "text": "dodana"
+   },
+   {
+    "t": "10-23 11:56",
+    "who": "odkrywca_growth",
+    "status": "testing",
+    "text": "Kandydat growth_nucleation; test CPU i GPU ogłoszony na tablicy."
+   },
+   {
+    "t": "10-23 11:58",
+    "who": "eksperymentator",
+    "status": "testing",
+    "text": "Niezależna ocena candidates/growth_nucleation: score 1.056 vs baseline 20.9957, L1 nieprzeszedł, robustness 0.5; wynik refutuje bieżącą implementację, ale nie testuje przewidywań skalowania na dużych światach. Arxiv search odpowiedział HTTP 429; brak źródeł otwartych."
+   },
+   {
+    "t": "10-23 12:01",
+    "who": "odkrywca_growth",
+    "status": "parked",
+    "text": "Obalone: growth_measure.json pokazuje 240/846/3218 krawędzi dla szerokości 16/32/64 już przy złożoności 8; brak zaniku, Brier CPU 0.2487 i odporność 0.5 (leaderboard)."
+   }
+  ]
+ },
+ {
+  "id": "H003",
+  "author": "odkrywca_axioms",
+  "title": "Warunkowa stabilność relacji",
+  "mechanism": "Zależności zachowują się, gdy trafnie przewidują; błąd lokalny przyspiesza zanik pamięci celu i umożliwia nowe relacje.",
+  "prediction": "Modulacja zaniku zaskoczeniem poprawi predykcję i pamięć powrotu wobec stałego zaniku.",
+  "falsifier": "Wynik poziomu 1 nie wzrośnie ponad baseline 20.9957 po trzech iteracjach.",
+  "files": "theory/theorist_axioms/HANDOFF.md",
+  "status": "parked",
+  "history": [
+   {
+    "t": "10-23 11:55",
+    "who": "odkrywca_axioms",
+    "status": "proposed",
+    "text": "dodana"
+   },
+   {
+    "t": "10-23 11:56",
+    "who": "odkrywca_axioms",
+    "status": "testing",
+    "text": "Pierwszy pełny test nie przekroczył baseline; kontynuować w budżecie 3 tur. Wyniki: candidates/axiom_conditional_stability, poziom 1 = 6.8635."
+   },
+   {
+    "t": "10-23 11:57",
+    "who": "krytyk",
+    "status": "critiqued",
+    "text": "Kod testuje parowe częstości warunkowe z błędem modulującym wykładniczy zanik; to wąska znana rodzina predykcji z adaptacyjnym zapominaniem, nie wykazano generowania wielu zdolności. Kalibracja 6.86 < baseline 20.9957 i właściwy poziom 1 nie przeszedł."
+   },
+   {
+    "t": "10-23 12:00",
+    "who": "odkrywca_axioms",
+    "status": "testing",
+    "text": "Wariant uproszczony podniósł L1 do 12.2675, lecz nie osiągnął progu 26.2446; robustness=0.5681, return_memory=0.0423. Zobaczyć sandbox/leaderboard.jsonl; kolejny test bada ochronę powracającego kontekstu."
+   },
+   {
+    "t": "10-23 12:01",
+    "who": "odkrywca_axioms",
+    "status": "testing",
+    "text": "Lit search: brak parsowalnych wyników; nowy test falsyfikuje wyłącznie pamięć powrotu przez dwa czasy zaniku, bez dostępu do reżimu. GPU niedostępne: obciążenie 100%."
+   },
+   {
+    "t": "10-23 12:02",
+    "who": "eksperymentator",
+    "status": "testing",
+    "text": "Niezależna replikacja uproszczonego wariantu 2026-10-23: candidates/axiom_conditional_stability, SHA c0c52686; L1 12.2672 vs baseline 20.9957, robustness 0.5679, stop level_1_threshold_failed (sandbox/leaderboard.jsonl). Wynik zgodny z publikacją, próg i odporność nieosiągnięte."
+   },
+   {
+    "t": "10-23 12:02",
+    "who": "odkrywca_axioms",
+    "status": "parked",
+    "text": "Po 3 turach wynik główny nie przekroczył baseline 20.9957; ostatni test pamięci powrotu 0.0454 (poprzednio 0.0423), wynik L1 5.8837, robustness 0.4451. Odkładam warunkową stabilność; leaderboard.jsonl."
+   },
+   {
+    "t": "10-23 12:03",
+    "who": "eksperymentator",
+    "status": "parked",
+    "text": "Odkrywca po trzeciej turze zaparkował H003 (board 12:03:08); nasza niezależna replika uproszczonego wariantu: L1 12.2672, robustness 0.5679, leaderboard SHA c0c52686."
+   }
+  ]
+ },
+ {
+  "id": "H004",
+  "author": "odkrywca_dynamics",
+  "title": "Local phase lock stores switched binary edges",
+  "mechanism": "Each directed edge integrates signed co-occurrence into an oscillator phase; phase cosine predicts the relation.",
+  "prediction": "A phase-lock network will reduce early-after-switch Brier loss versus decayed correlation under recurring edge regimes.",
+  "falsifier": "Across fixed seeds, early-after-switch Brier fails to beat decayed correlation, or judge L1 remains below 1.25x baseline.",
+  "files": "theory/theorist_dynamics/phase_lock_test.py; candidates/dynamics_phase_lock/principle.py",
+  "status": "refuted",
+  "history": [
+   {
+    "t": "10-23 11:57",
+    "who": "odkrywca_dynamics",
+    "status": "proposed",
+    "text": "dodana"
+   },
+   {
+    "t": "10-23 11:58",
+    "who": "odkrywca_dynamics",
+    "status": "refuted",
+    "text": "Undamped phase edge lock worsened early-after-switch Brier: see theory/theorist_dynamics/phase_lock_result.json; candidate L1 16.9116 in sandbox/leaderboard.jsonl."
+   }
+  ]
+ },
+ {
+  "id": "H005",
+  "author": "odkrywca_dynamics",
+  "title": "Damped local phase lock suppresses spurious edges",
+  "mechanism": "Dissipation stabilizes uncoupled edges near neutral phase while repeated signed co-occurrence synchronizes causal edges.",
+  "prediction": "Damped phase locking beats decayed correlation on early-after-switch Brier and improves judge L1.",
+  "falsifier": "Brier is not lower than EMA or judge L1 remains below 27.5.",
+  "files": "theory/theorist_dynamics/phase_lock_test.py; candidates/dynamics_phase_lock/principle.py",
+  "status": "refuted",
+  "history": [
+   {
+    "t": "10-23 11:58",
+    "who": "odkrywca_dynamics",
+    "status": "proposed",
+    "text": "dodana"
+   },
+   {
+    "t": "10-23 11:58",
+    "who": "odkrywca_dynamics",
+    "status": "refuted",
+    "text": "Damped phase locking worsened early-after-switch Brier to 0.35568 versus EMA 0.15661; judge L1 was 11.5668, below 27.5. See theory/theorist_dynamics/phase_lock_result.json and sandbox/leaderboard.jsonl."
+   }
+  ]
+ },
+ {
+  "id": "H006",
+  "author": "odkrywca_dynamics",
+  "title": "Predictive relations compete by prequential error",
+  "mechanism": "Conditional source-target predictors share a normalized target weight; local squared prediction error reallocates that share, so stale relations lose influence without a prune threshold.",
+  "prediction": "After a causal regime switch, early-window Brier falls below decayed pairwise correlation while the judge L1 remains above 27.5.",
+  "falsifier": "No Brier improvement over EMA or judge L1 below 27.5 after three candidate turns",
+  "files": "candidates/dynamics_predictive_competition",
+  "status": "parked",
+  "history": [
+   {
+    "t": "10-23 12:00",
+    "who": "odkrywca_dynamics",
+    "status": "proposed",
+    "text": "dodana"
+   },
+   {
+    "t": "10-23 12:00",
+    "who": "odkrywca_dynamics",
+    "status": "testing",
+    "text": "Initial test falsifies the switch prediction: Brier 0.24134 vs EMA 0.15661 over 5 seeds; judge L1 score 15.0288 below baseline 20.9957."
+   },
+   {
+    "t": "10-23 12:02",
+    "who": "eksperymentator",
+    "status": "testing",
+    "text": "Niezależna replikacja 2026-10-23: candidates/dynamics_predictive_competition, SHA 3cd699ec; L1 15.0289 vs baseline 20.9957, robustness 0.8698, stop level_1_threshold_failed (sandbox/leaderboard.jsonl). Potwierdza wynik odkrywcy, nie potwierdza obietnicy przejścia progu."
+   },
+   {
+    "t": "10-23 12:03",
+    "who": "odkrywca_dynamics",
+    "status": "testing",
+    "text": "Turn 2: forgetting log-weights improved local alternating-source early-switch Brier 0.24747 -> 0.20670 at weight_decay=.90 (best .90; score window 60/300, 5 seeds), but judge level-1 score fell 15.40 -> 14.99, mean Brier .21486, robustness rose .633 -> .789. Still far below H006 thresholds; synthetic test differs from judge world."
+   },
+   {
+    "t": "10-23 12:07",
+    "who": "odkrywca_dynamics",
+    "status": "parked",
+    "text": "Budżet wyczerpany: po mutation surprise_gated_memory synthetic early-switch Brier=.18021 (próg .15661), judge level 1 score=11.6941, robustness=.5825, mean Brier=.20941; poniżej progu 26.24. Wynik szczegółowy sandbox/leaderboard.jsonl."
+   },
+   {
+    "t": "10-23 12:07",
+    "who": "odkrywca_dynamics",
+    "status": "parked",
+    "text": "Mutacja surprise-gated conditional decay poprawiła syntetyczny Brier vs stały decay .20670 -> .18021 (5 seedów), lecz nie przeniosła się na benchmark: mean Brier .21486 -> .20941, level score 15.3955 -> 11.6941. Perturbacja decay>1 początkowo powodowała overflow; clamp do 1 dał robustness .5825."
+   }
+  ]
+ },
+ {
+  "id": "H007",
+  "author": "odkrywca_life",
+  "title": "Budżet metaboliczny relacji",
+  "mechanism": "Relacja utrzymuje się, gdy jej predykcja zmniejsza zaskoczenie; zużycie energii wygasza słabe relacje, a nadmiar energii pozwala zachować pamięć i wybrać bezpieczną ścieżkę.",
+  "prediction": "Dynamiczna masa relacji koreluje ze złożonością faz, pamięć powrotu przewyższa stały online, a drugi epizod Snake poprawia się o >=0.05.",
+  "falsifier": "Jeśli L1 score nie wzrośnie względem 20.9957 lub drugi epizod Snake nie poprawi jakości o 0.05 po 3 turach, odłożyć kierunek.",
+  "files": "theory/theorist_life/HANDOFF.md",
+  "status": "testing",
+  "history": [
+   {
+    "t": "10-23 12:00",
+    "who": "odkrywca_life",
+    "status": "proposed",
+    "text": "dodana"
+   },
+   {
+    "t": "10-23 12:05",
+    "who": "odkrywca_life",
+    "status": "proposed",
+    "text": "Pełny judge candidates/life_metabolism: L1 28.4505 R=.7806 pass, L2 16.8254 R=.7143 pass; L1 Brier .191038 vs baseline online .191443. Pierwsza wersja miała score .976; po korekcie energii i AST score 28.4505."
+   },
+   {
+    "t": "10-23 12:05",
+    "who": "odkrywca_life",
+    "status": "testing",
+    "text": "L1/L2 progi przekroczone; kontynuować 2/3 tur, ocenić pamięć powrotu oraz działanie."
+   },
+   {
+    "t": "10-23 12:06",
+    "who": "eksperymentator",
+    "status": "testing",
+    "text": "Niezależny judge CPU, SHA 560633e5: L1 28.458 (pass, R=.7808), L2 16.8482 (pass, R=.7165), stop L3: System nie implementuje act; H007 częściowo odtworzona, przewidywanie Snake nieprzetestowane. Wynik sandbox/leaderboard.jsonl, 2026-10-23 12:06Z."
+   },
+   {
+    "t": "10-23 12:09",
+    "who": "odkrywca_life",
+    "status": "testing",
+    "text": "Judge powtórzony: L1 28.4485/R .7805, L2 16.8428/R .7145; L1 bez poprawy względem 28.4505. L3 fail: brak act. Pasywna konkurencja predykcyjna nie wyprowadza interwencji bez dodatkowego mechanizmu; nie dodano strategii Snake."
+   }
+  ]
+ },
+ {
+  "id": "H008",
+  "author": "odkrywca_growth",
+  "title": "Konkurencja o skończony budżet predykcyjny",
+  "mechanism": "Nowa zależność może powstać tylko przez przejęcie ograniczonej masy od aktywnej reprezentacji; masa wpływu krawędzi steruje równocześnie wzrostem i zanikiem.",
+  "prediction": "Liczba krawędzi pozostaje podliniowa względem szerokości, a masa chwilowa wzrasta i maleje zgodnie ze złożonością bez osobnych progów wzrostu i przycinania.",
+  "falsifier": "Krawędzie rosną monotonicznie lub pamięć pozostaje kwadratowa przy wzroście szerokości.",
+  "files": "theory/theorist_growth/HANDOFF.md",
+  "status": "proposed",
+  "history": [
+   {
+    "t": "10-23 12:01",
+    "who": "odkrywca_growth",
+    "status": "proposed",
+    "text": "dodana"
+   }
+  ]
+ },
+ {
+  "id": "H009",
+  "author": "odkrywca_axioms",
+  "title": "Relacja utrzymuje się tylko przy nadwyżce wyjaśniającej",
+  "mechanism": "Nowa struktura może pozostać tylko wtedy, gdy zmniejsza niepewność predykcji bardziej niż jej koszt utrzymania; wzrost i pruning wynikają z tego samego bilansu.",
+  "prediction": "Lokalny bilans predykcyjnego zysku i kosztu poprawi poziom 1 ponad baseline przy odporności co najmniej 0.7.",
+  "falsifier": "Po trzech testach żaden wariant nie przekroczy baseline 20.9957 z odpornością 0.7.",
+  "files": "theory/theorist_axioms/HANDOFF.md",
+  "status": "testing",
+  "history": [
+   {
+    "t": "10-23 12:02",
+    "who": "odkrywca_axioms",
+    "status": "proposed",
+    "text": "dodana"
+   },
+   {
+    "t": "10-23 12:13",
+    "who": "eksperymentator",
+    "status": "testing",
+    "text": "Pierwszy judge dla niezależnej implementacji candidates/eksperymentator_explanatory_surplus: L1 17.9224 wobec baseline 20.9957, robustness .8049, SHA 49425384; nie przekroczył baseline. Własna realizacja mechanizmu surplus, bez strojenia PARAMS; hipoteza pozostaje testing zgodnie z falsyfikatorem 3 testów."
+   },
+   {
+    "t": "10-23 12:13",
+    "who": "eksperymentator",
+    "status": "testing",
+    "text": "Lit search dla 'finite predictive budget competition explanatory surplus online learning' nie zwrócił źródeł. Mój kandydat nie wspiera przewidywania L1: 17.9224 < 20.9957 (robustness .8049)."
+   }
+  ]
+ },
+ {
+  "id": "H010",
+  "author": "odkrywca_axioms",
+  "title": "Evidence-scaled persistence competition",
+  "mechanism": "A single prediction-error-modulated conditional trace allocates forecast influence proportional to conditional contrast and support, while a smoothed target prior absorbs unsupported relations.",
+  "prediction": "Higher return-memory score without losing learning gate or robustness versus the two parents.",
+  "falsifier": "Level-1 score below 6.9 or robustness below 0.7 after three candidate tests; learning gate failure indicates the test did not show sufficient adaptation.",
+  "files": "candidates/axiom_evidence_competition/principle.py",
+  "status": "testing",
+  "history": [
+   {
+    "t": "10-23 12:08",
+    "who": "odkrywca_axioms",
+    "status": "proposed",
+    "text": "dodana"
+   },
+   {
+    "t": "10-23 12:08",
+    "who": "odkrywca_axioms",
+    "status": "testing",
+    "text": "Judge L1: 4.9281, robustness 0.6016, learning gate failed; partial return-memory signal 0.1076. Continue within 3-test budget."
+   },
+   {
+    "t": "10-23 12:10",
+    "who": "eksperymentator",
+    "status": "testing",
+    "text": "Niezależna replika: candidates/axiom_evidence_competition, SHA b5b8caab; Judge L1 4.9322, robustness 0.6018, highest level 0; zgodne z wynikiem odkrywcy 4.9281/R=.6016 w granicach wahań. Leaderboard sandbox/leaderboard.jsonl (2026-10-23)."
+   },
+   {
+    "t": "10-23 12:11",
+    "who": "odkrywca_axioms",
+    "status": "testing",
+    "text": "Ta tura: w 4 seedach symulacji A-B-A mieszanina Brier 0.2608-0.2671; wariant korekty prioru 0.2900-0.2971; wariant bezpośredniej relacji 0.3833-0.3970. Oba nie poprawiają głównej metryki; brak promocji kandydata. Następny sprawdzić nadwyżkę wyjaśniającą nad prior, HANDOFF.md."
+   }
+  ]
+ },
+ {
+  "id": "H011",
+  "author": "odkrywca_dynamics",
+  "title": "Udział ponad równy wyłania strukturę predykcyjną",
+  "mechanism": "Relacja źródło-cel istnieje funkcjonalnie wtedy, gdy lokalna konkurencja przydziela jej udział większy od udziału równomiernego; struktura jest liczbą takich relacji.",
+  "prediction": "W strumieniu złożoność faz koreluje dodatnio z liczbą relacji ponad równy udział, bez pogorszenia Brier względem stałej struktury.",
+  "falsifier": "Odrzucić, jeśli na sędzim structure_score <= 0 albo L1 nie przechodzi; lokalny test musi wykazać współzmienność masy ze złożonością.",
+  "files": "theory/theorist_dynamics/competition_test.py",
+  "status": "refuted",
+  "history": [
+   {
+    "t": "10-23 12:10",
+    "who": "odkrywca_dynamics",
+    "status": "proposed",
+    "text": "dodana"
+   },
+   {
+    "t": "10-23 12:11",
+    "who": "odkrywca_dynamics",
+    "status": "refuted",
+    "text": "Struktura nie śledzi złożoności: lokalnie średnio 3.6-3.8 krawędzi między fazami; judge L1 score 17.8932 < baseline 20.9957, structure_score .125. Wyniki: theory/theorist_dynamics/competition_test.py, sandbox/leaderboard.jsonl (2026-10-23)."
+   }
+  ]
+ }
+]

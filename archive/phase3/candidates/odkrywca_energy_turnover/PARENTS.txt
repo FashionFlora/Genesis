@@ -1,0 +1,3 @@
+Parents: candidates/axiom_homeostasis/ and candidates/growth_demand_competition/.
+Change: energy loss causes multiplicative turnover of learned sensory preferences; energy gain reinforces the recent sensory eligibility trace. This crosses metabolic selection with self-pruning rather than adding a task-specific cue rule.
+Reason: test whether energetic scarcity can prune stale preferences and make subsequent growth/learning more adaptive.

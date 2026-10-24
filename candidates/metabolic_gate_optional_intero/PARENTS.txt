@@ -1,0 +1,3 @@
+Parents: candidates/metabolic_gate_fixed_speed/ (both principle.py and principle_organism.py).
+Change: infer whether the optional energy channel is present from the sensor shape; without it, consume all RGB pixels and use a neutral energy value of 0.5.
+Why: preserve the parent's metabolic trace and fixed-speed behavior while making the sensory contract valid under the judge's no-interoception assay.

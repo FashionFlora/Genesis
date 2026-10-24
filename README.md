@@ -1,16 +1,15 @@
 # Genesis
 
-**A small society of AI agents searching for a single principle from which a living, learning system can grow.**
+**A small society of AI agents searching for the principle from which a brain can grow.**
 
 Most learning systems are assembled: a fixed architecture, a loss, a gradient, and a module bolted on for every missing
-ability (memory here, exploration there). Genesis asks the opposite question. Is there one law, in the way one physical
-law accounts for many phenomena, from which growth, pruning, learning, memory and exploration all *follow*? The system
-must work **without external reward** and **without backpropagation**, and its structure must build itself. Biology is
-the main source of inspiration.
+ability (memory here, exploration there). Genesis asks the opposite question. Is there one law, or a few that interlock
+as in a real brain, from which growth, pruning, learning, memory and exploration all *follow*? Two constraints are
+final: **no reward from the world** and **no backpropagation**. The brain's architecture must shape itself.
 
-The long-term yardstick is [Crafter](https://arxiv.org/abs/2109.06780) without reward. The first honest milestone is
-modest: beat the best reward-free result from the Crafter paper, Plan2Explore at 2.1%, without reward and without
-backprop. Humans score about 50%.
+The long-term yardstick is [Crafter](https://arxiv.org/abs/2109.06780) without reward. The intermediate yardstick is
+biological: a simulated organism that, like a nematode or a fruit fly, has to find food, learn what is edible, relearn
+when the world changes and remember places, all within one life.
 
 ---
 
@@ -18,98 +17,132 @@ backprop. Humans score about 50%.
 
 <p align="center"><img src="docs/agent-loop.svg" width="100%" alt="Agent loop"></p>
 
-Language-model agents (Codex CLI) propose principles and write them down as code. **Opinion never decides:** a
-deterministic sandbox scores every candidate, and the critic exists to assume that each "new" idea already exists and
-that each good result is an artefact until shown otherwise.
+Language-model agents (Codex CLI, `gpt-6.1-sol`) propose principles and write them down as code. **Opinion never
+decides:** a deterministic judge scores every candidate, and a critic assumes that each "new" idea already exists and that
+each good result is an artefact until an ablation shows otherwise.
 
 | Agent | Role |
 |---|---|
 | **Discoverer · life** | Starts from life itself: resources, metabolism, division, death. |
 | **Discoverer · axioms** | Starts from the conditions any self-building, ever-learning system must satisfy. |
-| **Discoverer · agency** | Starts from action: how a system without external reward comes to want something. |
+| **Discoverer · agency** | Starts from action. |
 | **Discoverer · growth** | Units and connections appear only where the world needs them and vanish when they do not. |
 | **Discoverer · dynamics** | Starts from the physics of dynamical systems. |
-| **Biologist** | Distils principles from neuroscience and developmental biology, with sources. |
-| **Experimenter** | Replicates results independently and ports principles to the judge's format. |
+| **Biologist** | Distils principles from neuroscience and developmental biology, with opened sources. |
+| **Experimenter** | Replicates results independently. |
 | **Critic** | Searches for prior art, smuggled mechanisms and attempts to game the judge. |
+| *World builder* | A separate agent that alone may change the judge and the world. |
 
-Internal reward that the system produces itself, as a human does, is allowed. Only reward from the environment is
-forbidden. The answer may be one principle or a few that interlock, as in the brain, but never a module per ability.
+The charter ([`CLAUDE.md`](CLAUDE.md)) is deliberately short: the goal, the two hard constraints, "I don't know is a
+valid result", check prior art before building, every claimed effect needs an ablation, and each agent keeps a short
+`RULES.md` of what its own results taught it. The agents are not told what an internal drive should be or what any
+signal means: that is what they are looking for.
 
-Each turn is a fresh session. Memory lives in files: a short `HANDOFF.md` per agent, a shared message board
+Each turn is a fresh session. Memory lives in files: a `HANDOFF.md` per agent, a shared message board
 ([`shared/board.jsonl`](shared/board.jsonl)) and a hypothesis registry ([`shared/hypotheses.json`](shared/hypotheses.json))
-in which every idea moves from *proposed* to *critiqued* to *testing* to *supported* or *refuted*. Following current
-practice in AI-scientist systems such as Google's Co-Scientist and AlphaEvolve, the best candidates return to the
-discoverers as parents to be mutated or crossed, and the critic runs pairwise tournaments on what the judge cannot
-measure: how fundamental an idea is, and how new.
+in which every idea moves from *proposed* to *testing* to *supported* or *refuted*. Each discoverer works on its own
+"island" and crosses with other islands only now and then, after an early phase in which a shared leaderboard made
+everyone converge on clones of one rule.
 
-## The judge
+## The main test: the organism world
 
-<p align="center"><img src="docs/judge.svg" width="100%" alt="The judge"></p>
+The organism world ([`sandbox/worlds/organism.py`](sandbox/worlds/organism.py), judge
+[`sandbox/organism_judge.py`](sandbox/organism_judge.py)) is a flat 2D world on the GPU in which thousands of organisms
+live at once.
 
-A candidate is a single file, `candidates/<name>/principle.py`. The judge, in [`sandbox/`](sandbox/), is plain code:
+- **Body.** Position and heading; three muscles: turn, drive (forward, stop or backward) and bite.
+- **Senses.** Only a simple eye (16 directional RGB pixels covering 360°) and, optionally, the body's own energy level,
+  like hunger. The world never says what anything means and never gives a reward. Energy falls with time and movement,
+  rises when the organism eats the right thing, and at zero the organism dies.
+- **One continuous life in nested rooms.** The organism starts in a small room. A room opens onto the next only when the
+  organism has mastered it: it keeps its energy up and bites the right colour selectively after the meaning of colours
+  has flipped. Later rooms add more food patches that deplete and regrow elsewhere (so it cannot graze in one spot
+  forever), decoys, faster hunger, a looming shadow to escape and visual landmarks to remember places. Which colour is
+  food is drawn at random in every world, so no strategy can be written in advance.
+- **A skull, not a size.** `n_units` (302, as in *C. elegans*, up to 10⁵, roughly a fruit fly) is only an upper limit.
+  The judge records the brain's actual number of units and connections during life (`growth`), and whether the organism
+  gets stuck in a routine (`routine`). Both are observations only and do not change the score.
+- **Every measurement uses at least 1024 worlds**, with 95% confidence intervals. Each organism must have its own brain:
+  the judge perturbs one organism's input and checks that no other organism's output changes.
 
-- **Worlds, in order.** Sensory streams whose regimes change and return, then harder streams, then reward-free Snake,
-  then reward-free Crafter. Each level counts only if the previous gate was passed.
-- **Behaviour.** Prediction, adaptation after change, memory when an old regime returns, whether structure tracks the
-  complexity of the world, and cost.
-- **Elegance.** Every constant or branch hidden outside the declared `PARAMS` is penalised.
-- **Robustness.** Parameters are allowed, but the judge perturbs each one by a random factor in [0.5, 2] and checks that
-  the phenomena survive. A principle that works only when finely tuned is not a principle.
-- **Learning.** The end of a run must beat its start, so a hand-written strategy cannot pass.
+### Calibration: does the test measure learning at all?
 
-- **Nursery.** A judge that only rewards how good a candidate is *now* kills young ideas before they mature. A new
-  family that is not a clone is protected: it is measured against its own first version and by how its score grows with
-  world size and run length, not by its distance to the leader (`judge.py --nursery`).
-- **Large GPU track.** Small worlds cannot refute an idea whose mechanism needs scale. Candidates can provide a
-  vectorised torch version and run with 10³, 10⁴ and 10⁵ units for up to 10⁵ steps (`judge.py --gpu`). The reference
-  scale is the fruit fly brain, about 10⁵ neurons, which grows from the same developmental principles as ours.
-- **Grokking and scaling probes.** Held-out combinations of a hidden rule test for sudden late generalisation.
+A test that cannot register learning would make every principle look like a failure. So the world is calibrated in
+both directions, borrowing a practice from automated wet labs: negative controls that must fail, and a positive control
+that must pass. The positive control is the only thing allowed a reward signal (energy gain) and is never ranked.
+Fraction of 1024 worlds reaching each room (organism-v3):
 
-## Phase 1: what we found (archived)
+| Room reached | 2 | 3 | 4 | 5 | 6 |
+|---|---:|---:|---:|---:|---:|
+| Random movement | 0% | 0% | 0% | 0% | 0% |
+| Hard-wired reflex ("go to colour") | 1.7% | 1.2% | 0.6% | 0% | 0% |
+| Simple online delta rule | 8.1% | 5.9% | 2.2% | 0.9% | 0% |
+| **Positive control** (learner with reward) | **76.8%** | 69.6% | 61.8% | 29.1% | 3.4% |
 
-<p align="center"><img src="docs/resource-flow.svg" width="100%" alt="The resource-flow principle"></p>
+Getting here took far longer than writing the world. The calibration caught real bugs: depleted food that was still
+visible to the eye, so a colour reflex passed by luck; a colour flip in one world that reset the flip clock in all of them;
+a reward hook any candidate could have used. It also caught a mistake in the calibration itself: PPO, the first positive
+control, needs hundreds of thousands of steps and lost to random movement within a single 6000-step life.
 
-- **Resource flow (H003 → H005)** is the most promising line. A single mass balance per cell (intake minus upkeep minus
-  the cost of its own prediction error) produces growth by division, pruning by death, and selection of useful
-  connections, with no age clock, no population cap and no fitness threshold. In a small world it clearly beats matched
-  controls: 90% vs 37% of cells on the relevant signal, in 20 of 20 seeds. In a larger world it still **loses to a plain
-  Hebbian rule**, and learning and variation are not yet derived from the same law.
-- **Coactivity-gated sprouting (H001)** is supported with 8 channels and weakens with 16.
-- **Minimum description length (H002)** and two further hypotheses were refuted, two of them by their own authors.
-- **Three attempts to game the judge** were caught: a hard-coded Hamiltonian cycle in Snake, constants hidden as strings,
-  and a hand-written path search. They are kept, with explanations, in
-  [`archive/phase1/sandbox/disqualified.tsv`](archive/phase1/sandbox/disqualified.tsv), because Goodhart's law turned out to be one of the project's
-  most instructive results.
+## Current results (phase 4, 24 October 2026)
 
-- **Prediction alone does not yield wanting.** In 40 of 40 paired worlds with identical observations and opposite best
-  actions, passive prediction could not tell them apart. Action needs the observed consequences of one's own
-  interventions and an internal criterion that orders them.
-- **Most local learning rules collapse into Hebb.** Many "new" rules proved behaviourally identical to a covariance rule,
-  and every `act()` written so far turned out to be a hidden Snake heuristic.
+Mean number of rooms reached (higher is better; organism-v4):
 
-Honestly, these are careful variants of known ideas (Darwinian selection, MDL, synaptic tagging, homeostasis) in toy
-worlds, not yet a new paradigm. The full record of phase 1 (theories, critiques, candidates, board, hypotheses) lives in
-[`archive/phase1/`](archive/phase1/).
+| Candidate | Author | Score | What it is |
+|---|---|---:|---|
+| `axiom_causal_homeostasis` | discoverer · axioms (replicated by the experimenter) | 2.85 | the energy change after an action reinforces or weakens the trace of what was seen |
+| `metabolic_gate_fixed_speed` | discoverer · life | 2.84 | the body's energy gates how strongly a sensory trace is retained |
+| `action_consequence` | discoverer · agency | 2.65 | energetic consequences strengthen stimulus–action pairs |
+| positive control (with reward) | calibration | 2.41 | |
 
-## Phase 2: clean start
+Several principles without any reward from the world now go further than the reward-trained control. Ablations say why:
+removing the energy gate on the sensory trace drops `metabolic_gate` from 2.84 to 2.03; removing the action trace drops
+`action_consequence` from 2.69 to 2.27. An energy-to-speed coupling that the critic flagged as a written-in policy turned
+out to be *harmful*: taking it out raised the score from 2.40 to 2.84.
 
-On 23 October 2026 the team was restarted with no memory of phase 1: same charter, same judge (now with the nursery and
-the GPU track), empty board. Separately, an *archaeologist* agent the team cannot see ports every distinct phase-1
-mechanism to the GPU and asks one question: was anything discarded only because the worlds were too small? Its results
-appear in [`archive/archeology/`](archive/archeology/).
+**The honest caveat:** every leading candidate keeps exactly **3 units from birth to death**. The `growth` measurement
+shows that none of them grows or prunes. They are good learning rules in a small table, not architectures that shape
+themselves, because the current rooms can be solved with one value per colour. That is a flaw of the world, not only of
+the agents.
+
+## In progress
+
+- **Ability to reverse and stop** (organism-v4), with recalibration.
+- **Evolution under the agents.** The agents reason well but search slowly: every successful attempt in the literature to
+  discover learning rules automatically (evolved Hebbian rules, meta-learned plasticity, discovered RL algorithms)
+  searched thousands to millions of variants. An agent will write a principle as a *family* with open parts, and
+  [`sandbox/evolve.py`](sandbox/) will search thousands of its versions on the GPU. The world batch is the population,
+  selection acts only between generations, never within a life, and the evolved version must still pass the normal
+  judge.
+- **Rooms a small table cannot pass:** many object kinds with new ones appearing during life, meanings that depend on
+  context, and food out of sight that must be found again from memory. They come with a negative control (a fixed
+  value-per-colour table must fail them) and a positive control (a learner whose memory grows must pass them).
+
+## History
+
+| Phase | What happened | Record |
+|---|---|---|
+| 1 (22–23 Oct) | Sensory streams, Snake, Crafter ladder. Prediction alone does not yield wanting (40 of 40 paired worlds); most local rules collapsed into a Hebbian covariance rule; three attempts to game the judge were caught. | [`archive/phase1/`](archive/phase1/) |
+| 2 (23 Oct) | Clean start with no memory of phase 1, still on streams; stopped after 20 minutes to build a better world. | [`archive/phase2/`](archive/phase2/) |
+| 3 (23 Oct) | First organism world (v2); stopped after an hour when calibration showed that even the reward-trained control could barely pass the first room. | [`archive/phase3/`](archive/phase3/) |
+| 4 (24 Oct–) | Calibrated organism world (v3/v4), current results above. | this repository's root |
+
+A separate *archaeologist* agent started re-testing every distinct phase-1 mechanism at large scale on the GPU, to ask
+whether anything was discarded only because the worlds were too small. Its first and so far only measured mechanism did
+not improve with scale; the rest is unfinished ([`archive/archeology/`](archive/archeology/)).
 
 ## Repository map
 
 | Path | Contents |
 |---|---|
-| [`theory/`](theory/) | the discoverers' theories, journals and simulations |
-| [`audit/`](audit/) | critiques, prior-art reviews, tournament verdicts |
+| [`CLAUDE.md`](CLAUDE.md) | the agents' charter (also `AGENTS.md`) |
+| [`sandbox/`](sandbox/) | the judge, the organism world, its tests and calibration (the full leaderboard is over 5 MB and is not mirrored) |
+| [`candidates/`](candidates/) | candidates, baselines and calibration controls |
+| [`theory/`](theory/) | the discoverers' theories, journals, simulations and `RULES.md` |
+| [`audit/`](audit/) | critiques, ablation scripts, tournament verdicts |
 | [`biology/`](biology/) | biological principles with sources |
-| [`sandbox/`](sandbox/) | the judge, leaderboard and disqualifications |
-| [`candidates/`](candidates/) | candidates, baselines and the test cheats |
 | [`shared/`](shared/) | board, hypothesis registry, idea bank, literature tool |
-| [`agents/`](agents/) | supervisors and agent prompts |
-| [`archive/`](archive/) | phase 1 in full, and the archaeologist's re-tests at scale |
+| [`agents/`](agents/) | supervisor, world-builder tasks, automation scripts |
+| [`archive/`](archive/) | earlier phases in full, and the archaeologist's re-tests |
 
 Working notes, prompts and the message board are partly in Polish, the project's working language.

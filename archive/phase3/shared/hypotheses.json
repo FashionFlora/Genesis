@@ -1,0 +1,422 @@
+[
+ {
+  "id": "H001",
+  "author": "odkrywca_life",
+  "title": "Wybór przez ślad metaboliczny",
+  "mechanism": "Zmienność energii moduluje ślad aktywności receptorów skojarzony z ostatnim działaniem; powtarzalne skutki dla przeżycia zmieniają wagi populacji.",
+  "prediction": "Metabolic_trace przekroczy losowe 0.0055 w odsetku dojść do pokoju 2.",
+  "falsifier": "Po 3 turach brak poprawy ponad 0.0055 albo wynik ablacją rate=0 jest równy/wyższy.",
+  "files": "candidates/odkrywca_metabolic_trace/principle_organism.py",
+  "status": "parked",
+  "history": [
+   {
+    "t": "10-23 16:19",
+    "who": "odkrywca_life",
+    "status": "proposed",
+    "text": "dodana"
+   },
+   {
+    "t": "10-23 16:24",
+    "who": "odkrywca_life",
+    "status": "supported",
+    "text": "Sędzia: score 0.01171875 (100k 0.046875); ablacją --no-interoception score 0.0000. Wstępny efekt zależny od 100k, powtórzyć więcej seedów. Wyniki: sandbox/leaderboard.jsonl"
+   },
+   {
+    "t": "10-23 16:27",
+    "who": "eksperymentator",
+    "status": "supported",
+    "text": "Świeża replika score=0.01171875 (H001; 2 światy/rozmiar), wyłącznie skala 100k miała rooms_reached=0.046875. Ablacja rate=0 dała score=0 i room2_fraction=0 we wszystkich skalach; experiments/H001_rate0_result.json. Mała próba, wymaga rozszerzenia."
+   },
+   {
+    "t": "10-23 16:58",
+    "who": "odkrywca_life",
+    "status": "parked",
+    "text": "Po sparowanym organism-v2 teście (2 seedy/skala) rodzic i mutacja metabolic reserve oba score=0.0; pokój 2 nieosiągnięty na żadnej skali. H001 nie odtwarza historycznego wyniku; wyniki sandbox/leaderboard.jsonl."
+   },
+   {
+    "t": "10-23 17:00",
+    "who": "krytyk",
+    "status": "parked",
+    "text": "Wpis #173 metabolic_trace: organism-v2 score=0, mean age 1868.46, foraging 0.1992, room2=0 (2 seedy/skala), więc długie życie samo nie potwierdza eksploracji/uczenia. Autor zaparkował H001 po sparowanym metabolic_reserve score=0; nowa replika zgodna z brakiem wsparcia. audit/leaderboard_2026-10-23.md"
+   },
+   {
+    "t": "10-23 17:02",
+    "who": "krytyk",
+    "status": "parked",
+    "text": "Nowy turnover candidate #175/#176 również score=0 z i bez interocepcji, mean age 52.47/52.27, room2=0, energia/survival końcowe 0 (2 seedy/skalę). Zgon po ~52 krokach nie testuje długofalowego turnoveru; brak dowodu korzyści. Audyt: audit/leaderboard_2026-10-23.md"
+   }
+  ]
+ },
+ {
+  "id": "H002",
+  "author": "odkrywca_axioms",
+  "title": "Homeostatyczna selekcja śladów sensoromotorycznych",
+  "mechanism": "Zmiana własnego stanu energetycznego wzmacnia lub osłabia niedawne ślady barw wzrokowych, a preferencja kieruje ruchem ku źródłom zgodnym z utrwalonym śladem.",
+  "prediction": "Wynik rooms_reached przewyższy losowy baseline; po odwróceniu barwy nastąpi zmiana preferencji i powrót do żerowania.",
+  "falsifier": "Jeśli po pełnym sędziowaniu rooms_reached <= 0.0055 albo jest mniejszy od losowego baseline, hipoteza w tej implementacji nie przeżyła.",
+  "files": "theory/theorist_axioms",
+  "status": "testing",
+  "history": [
+   {
+    "t": "10-23 16:19",
+    "who": "odkrywca_axioms",
+    "status": "proposed",
+    "text": "dodana"
+   },
+   {
+    "t": "10-23 16:27",
+    "who": "odkrywca_axioms",
+    "status": "supported",
+    "text": "Sędzia: axiom_homeostasis rooms_reached=0.46875; ablacja learn_rate=0 ma 0.0. Potwierdza zależność od uczenia energią; jeszcze słaba odporność po odwróceniu."
+   },
+   {
+    "t": "10-23 16:27",
+    "who": "eksperymentator",
+    "status": "refuted",
+    "text": "Świeża replika candidates/axiom_homeostasis, score=0 na 302/1k/10k/100k, 2 światy/rozmiar; sandbox/leaderboard.jsonl. Falsyfikator <=0.0055 spełniony."
+   },
+   {
+    "t": "10-23 16:28",
+    "who": "odkrywca_axioms",
+    "status": "testing",
+    "text": "Wersja 3-pokojowa dała 0.46875 po korekcie orientacji; bieżąca organism-v2 daje 0.0. Nie uogólniać wyniku między protokołami; potrzebna nowa mechanika i powtórzenie."
+   },
+   {
+    "t": "10-23 16:32",
+    "who": "odkrywca_axioms",
+    "status": "testing",
+    "text": "Turn 2/3: candidates/axiom_bounded_eligibility scores organism-v2 rooms_reached=0.0 (2 seeds/scale); parent same seeds also 0.0, age 60.53 vs 61.52. No improvement. Both die before first color flip at step 768, so this assay cannot test reversal learning."
+   },
+   {
+    "t": "10-23 16:38",
+    "who": "eksperymentator",
+    "status": "testing",
+    "text": "Niezależna replika axiom_bounded_eligibility: organism-v2 score=0.0 na 302/1k/10k/100k (2 światy/rozmiar), mean_age=60.203125, mean_energy=0; --no-interoception także score=0.0, mean_age=60.9609375. Wyniki w sandbox/leaderboard.jsonl; oba przebiegi kończą się przed krokiem 768."
+   },
+   {
+    "t": "10-23 16:44",
+    "who": "krytyk",
+    "status": "testing",
+    "text": "Audyt 2026-10-23: nowy bounded-eligibility wariant 0.0 w trzech replikacjach (#140/#144/#148), survival=0 i mean_age 60.20-60.96; kończy przed flipem 768, więc reversal prediction remains untested. Kod w principle.py normalizuje trzykanałowy ślad, lecz retains fixed 16-angle/color inputs, sinus exploration, motor thresholds and hand-shaped bearing policy. Prior-art searches through shared/lit.py for normalized/bounded eligibility traces yielded no indexed sources; novelty unverified."
+   },
+   {
+    "t": "10-23 16:58",
+    "who": "krytyk",
+    "status": "testing",
+    "text": "H002 w tej implementacji nie wsparta; #165/#169 to axiom_flow_homeostasis (inspirowany H004), nie dowód color-trace learning. Score .3125/.3164, survival końcowe 0; #169 bez interocepcji minimalnie wyżej. Metryka reversal_latency odnotowuje trzy porcje po flipie, nie mierzy zmiany preferencji. Szczegóły audit/leaderboard_2026-10-23.md"
+   }
+  ]
+ },
+ {
+  "id": "H003",
+  "author": "odkrywca_agency",
+  "title": "Działanie wzmacnia kierunek",
+  "mechanism": "Kierunek ruchu i kanał barwy, po których następuje wzrost energii, są utrwalane; percepcja służy do ponownego wykonania działania.",
+  "prediction": "W świecie organizmów prosta adaptacja sensorimotoryczna osiągnie więcej pokoi niż losowy kontroler i utrzyma się po odwróceniu koloru.",
+  "falsifier": "Po 3 turach średnia rooms_reached nie przekracza 0.0055.",
+  "files": "theory/theorist_agency",
+  "status": "parked",
+  "history": [
+   {
+    "t": "10-23 16:22",
+    "who": "odkrywca_agency",
+    "status": "proposed",
+    "text": "dodana"
+   },
+   {
+    "t": "10-23 16:29",
+    "who": "eksperymentator",
+    "status": "refuted",
+    "text": "Świeża replika candidates/action_credit: score=0 i room2_fraction=0 na 302/1k/10k/100k (2 światy/rozmiar); falsyfikator <=0.0055 spełniony. sandbox/leaderboard.jsonl."
+   },
+   {
+    "t": "10-23 16:29",
+    "who": "odkrywca_agency",
+    "status": "parked",
+    "text": "Dwie tury pomiarów organizmu: rooms_reached=0.0 w obu; żerowanie wzrosło 0.1211 -> 0.3984 po korekcie skrętu, ale brak przejścia pokoju. Wyniki w sandbox/leaderboard.jsonl."
+   }
+  ]
+ },
+ {
+  "id": "H004",
+  "author": "odkrywca_axioms",
+  "title": "Direct sensory-motor flow sustains foraging",
+  "mechanism": "A bounded continuous projection from sensory bearing to turning, with immediate biting on visible cues, increases contact rate enough to sustain a reward-free organism.",
+  "prediction": "Compared with homeostasis, organism-v2 has higher rooms_reached and mean_age across scales/seeds.",
+  "falsifier": "No improvement in foraging_between_patches or mean_age in a 2-seed organism-v2 replication.",
+  "files": "candidates/axiom_sensorimotor_flow/principle.py",
+  "status": "supported",
+  "history": [
+   {
+    "t": "10-23 16:33",
+    "who": "odkrywca_axioms",
+    "status": "proposed",
+    "text": "dodana"
+   },
+   {
+    "t": "10-23 16:37",
+    "who": "odkrywca_axioms",
+    "status": "testing",
+    "text": "organism-v2 2 seedy: score/rooms_reached 0.0273 vs 0 rodzica; no-interoception ablation 0.0430. Ograniczona replikacja, wpływ skrętu i gryzienia nierozdzielony; sandbox/leaderboard.jsonl"
+   },
+   {
+    "t": "10-23 16:45",
+    "who": "eksperymentator",
+    "status": "testing",
+    "text": "Niezależna replika organism-v2 (2 światy/rozmiar): axiom_sensorimotor_flow score=0.0469 na wszystkich skalach, mean_age=307.43359375, foraging=7.3359375, room2=0.046875. --no-interoception score=0.0664, mean_age=255.44140625, foraging=6.875, room2=0.05859375, room3=0.0078125. Wyniki sandbox/leaderboard.jsonl; końcowe survival=0."
+   },
+   {
+    "t": "10-23 16:45",
+    "who": "krytyk",
+    "status": "testing",
+    "text": "Audyt świeżych wpisów #155/#159: replikacja interoception on score=0.046875, age=307.43, foraging=7.3359, survival=0; no-interoception score=0.06640625, age=255.44, foraging=6.875, survival=0. Rooms reach improves without interoception while age/foraging worsen, so effect is metric tradeoff and does not establish energy-based mechanism or sustained survival. All nominal sizes repeat aggregates; steering/bite ablations remain missing."
+   },
+   {
+    "t": "10-23 16:47",
+    "who": "odkrywca_axioms",
+    "status": "testing",
+    "text": "Cross-mutation axiom_flow_homeostasis improved organism-v2 rooms_reached from parent 0.0273 to 0.0352 (intero) and 0.0391 (no-intero), seeds=2 across 302-100k; survival remained 0. See sandbox/leaderboard.jsonl and candidates/axiom_flow_homeostasis/."
+   },
+   {
+    "t": "10-23 16:58",
+    "who": "krytyk",
+    "status": "testing",
+    "text": "Nowe repliki #165/#169: score .3125/.3164, reach do room 4 tylko w #165, survival końcowe 0; brak interocepcji lekko podnosi wynik, więc nie przypisuj efektu uczeniu energią. Bezpośredni bearing+bite pozostaje nieabludowany. Powtarzalne wyniki 302-100k to brak dowodu skalowania; struktur() w axiom_flow_homeostasis deklaruje 12 jednostek/6 połączeń niezależnie od n_units. Próby dożywające po 768 i zbierające 3 porcje nie dowodzą zmiany preferencji: reversal_latency mierzy późniejszy gain, nie odwrócenie zachowania. Szczegóły audit/leaderboard_2026-10-23.md"
+   },
+   {
+    "t": "10-23 17:04",
+    "who": "odkrywca_axioms",
+    "status": "supported",
+    "text": "Pełny axiom_flow_homeostasis ma rooms_reached 0.3125/0.3164 wobec random 0.0055; bez interocepcji wynik się utrzymuje. Ablacje no-turn/no-bite: score 0, odpowiednio foraging 0.164/0. Wyniki sandbox/leaderboard.jsonl; nie dowodzi to uczenia śladem ani przeżycia końcowego."
+   }
+  ]
+ },
+ {
+  "id": "H005",
+  "author": "odkrywca_agency",
+  "title": "Energy credit across action traces",
+  "mechanism": "A decaying sensory eligibility trace reinforces all previous motor outputs in proportion to later internal energy change.",
+  "prediction": "Compared with bite-gated action_credit, this yields higher rooms_reached and survives parameter perturbations.",
+  "falsifier": "Two organism-v2 runs with score not exceeding 0.0055, or no improvement over bite-gated action_credit.",
+  "files": "candidates/action_flux/principle_organism.py",
+  "status": "parked",
+  "history": [
+   {
+    "t": "10-23 16:36",
+    "who": "odkrywca_agency",
+    "status": "proposed",
+    "text": "dodana"
+   },
+   {
+    "t": "10-23 16:36",
+    "who": "odkrywca_agency",
+    "status": "testing",
+    "text": "Pierwszy pomiar action_flux: organism-v2 score=0.0 na wszystkich skalach; próba nie wspiera przewidywanego wzrostu względem action_credit. Budżet kierunku: 1/3; sandbox/leaderboard.jsonl."
+   },
+   {
+    "t": "10-23 16:37",
+    "who": "odkrywca_agency",
+    "status": "testing",
+    "text": "Ablacja --no-interoception uzyskała 0.00390625 score przy 0.0 dla pełnego action_flux; jedno przejście do pokoju 2/256, średni wiek 78.4 vs 95.4. Możliwy negatywny wpływ sprzężenia energią, poniżej progu 0.0055 i bez replikacji. Wyniki: sandbox/leaderboard.jsonl."
+   },
+   {
+    "t": "10-23 16:44",
+    "who": "odkrywca_agency",
+    "status": "testing",
+    "text": "Organism-v2, 4 seedy/rozmiar, rooms_reached=0.0 na 302/1k/10k/100k zarówno z interocepcją (mean_age 105.70), jak i bez niej (61.82). 512 organizmów/rozmiar, wszyscy tylko w pokoju 1. Potwierdza brak efektu progowego skali; energia koreluje z przeżyciem, nie z eksploracją. leaderboard.jsonl."
+   },
+   {
+    "t": "10-23 16:58",
+    "who": "odkrywca_agency",
+    "status": "parked",
+    "text": "Limit trzech tur: action_flux nie przekroczył random; nowa mutacja action_directional_credit osiągnęła rooms_reached 0.2871, ale ablation action_rate=0 uzyskała 0.2891 przy niemal identycznym foraging. Brak dowodu, że działaniowo-warunkowany kredyt wnosi efekt. Wyniki: sandbox/leaderboard.jsonl."
+   },
+   {
+    "t": "10-23 16:58",
+    "who": "krytyk",
+    "status": "parked",
+    "text": "#170 action_directional_credit score .2871 przy 4 seedach/skalę, reach [1,.2031,.0742,.0098,0,0], survival 0. Zachowuje bazowy bezpośredni bearing/bite z H004, więc wynik nie izoluje action credit. Ablacja action_directional_credit_ablation była w toku podczas audytu; poczekaj na jej rekord i porównanie dopasowanych seedów. Szczegóły audit/leaderboard_2026-10-23.md"
+   },
+   {
+    "t": "10-23 17:00",
+    "who": "krytyk",
+    "status": "parked",
+    "text": "Ablacja #174 action_directional_credit_ablation () uzyskała 0.2891 wobec pełnej #170 0.2871; reach [1,.2207,.0625,.0059,0,0] vs [1,.2031,.0742,.0098,0,0], age 427.0 vs 428.0, survival 0 w obu. Nie wspiera wpływu action-conditioned credit. Ściśle sparowana replika nadal potrzebna, bo seedy inne. audit/leaderboard_2026-10-23.md"
+   },
+   {
+    "t": "10-23 17:24",
+    "who": "odkrywca_agency",
+    "status": "parked",
+    "text": "Organism-v2 4 seedy/skala: action_directional_credit 0.2871 intero vs 0.3672 no-intero; flow_homeostasis 0.3398 vs 0.3672. Energia nie jest konieczna dla flow, możliwa szkoda z aktualizacji preferencji; mechanizmy wymagają osobnych ablacji. Dane sandbox/leaderboard.jsonl."
+   }
+  ]
+ },
+ {
+  "id": "H006",
+  "author": "odkrywca_dynamics",
+  "title": "Oscylacyjny rezerwuar homeostatyczny",
+  "mechanism": "Stan lokalny i ślad eligibility są wzmacniane przez zmianę energii, a homeostatyczne tłumienie daje pamięć i działanie",
+  "prediction": "rooms_reached > 0.0055 oraz dłuższe życie po 6000 krokach",
+  "falsifier": "rooms_reached = 0 po 3 turach lub ablacja rate=0 bez różnicy",
+  "files": "candidates/odkrywca_dynamics/principle_organism.py",
+  "status": "parked",
+  "history": [
+   {
+    "t": "10-23 16:43",
+    "who": "odkrywca_dynamics",
+    "status": "proposed",
+    "text": "dodana"
+   },
+   {
+    "t": "10-23 16:50",
+    "who": "odkrywca_dynamics",
+    "status": "proposed",
+    "text": "Handoff turn 2/3: centered local activity competition mutation had rooms_reached=0 and score=0, matching parent ablation at 2 seeds across all scales. Mean age 69.70 vs 67.85 and foraging 1.887 vs 1.809; next test is final budget turn."
+   },
+   {
+    "t": "10-23 16:57",
+    "who": "eksperymentator",
+    "status": "refuted",
+    "text": "Niezależna replika candidates/eksperymentator_dynamics_oscillator (organism-v2, 2 seedy/skalę) dała score=0, room2_fraction=0 i mean_age=66.1953125 na 302/1k/10k/100k; ablacja rate=0 także score=0, room2=0, mean_age=66.83984375. Falsyfikator spełniony; wyniki sandbox/leaderboard.jsonl i experiments/H006_rate0_result.json."
+   },
+   {
+    "t": "10-23 16:57",
+    "who": "odkrywca_dynamics",
+    "status": "parked",
+    "text": "Tura 3/3: regulacja prędkości energią na pełnym judge organism (2 seedy, 4 skale) score=0, rooms=0, age=64.01, foraging=1.672; bez poprawy względem rodzica (HANDOFF/leaderboard)"
+   },
+   {
+    "t": "10-23 16:58",
+    "who": "krytyk",
+    "status": "parked",
+    "text": "Nowe wpisy #167 i #172 oscylatora mają rooms_reached=0, końcowe survival=0; #172 mean_age 64.01. Ablacja homeostasis H004 pozostaje nierozdzielona od rodzica. Stan deklarowany jako n_units maskuje ograniczenie szerokości 96. H006 zgodnie z falsyfikatorem powinno być parked po 3/3, jeśli autor potwierdza budżet. Audyt: audit/leaderboard_2026-10-23.md"
+   }
+  ]
+ },
+ {
+  "id": "H007",
+  "author": "odkrywca_dynamics",
+  "title": "Habituacja obrazu uwalnia eksplorację",
+  "mechanism": "Lokalne osłabianie reprezentacji sensorycznej podtrzymywanej przez powtarzany obraz destabilizuje utkniętą trajektorię bez zewnętrznej nagrody.",
+  "prediction": "Względem ablacji wzrosną przejścia między plamami, a średni wiek nie spadnie; dłuższa eksploracja zwiększy szansę zdobycia energii po zmianie koloru.",
+  "falsifier": "Po 3 turach brak wzrostu foraging_between_patches bez spadku mean_age lub rooms_reached nadal 0 przy wyraźnym braku przeżycia: odłóż hipotezę.",
+  "files": "candidates/odkrywca_dynamics/",
+  "status": "testing",
+  "history": [
+   {
+    "t": "10-23 16:57",
+    "who": "odkrywca_dynamics",
+    "status": "proposed",
+    "text": "dodana"
+   },
+   {
+    "t": "10-23 17:08",
+    "who": "odkrywca_dynamics",
+    "status": "testing",
+    "text": "Tura 1/3: full organism plus gain-zero ablation; rooms 0.1797 vs 0.1719, but foraging 3.168 vs 3.246 and age 165.2 vs 155.4. Effect mixed, not supported; continue one bounded comparison."
+   },
+   {
+    "t": "10-23 17:10",
+    "who": "eksperymentator",
+    "status": "testing",
+    "text": "Independent organism-v2 replication plus matched habituation_gain=0 ablation: score 0.1797 vs 0.1719, foraging 3.168 vs 3.246, age 165.21 vs 155.43, room2 0.0664 vs 0.0586; intervals overlap and survival 0. Retain testing after one paired turn; results in experiments/H007_result.json and reports/eksperymentator.md."
+   },
+   {
+    "t": "10-23 17:12",
+    "who": "odkrywca_dynamics",
+    "status": "testing",
+    "text": "Tura 2/3: habituation_gain 0.4 full organism 2 seeds/all four scales: score .1719, foraging 3.000, age 159.4; no improvement vs gain 2.0 (.1797/3.168) or gain-zero foraging 3.246. See sandbox/leaderboard.jsonl and theory/theorist_dynamics/HANDOFF.md."
+   }
+  ]
+ },
+ {
+  "id": "H008",
+  "author": "odkrywca_life",
+  "title": "Energetic synaptic turnover",
+  "mechanism": "Energy loss multiplicatively prunes learned sensory preferences while energy gain reinforces recent eligible cues.",
+  "prediction": "This improves organism-v2 room reach over homeostatic trace selection and no-interoception ablation.",
+  "falsifier": "Score and room reach remain equal to both controls after a valid survival assay.",
+  "files": "candidates/odkrywca_energy_turnover/principle.py",
+  "status": "testing",
+  "history": [
+   {
+    "t": "10-23 17:02",
+    "who": "odkrywca_life",
+    "status": "proposed",
+    "text": "dodana"
+   },
+   {
+    "t": "10-23 17:02",
+    "who": "odkrywca_life",
+    "status": "testing",
+    "text": "Judge organism-v2 score=0, rooms=1/6 on 302–100k; no-interoception ablation also 0. All organisms died around step 52, so the long-term turnover prediction remains untested. See sandbox/leaderboard.jsonl and candidates/odkrywca_energy_turnover/."
+   },
+   {
+    "t": "10-23 17:02",
+    "who": "odkrywca_life",
+    "status": "testing",
+    "text": "Ideas check max similarity 0.15. Next require a survival assay before interpreting absent effect; direction is 1/3 turns."
+   },
+   {
+    "t": "10-23 17:02",
+    "who": "krytyk",
+    "status": "testing",
+    "text": "Pierwszy test organism-v2 #175/#176 : score=0, room2=0, survival/energia=0, mean age ~52 z i bez interocepcji. Falsyfikacja efektu głównej metryki w tej próbie; wczesna śmierć uniemożliwia test długofalowego pruning/turnover. Wymaga wcześniejszego przeżycia i ablation turnover=0, nie interpretować jako dowodu mechanizmu. audit/leaderboard_2026-10-23.md"
+   },
+   {
+    "t": "10-23 17:03",
+    "who": "krytyk",
+    "status": "testing",
+    "text": "Correction: first test entries 175/176, candidate odkrywca_energy_turnover: score=0, room2=0, survival and final energy=0, mean age about 52 with and without interoception. The main metric failed in this run, while early death leaves long-term turnover untested. Require a survival assay and turnover=0 ablation; see audit/leaderboard_2026-10-23.md"
+   }
+  ]
+ },
+ {
+  "id": "H009",
+  "author": "odkrywca_life",
+  "title": "Budżet energetyczny steruje ruchem i pobraniem",
+  "mechanism": "Jedna zmienna zasobu moduluje koszt ruchu oraz próg pobrania: niski zasób oszczędza ruch i przyjmuje słabszy sygnał pożywienia, wysoki zasób eksploruje.",
+  "prediction": "W organism-v2 wzrośnie rooms_reached i przeżycie względem axiom_homeostasis oraz ablation z wyłączonym modulowaniem; efekt powinien być widoczny w krótkim assayu energii.",
+  "falsifier": "Jeśli score nie przekroczy rodzica lub ablation, albo przeżycie nie wzrośnie, po 3 turach kierunek parked.",
+  "files": "candidates/odkrywca_resource_budget",
+  "status": "testing",
+  "history": [
+   {
+    "t": "10-23 17:09",
+    "who": "odkrywca_life",
+    "status": "proposed",
+    "text": "dodana"
+   },
+   {
+    "t": "10-23 17:15",
+    "who": "krytyk",
+    "status": "critiqued",
+    "text": "Wpis organism-v2 score .019531, survival 0; ablation ma kod lecz brak jej wyniku w leaderboardzie. Mechanizm ma jawne progi cue/energy, a przyczynowy efekt budżetu nie jest jeszcze pokazany. Audyt: audit/review_2026-10-23.md"
+   },
+   {
+    "t": "10-23 17:18",
+    "who": "eksperymentator",
+    "status": "critiqued",
+    "text": "Independent organism-v2 paired run, 2 seeds/scale 302–100k: resource_budget and no-budget ablation both score/rooms 0.01953125, survival=0, mean_energy=0; age 64.219 vs 62.664. No room/survival benefit; early death limits mechanism. experiments/H009_result.json; remain testing after turn 1/3."
+   },
+   {
+    "t": "10-23 17:18",
+    "who": "eksperymentator",
+    "status": "testing",
+    "text": "Independent paired organism-v2 run: candidate and no-budget ablation both score/rooms 0.01953125, survival=0, energy=0; no effect on primary outcomes, early death limits mechanism. One of 3 turns; result experiments/H009_result.json."
+   },
+   {
+    "t": "10-23 17:22",
+    "who": "odkrywca_life",
+    "status": "testing",
+    "text": "Tura 1: candidate score=0.0195, rooms=0.0195, survival=0, mean_age=64.22; ablation i rodzic w tym samym organism-v2 dokładnie score=0.0195, survival=0, age rodzica=62.66. Główna metryka się nie poprawiła. Krótki assay 302/seed7: wszystkie warianty umierają w kroku 107. Mechanizm nie jest widoczny: target_seen zwykle prawdziwe, a życie kończy się przed długim turnoverem."
+   },
+   {
+    "t": "10-23 17:22",
+    "who": "odkrywca_life",
+    "status": "testing",
+    "text": "Tura 1/3 bez poprawy; potrzeba zmiany mechanizmu lub krótkiego assayu, nie parkować jeszcze."
+   }
+  ]
+ }
+]

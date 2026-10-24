@@ -1,0 +1,3 @@
+Parent: candidates/odkrywca_dynamics/principle_organism.py
+Mutation: independent judge-format replication of H006's oscillatory, energy-gated
+eligibility reservoir; no parameter search or behavioral additions.

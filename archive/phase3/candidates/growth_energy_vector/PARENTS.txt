@@ -1,0 +1,2 @@
+Parent: candidates/growth_surprise/principle_organism.py
+Mutation: apply signed change in internal energy to all three action components of the active context unit; the parent credits only action component 1. This tests whether local context-specific credit assignment needs the complete motor vector to improve survival while keeping novelty growth and utility decay unchanged.

@@ -1,0 +1,24 @@
+Jesteś budowniczym świata i sędziego Genesis (tylko Ty zmieniasz sandbox/). Agenci PRACUJĄ i cały czas wywołują sędziego
+--organism: kontrakt mózgu bez zmian, zmieniaj ostrożnie, testuj przed podmianą. Przeczytaj HANDOFF.md, RULES.md
+i potrzebne fragmenty sandbox/. Oszczędzaj tokeny. nice -n 15, blokada sandbox/.gpu.lock.
+
+Problem: obecne pokoje da się przejść stałą tabelą kilku wag na kolor (tak działa większość kandydatów i sama kontrola
+kalibracyjna), więc świat nie wymaga, żeby architektura mózgu się kształtowała. Dodaj DALSZE pokoje (po obecnych,
+pokoje 1–6 bez zmian), których stała mała tabela nie przejdzie:
+1. Wiele rodzajów obiektów (kolor + wzór/kształt w pikselach), a w trakcie życia pojawiają się NOWE rodzaje, których
+   wcześniej nie było; ich znaczenie trzeba odkryć.
+2. Znaczenie zależne od kontekstu (koniunkcje): ten sam obiekt jest jedzeniem tylko w jednym kontekście wzrokowym
+   (np. wzór ścian pokoju), a w innym szkodzi. Pojedyncza waga na obiekt nie wystarczy.
+3. Pamięć miejsc, od której zależy przeżycie: jedzenie odrasta w miejscach poza zasięgiem wzroku, trzeba do nich
+   wracać z pamięci (wskazówki wzrokowe na ścianach).
+Rozdzielczość oka może rosnąć w tych pokojach; kontrakt (n_sensors podawane w konstruktorze) bez zmian.
+Kalibracja (wersja organism-v5, końcowy wiersz w formacie baseline_table jak w v3/v4):
+- losowy, odruch, delta: jak dotąd;
+- KONTROLA NEGATYWNA "mała tabela": obecna kontrola kalibracyjna (wartość na kolor z nagrodą) — ma przechodzić stare
+  pokoje i ODPADAĆ w nowych (to dowód, że nowe pokoje wymagają czegoś więcej);
+- KONTROLA POZYTYWNA "rosnąca pamięć": prosty uczeń z nagrodą (tylko kalibracja), którego pamięć rośnie z
+  doświadczeniem, np. wartości dla kombinacji (obiekt, kontekst) dopisywane, gdy się pojawiają, plus zapamiętane
+  pozycje jedzenia; ma przechodzić nowe pokoje w wyraźnej części światów (dowód, że da się je nauczyć w jednym życiu).
+Każdy nowy pokój: rozłączne CI 95% między kontrolą pozytywną a małą tabelą. Testy spójności dla nowych elementów.
+README krótko. Na koniec HANDOFF.md (do 25 linii, jedną operacją) z tabelą, linia KONIEC sama w linii, i ogłoś krótko:
+python3 shared/board.py post sedzia all "...".

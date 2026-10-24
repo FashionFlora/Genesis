@@ -1,0 +1,27 @@
+{
+  "hypothesis": "H009",
+  "replicator": "eksperymentator",
+  "protocol": "organism-v2",
+  "seeds_per_scale": 2,
+  "scales": [302, 1000, 10000, 100000],
+  "candidate": "candidates/odkrywca_resource_budget",
+  "ablation": "candidates/odkrywca_resource_budget_ablation",
+  "source": "sandbox/leaderboard.jsonl",
+  "candidate_metrics": {
+    "score": 0.01953125,
+    "rooms_reached": 0.01953125,
+    "mean_age": 64.21875,
+    "foraging_between_patches": 1.6953125,
+    "survival": 0.0,
+    "mean_energy": 0.0
+  },
+  "ablation_metrics": {
+    "score": 0.01953125,
+    "rooms_reached": 0.01953125,
+    "mean_age": 62.6640625,
+    "foraging_between_patches": 1.671875,
+    "survival": 0.0,
+    "mean_energy": 0.0
+  },
+  "conclusion": "No measurable room-reach or survival gain over ablation; small proxy differences are unpaired evidence and both runs die. One turn only, H009 remains testing."
+}

@@ -1,277 +1,253 @@
 [
  {
   "id": "H001",
-  "author": "odkrywca_agency",
-  "title": "Działanie zachowuje osiągalną przestrzeń",
-  "mechanism": "System wybiera ruch, którego model następnego stanu pozostawia najwięcej osiągalnych stanów; porażka zwiększa wagę przestrzeni.",
-  "prediction": "Na Snake przeżycie/odsetek jabłek oraz średni wynik rosną względem kontrolera ścianowego; po wykrytym resecie poprawia się wynik kolejnego epizodu.",
-  "falsifier": "Po 3 turach bez wzrostu jakości Snake o >=0.05 względem baseline albo bez poprawy po resecie: zaparkować.",
-  "files": "candidates/agency_options/principle.py",
+  "author": "odkrywca_dynamics",
+  "title": "Ujemna energia rozluźnia lokalny ślad",
+  "mechanism": "Ślad koloru aktualizowany energią ze znakiem wygasza wyuczony cel po zmianie reżimu",
+  "prediction": "Metabolic_relaxation osiągnie więcej pokoi albo krótszą latencję po odwróceniu niż energy_association",
+  "falsifier": "Brak poprawy pokoju 2 i latencji po 8 światach; test ma wystarczająco wiele odwróceń po 768 krokach",
+  "files": "candidates/metabolic_relaxation/principle_organism.py",
   "status": "critiqued",
   "history": [
    {
-    "t": "10-23 11:55",
-    "who": "odkrywca_agency",
+    "t": "10-24 07:14",
+    "who": "odkrywca_dynamics",
     "status": "proposed",
     "text": "dodana"
    },
    {
-    "t": "10-23 11:56",
-    "who": "odkrywca_agency",
+    "t": "10-24 07:14",
+    "who": "odkrywca_dynamics",
     "status": "testing",
-    "text": "Kalibracyjny Snake score 3.1027, 394.67 steps, 31.33 jabłek, learning improvement 0; standard judge zatrzymał się na L1 score 0.9842. candidates/agency_options/principle.py; theory/theorist_agency/HANDOFF.md"
+    "text": "Uruchamiam pełną kalibrację organism-v3 po 8 światach; porównanie z energy_association"
    },
    {
-    "t": "10-23 11:57",
-    "who": "krytyk",
+    "t": "10-24 07:33",
+    "who": "odkrywca_dynamics",
+    "status": "supported",
+    "text": "Pełny sędzia: metabolic_relaxation rooms_reached 0.61914 (CI95 0.55371-0.68457), reversal_latency 793.38; energy_association 0.01758 (CI95 0.00492-0.03024), latency 5321.73. Poprawa jest duża, choć warianty miały różne losowe kalibracje."
+   },
+   {
+    "t": "10-24 08:10",
+    "who": "odkrywca_dynamics",
+    "status": "supported",
+    "text": "Ablacja local 128x6000: signed-trace metabolic_relaxation with interoception 0.9062 rooms / 523.5 latency, no-interoception 2.2891 / 37.8; same-world metabolic_gate 2.6719. Full score does not isolate negative trace."
+   },
+   {
+    "t": "10-24 08:10",
+    "who": "odkrywca_dynamics",
     "status": "critiqued",
-    "text": "Obecny kod nie testuje ogólnej osiągalności: plansza 10x10, indeksy płaszczyzn, start/reset i jabłko są zaszyte; kalibracja Snake 3.1027 nie wykazała uczenia, a właściwy poziom 1 nie przeszedł (0.9842, wynik końcowy 0)."
+    "text": "Ablation disproves causal attribution to signed trace; see theory/theorist_dynamics/HANDOFF.md"
    }
   ]
  },
  {
   "id": "H002",
-  "author": "odkrywca_growth",
-  "title": "Krawędzie jako skutek nieprzewidzianej współzmienności",
-  "mechanism": "Przy błędzie celu powstają krawędzie od obecnych źródeł; użyteczność predykcyjna wzmacnia je, brak użyteczności i brak powrotu zanika przez osłabienie.",
-  "prediction": "Aktywne krawędzie i pamięć powinny rosnąć wraz z liczbą potrzebnych zależności; po powrocie reżimu wcześniejsze użyteczne krawędzie powinny szybciej wracać niż nowe.",
-  "falsifier": "Brak dodatniej korelacji masy struktury ze złożonością faz lub pamięć rosnąca jak pełna macierz po udanym CPU/GPU.",
-  "files": "theory/theorist_growth/HANDOFF.md",
-  "status": "parked",
+  "author": "eksperymentator",
+  "title": "Dwufazowa homeostaza aktywności wspiera przebudowę synaps w organizmie",
+  "mechanism": "Wolna homeostaza aktywności skaluje siłę wszystkich synaps; niska aktywność rekrutuje sensoryczne krawędzie, a długo nieużywane słabe krawędzie zanikają.",
+  "prediction": "W organism-v3 kandydat dwufazowy powinien przewyższyć losowy ruch i ablacją bez skalowania/wzrostu w przejściu pokoi oraz wykazać zmienną masę struktury.",
+  "falsifier": "Brak przewagi nad losowym ruchem lub brak różnicy wobec ablacją po niezależnych seedach obala użyteczność zasady w tym zadaniu.",
+  "files": "candidates/biphasic_homeostasis/principle_organism.py",
+  "status": "proposed",
   "history": [
    {
-    "t": "10-23 11:55",
-    "who": "odkrywca_growth",
+    "t": "10-24 07:14",
+    "who": "eksperymentator",
     "status": "proposed",
     "text": "dodana"
-   },
-   {
-    "t": "10-23 11:56",
-    "who": "odkrywca_growth",
-    "status": "testing",
-    "text": "Kandydat growth_nucleation; test CPU i GPU ogłoszony na tablicy."
-   },
-   {
-    "t": "10-23 11:58",
-    "who": "eksperymentator",
-    "status": "testing",
-    "text": "Niezależna ocena candidates/growth_nucleation: score 1.056 vs baseline 20.9957, L1 nieprzeszedł, robustness 0.5; wynik refutuje bieżącą implementację, ale nie testuje przewidywań skalowania na dużych światach. Arxiv search odpowiedział HTTP 429; brak źródeł otwartych."
-   },
-   {
-    "t": "10-23 12:01",
-    "who": "odkrywca_growth",
-    "status": "parked",
-    "text": "Obalone: growth_measure.json pokazuje 240/846/3218 krawędzi dla szerokości 16/32/64 już przy złożoności 8; brak zaniku, Brier CPU 0.2487 i odporność 0.5 (leaderboard)."
    }
   ]
  },
  {
   "id": "H003",
-  "author": "odkrywca_axioms",
-  "title": "Warunkowa stabilność relacji",
-  "mechanism": "Zależności zachowują się, gdy trafnie przewidują; błąd lokalny przyspiesza zanik pamięci celu i umożliwia nowe relacje.",
-  "prediction": "Modulacja zaniku zaskoczeniem poprawi predykcję i pamięć powrotu wobec stałego zaniku.",
-  "falsifier": "Wynik poziomu 1 nie wzrośnie ponad baseline 20.9957 po trzech iteracjach.",
-  "files": "theory/theorist_axioms/HANDOFF.md",
-  "status": "parked",
+  "author": "odkrywca_growth",
+  "title": "Sparse sensory associations emerge from metabolic success and decay with disuse",
+  "mechanism": "Allocate a color-position node when it is actually sensed, strengthen its energy association after self-detected energy gain, and remove it once both use and association decay.",
+  "prediction": "Metabolic graph controller exceeds random room-2 advancement while retaining fewer live nodes than the full 3 x pixel feature table.",
+  "falsifier": "Room-2 advancement does not exceed random or live-node count remains at the full feature table at all sampled times.",
+  "files": "candidates/growth_metabolic_graph/principle_organism.py",
+  "status": "testing",
   "history": [
    {
-    "t": "10-23 11:55",
-    "who": "odkrywca_axioms",
+    "t": "10-24 07:15",
+    "who": "odkrywca_growth",
     "status": "proposed",
     "text": "dodana"
    },
    {
-    "t": "10-23 11:56",
-    "who": "odkrywca_axioms",
+    "t": "10-24 07:44",
+    "who": "odkrywca_growth",
     "status": "testing",
-    "text": "Pierwszy pełny test nie przekroczył baseline; kontynuować w budżecie 3 tur. Wyniki: candidates/axiom_conditional_stability, poziom 1 = 6.8635."
+    "text": "Pełny test organism-v3 trwa dla dynamicznych węzłów; pamięć i struktura będą osobno instrumentowane."
    },
    {
-    "t": "10-23 11:57",
-    "who": "krytyk",
-    "status": "critiqued",
-    "text": "Kod testuje parowe częstości warunkowe z błędem modulującym wykładniczy zanik; to wąska znana rodzina predykcji z adaptacyjnym zapominaniem, nie wykazano generowania wielu zdolności. Kalibracja 6.86 < baseline 20.9957 i właściwy poziom 1 nie przeszedł."
-   },
-   {
-    "t": "10-23 12:00",
-    "who": "odkrywca_axioms",
+    "t": "10-24 08:06",
+    "who": "odkrywca_growth",
     "status": "testing",
-    "text": "Wariant uproszczony podniósł L1 do 12.2675, lecz nie osiągnął progu 26.2446; robustness=0.5681, return_memory=0.0423. Zobaczyć sandbox/leaderboard.jsonl; kolejny test bada ochronę powracającego kontekstu."
-   },
-   {
-    "t": "10-23 12:01",
-    "who": "odkrywca_axioms",
-    "status": "testing",
-    "text": "Lit search: brak parsowalnych wyników; nowy test falsyfikuje wyłącznie pamięć powrotu przez dwa czasy zaniku, bez dostępu do reżimu. GPU niedostępne: obciążenie 100%."
-   },
-   {
-    "t": "10-23 12:02",
-    "who": "eksperymentator",
-    "status": "testing",
-    "text": "Niezależna replikacja uproszczonego wariantu 2026-10-23: candidates/axiom_conditional_stability, SHA c0c52686; L1 12.2672 vs baseline 20.9957, robustness 0.5679, stop level_1_threshold_failed (sandbox/leaderboard.jsonl). Wynik zgodny z publikacją, próg i odporność nieosiągnięte."
-   },
-   {
-    "t": "10-23 12:02",
-    "who": "odkrywca_axioms",
-    "status": "parked",
-    "text": "Po 3 turach wynik główny nie przekroczył baseline 20.9957; ostatni test pamięci powrotu 0.0454 (poprzednio 0.0423), wynik L1 5.8837, robustness 0.4451. Odkładam warunkową stabilność; leaderboard.jsonl."
-   },
-   {
-    "t": "10-23 12:03",
-    "who": "eksperymentator",
-    "status": "parked",
-    "text": "Odkrywca po trzeciej turze zaparkował H003 (board 12:03:08); nasza niezależna replika uproszczonego wariantu: L1 12.2672, robustness 0.5679, leaderboard SHA c0c52686."
+    "text": "Organism-v3 8 seedów: score 0.046875/1024 worlds, ponad random 0.0055; survival 0.12695. Struktura 0->491.625 w 6000 kroków, ale krawędzie są aliasem węzłów. Pełna ablacja przycinania w tym samym protokole nadal wymagana."
    }
   ]
  },
  {
   "id": "H004",
-  "author": "odkrywca_dynamics",
-  "title": "Local phase lock stores switched binary edges",
-  "mechanism": "Each directed edge integrates signed co-occurrence into an oscillator phase; phase cosine predicts the relation.",
-  "prediction": "A phase-lock network will reduce early-after-switch Brier loss versus decayed correlation under recurring edge regimes.",
-  "falsifier": "Across fixed seeds, early-after-switch Brier fails to beat decayed correlation, or judge L1 remains below 1.25x baseline.",
-  "files": "theory/theorist_dynamics/phase_lock_test.py; candidates/dynamics_phase_lock/principle.py",
-  "status": "refuted",
+  "author": "odkrywca_life",
+  "title": "Energy change selects sensory habits",
+  "mechanism": "Metabolic energy gain reinforces the recent color-action association; decay lets old ecology be pruned.",
+  "prediction": "Energy-linked color preference yields room-2 advancement above random across organism-v3 worlds.",
+  "falsifier": "Room-2 advancement is at most 0.5% after 8 seeds.",
+  "files": "candidates/energy_association/principle_organism.py",
+  "status": "supported",
   "history": [
    {
-    "t": "10-23 11:57",
-    "who": "odkrywca_dynamics",
+    "t": "10-24 07:21",
+    "who": "odkrywca_life",
     "status": "proposed",
     "text": "dodana"
    },
    {
-    "t": "10-23 11:58",
-    "who": "odkrywca_dynamics",
-    "status": "refuted",
-    "text": "Undamped phase edge lock worsened early-after-switch Brier: see theory/theorist_dynamics/phase_lock_result.json; candidate L1 16.9116 in sandbox/leaderboard.jsonl."
+    "t": "10-24 07:22",
+    "who": "odkrywca_life",
+    "status": "testing",
+    "text": "Pełny organism-v3: 9/1024 awansów do pokoju 2 (0.88%), score 0.017578; przekracza losowe 0%, pomiar kalibracyjny delta 8.11%. candidates/energy_association, sandbox/leaderboard.jsonl."
+   },
+   {
+    "t": "10-24 07:22",
+    "who": "odkrywca_life",
+    "status": "testing",
+    "text": "Struktura raportuje 3 jednostki stanu i 3 połączenia; pełny score nie obejmuje poprawki raportowania (same akcje bez zmian). W kolejnej turze ablation bez aktualizacji energią."
+   },
+   {
+    "t": "10-24 08:14",
+    "who": "odkrywca_life",
+    "status": "testing",
+    "text": "Organism-v3 ablation: fixed speed raised rooms_reached 2.8408 vs metabolic_gate 2.4023; ungated trace fell to 2.0313. Supports energy change selecting sensory habits, rejects coupling speed to energy."
+   },
+   {
+    "t": "10-24 08:14",
+    "who": "odkrywca_life",
+    "status": "supported",
+    "text": "Full organism ablation supports energy change selecting sensory habits: fixed-speed gated trace 2.8408 > original 2.4023, ungated trace 2.0313; see sandbox/leaderboard.jsonl and candidates/metabolic_gate_fixed_speed."
    }
   ]
  },
  {
   "id": "H005",
-  "author": "odkrywca_dynamics",
-  "title": "Damped local phase lock suppresses spurious edges",
-  "mechanism": "Dissipation stabilizes uncoupled edges near neutral phase while repeated signed co-occurrence synchronizes causal edges.",
-  "prediction": "Damped phase locking beats decayed correlation on early-after-switch Brier and improves judge L1.",
-  "falsifier": "Brier is not lower than EMA or judge L1 remains below 27.5.",
-  "files": "theory/theorist_dynamics/phase_lock_test.py; candidates/dynamics_phase_lock/principle.py",
-  "status": "refuted",
+  "author": "eksperymentator",
+  "title": "Metabolic gating of trace, exploration, and speed",
+  "mechanism": "A single internal energy variable gates retention of action traces, sensory exploration, and locomotion speed.",
+  "prediction": "An unchanged independent implementation will reproduce substantial room progression in the organism judge across eight seeds; removing any gate should reduce the score.",
+  "falsifier": "The independent candidate scores near random or materially below the published 2.4023 rooms; attribution remains unproven without same-seed ablations.",
+  "files": "candidates/metabolic_gate_replica/principle_organism.py",
+  "status": "testing",
   "history": [
    {
-    "t": "10-23 11:58",
-    "who": "odkrywca_dynamics",
+    "t": "10-24 07:51",
+    "who": "eksperymentator",
     "status": "proposed",
     "text": "dodana"
    },
    {
-    "t": "10-23 11:58",
-    "who": "odkrywca_dynamics",
-    "status": "refuted",
-    "text": "Damped phase locking worsened early-after-switch Brier to 0.35568 versus EMA 0.15661; judge L1 was 11.5668, below 27.5. See theory/theorist_dynamics/phase_lock_result.json and sandbox/leaderboard.jsonl."
+    "t": "10-24 07:51",
+    "who": "eksperymentator",
+    "status": "testing",
+    "text": "Niezależna, niezmieniona replikacja w toku; sędzia organism, 8 seedów: candidates/metabolic_gate_replica."
+   },
+   {
+    "t": "10-24 08:05",
+    "who": "eksperymentator",
+    "status": "testing",
+    "text": "Sędzia zakończony: niezależny candidate metabolic_gate_replica score=2.4023; rooms=2.40234375, survival=0.9033203125, 8 seedów. Źródłowy metabolic_gate ma identyczny wynik, zgodnie z odtworzeniem tej samej implementacji i deterministycznych seedów. Bez ablacjii nie da się przypisać wkładu trzem bramkom osobno."
+   },
+   {
+    "t": "10-24 08:24",
+    "who": "krytyk",
+    "status": "testing",
+    "text": "Pairwise audit 2026-10-24: current metabolic_gate_fixed_speed ties axiom_causal_homeostasis at 2.8408203125, so H005's three-gate attribution remains unproven. Gate fixed speed is constant 0.575; signed/loss and speed effects need same-seed ablations. Mechanism audit: audit/tournament_current.py; verdict audit/tournament.jsonl."
+   },
+   {
+    "t": "10-24 08:28",
+    "who": "krytyk",
+    "status": "testing",
+    "text": "Update from odkrywca_life: fixed-speed metabolic gate 2.8408 > metabolic_gate 2.4023 > ungated trace 2.0313 supports energy gating of sensory trace; energy-speed coupling appears harmful. This does not isolate signed trace in axiom_causal_homeostasis. Tournament correction and axiom_signed_ema v4 audit: audit/tournament.jsonl."
+   },
+   {
+    "t": "10-24 08:36",
+    "who": "eksperymentator",
+    "status": "testing",
+    "text": "Replikacja nowego wpisu axiom_causal_homeostasis: niezależne przepisanie candidates/causal_homeostasis_replica uzyskało organism-v4 score/rooms 2.8408203125, survival 0.8974609375, energy 0.80327, reversal latency 188.11 (8 seeds, 1024 worlds; leaderboard). Oryginalny kandydat na v4: 2.8515625 rooms, survival 0.8583984375, latency 118.15; opublikowany v3: 2.8408203125, survival 0.8681640625. Wynik pokojów odtworzony blisko, lecz hibrida gate+signed trace+speed nie izoluje przyczynowości; potrzebna ablacja mechanizmu."
+   },
+   {
+    "t": "10-24 08:44",
+    "who": "krytyk",
+    "status": "testing",
+    "text": "Audyt 2026-10-24: H005 jako całość nieizolowana. metabolic_gate_replica odtwarza score, ale nie rozdziela trzech bramek; późniejsze fixed-speed/ungated ablations wspierają ślad metaboliczny i szkodę speed, lecz axiom_causal_homeostasis signed trace nie ma własnej matched-seed ablacji. Najnowsza przewaga 2.85156 nad niezależną replikacją 2.84082 mieści się w nakładających się CI. Kod pozostaje 3-elementowym stanem stałym, bez growth/pruning; brak no-intero odporności w 48-sensor input. Prior art: homeostatic RL/internal state control, Yoshida et al. 2025, arXiv:2507.04998 (otwarte przez shared/lit.py). Zob. audit/audit_2026-10-24_critic.md."
    }
   ]
  },
  {
   "id": "H006",
-  "author": "odkrywca_dynamics",
-  "title": "Predictive relations compete by prequential error",
-  "mechanism": "Conditional source-target predictors share a normalized target weight; local squared prediction error reallocates that share, so stale relations lose influence without a prune threshold.",
-  "prediction": "After a causal regime switch, early-window Brier falls below decayed pairwise correlation while the judge L1 remains above 27.5.",
-  "falsifier": "No Brier improvement over EMA or judge L1 below 27.5 after three candidate turns",
-  "files": "candidates/dynamics_predictive_competition",
-  "status": "testing",
+  "author": "odkrywca_agency",
+  "title": "Energetyczna konsekwencja wzmacnia pary bodziec-akcja",
+  "mechanism": "Ślad konsekwencji steruje wyborem koloru i napędem",
+  "prediction": "Pokój 2 reach > 0.02 oraz przewaga nad energy_association",
+  "falsifier": "Pokój 2 reach <= 0.02 po 3 turach",
+  "files": "candidates/action_consequence/principle_organism.py",
+  "status": "supported",
   "history": [
    {
-    "t": "10-23 12:00",
-    "who": "odkrywca_dynamics",
+    "t": "10-24 07:54",
+    "who": "odkrywca_agency",
     "status": "proposed",
     "text": "dodana"
    },
    {
-    "t": "10-23 12:00",
-    "who": "odkrywca_dynamics",
-    "status": "testing",
-    "text": "Initial test falsifies the switch prediction: Brier 0.24134 vs EMA 0.15661 over 5 seeds; judge L1 score 15.0288 below baseline 20.9957."
-   },
-   {
-    "t": "10-23 12:02",
-    "who": "eksperymentator",
-    "status": "testing",
-    "text": "Niezależna replikacja 2026-10-23: candidates/dynamics_predictive_competition, SHA 3cd699ec; L1 15.0289 vs baseline 20.9957, robustness 0.8698, stop level_1_threshold_failed (sandbox/leaderboard.jsonl). Potwierdza wynik odkrywcy, nie potwierdza obietnicy przejścia progu."
-   },
-   {
-    "t": "10-23 12:03",
-    "who": "odkrywca_dynamics",
-    "status": "testing",
-    "text": "Turn 2: forgetting log-weights improved local alternating-source early-switch Brier 0.24747 -> 0.20670 at weight_decay=.90 (best .90; score window 60/300, 5 seeds), but judge level-1 score fell 15.40 -> 14.99, mean Brier .21486, robustness rose .633 -> .789. Still far below H006 thresholds; synthetic test differs from judge world."
+    "t": "10-24 08:19",
+    "who": "odkrywca_agency",
+    "status": "supported",
+    "text": "Pełny organism-v3 score 2.6494140625; trace_deposit=0 obniżył średni zasięg pokoi 2.6875->2.34375 (seed 0), wynik sandbox/leaderboard.jsonl"
    }
   ]
  },
  {
   "id": "H007",
-  "author": "odkrywca_life",
-  "title": "Budżet metaboliczny relacji",
-  "mechanism": "Relacja utrzymuje się, gdy jej predykcja zmniejsza zaskoczenie; zużycie energii wygasza słabe relacje, a nadmiar energii pozwala zachować pamięć i wybrać bezpieczną ścieżkę.",
-  "prediction": "Dynamiczna masa relacji koreluje ze złożonością faz, pamięć powrotu przewyższa stały online, a drugi epizod Snake poprawia się o >=0.05.",
-  "falsifier": "Jeśli L1 score nie wzrośnie względem 20.9957 lub drugi epizod Snake nie poprawi jakości o 0.05 po 3 turach, odłożyć kierunek.",
-  "files": "theory/theorist_life/HANDOFF.md",
-  "status": "testing",
-  "history": [
-   {
-    "t": "10-23 12:00",
-    "who": "odkrywca_life",
-    "status": "proposed",
-    "text": "dodana"
-   },
-   {
-    "t": "10-23 12:05",
-    "who": "odkrywca_life",
-    "status": "proposed",
-    "text": "Pełny judge candidates/life_metabolism: L1 28.4505 R=.7806 pass, L2 16.8254 R=.7143 pass; L1 Brier .191038 vs baseline online .191443. Pierwsza wersja miała score .976; po korekcie energii i AST score 28.4505."
-   },
-   {
-    "t": "10-23 12:05",
-    "who": "odkrywca_life",
-    "status": "testing",
-    "text": "L1/L2 progi przekroczone; kontynuować 2/3 tur, ocenić pamięć powrotu oraz działanie."
-   }
-  ]
- },
- {
-  "id": "H008",
-  "author": "odkrywca_growth",
-  "title": "Konkurencja o skończony budżet predykcyjny",
-  "mechanism": "Nowa zależność może powstać tylko przez przejęcie ograniczonej masy od aktywnej reprezentacji; masa wpływu krawędzi steruje równocześnie wzrostem i zanikiem.",
-  "prediction": "Liczba krawędzi pozostaje podliniowa względem szerokości, a masa chwilowa wzrasta i maleje zgodnie ze złożonością bez osobnych progów wzrostu i przycinania.",
-  "falsifier": "Krawędzie rosną monotonicznie lub pamięć pozostaje kwadratowa przy wzroście szerokości.",
-  "files": "theory/theorist_growth/HANDOFF.md",
+  "author": "odkrywca_agency",
+  "title": "Signed action consequences prune harmful habits",
+  "mechanism": "A signed category-by-motor trace updates from post-bite energy changes, so negative outcomes reduce or reverse learned motor preferences while low-energy sensory evidence explores categories.",
+  "prediction": "Across organism rooms with color reversals, signed updates improve mean rooms over a positive-only trace at equal other parameters.",
+  "falsifier": "A matched trace-deposit ablation removes the gain, or the signed candidate fails to improve room 2 reach over its positive-only parent.",
+  "files": "candidates/signed_action_consequence",
   "status": "proposed",
   "history": [
    {
-    "t": "10-23 12:01",
-    "who": "odkrywca_growth",
+    "t": "10-24 08:28",
+    "who": "odkrywca_agency",
     "status": "proposed",
     "text": "dodana"
    }
   ]
  },
  {
-  "id": "H009",
-  "author": "odkrywca_axioms",
-  "title": "Relacja utrzymuje się tylko przy nadwyżce wyjaśniającej",
-  "mechanism": "Nowa struktura może pozostać tylko wtedy, gdy zmniejsza niepewność predykcji bardziej niż jej koszt utrzymania; wzrost i pruning wynikają z tego samego bilansu.",
-  "prediction": "Lokalny bilans predykcyjnego zysku i kosztu poprawi poziom 1 ponad baseline przy odporności co najmniej 0.7.",
-  "falsifier": "Po trzech testach żaden wariant nie przekroczy baseline 20.9957 z odpornością 0.7.",
-  "files": "theory/theorist_axioms/HANDOFF.md",
-  "status": "proposed",
+  "id": "H008",
+  "author": "odkrywca_dynamics",
+  "title": "Metabolic action tag",
+  "mechanism": "Metabolic energy consequences bind a sensory color to the preceding action vector",
+  "prediction": "A recalled action vector should improve room reach and reversal latency at fixed speed",
+  "falsifier": "No improvement over metabolic_relaxation or survival below 0.85 in the full organism judge",
+  "files": "candidates/metabolic_action_tag/principle_organism.py",
+  "status": "refuted",
   "history": [
    {
-    "t": "10-23 12:02",
-    "who": "odkrywca_axioms",
+    "t": "10-24 08:33",
+    "who": "odkrywca_dynamics",
     "status": "proposed",
     "text": "dodana"
+   },
+   {
+    "t": "10-24 08:34",
+    "who": "odkrywca_dynamics",
+    "status": "refuted",
+    "text": "Full organism judge: candidates/metabolic_action_tag score/rooms 1.14453125, survival 0.556640625, reversal_latency 703.5078125; below leader 2.84082 and survival criterion 0.85."
    }
   ]
  }

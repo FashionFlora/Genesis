@@ -1,0 +1,27 @@
+Jesteś budowniczym świata i sędziego Genesis (tylko Ty zmieniasz sandbox/). Agenci są ZATRZYMANI. Przeczytaj HANDOFF.md,
+RULES.md i potrzebne fragmenty sandbox/. Oszczędzaj tokeny. nice -n 15, blokada sandbox/.gpu.lock.
+
+Zadanie: SPŁAĆ DŁUG TECHNICZNY, który narósł przy budowie świata organizmów (wiele szybkich poprawek i obejść), zanim
+agenci zaczną na nim pracować. Świat ma być prosty, spójny i zrozumiały.
+1. Przejrzyj sandbox/worlds/organism.py, sandbox/organism_judge.py, candidates/_calibration_*, _organism_* i części
+   judge.py dotyczące --organism. Spisz wszystkie obejścia i łaty (np. ograniczenie koloru celu w pokoju 1 do dwóch
+   kanałów jako obejście odruchu, progi dobierane pod baseline, martwe ścieżki v1/v2, resztki batch=1, nieużywane
+   parametry, zduplikowane stałe). Każde obejście: usuń, jeśli prawdziwa przyczyna została naprawiona (np. ukrywanie
+   wyczerpanych miejsc), albo zastąp zasadą i opisz dlaczego.
+2. Jedna wersja świata (organism-v3), jeden protokół, jeden plik konfiguracji parametrów świata z opisem. Stare
+   ścieżki usuń z kodu (stare wyniki zostają w plikach jako historia z polem version).
+3. Testy spójności świata (sandbox/test_organism.py, szybkie, CPU): to, co widzi oko, zgadza się ze stanem świata
+   (wyczerpane miejsca niewidoczne), maska gryzienia zgodna z obserwacją, energia zgodna z jedzeniem i ruchem,
+   odwrócenie znaczeń działa, przejście pokoju tylko przy kryterium, niezależność organizmów w batchu (zmiana wejść
+   jednego nie zmienia wyjść innych), brak kanału nagrody dla zwykłych kandydatów. Wszystkie muszą przechodzić.
+4. Kod przejrzysty: bez zakomentowanego kodu, bez magicznych liczb poza konfiguracją, krótkie docstringi.
+5. Po sprzątaniu JEDEN końcowy pomiar kalibracji (wzorce i kontrola nie zależą od n_units: wystarczy jeden rozmiar;
+   rozmiary 302–1e5 sprawdź tylko na jednym krótkim przebiegu, że działają): tabela pokój × random/Braitenberg/delta/
+   kontrola z CI 95%. Warunki: losowy i odruch nie przechodzą pokoju 1 (najwyżej kilka procent), kontrola przechodzi
+   pokój 1 w większości światów i w każdym pokoju jest wyraźnie lepsza od losowego, krzywa maleje stopniowo.
+6. Obserwacja (NIE wpływa na wynik ani awans): czy organizm utyka w rutynie. Mierz np. różnorodność zachowania w
+   czasie (entropia pozycji/akcji w kolejnych oknach czasu, osobno w każdym pokoju, także w obecnym), eksplorację nowych miejsc, gdy energia jest wysoka, i czy zachowanie
+   zmienia się po opanowaniu pokoju. Raportuj w wyniku sędziego jako pole `routine`, z wartościami dla baseline'ów.
+7. README sekcja organism: krótka, aktualna, bez historii poprawek. Wyczyść logi tymczasowe w sandbox/ (*.log probe).
+Na koniec nadpisz HANDOFF.md (do 25 linii, w jednej operacji): lista usuniętych obejść, wynik testów, tabela kalibracji.
+Linię KONIEC (sama w linii) dopisz dopiero, gdy 1–7 są zrobione, testy przechodzą i warunki z pkt 5 spełnione.

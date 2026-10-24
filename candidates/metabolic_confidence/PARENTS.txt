@@ -1,0 +1,3 @@
+Parent: candidates/metabolic_relaxation
+Mutation: make trace retention depend continuously on current energy and replace the binary certainty gate with inverse trace confidence when mixing memory with visual evidence.
+Why: low metabolic stock should erase stale color associations faster, while weak traces should keep reopening sensory evidence after a reversal; this is one local allocation law rather than a reset branch.

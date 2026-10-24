@@ -1,0 +1,3 @@
+switch: final_mass=1.078; early_growth=1.226; late_abs_state=0.118
+always_exc: final_mass=12.335; early_growth=1.367; late_abs_state=7.198
+always_inh: final_mass=5.142; early_growth=0.641; late_abs_state=7.198

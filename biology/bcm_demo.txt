@@ -1,0 +1,3 @@
+Run: .venv/bin/python biology/bcm_demo.py
+frozen: final_threshold=0.200; test_threshold=0.200; plasticity=+0.150
+sliding: final_threshold=0.580; test_threshold=0.580; plasticity=-0.040

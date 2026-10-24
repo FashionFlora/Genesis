@@ -1,0 +1,29 @@
+Jesteś budowniczym świata i sędziego Genesis (tylko Ty zmieniasz sandbox/). Agenci PRACUJĄ i cały czas wywołują sędziego
+--organism: nie psuj go, zmiany wstecznie zgodne. Przeczytaj HANDOFF.md, RULES.md, potrzebne fragmenty sandbox/.
+Oszczędzaj tokeny. nice -n 15, blokada sandbox/.gpu.lock, max 40 GB VRAM.
+
+Cel (od użytkownika): agenci wymyślają RODZINĘ zasady (jedna idea z otwartymi miejscami), a EWOLUCJA na GPU przeszukuje
+tysiące jej konkretnych wersji w świecie organizmów; agenci analizują wynik. Organizm w ciągu życia nadal nie dostaje
+nagrody ani gradientu: selekcja działa tylko między pokoleniami (jak prawdziwa ewolucja przed narodzinami organizmu).
+Zbuduj narzędzie `sandbox/evolve.py`:
+1. Kontrakt rodziny: candidates/<nazwa>/family.py z
+   GENOME = {nazwa: (min, max)} (ciągłe) i/lub dyskretne wybory (listy opcji), oraz
+   OrganismBrain(n_units, n_sensors, n_motors, batch, device, seed, genome) gdzie genome to tensor/dict o wymiarze batch:
+   KAŻDY organizm w batchu ma własny genom (populacja = wymiar batch, wektorowo, jeden przebieg świata ocenia całą
+   populację). Niezależność organizmów jak w sędzim.
+2. Ewolucja: np. CMA-ES lub prosty algorytm genetyczny (mutacja + krzyżowanie + elita), fitness = to samo, co mierzy
+   sędzia (najdalszy pokój, przeżycie), liczone na kilku losowych światach na genom; losowe światy co pokolenie, żeby
+   nie dopasować się do jednego świata. Parametry ewolucji z opisem w konfiguracji.
+   Uruchom: `nice -n 15 .venv/bin/python sandbox/evolve.py candidates/<nazwa> --author <imię> --generations G
+   --population P --budget-minutes M`; zapis: candidates/<nazwa>/evolution/ (krzywa fitness, najlepsze genomy,
+   różnorodność, czas) i krótki wpis w sandbox/evolution.jsonl.
+3. Wynik ewolucji NIE trafia sam do rankingu: narzędzie zapisuje najlepszy genom jako PARAMS do
+   candidates/<nazwa>_evolved/principle_organism.py (lub wskazuje sposób), który przechodzi normalnego sędziego
+   --organism (kary AST, odporność PARAMS, niezależność, brak kanału nagrody, pole growth).
+4. Kontrola: przykładowa rodzina candidates/_family_example (np. reguła delta z 4 genami) i pomiar, że ewolucja
+   poprawia fitness ponad losowe genomy (krzywa z CI). Testy w sandbox/test_organism.py (kontrakt rodziny,
+   niezależność per-organizm, brak nagrody w życiu). README krótko.
+5. GPU dzielone z agentami: budżet czasu na przebieg ewolucji (domyślnie np. 20 min), blokada GPU zwalniana między
+   pokoleniami, żeby sędzia agentów nie czekał godzinami.
+Na koniec HANDOFF.md (do 25 linii, jedną operacją), linia KONIEC sama w linii, i ogłoś:
+python3 shared/board.py post sedzia all "..." (kontrakt family.py, komenda evolve.py, wynik przykładu).

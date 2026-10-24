@@ -1,3 +1,3 @@
-mechanizm\twynik_1e3\twynik_1e4\twynik_1e5\tnachylenie_rozmiar\tnachylenie_czas\twykładnik_stanu\tkoszt_GPU\tstan_zgłoszony_1e5_B\tstatus
-_baseline_gpu_online\t0.9422\t0.0000\t0.0000\t-0.141808\t0.000000\t1.000000\t10.71 MiB szczyt\t400000\t10k kroków; faktyczny baseline
-dynamika bezwładna kanału\t0.9528\t0.9994\t0.9298\t-0.003459\t0.000000\t1.000000\t11.09 MiB szczyt\t400000\t10k kroków; CPU/GPU max error 0.0
+mechanizm	wynik_1e3	wynik_1e4	wynik_1e5	nachylenie_rozmiar	nachylenie_czas	wykładnik_stanu	koszt_GPU	stan_zgłoszony_1e5_B	status
+_baseline_gpu_online	0.9422	0.0000	0.0000	-0.141808	0.000000	1.000000	10.71 MiB szczyt	400000	10k kroków; faktyczny baseline
+dynamika bezwładna kanału	0.9528	0.9994	0.9298	-0.003459	0.000000	1.000000	11.09 MiB szczyt	400000	10k kroków; CPU/GPU max error 0.0

@@ -1,0 +1,36 @@
+Jesteś budowniczym świata i sędziego Genesis (tylko Ty zmieniasz sandbox/). Agenci są ZATRZYMANI do czasu, aż świat
+będzie poprawny. Przeczytaj HANDOFF.md i potrzebne fragmenty sandbox/worlds/organism.py, sandbox/organism_judge.py.
+Oszczędzaj tokeny. nice -n 15, blokada sandbox/.gpu.lock, max 40 GB VRAM.
+
+Twoja wersja organism-v2 jest ZEPSUTA: losowy ruch dochodzi do pokoju 2 w 28% światów, a w pokojach 4–6 wypada lepiej
+od kontroli PPO (np. pokój 5: random .156 vs PPO .098). Świat, w którym przypadek wygrywa z uczeniem, nie mierzy uczenia.
+
+Do zrobienia, w tej kolejności:
+A. Kanał nagrody: organism_judge.py woła observe_reward() tylko dla klas z CALIBRATION_ONLY = True (poprawka
+   orkiestratora, zachowaj). Dodaj dyskwalifikację kandydata, który definiuje observe_reward albo CALIBRATION_ONLY.
+B. (NIE przez batch=1 ani 128 osobnych obiektów: to zabija szybkość GPU. Zostaw jeden wektorowy obiekt na batch i
+   wymuś niezależność TESTEM w sędzim; brak niezależności = dyskwalifikacja.) Osobny mózg na organizm: dziś jeden obiekt dostaje cały batch, więc może uczyć się z doświadczenia wszystkich
+   organizmów naraz (PPO kontrolne tak robi). Wymuś niezależność w sędzim (test: zmiana wejść jednego świata nie zmienia
+   wyjść innych światów, teraz ani w kolejnych krokach). Przerób PPO na osobne wagi dla każdego organizmu (batched
+   weights), żeby kalibracja mówiła, czy JEDEN organizm w JEDNYM życiu może się nauczyć.
+C. Kalibracja pokoi, z tą per-organizmową kontrolą: losowy ruch i odruch Braitenberga nie przechodzą pokoju 1
+   (najwyżej kilka procent); kontrola PPO przechodzi pokój 1 w większości światów; w KAŻDYM pokoju kontrola jest
+   wyraźnie lepsza od losowego (rozłączne CI 95%); odsetek kontroli maleje stopniowo z pokojami. Jeśli per-organizm PPO
+   nie daje rady pokojowi 1, daj więcej czasu/energii na naukę w pokoju 1, zamiast go ułatwiać dla losowego.
+D. Minimum światów na pomiar takie, żeby CI były sensowne (agenci puszczali po 2); wynik raportuje CI.
+E. Pole protocol.version podbij (organism-v3). README krótko.
+Na koniec tury nadpisz HANDOFF.md (do 25 linii) w jednej operacji. Linię KONIEC (sama w linii) dopisz dopiero, gdy
+A–E są zrobione i warunki z C spełnione liczbami (podaj tabelę: pokój × random/Braitenberg/delta/PPO z CI).
+
+Uwaga: część zmian z przerwanej tury może już być w plikach (np. batch=1 w run_life) — sprawdź i dostosuj do pkt B.
+Czas: dostrajaj na małej siatce (np. 302 i 1e4, mniej kroków), pełną kalibrację na wszystkich rozmiarach zrób raz na końcu.
+
+WSKAZÓWKI PO PRZERWANEJ TURZE (18:15): per-organizm PPO przechodzi pokój 2 w 9%, a random w 12% (próg 12 żerowań).
+1. PPO to zła kontrola dla nauki w JEDNYM życiu (6000 kroków): jest bardzo nieefektywne próbkowo. Kontrola pozytywna
+   ma być prostym, próbkowo efektywnym uczniem z nagrodą (tylko kalibracja), np. wartość każdego koloru uczona online
+   z przyrostu energii po ugryzieniu + podchodzenie do koloru o najwyższej wartości + mała eksploracja. Pytanie
+   kalibracji brzmi: czy w tym życiu da się czegoś nauczyć — nie: czy PPO to potrafi.
+2. Kryterium awansu nie może nagradzać szczęścia: zamiast liczby posiłków licz SELEKTYWNOŚĆ, np. odsetek ugryzień
+   właściwego koloru wśród wszystkich ugryzień w oknie po odwróceniu (losowy ~1/liczba kolorów), z minimalną liczbą
+   ugryzień. Wtedy losowy i odruch odpadają z definicji, a uczący się przechodzi.
+Nie stroj progów w kółko: najpierw te dwie zmiany, potem jeden pomiar na małej siatce.

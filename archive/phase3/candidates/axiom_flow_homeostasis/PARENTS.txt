@@ -1,0 +1,5 @@
+Parent: candidates/axiom_sensorimotor_flow and candidates/axiom_homeostasis.
+Mutation: retain the direct color-weighted bearing flow and visible-food bite that
+made sensorimotor flow survive, while adding the homeostatic delayed update through
+the same decaying color trace. The judge's rate, decay, and explore parameters are
+used directly so robustness measures the mechanism rather than dead parameters.

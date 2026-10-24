@@ -1,0 +1,3 @@
+Parent: candidates/odkrywca_metabolic_trace
+Mutation: multiply accumulated eligibility by current energy and normalize weight updates by current energy plus a fixed reserve floor.
+Organism-v2, 2 seeds/scale: score 0.0, matching parent score 0.0; all scales reached only room 1/6, mean energy 0, survival 0.

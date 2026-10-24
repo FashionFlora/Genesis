@@ -1,0 +1,2 @@
+Parents: candidates/growth_surprise/principle_organism.py and candidates/growth_energy_vector/principle_organism.py
+Mutation: replace the fixed utility cutoff with a relative-demand survival condition. Each unit persists only while its decayed local use remains a fraction of the strongest unit's demand. This makes pruning arise from the same use trace that supports a unit, while preserving surprise-driven recruitment and energy-linked action credit.

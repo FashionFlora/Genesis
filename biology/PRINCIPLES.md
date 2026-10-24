@@ -1,55 +1,139 @@
-# Biology-derived principles
+# Zasady biologiczne
 
-## Vacancy keeps a losing connection revisable
+## Homeostaza działa razem z przebudową połączeń
 
-At developing mouse neuromuscular junctions, multiple motor axons initially share
-postsynaptic sites and usually resolve to single innervation. Turney and Lichtman
-removed one input with laser ablation at 15 junctions (P7-P8 mice). In every case
-the remaining input expanded; in 14/15 it occupied the whole junction within 24 h,
-including cases where it started with only 1-5% of the territory. The growth also
-occurred at sites on functionally innervated muscle, so global target inactivity was
-not required. (Turney & Lichtman, 2012, PLoS Biology 10:e1001352,
-doi:10.1371/journal.pbio.1001352; full text opened with `shared/lit.py fetch`,
-Europe PMC PMC3383738.)
+W hodowlach organotypowych mysiego układu entorynalno-hipokampalnego, blokada AMPA 200 nM NBQX zwiększała gęstość kolców dendrytycznych, a pełna blokada 50 µM NBQX ją zmniejszała. To ostrzeżenie przed regułą „im ciszej, tym więcej kompensacji”: odpowiedź strukturalna może być dwufazowa. Model pracy utrzymywał aktywność przez dwufazową regułę formowania synaps; homeostatyczne skalowanie wag ograniczało utratę połączeń przy pobudzeniu i ratowało je przy wyciszeniu, zwiększając wejście rekurencyjne.
 
-**Principle:** until local access is lost, apparent losers remain revisable. A
-vacated contact site is an opportunity for a neighbor to expand into; pruning and
-growth can therefore be two sides of local competition for finite sites, rather
-than an irreversible loser label followed by independent regrowth. The paper
-supports local, reversible competition but does not establish its molecular cause.
+**Źródło otwarte przez `shared/lit.py fetch`:** Lu et al., *The interplay between homeostatic synaptic scaling and homeostatic structural plasticity maintains the robust firing rate of neural networks*, eLife 12:RP88376 (2025), https://elifesciences.org/articles/88376, abstrakt i wprowadzenie. Wynik pochodzi z hodowli tkankowej i modelu, nie z zachowania zwierzęcia.
 
-**Digital implication:** represent capacity as local addressable sites. Units that
-retain a foothold can claim newly vacant nearby sites; a unit with no sites can be
-removed. A perturbation that removes a dominant unit should release capacity to a
-weak neighbor, without a global reward or target-wide inactivity signal. Treat this
-as a testable design hint, not a demonstrated learning law. The toy model in
-`vacancy_competition.py` checks only the occupancy consequence.
+**Przekład cyfrowy (hipoteza do testu):** rozdziel sprzężenie zwrotne regulujące średnią aktywność od zmiany wag i tworzenia/usuwania krawędzi; różne skale czasowe są tu wyborem projektowym, nie wynikiem tej pracy. Testuj dwufazową regułę krawędzi: umiarkowany niedobór może tworzyć połączenia, a skrajne i długotrwałe wyciszenie może prowadzić do ich utraty. Nie zakładaj, że sama homeostaza daje pamięć ani eksplorację. W teście organizmu porównaj pełny mechanizm z ablacjami: bez skalowania wag, bez zmian strukturalnych oraz z monotoniczną regułą krawędzi; mierz odsetek przejść pokojów i przeżycie ciągłego życia przy tych samych seedach.
 
-## Slow structural change can absorb what fast regulation cannot
+## Sprzężenia homeostatyczne mają lokalny zasięg i różną kinetykę
 
-Aljaberi, O'Leary & Forni model homeostatic synaptic scaling together with slow
-activity-dependent structural growth. Their model's equilibrium condition bounds
-average channel capacity by morphology (`g_avg <= c sum(s_i)/(n omega_g)`), so a
-target activity of 0.5 is unreachable from initial `L0=0.1` without growth in their
-illustrated simulation; with growth, activity asymptotically reaches 0.5 as length
-increases. They also simulate aggressive fast feedback (`k_u=0.01`, `L0=0.25`):
-fast scaling alone oscillates pathologically, while adding slow growth damps the
-oscillations and reaches the target. Their parameters use two compartments (`n=2`)
-and structural adaptation timescale `tau=10^5`; the paper reports that reducing
-timescale separation makes stability more fragile. These are results from a
-system-theoretic model, not measurements of those exact values in animals.
-(Aljaberi, O'Leary & Forni, 2020/2021, "Dendritic trafficking: synaptic scaling and
-structural plasticity," arXiv:2011.12067, DOI 10.48550/arXiv.2011.12067; full text
-opened with `shared/lit.py fetch https://arxiv.org/html/2011.12067`.)
+Przegląd Turrigiano opisuje homeostazę wyładowań w hodowlach kory i hipokampa po perturbacji aktywności trwającej wiele godzin. Globalne skalowanie zmienia wszystkie pobudzające synapsy neuronu proporcjonalnie, co przywraca poziom aktywności bez kasowania względnych różnic siły synaps. Opisane lokalne mechanizmy działają natomiast na pojedynczą synapsę lub małą grupę. Przegląd zestawia wczesne skalowanie obserwowane po 4–6 h blokady z TNFα-zależnym utrzymaniem późnej fazy przy blokadzie >24 h; cytowane doświadczenie rozróżniające typ komórek używało 48 h TTX. To nie jest jeden uniwersalny zegar: mechanizm i czas zależą od rodzaju perturbacji.
 
-**Principle:** a fast variable can regulate current activity only within existing
-capacity; a slow structural variable can change the feasible range. Driving the
-slow variable from a filtered/persistent activity bias lets it absorb sustained
-error and can damp fast oscillatory correction. Do not treat fast and slow changes
-as duplicate learning rates: they control different constraints.
+**Źródło otwarte przez `shared/lit.py fetch`:** Turrigiano, *Homeostatic Synaptic Plasticity: Local and Global Mechanisms for Stabilizing Neuronal Function*, Cold Spring Harb Perspect Biol 4(1):a005736 (2012), https://pmc.ncbi.nlm.nih.gov/articles/PMC3249629/. Są to wyniki z literatury omawiane w przeglądzie; nie wynik GENESIS.
 
-**Digital implication:** separate edge weight or activation from a slower local
-capacity/topology variable. Let capacity change only under persistent signed error,
-with a slower update than fast weight adaptation. Test whether this prevents
-oscillation and removes capacity-imposed error without adding reward. The cited
-paper provides a model precedent; its effect in a digital learner remains untested.
+**Przekład cyfrowy (hipoteza):** daj neuronom własny wolny estymator błędu średniej aktywności, który skaluje wejścia multiplikatywnie, i osobny szybszy ślad błędu dla lokalnych wejść. Mnożenie zachowuje stosunki wag; wspólne dodawanie/odejmowanie stałej tego nie gwarantuje. Własny demonstrator `scaling_demo.py` sprawdził tę własność na dwóch wejściach; tożsamość arytmetyczna, nie dowód uczenia. W organism teście ablatuj wolny globalny i szybki lokalny ślad niezależnie oraz raportuj pamięć wcześniejszych przejść, aktywność i przeżycie obok przejść pokojów.
+
+## Rozwój wybiera synapsy przez względną synchronię
+
+W przeglądzie rozwoju ssaczego OUN spontaniczna aktywność przed otwarciem oczu (u myszy <P10) rozdziela nakładające się wejścia obu siatkówek do osobnych obszarów LGN: potrzebna jest synchronia w obrębie jednej siatkówki i asynchronia między siatkówkami. Przy zablokowaniu aktywności obu oczu albo sztucznym zsynchronizowaniu wejść przycinanie nie zachodzi. W móżdżku około P11 słabsze włókna wspinające są usuwane, a najsilniejsze przechodzi na dendryty; drugi etap usuwa pozostałe włókna somatyczne około P12–P17. Po otwarciu oczu dalsze przycinanie kolców w LGN opisano w oknie P20–P30. To wskazuje na selekcję względną (zbieżność czasowa i konkurencja), nie próg oparty wyłącznie na średniej aktywności.
+
+**Źródło otwarte przez `shared/lit.py fetch`:** Faust, Gunner & Schafer, *Mechanisms governing activity-dependent synaptic pruning in the mammalian CNS*, Nature Reviews Neuroscience 22 (2021), PMCID: PMC8541743, https://pmc.ncbi.nlm.nih.gov/articles/PMC8541743/. Podane dni rozwoju i warunek synchronii pochodzą z przeglądu; nie są parametrami dla cyfrowego organizmu.
+
+**Przekład cyfrowy (hipoteza):** w fazie wzrostu licz dla każdej krawędzi lokalny wynik zbieżności pre–post i odejmuj średnią wyniku konkurentów. Okresowo usuwaj krawędzie poniżej progu, a zwycięskie wzmacniaj; po zamknięciu okna rozwojowego zamroź ten proces albo mocno zmniejsz jego tempo. Ablacje: (1) brak centrowania konkurencyjnego, (2) brak usuwania, (3) wynik z aktywności absolutnej zamiast względnej synchronii. `pruning_demo.py` przy stałym seedzie 17 pozostawił 5/8 krawędzi i sumę wag 6.717 z konkurencją, wobec 8/8 i 13.512 bez niej; to wyłącznie test mechanizmu, nie wynik testu organism.
+
+## Odtwarzanie sekwencji może utrzymywać pamięć przejść poza bodźcem
+
+W badaniu szczurów uczących się przez obserwację demonstratora wykryto podczas czuwania odległe odtwarzanie sekwencji komórek miejsca z trasy labiryntu. Sekwencje odtwarzane w przód i wstecz kierowały się ku miejscom nagrody i wiązały się z przyszłymi poprawnymi trasami; w warunku bez demonstratora odtwarzanie było rzadsze, a te preferencje znikały. Sesje miały 30–50 prób dziennie. To wynik z zadania motywowanego nagrodą i uczeniem obserwacyjnym, więc nie dowodzi samodzielnego, beznagrodowego planowania.
+
+**Źródło otwarte przez `shared/lit.py fetch`:** Mou et al., *Observational learning promotes hippocampal remote awake replay toward future reward locations*, Neuron 110(5):891–902.e7 (2022), PMCID: PMC8897267, https://pmc.ncbi.nlm.nih.gov/articles/PMC8897267/.
+
+**Przekład cyfrowy (hipoteza):** zachowuj krótkie sekwencje przejść, a w okresach bez nowych bodźców odtwarzaj je, wzmacniając skojarzenia wewnętrzne; wsteczne odtwarzanie może utrwalać poprzednik celu równie dobrze jak kierunek naprzód. Nie wstawiaj sygnału nagrody do tego procesu. `replay_demo.py` pokazuje wyłącznie, że przy zadanym arbitralnie zaniku 0.9 i wzmocnieniu 0.2 odtwarzanie co 4 kroki utrzymuje średnią pamięć krawędzi powyżej braku odtwarzania. To demonstracja arytmetyczna, nie dowód biologiczny ani wynik organism. Test cyfrowy: porównaj odtwarzanie, brak odtwarzania i odtwarzanie przemieszanych sekwencji przy tych samych seedach; mierz odtwarzalność przejść, nowe odwiedzone pokoje i przeżycie.
+
+## Próg plastyczności może podążać za własną aktywnością neuronu
+
+Teoria BCM wiąże zmianę skuteczności synapsy z aktywnością wejścia i wyjścia oraz wolno zmiennym progiem zależnym od średniej aktywności postsynaptycznej. Gdy wyjście jest poniżej progu, wkład może osłabiać synapsę; powyżej niego może ją wzmacniać. Abstrakt rozważa dwa bodźce prezentowane naprzemiennie losowo i stwierdza dla modelu zbieżność z prawdopodobieństwem 1 do stanów o maksymalnej selektywności. To matematyczna teoria rozwoju selektywności, nie wynik eksperymentu ani gwarancja dla innych dynamik.
+
+**Źródło otwarte przez `shared/lit.py fetch`:** Bienenstock, Cooper & Munro, *Theory for the development of neuron selectivity: orientation specificity and binocular interaction in visual cortex*, Journal of Neuroscience 2(1):32–48 (1982), https://doi.org/10.1523/JNEUROSCI.02-01-00032.1982. Model rozpatruje m.in. dwa rodzaje bodźca; publikacja nie podaje tu liczby zwierząt ani liczbowego efektu empirycznego.
+
+**Przekład cyfrowy (hipoteza):** każda jednostka może utrzymywać wolny próg plastyczności z własnej aktywności i używać go do zmiany lokalnych wejść. To oddziela „dużo aktywności” od „aktywności nietypowo dużej dla tej jednostki”; potencjalnie daje selekcję bez błędu zewnętrznego i bez backpropagacji. `bcm_demo.py` pokazuje jedynie zmianę znaku potencjowania dla ustalonego testowego wyjścia, gdy próg śledzi zmianę aktywności, wobec progu zamrożonego. W organism należy ablatować adaptację progu, zachowując identyczne losowe seedy; mierzyć selektywność/pamięć przejść, eksplorację i przeżycie. Parametry demonstracji nie są biologicznymi stałymi.
+
+## Sygnał sąsiada może utrzymać pulę, a nie tylko różnicować los
+
+W rozwijającej się cewie nerwowej kurczęcia, w strefie przejścia od proliferacji do neurogenezy, hamowanie Notch przez Delta-DN obniżyło odsetek znakowanych BrdU komórek z 292/608 (48%) w kontroli do 16/141 (11%) po 12 h. Mimo zahamowania proliferacji, TUJ1+ komórki po 18 h wyniosły 20/194 (10,3%) wobec 8/113 (7,1%) w kontroli; autorzy nie stwierdzili istotnego wzrostu różnicowania neuronów. W tej samej pracy w bardziej rostralnej, neurogenicznej strefie Delta-DN zwiększył TUJ1+ z 9,8% do 37,5%. Efekt sygnału sąsiedzkiego zależał więc od etapu rozwoju: utrzymywał proliferację w strefie przejściowej, ale hamował różnicowanie w strefie neurogenicznej.
+
+W tej pracy komórki Delta-1 w strefie przejściowej były przede wszystkim cykliczne: podwójne znakowanie wynosiło 13±1% dla PH3, 23±4% dla BrdU i 19±3% dla Cyclin B, a tylko 5±2% dla TUJ1 (n=3 zarodki). Autorzy opisują więc sygnał jako etapowy regulator stanu puli; wyłączenie Notch zatrzymywało proliferację, ale samo nie wystarczało do różnicowania. W cyfrowym mechanizmie warto rozdzielić stan utrzymania puli od stanu dojrzewania, zamiast używać jednego progu aktywności do obu decyzji.
+
+**Źródło otwarte przez `shared/lit.py fetch`:** Hämmerle & Tejedor, *A Novel Function of DELTA-NOTCH Signalling Mediates the Transition from Proliferation to Neurogenesis in Neural Progenitor Cells*, PLoS ONE 2(11):e1169 (2007), https://pmc.ncbi.nlm.nih.gov/articles/PMC2064965/. Liczby pochodzą z eksperymentów elektroporacji w embrionalnej cewie nerwowej kurczęcia; nie są efektem z cyfrowego organizmu.
+
+**Przekład cyfrowy (hipoteza):** lokalne sprzężenie między jednostkami może najpierw stabilizować zdolność sieci do dalszego wzrostu, zamiast natychmiast zamieniać spadek aktywności w specjalizację lub przycinanie. Kandydat może mieć powolny stan „utrzymania puli”, wzmacniany przez sąsiednie jednostki, i osobny stan dojrzewania jednostki. Testuj ten sygnał na tle braku sygnału i sygnału z przemieszanymi sąsiadami; osobno mierz wzrost, przeżycie i nowe przejścia pokojów. To hipoteza inspirowana kontekstową rolą Delta-Notch, nie bezpośrednia analogia molekularna.
+
+**Mały test mechanizmu (nie test organism):** `biology/delta_pool_demo.py` uruchomiony dla 20 seedów i 200 kroków dał średnio 76,20 zajętych miejsc, 8,00 dojrzałych komórek i 0,895 udziału progenitorów przy sygnale lokalnym; bez sygnału 40,00, 40,00 i 0,000; z przemieszanymi sąsiadami 40,35, 38,05 i 0,057. Wynik wspiera jedynie rozdzielenie „wzrost/utrzymanie puli” od „dojrzewanie” w tym modelu. Nie jest to dowód poprawy przejść pokojów ani przeżycia; te trzy warianty trzeba powtórzyć w jednym kandydacie organism na tych samych seedach.
+
+## Metabolizm może przełączać stan, nie tylko dawkować energię
+
+U dorosłych mysich progenitorów neuronalnych usunięcie Mpc1 (transport pyruwianu do mitochondriów) zwiększyło odsetek komórek Ki67+ wśród znakowanych tdTom+ po 8 dniach; liczba wszystkich tdTom+ jeszcze się nie zwiększyła. Efekt dotyczył przede wszystkim typu 1, radialnych komórek podobnych do gleju, nie bardziej proliferacyjnych progenitorów typu 2a. Eksperyment in vivo miał n=4 myszy na grupę, a różnica typu 1 była istotna (P<0,05). W hodowli ostre zahamowanie MPC zmieniło metabolizm i zwiększyło aktywację; autorzy wskazują, że wzrost mleczanu nie był konieczny. Zatem obniżenie mitochondrialnego metabolizmu może uruchomić wyjście z uśpienia, zamiast po prostu zmniejszyć aktywność. To nie dowodzi, że stan energetyczny jest nieważny ani że ten sam mechanizm obowiązuje neurony dojrzałe.
+
+**Źródło otwarte przez `shared/lit.py fetch`:** Petrelli et al., *Mitochondrial pyruvate metabolism regulates the activation of quiescent adult neural stem cells*, Science Advances 9(9):eadd5220 (2023), https://pmc.ncbi.nlm.nih.gov/articles/PMC9977184/.
+
+**Przekład cyfrowy (hipoteza):** rozdziel zasób energii od powolnego wewnętrznego sygnału stanu metabolicznego. Pierwszy ogranicza koszt działania i przeżycie; drugi może okresowo aktywować uśpione jednostki lub zmieniać ich gotowość do przebudowy. Nie utożsamiaj spadku energii z aktywacją. Porównaj kandydata z samym limitem energii, z osobnym sygnałem stanu oraz z tym sygnałem przemieszanym w czasie; mierz koszt energii, przeżycie, zmianę struktury i przejścia pokojów na tych samych seedach. Literatura uzasadnia możliwość rozdzielenia, nie kierunek ani wartość parametru cyfrowego.
+
+## Konkurencja może wybierać komórki już nierówne sprawnością
+
+W proprioceptorach czuciowych zwoju korzeni grzbietowych myszy poziom receptora TRKC był zróżnicowany przed okresem śmierci komórkowej (E12.0–E12.5), a wysoki poziom wiązał się z silniejszym sygnałem przeżycia p-AKT. Obniżenie Ntrk3 w niewielkiej grupie neuronów (~7%) poprzedzało 80% spadek liczby znakowanych komórek po okresie śmierci. W śledzeniu neuronów z wysokim TRKC udział znakowanych zmienił się z 11,6% przed selekcją do 20,9% po niej, czyli wzrósł 1,88 raza. Zablokowanie śmierci przez Bax zwiększyło liczbę PSN do ok. 2,2 raza poziomu WT, zgodnie z przeżyciem około połowy puli w WT. Autorzy łączą więc różnice własne komórki z jej szansą wykorzystania ograniczonego sygnału NT3; nie wszystkie jednostki zaczynają z równym prawdopodobieństwem przetrwania.
+
+**Źródło otwarte przez `shared/lit.py fetch`:** Wang et al., *A cell fitness selection model for neuronal survival during development*, Nature Communications 10:4137 (2019), https://pmc.ncbi.nlm.nih.gov/articles/PMC6742664/. To konkretne wyniki z rozwoju proprioceptorów myszy, nie uniwersalne prawo neuronów.
+
+**Przekład cyfrowy (hipoteza):** pozwól, by lokalne, wewnętrzne różnice w stabilności lub użyteczności śladów powstały przed kryzysem zasobów; gdy budżet utrzymania jest ograniczony, przycinaj względnie słabsze jednostki, zamiast losowo redukować populację albo tworzyć jednakowy próg dla wszystkich. To może sprzęgać różnicowanie z samo-przycinaniem bez zewnętrznej nagrody, ale nie przesądza, jaki wewnętrzny sygnał oznacza „sprawność”. Ablacje cyfrowe powinny porównać konkurencję ważoną własnym stanem, losowy ubytek, równą sprawność i brak ograniczenia zasobu.
+
+**Mały test mechanizmu (nie test organism):** `biology/fitness_selection_demo.py` porównuje cztery warianty na 100 seedach; pula 200 komórek i limit 100 to arbitralne ustawienia demonstratora. W teście organism trzeba zastąpić tę symulację rzeczywistym ograniczeniem energii i sprawności wyuczonej w toku życia oraz mierzyć przeżycie i przejścia pokojów.
+
+## Hamowanie może otwierać i zamykać okno plastyczności
+
+W korze wzrokowej myszy dojrzewanie sygnału GABA jest progiem rozpoczęcia okresu krytycznego, a nadmierne hamowanie wiąże się z jego zakończeniem; redukcja syntezy GABA opóźniała początek, który można było wywołać diazepamem. W otwartym doświadczeniu Kannan et al. (*J Neurosci* 36:5914, 2016, PMCID PMC4887562) pięć dni deprywacji jednego oka obniżyło stosunek eEPSC/eIPSC z `0.54+/-0.10` do `0.28+/-0.04` (n=9/12 komórek, p=0.041), zwiększyło eIPSC z `587.0+/-140.6` do `1019.0+/-152.3 pA` oraz gęstość puncta gephyrin z `0.145+/-0.013` do `0.223+/-0.017/um` (n=7/9, p=0.0029). To efekt konkretnej warstwy i wieku, nie uniwersalna stała ani dowód, że deprywacja zawsze zwiększa hamowanie.
+
+**Przekład cyfrowy (hipoteza):** trzymaj osobny, powolny stan hamowania i licz lokalny stosunek pobudzenie/hamowanie. Mnożnik plastyczności powinien być największy w paśmie pośrednim, a maleć przy zbyt małym lub zbyt dużym stosunku; w ten sposób długie, ubogie wejście może zamknąć przebudowę i chronić ślad przed losowym dryfem. W kandydacie organism porównaj `adaptive_gate`, `no_gate` oraz `fixed_inhibition` na tych samych seedach, z i bez interocepcji; mierz retencję śladu, koszt energii, przeżycie i przejścia pokojów. Nie utożsamiaj bramki z nagrodą ani z ręcznie zakodowanym odruchem sensorycznym.
+
+**Mały test mechanizmu (nie test organism):** `biology/inhibition_gate_demo.py` używa trzech jednostek konkurencyjnych, 240 kroków uczenia wzorców i 1200 kroków niskiego, nieuporządkowanego napędu; średnia z 100 seedów: kosinus retencji wag `0.999` (`adaptive_gate`), `0.975` (`no_gate`), `0.959` (`fixed_inhibition`), przy końcowym hamowaniu `3.000`, `3.000`, `0.700`. To pokazuje ochronę śladu w tym toy modelu; parametry są arbitralne, a wynik wymaga ablacji w pełnym organism.
+
+## Ten sam sygnał może zmienić znak w toku dojrzewania
+
+GABA jest depolaryzujące w prekursorach i neuronach niedojrzałych, gdy NKCC1 gromadzi Cl⁻ wewnątrz komórki. Wraz z dojrzewaniem wzrost neuronowego transportera KCC2 obniża [Cl⁻]i i przełącza działanie GABA na hiperpolaryzujące; w korze szczura NKCC1 jest silnie wyrażony u noworodków, a KCC2 osiąga tylko `5–15%` poziomu dorosłego. Przegląd zaznacza też różną kolejność dojrzewania między obszarami (rdzeń kręgowy, podwzgórze i wzgórze wcześniej, kora nowa później). To mechanizm rozwojowy i regionalny, nie stała dla wszystkich neuronów.
+
+**Źródło otwarte przez `shared/lit.py fetch`:** Watanabe et al., *Development and regulation of chloride homeostasis in the central nervous system*, Frontiers in Cellular Neuroscience 9:371 (2015), https://www.frontiersin.org/journals/cellular-neuroscience/articles/10.3389/fncel.2015.00371/full. Liczba `5–15%` pochodzi z cytowanego pomiaru kory noworodkowego szczura (Dzhala et al. 2005); przegląd nie ustala cyfrowego zegara ani uniwersalnego progu.
+
+**Przekład cyfrowy (hipoteza):** nie koduj hamowania jako stałej etykiety synapsy. Utrzymuj lokalny stan gradientu/transportu, który może przejść od dodatniego sprzężenia wzrostu do ujemnego sprzężenia stabilizującego; stan ten powinien dojrzewać wolniej niż chwilowa aktywność. Testuj osobno przełącznik, zawsze-pobudzający i zawsze-hamujący wariant, raportując wzrost przed dojrzewaniem, dryf śladu po nim, energię i przeżycie. `biology/gaba_chloride_demo.py` (100 seedów) dał: `switch` `early_growth=1.226`, `late_abs_state=0.118`; `always_exc` `1.367`, `7.198`; `always_inh` `0.641`, `7.198`. To toy ablation, nie wynik organism.
+
+## Krótki tag może połączyć ślad z późniejszym zasobem utrwalającym
+
+W CA1 żywego szczura słaba stymulacja pojedynczym pociągiem wywoływała wczesne LTP, które zanikało do poziomu bazowego po ok. 3 h (n=11). Gdy 30 min po niej silnie pobudzono niezależne wejście zbiegające się na wspólnej populacji neuronów, słaby ślad utrzymywał się jako późne LTP po 4–5 h (n=11); bez późnej stymulacji słaby ślad zanikał. Silne pobudzenie składało się z 3 pociągów po 50 impulsów przy 250 Hz, słabe z jednego pociągu 50 impulsów przy 100 Hz. Wynik wspiera tagowanie synaptyczne i przechwytywanie zasobów plastyczności: miejsce zmian i czas dostępności zasobu nie muszą się pokrywać. To specyficzne doświadczenie LTP, nie dowód pamięci beznagrodowej.
+
+**Źródło otwarte przez `shared/lit.py fetch`:** Shires et al., *Synaptic tagging and capture in the living rat*, Nature Communications 3:1246 (2012), PMCID PMC3705498, https://pmc.ncbi.nlm.nih.gov/articles/PMC3705498/.
+
+**Przekład cyfrowy (hipoteza):** aktywność presynaptyczna i postsynaptyczna ustawia na krawędzi krótko żyjący tag; silny, ale wewnętrzny stan aktywności później zasila pulę zasobów wspólną dla neuronu. Tagowana krawędź przechwytuje część puli i utrwala zmianę. Ograniczenie zasobu może wymusić konkurencję między śladami; samo silne zdarzenie nie powinno zapisywać wszystkich poprzednich wejść. Testuj brak tagu, zasób lokalny zamiast wspólnego oraz zdarzenie poza czasem zaniku tagu. W organism porównaj te warianty na tych samych seedach i raportuj retencję wcześniejszych przejść, energię oraz postęp pokojów; źródło nie uzasadnia nagrody ani konkretnego cyfrowego zegara.
+
+**Mały test mechanizmu (nie test organism):** `biology/tag_capture_demo.py` porównuje przechwytywanie wspólnego zasobu z trzema ablacjami na 100 seedach. Retencja śladu wyniosła `0.278` dla tagu i wspólnego zasobu, `0.050` bez tagu, `0.050` przy zasobie lokalnym oraz `0.124` dla późnego zasobu. Czas demonstratora jest umowny i nie odpowiada godzinom biologicznym.
+
+## Sen może zmniejszać masę synaps, zachowując wybrane ślady
+
+W obrazowaniu 6920 synaps kory ruchowej i somatosensorycznej myszy powierzchnia styku akson--kolec była podczas snu około `18%` mniejsza niż w stanie czuwania; zmniejszenie dotyczyło selektywnie około `80%` synaps, a nie wszystkich. Przegląd opisuje równocześnie odtwarzanie śladów i możliwość wzmocnienia małej podgrupy. To wynik morfologiczny, nie dowód, że sen jest konieczny dla każdego rodzaju pamięci.
+
+**Źródło otwarte przez `shared/lit.py fetch`:** He & Hu, *Homeostasis of Synapses: Expansion During Wakefulness, Contraction During Sleep*, Neurosci Bull 33:359--360 (2017), PMCID PMC5567520, omawiający de Vivo et al., *Ultrastructural evidence for synaptic scaling across the wake/sleep cycle*, Science 355:507--510 (2017).
+
+**Przekład cyfrowy (hipoteza):** w okresie offline skaluj większość krawędzi w dół względem wspólnego budżetu, ale pozwól współaktywowanym/tagowanym krawędziom przejść przez odtwarzanie i uniknąć uśrednienia. To jedna reguła łącząca koszt, przycinanie i konsolidację; nie wymaga sygnału nagrody. Ablacje: brak offline, globalne skalowanie oraz losowe skalowanie bez tagu. `sleep_downscale_demo.py` mierzy stosunek amplitudy śladu po/przed, jego przewagę względną i sumę wag na 100 seedach; parametry 18% i 80% są zakotwiczone w źródle, a 4% ochrony i rozmiar śladu są arbitralne. W organism testuj identyczne seedy i raportuj energię, przeżycie, retencję przejść oraz wzrost/przycinanie.
+
+## Stabilizacja hamuje plastyczność, ale może się odwrócić
+
+W korze wzrokowej myszy redukcja siarczanu chondroityny (CS), głównego składnika sieci okołoneuronalnych (PNN), osłabiała hamujące obwody komórek PV i blokowała normalne okno plastyczności: po deprywacji jednego oka w P24 ostrość spadła u typu dzikiego z `0.53` do `0.31` cykli/stopień, lecz pozostała `0.53` u myszy z niedoborem enzymu syntezy CS oraz `0.54` po podaniu chondroitynazy ABC. PNN nie są po prostu trwałym wyłącznikiem: przegląd podsumowuje, że ich enzymatyczne naruszenie u dorosłych może reaktywować plastyczność okresu krytycznego. Dane wspierają rozwojowy hamulec stabilizujący obwód, który można poluzować.
+
+**Źródła otwarte przez `shared/lit.py fetch`:** Miyata et al., *Chondroitin Sulfate Is Required for Onset and Offset of Critical Period Plasticity in Visual Cortex*, Scientific Reports 7:12647 (2017), https://www.nature.com/articles/s41598-017-04007-x, fig. 2; Carulli & Verhaagen, *An Extracellular Perspective on CNS Maturation: Perineuronal Nets and the Control of Plasticity*, Int J Mol Sci 22:2434 (2021), PMCID PMC7957817. Liczby pochodzą z pomiaru ostrości wzroku u myszy, nie z GENESIS.
+
+**Przekład cyfrowy (hipoteza):** długotrwała stabilność śladu buduje powolny lokalny hamulec plastyczności; utrzymany duży błąd sensoryczny go poluzowuje, a stabilność ponownie buduje. To może połączyć konsolidację z adaptacją bez nagrody. `plasticity_brake_demo.py` porównuje brak hamulca, hamulec narastający bez reaktywacji i hamulec odwracalny w dwufazowej zmianie środowiska. Na 100 seedach skalarnego toy modelu końcowa estymata po zmianie wyniosła `0.200` bez hamulca, `0.651` z hamulcem stałym i `0.228` z odwracalnym; miara adaptacji `0.998`, `0.549`, `0.972`. To demonstrator zasady, nie model biologiczny ani test organizmu; ablacjami organizmu powinny być brak hamulca, brak reaktywacji i brak ponownego zamknięcia.
+
+Mechanizm selektywności opisano konkretniej dla kory wzrokowej myszy: PNN wychwytują Otx2 przez 15-aminokwasowy motyw zawierający parę arginina-lizyna (RK). Rozkład łańcuchów GAG przez chondroitynazę ABC lub konkurencyjny peptyd RK zmniejszał lokalizację Otx2 w komórkach PV; w dorosłych myszach konkurencyjny peptyd reaktywował plastyczność, podczas gdy wariant alanina-alanina i peptyd przetasowany nie. Jest to selektywny, odwracalny mechanizm stabilizacji w jednym układzie, nie dowód uniwersalnego przełącznika rozwoju.
+
+**Źródło otwarte przez `shared/lit.py fetch`:** Beurdeley et al., *Otx2 Binding to Perineuronal Nets Persistently Regulates Plasticity in the Mature Visual Cortex*, J Neurosci 32(27):9429–9437 (2012), https://www.jneurosci.org/content/32/27/9429. Wnioski dotyczą PNN i komórek PV w korze wzrokowej myszy.
+
+**Przekład cyfrowy (hipoteza):** rozdziel powolny stan macierzy/utrwalacza od lokalnego sygnału jego wychwytu; tylko specyficzne sprzężenie obu stanów zamyka plastyczność, a obniżenie macierzy ją odblokowuje. `critical_period_demo.py` sprawdza jedynie tę logikę: przy umownym progu 0.6 plastyczność jest zamknięta dla wychwytu 0.8, otwarta po obniżeniu wychwytu do 0.2 albo po usunięciu motywu swoistego; parametry nie są biologicznymi estymatami. W organism porównaj stabilny ślad z selektywnym utrwalaczem, jego brakiem oraz trwałym zamknięciem, mierząc pamięć przejść, aktywność i przeżycie.
+
+## Sygnał podtrzymania nie musi być sygnałem uczenia
+
+W tym samym zadaniu decyzyjnym u szczurów wskazówki zapowiadające nagrodę zwiększały zarówno wyładowania zidentyfikowanych neuronów dopaminowych VTA, jak i uwalnianie dopaminy w jądrze półleżącym. Jednak uwalnianie w rdzeniu NAc zmieniało się wraz z bieżącą oczekiwaną stopą nagrody, podczas gdy wyładowania VTA tego nie odzwierciedlały. Autorzy wnioskują o rozdzieleniu sygnału rozgłaszanego, wspierającego uczenie, i lokalnie regulowanego sygnału motywacyjnego. Zadanie było nagradzane; źródło nie dowodzi uczenia bez nagrody ani biologicznej roli poziomu energii.
+
+**Źródło otwarte przez `shared/lit.py fetch`:** Mohebi et al., *Dissociable dopamine dynamics for learning and motivation*, Nature 570:65–70 (2019), https://www.nature.com/articles/s41586-019-1235-y, abstrakt.
+
+**Przekład cyfrowy (hipoteza):** oddziel powolny stan zasobu, który moduluje retencję śladów, od szybkiej zmiany zasobu, która aktualizuje tylko aktywne skojarzenia. Nie wiąż automatycznie żadnego z nich z prędkością ruchu. Nowe wyniki organism na tablicy są zgodne z tym rozdziałem: energy-gated sensory trace osiągnął `2.8408` pokojów przy stałej prędkości, ungated trace `2.0313`, a sprzężenie energii z prędkością było gorsze (`2.4023`). Nie jest to jeszcze pełna ablacja składowych sygnału. `signal_separation_demo.py` sprawdza jedynie arytmetycznie, że stały poziom może zmieniać retencję bez wywołania aktualizacji od delty, a impuls delty może aktualizować skojarzenie bez zmiany reguły retencji. Test organism: porównaj stan, deltę, oba sygnały i ich zamianę miejscami, przy stałej prędkości i tych samych seedach.
+
+**Ablacja demonstratora (nie test organism):** `three_signal_demo.py` utrzymuje trzy efekty oddzielnie. Po 100 krokach stałego poziomu retencja wyniosła `0.010` dla zasobu `0.1` i `0.603` dla `0.9`; przy stałym zasobie aktualizacja delta wyniosła `0`, a impuls `+0.2` dał `+0.200`. Podstawienie poziomu w miejsce delty dało skumulowane aktualizacje `50.500` przy poziomie `0.5` i `70.500` po impulsie; podstawienie poziomu albo delty do prędkości dało zakres zmian `0.130`, podczas gdy rozdzielony wariant miał stałą prędkość. To kontrola arytmetyczna kontraktu, nie wykazanie korzyści behawioralnej. Dwa uruchomienia organism z `--organism-seeds 8` nie ukończyły się w czasie tej tury i zostały przerwane, zatem nie dostarczają nowych wyników.
+
+## Trwałość pamięci może wymagać zbieżności lokalnego tagu i wspólnego zasobu
+
+Hipoteza synaptic tagging and capture rozdziela lokalny, synapsowo swoisty tag od dyfundujących produktów związanych z plastycznością (białek i mRNA). Słabe kodowanie może więc jedynie oznaczyć synapsę jako zdolną do utrwalenia; aktywność w innym obwodzie przed wygaśnięciem tagu może dostarczyć zasobu, który pozwoli na trwałą zmianę. Tagowanie może być odrębne od bezpośredniej ekspresji LTP. Przegląd opisuje także behawioralne przykłady trwałej pamięci po słabym kodowaniu, gdy PRP udostępnia inne zdarzenie. Nie podaje to zasady nagrody ani gwarancji pamięci bez nagrody.
+
+**Źródło otwarte przez `shared/lit.py fetch`:** Redondo & Morris, *Making memories last: the synaptic tagging and capture hypothesis*, Nature Reviews Neuroscience 12:17–30 (2011), https://www.nature.com/articles/nrn2963. To przegląd mechanizmów i dowodów in vitro oraz badań behawioralnych; nie wynik GENESIS.
+
+**Przekład cyfrowy (hipoteza):** lokalny ślad aktywności dostaje czasowo ograniczony tag, a epizod intensywnej aktywności dowolnej populacji chwilowo podnosi wspólny zasób konsolidacji. Trwałą zmianę otrzymują tylko tagowane ślady, które spotkają ten zasób w oknie czasu. To pozwala, by znaczenie śladu zależało od późniejszych doświadczeń bez przypisywania światu nagrody. Ablacje organism: usuń lokalny tag, usuń ograniczenie czasu tagu, i zamień selektywne przechwycenie na globalny zapis; mierz retencję przejść oraz niepowiązane zmiany po silnym epizodzie.
+
+**Ablacja demonstratora (nie test organism):** `synaptic_tag_demo.py` uruchomiono; przy umownym oknie 3 kroków zasób utrwalił `4/8` opóźnień z lokalnym tagiem, `0/8` po usunięciu tagu i `8/8` przy tagu bez wygaśnięcia. Wyniki są arytmetyczną konsekwencją modelu, nie biologiczną estymacją długości okna ani efektem behawioralnym.

@@ -1,0 +1,7 @@
+Parents: candidates/metabolic_relaxation and candidates/action_consequence
+
+Mutation/crossover: keep the signed local energy trace and energy-gated sensory
+selection from metabolic_relaxation, but attach a short-lived action tag. A
+consequential energy change writes the previous color's turn/drive vector;
+recall blends that vector with visual steering. Drive is fixed to isolate the
+memory mechanism from the known energy-speed confound.

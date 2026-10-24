@@ -1,0 +1,3 @@
+Parent: candidates/growth_metabolic_graph
+Mutation: use the same signed metabolic node trace for color choice with low-energy exploration, and derive drive from current energy instead of a fixed constant.
+Why: the parent grows and prunes, but its first learned edge permanently suppresses sensory exploration and its fixed drive wastes energy; the mutation keeps one local trace law while making behavior state-dependent.

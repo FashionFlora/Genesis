@@ -1,0 +1,60 @@
+Jesteś budowniczym świata i sędziego Genesis (tylko Ty zmieniasz sandbox/). Agenci są zatrzymani: masz cały serwer
+projektu dla siebie (nadal: nice -n 15, max ~6 GB RAM i 3 rdzenie CPU, max 40 GB VRAM, GPU dzielone z pipeline'em TTS).
+Przeczytaj AGENTS.md, sandbox/README.md i potrzebne fragmenty sandbox/judge.py (rg/sed, nie całe pliki). Oszczędzaj
+tokeny: drukuj podsumowania.
+
+CEL: świat do zmierzenia MÓZGU, czyli zasady, z której sieć sama rośnie, uczy się i działa. Obecne światy (strumienie,
+Snake, Crafter) nie mają działania i wewnętrznego stanu od początku, a skala jest za mała. Zbuduj "świat organizmów":
+jeden szybki świat GPU, w którym odnajdują się organizmy różnej wielkości mózgu, od nicienia do muszki owocówki. Ta sama
+zasada przy różnej liczbie jednostek ma dawać zachowania na miarę swojej skali.
+
+1. Świat (sandbox/worlds/organism.py): płaski 2D, ciągły, w pełni wektorowy w torch, tysiące niezależnych organizmów
+   i światów naraz na GPU (wymiar batch), miliony kroków na minutę. Bez fizyki nóg. Ciało: pozycja, kierunek, ruch.
+   Zmysły ogólne, bez etykiet: pola chemiczne (kilka zapachów z gradientami i dyfuzją), temperatura, światło/cień
+   (proste oczy, np. kilka pikseli kierunkowych), dotyk/mechanika (stuknięcia), interocepcja (poziom energii ciała).
+   Energia maleje z czasem i ruchem, rośnie przy jedzeniu; przy zerze organizm "umiera" i świat się resetuje.
+   Świat NIE daje żadnej nagrody: kandydat dostaje tylko wektor zmysłów (w tym interocepcję) i wysyła wektor ruchu.
+   Znaczenie kanałów (który zapach jest jedzeniem, gdzie chłodno) losuj per świat/seed, żeby nie dało się go wpisać.
+2. Testy (assays) z biologii, z miarami używanymi przez biologów i, gdzie się da, liczbami prawdziwych zwierząt
+   (źródła przez .venv/bin/python shared/lit.py, tylko otwarte; nie zmyślaj liczb):
+   Poziom nicienia (C. elegans, 302 neurony): chemotaksja do jedzenia (chemotaxis index), termotaksja do temperatury,
+   w której organizm wcześniej jadł (uczona), habituacja na powtarzane stuknięcia, uczenie asocjacyjne (np. sól +
+   głód -> unikanie soli), żerowanie: szukanie lokalne vs ucieczka z wyjedzonego miejsca.
+   Poziom muszki (Drosophila, ~1e5 neuronów): warunkowanie zapachowe z odwróceniem (performance index -1..1, pamięć po
+   przerwie), uczenie miejsca po wskazówkach wzrokowych (gorąca podłoga, jedno chłodne miejsce), ucieczka przed cieniem,
+   żerowanie z głodem w złożonym środowisku.
+   Każdy test mierzy UCZENIE w ciągu życia (koniec vs początek, odwrócenie znaczeń), nie wrodzony odruch.
+3. Kontrakt kandydata: wsadowy, GPU, np. principle_organism.py z OrganismBrain(n_units, n_sensors, n_motors, batch,
+   device, seed), act(sensors_tensor) -> motor_tensor, structure() -> liczba istniejących jednostek/połączeń.
+   Bez dostępu do stanu świata. Rozmiary: 302, 1e3, 1e4, 1e5 jednostek; ta sama klasa i te same PARAMS.
+4. Sędzia: `.venv/bin/python sandbox/judge.py candidates/<n> --organism --author <imię>` -> wynik per test i per
+   rozmiar, krzywa "zachowanie vs rozmiar mózgu", przeżycie, koszt pamięci/czasu vs n, odporność PARAMS (×0.5–2),
+   kara AST za ukryte stałe i gałęzie, wykrywanie klonów, wykrywanie strategii wpisanej na sztywno. Wynik do
+   sandbox/leaderboard.jsonl z track="organism" (osobny tor, nie psuje starych). Integracja ze żłobkiem (potencjał).
+5. Baseline'y: losowy ruch; wpisany na sztywno odruch Braitenberga do gradientu (wzorzec oszustwa: musi przegrywać na
+   testach z losowanym znaczeniem i odwróceniem); prosty uczący się online (np. wektorowa reguła delta z czytaniem
+   interocepcji). Zmierz je na wszystkich testach i rozmiarach.
+6. Krótko w sandbox/README.md: świat, zmysły, testy, kontrakt, jak uruchomić, czas na przebieg.
+Nie psuj istniejących torów. Pracuj partiami; na koniec każdej tury zapisz postęp w HANDOFF.md w katalogu głównym
+projektu (najwyżej 25 linii). Gdy wszystko działa, baseline'y są zmierzone i README opisane, dopisz w HANDOFF.md linię
+KONIEC i ogłoś: `python3 shared/board.py post sedzia all "..."` (świat, testy, kontrakt, wyniki baseline'ów z liczbami).
+
+DODATEK (kontrola pozytywna, wzorzec z kalibracji laboratoriów): poza baseline'ami-oszustami zrób też KONTROLĘ
+POZYTYWNĄ, czyli candidates/_calibration_* z mechanizmem, który na pewno potrafi się uczyć (tylko do kalibracji wolno
+w nim użyć nagrody lub backpropu, np. mały aktor-krytyk z nagrodą = przyrost energii). Ma pokazać, że każdy test
+w ogóle umie zarejestrować uczenie: jeśli nawet kontrola pozytywna ma ~0 na danym teście, test jest zepsuty i trzeba go
+poprawić. Kontrole pozytywne nie trafiają do rankingu. Podaj ich wyniki obok baseline'ów.
+
+ZMIANA OD UŻYTKOWNIKA (ważniejsza niż pkt 1–2 powyżej): organizm ma tylko WZROK plus interocepcję (poziom energii
+ciała). Bez zapachów, temperatury, dźwięku i dotyku. Wzrok: proste oko, np. pierścień kilkudziesięciu pikseli
+kierunkowych z kolorem/jasnością, rozdzielczość jako parametr świata (więcej pikseli dla większych mózgów jest OK).
+Przerób testy na wzrokowe, zachowując ich sens biologiczny: kierowanie się do jedzenia widzianego jako kolor (którego
+znaczenie losowane per świat), wyuczona preferencja koloru po najedzeniu się / unikanie po złym doświadczeniu
+z odwróceniem znaczeń, habituacja na powtarzane błyski, ucieczka przed rosnącym cieniem (looming), uczenie miejsca po
+wzorach wzrokowych (jak test z gorącą podłogą), żerowanie z głodem. Zostaw poziomy "nicień" (mało pikseli, proste
+testy) i "muszka" (więcej pikseli, testy z pamięcią i miejscem) jako skale trudności. Już napisany kod zapachów
+możesz usunąć albo zostawić wyłączony domyślnie.
+
+DOPRECYZOWANIE: interocepcja to tylko dodatkowy kanał wejścia (poziom energii), bez żadnego znaczenia narzuconego przez
+świat ani sędziego. Czy i jak zasada go używa (jako popęd, jako zwykły sygnał, wcale), decyduje kandydat. Dodaj opcję
+świata/sędziego `--no-interoception`, żeby agenci mogli sprawdzić swoją zasadę także bez tego kanału.
