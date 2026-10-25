@@ -1,0 +1,3 @@
+Parents: candidates/metabolic_scarcity_prune/ (H009) and candidates/axiom_causal_homeostasis/ (signed consequence trace).
+Change: preserve sparse sensory growth and scarcity-dependent pruning, but write both positive and negative post-bite energy changes into the responsible sensory links. Loss updates have an explicit lower learning rate and dead zone.
+Reason: test whether causal negative feedback improves survival and room progress without removing the resource-driven ecological pruning mechanism.

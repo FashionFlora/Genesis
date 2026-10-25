@@ -1,0 +1,55 @@
+{
+  "base": {
+    "row": 159,
+    "candidate": "dynamics_energy_ratio",
+    "author": "eksperymentator",
+    "score": 0.064453125,
+    "rooms_mean": 0.064453125,
+    "rooms_ci95": [
+      0.04800797698338573,
+      0.08089827301661427
+    ],
+    "protocol": {
+      "version": "organism-v6",
+      "steps": 12000,
+      "worlds": 1024,
+      "sensors": 49,
+      "interoception": true
+    },
+    "structure_final": {
+      "connections": 12.0,
+      "step": 12000,
+      "units": 6.0
+    },
+    "record_sha256": "4c67ed1110a79ba6e23bd48cda8e187806d7697f124ae598b82271ae2881cd7b",
+    "current_file_sha256": "4c67ed1110a79ba6e23bd48cda8e187806d7697f124ae598b82271ae2881cd7b"
+  },
+  "ablation": {
+    "row": 160,
+    "candidate": "dynamics_energy_ratio_ablation",
+    "author": "eksperymentator",
+    "score": 0.0712890625,
+    "rooms_mean": 0.0712890625,
+    "rooms_ci95": [
+      0.05375915368501985,
+      0.08881897131498015
+    ],
+    "protocol": {
+      "version": "organism-v6",
+      "steps": 12000,
+      "worlds": 1024,
+      "sensors": 49,
+      "interoception": true
+    },
+    "structure_final": {
+      "connections": 12.0,
+      "step": 12000,
+      "units": 6.0
+    },
+    "record_sha256": "3c0bf81c5fd4bb79c5eedc608cecab7afd890820f4552cedae25bd43c1cc2c4b",
+    "current_file_sha256": "3c0bf81c5fd4bb79c5eedc608cecab7afd890820f4552cedae25bd43c1cc2c4b"
+  },
+  "delta_base_minus_ablation": -0.0068359375,
+  "ci95_overlap": true,
+  "h010_v6_prediction_falsified": true
+}

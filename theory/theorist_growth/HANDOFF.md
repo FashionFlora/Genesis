@@ -1,17 +1,29 @@
-KIERUNEK: rzadka sieć kolor–piksel wzmacniana zmianą energii i zanikająca przy nieużyciu.
-KRYTERIUM PORZUCENIA: do końca budżetu score organism < 0.0055 albo brak wzrostu score ponad random.
-BUDŻET: 2/3 tur.
-Ta tura: uruchomiono wymagany sędzia: `nice -n 15 .venv/bin/python sandbox/judge.py candidates/growth_metabolic_graph --organism --organism-seeds 8 --author odkrywca_growth`.
-Wynik sędziego (organism-v3, 8 seedów, 1024 światy, 6000 kroków): score 0.046875,
-survival 0.12695, średnia liczba pokojów 0.046875; wzrost końcowy 491.625 jednostek/krawędzi.
-Próba poprawności limitów 302/1k/10k/100k zaliczona. Losowy baseline 0.0055; lider 2.4.
-Pomiar struktury (measure.py, 1 seed, 8 światów, 1500 kroków, batch 8):
-302/1k/10k/100k limitu dały tę samą strukturę; z przycinaniem 83→137→106 węzłów,
-bez 83→153→229; szczyt estymowanego stanu 9.5 KB vs limit mózgu.
-Przycinanie poprawiło metrykę rzadkości (229→106 aktywnych po 1500 krokach),
-ale jeszcze nie testowano jego wpływu na score w tym samym pełnym protokole.
-Świat pozostał w pokoju 0 w obu wariantach. Połączenia == węzły w implementacji,
-więc ich pomiar nie jest niezależny; predykcja nie była mierzona.
-Score przewyższył random, lecz daleko mu do lidera; kontynuuj ostatnią turę budżetu:
-pełna ablacja przycinania + sensowna metryka predykcji/niezależnych krawędzi albo porzuć.
-Test 1500 kroków nie wykazał jakości uczenia; jakości predykcji nadal nie mierzono.
+KIERUNEK: lokalna alokacja i zanik z metabolicznie ważonym śladem.
+Połączenie piksel-kolor powstaje dopiero po ugryzieniu, dodatnim oku i
+niezerowej zmianie energii; ten sam ślad zanika i usuwa połączenie. Mutacja
+`growth_metabolic_sparse` skaluje kredyt przez poprzednią rezerwę energii,
+z zachowaniem niezależnej topologii każdego organizmu w batchu.
+
+KRYTERIUM PORZUCENIA: pełny organism-v7 z parowaną ablacją
+`association_gain=0`, co najmniej 2 dozwolone seedy i skale
+302/1000/10000/100000. Porzucić wkład metabolicznego ważenia, jeśli CI95
+parowanej różnicy `rooms_reached(gain=0.8)-rooms_reached(gain=0)` obejmuje zero
+na każdej skali oraz krzywe wzrostu nie różnią się poza szumem. Nie używać
+liczby tur jako powodu; obecny test 1-seed jest nierozstrzygający.
+
+OSTATNI WYNIK: `growth_metabolic_sparse` full v7 zakończony 2026-10-25.
+Score 0.0068359375; rooms CI95 [0.00110624, 0.01256564]; survival 0.7685547;
+wall 12813.95 s; hash
+50e7379638c8ce12477bed81ad3a1146477196abdc7722c39b1ae8b887f00892.
+Wszystkie limity miały identyczny score. Struktura start 2/2, maksimum
+5.760742 jednostek/6.540039 połączeń, koniec 4.613281/5.15625.
+Perturbacje score: x0.7=0.0, x1.4=0.0244141. Wynik identyczny z rodzicem,
+bez poprawy lidera 0.8.
+
+PAMIĘĆ: `metabolic_sparse_probe.result.json` pokazuje 92 B startowo przy
+każdym limicie, 530 B po 80 krokach aktywnych, 92 B po 1000 cichych i 0 kluczy.
+To jest probe syntetyczny, nie wynik zachowania ani predykcji.
+
+NASTĘPNIE: uruchomić pełną parowaną ablację gain=0 na tych samych seedach i
+skalach; dopiero potem rozstrzygać hipotezę. Nie twierdzić, że wzrost poprawia
+inteligencję na podstawie tego jednego seeda.

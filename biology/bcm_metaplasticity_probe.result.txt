@@ -1,0 +1,4 @@
+mode phase1_margin phase2_margin retain_old_fraction norm_end theta_end; 100 seeds
+none 0.002158 -0.000953 0.560000 0.288248 0.050000
+fixed_hebb 0.354586 2.682657 0.020000 5.429658 0.050000
+bcm 0.249427 -0.242666 0.920000 0.941603 0.323645

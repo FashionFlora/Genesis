@@ -1,0 +1,8 @@
+Parents: candidates/dynamics_energy_trace/ and candidates/dynamics_volatility_budget/
+
+Mutation/crossover: retain the color/context eligibility memory and endogenous
+energy teaching signal from energy_trace, then add volatility_budget's local EMA
+of absolute metabolic change. Volatility now has two coupled effects: it shortens
+stale eligibility and normalizes signed energy evidence before preference updates.
+This tests scale-invariant homeostatic learning rather than adding a new action
+rule; normalization_gain=0 is the matched ablation.

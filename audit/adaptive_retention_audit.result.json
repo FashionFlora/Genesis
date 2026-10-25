@@ -1,0 +1,38 @@
+{
+  "random_main_vs_learning_zero_action_rmse": 0.5255866646766663,
+  "random_main_vs_learning_zero_action_max": 2.0,
+  "preference_max": 0.8495026230812073,
+  "control_preference_max": 0.0,
+  "energy_flip_action_rmse": 0.5912017226219177,
+  "no_energy_vs_neutral_action_rmse": 0.3082926869392395,
+  "no_energy_final_delta_scale": 0.0309019535779953,
+  "neutral_final_delta_scale": 0.03152311220765114,
+  "bright_main_vs_control_action_rmse": 0.9105951189994812,
+  "bright_main_bite_ages": [],
+  "bright_control_bite_ages": [
+    0,
+    5,
+    10,
+    15,
+    20,
+    25,
+    30
+  ],
+  "n_units_302_vs_100000_action_rmse": 0.0,
+  "structure_302": {
+    "units": 3,
+    "connections": 6,
+    "activity": 0.3252628743648529
+  },
+  "structure_100000": {
+    "units": 3,
+    "connections": 6,
+    "activity": 0.3252628743648529
+  },
+  "source_flags": {
+    "fixed_eye_slice": true,
+    "green_parity_context": true,
+    "periodic_age_gate": true,
+    "initial_delta_scale_005": true
+  }
+}

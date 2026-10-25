@@ -1,0 +1,7 @@
+{'condition': 'propagation_ablated', 'propagation': 0.0, 'turnover': 0.01, 'induced_region_retention_mean': 0.0, 'induced_region_retention_sd': 0.0, 'outside_leak_mean': 0.0, 'total_marked_fraction_mean': 0.0}
+{'condition': 'balanced', 'propagation': 0.01, 'turnover': 0.01, 'induced_region_retention_mean': 0.007812, 'induced_region_retention_sd': 0.045976, 'outside_leak_mean': 0.0, 'total_marked_fraction_mean': 0.000488}
+{'condition': 'propagation_2x', 'propagation': 0.02, 'turnover': 0.01, 'induced_region_retention_mean': 0.048438, 'induced_region_retention_sd': 0.120149, 'outside_leak_mean': 0.004792, 'total_marked_fraction_mean': 0.00752}
+{'condition': 'propagation_heavy', 'propagation': 0.03, 'turnover': 0.01, 'induced_region_retention_mean': 0.254688, 'induced_region_retention_sd': 0.287148, 'outside_leak_mean': 0.034792, 'total_marked_fraction_mean': 0.048535}
+{'condition': 'propagation_5x', 'propagation': 0.05, 'turnover': 0.01, 'induced_region_retention_mean': 0.701562, 'induced_region_retention_sd': 0.236581, 'outside_leak_mean': 0.205521, 'total_marked_fraction_mean': 0.236523}
+{'condition': 'propagation_7x', 'propagation': 0.07, 'turnover': 0.01, 'induced_region_retention_mean': 0.815625, 'induced_region_retention_sd': 0.160319, 'outside_leak_mean': 0.414375, 'total_marked_fraction_mean': 0.439453}
+{'condition': 'turnover_heavy', 'propagation': 0.01, 'turnover': 0.03, 'induced_region_retention_mean': 0.0, 'induced_region_retention_sd': 0.0, 'outside_leak_mean': 0.0, 'total_marked_fraction_mean': 0.0}

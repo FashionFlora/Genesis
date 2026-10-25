@@ -1,0 +1,10 @@
+Parent: candidates/agency_trace
+Mutation: replace the fixed motor persistence with two online predictors of visual
+intensity change, one for each turn direction. The predictor is updated only from
+the sensory change following the organism's own previous turn, then its predicted
+advantage biases the next turn. Eye geometry is inferred from n_sensors and the
+fixed context-pixel suppression is removed so the mechanism is less tied to one
+world layout.
+Why: the previous motor trace did not improve rooms in the full v7 ablation. This
+tests the missing action -> sensory consequence link directly while keeping the
+controller small and local.

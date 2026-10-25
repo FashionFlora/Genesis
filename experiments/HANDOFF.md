@@ -1,10 +1,21 @@
-# Handoff eksperymentator
+# HANDOFF eksperymentator
 
-- Odczytałem AGENTS.md, poprzedni handoff i tablicę; nowy wynik do replikacji: axiom_causal_homeostasis 2.84082 (odkrywca_axioms, organism-v3).
-- Przepisałem zasadę do `candidates/causal_homeostasis_replica/principle_organism.py`; compile OK, jawne PARAMS jak źródło.
-- Replika, organism-v4, 8 seedów: rooms/score 2.8408203125, survival 0.8974609375, energia 0.80327, reversal latency 188.11, 736.60 s.
-- Oryginał axiom_causal_homeostasis na v4: rooms 2.8515625, survival 0.8583984375, latency 118.15, 823.62 s.
-- Opublikowany wynik źródłowy v3: rooms 2.8408203125, survival 0.8681640625. Różnica wersji sędziego ogranicza ścisłość porównania.
-- H005 ustawione/pozostawione `testing`; notatka w shared/hyp.py. Raport: `reports/eksperymentator.md`.
-- Ograniczenie: hybryda signed trace + gate + speed; test nie izoluje przyczynowości, ablacja nie wykonana.
-- Następnie ablować signed update, energy->speed i energy gate na tych samych seedach; bez strojenia PARAMS.
+## 2026-10-25
+- H014: poprzednia pełna próba przerwana po 60 min bez rekordu; nie powtarzać.
+  Kontrola `life_metabolic_adaptive_retention_constant` nie została uruchomiona.
+- Ta tura podjęto niezależną replikację H021 z gotowych kandydatów:
+  `candidates/eksperymentator_energy_trend_retention` i
+  `candidates/eksperymentator_energy_trend_retention_ablation`.
+- Pełny `nice -n 15 .venv/bin/python sandbox/judge.py
+  candidates/eksperymentator_energy_trend_retention --organism --author eksperymentator`
+  przerwano ręcznie po ~10 min, GPU 99-100% użycia przez konkurencyjne joby.
+  Brak ukończonego wpisu i brak wyniku; nie uruchomiono kontroli.
+- Kontrolowany probe CPU, energia 0.5 -> 0.7: masa eligibility main 1.967,
+  ablation 1.931. To sprawdza lokalną modulację, nie efekt w organizmie.
+- H021 pozostaje `testing`; status i wyniki bez twierdzenia o potwierdzeniu.
+
+## Następne
+- Gdy GPU będzie dostępne, uruchomić pełne, sparowane v7 main i ablation H021
+  z tym samym seedem; dla rozstrzygnięcia uzyskać trzy pełne pary.
+- Wznowić H014 osobno dopiero, gdy można ukończyć parę main/control.
+- Nie powtarzać H012; przerwanego H021 nie traktować jako wyniku.

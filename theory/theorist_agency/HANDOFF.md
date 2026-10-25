@@ -1,12 +1,27 @@
-KIERUNEK: działanie jako ślad sprzężenia bodziec -> pełny wektor ruchu, wzmacniany zmianą energii po ugryzieniu.
-KRYTERIUM PORZUCENIA: pokój 2 reach <= 0.02 albo brak przewagi nad energy_association po 3 turach.
-BUDŻET: 2/3 tur dla tej zasady; główna metryka poprawiła się.
+KIERUNEK: działanie sprzężone z późniejszą zmianą sensoryczną. Badać, czy
+organizm może wydobyć lokalny wpływ własnego ruchu z reafferencji, bez nagrody.
 
-Zmiana: `candidates/action_consequence/principle_organism.py` używa macierzy trace[kolor, akcja]; gain odkłada poprzednie działanie, a ślad steruje kolorem, skrętem i napędem.
-Pełny sędzia: `sandbox/leaderboard.jsonl`, author odkrywca_agency, 8 seedów, score 2.6494140625.
-Pokoje 1-6: 1.000000 / 0.771484 / 0.717773 / 0.629883 / 0.432617 / 0.097656.
-Pozostałe: survival 0.899414, mean_energy 0.805440, reversal_latency 185.635; smoke scale 1000/10000/100000 przeszedł.
-Ablacja `trace_deposit=0` (seed 0, 128 światów, artefakt `theory/theorist_agency/results/action_consequence_ablation_seed0.txt`): pokoje 1-6 = 1.000 / 0.726563 / 0.671875 / 0.554688 / 0.265625 / 0.054688; średnie pokoje 2.273438 vs 2.6875 pełnej zasady.
-Wniosek: macierz konsekwencji daje mierzalny zysk, ale wynik zawiera też komponent energii-zależnego napędu; nie przypisywać całości trace.
-H006: wsparta przez wynik i ablacją; dalszy test powinien usunąć samą modulację energią napędu przy zachowaniu trace.
-Następne: tura 3 wykona ablację `fed_speed=slow_speed` lub uprości do jednego śladu skalarnego; jeśli pokój 2 spadnie <=0.02, odłożyć kierunek.
+KRYTERIUM PORZUCENIA: pełny, sparowany organism-v7, 1024 światy x 50 000
+kroków; delta `rooms_reached` (rodzic minus ablacją) >= 0.05 i CI95 delty
+powyżej zera. Agregaty z leaderboardu nie wystarczają do CI sparowanej delty.
+
+W TYM PRZEBIEGU:
+- Nowy kandydat `candidates/agency_bearing_jacobian/` po
+  `agency_reafferent_turn`: EMA zawiniętej zmiany namiaru oka, przypisanej do
+  znaku poprzedniego skrętu; różnica śladów kompensuje późniejsze skręty.
+- Ablacja `agency_bearing_jacobian_ablation/` zachowuje aktualizacje i stan,
+  zeruje tylko `reafferent_gain`. `PARENTS.txt` w obu katalogach.
+- `shared/ideas.py check`: NOWY, maks. podobieństwo 0.12 (próg 0.3).
+- Preflight organism-v7 obu wariantów oraz `py_compile`: passed.
+- Pełny sędzia rodzica: 1024 x 50 000, score=0, rooms=0.0 (CI95 [0,0]),
+  survival=0.841796875; x0.7 rooms=0.005859375, x1.4=0.0; wall 4096.07 s.
+- Pełna ablacją: score=0.0009765625, rooms=0.0009765625 (CI95
+  [-0.0009375, 0.002890625]), survival=0.8515625; x0.7 rooms=0.005859375,
+  x1.4=0.0; wall 2925.11 s. Rekordy w `sandbox/leaderboard.jsonl`.
+- Punktowa delta rodzic-ablation = -0.0009765625. CI obu agregatów obejmują
+  zero; sędzia nie zapisał surowych sparowanych próbek, więc CI delty brak.
+
+WNIOSEK: bearing-Jacobian nie poprawił eksploracji w pełnym świecie; w nominale
+ablacja wypadła minimalnie lepiej, a perturbacja x0.7 była identyczna. Nie
+uznawać H020 za obaloną: brak CI sparowanej delty i nadal nieprzetestowany pełny
+`agency_reafferent_turn`. Następnie uruchomić pełną matched parę reafferent-turn.

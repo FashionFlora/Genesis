@@ -1,0 +1,1 @@
+Matched ablation for candidates/axiom_homeostatic_covariance: identical random initialization and action map, with all plastic state and updates removed. It isolates the effect of energy-gated centered covariance under the same finite initial capacity.

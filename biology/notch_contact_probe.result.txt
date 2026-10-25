@@ -1,0 +1,4 @@
+local uniqueness=0.660000 margin=0.417407 winner_area_rank=0.823750 margin_sd=0.365164
+uniform uniqueness=0.670000 margin=0.429874 winner_area_rank=0.830000 margin_sd=0.371701
+global uniqueness=0.840000 margin=2.391637 winner_area_rank=0.950000 margin_sd=2.323900
+no_bias uniqueness=0.000000 margin=0.055992 winner_area_rank=0.413750 margin_sd=0.046262

@@ -1,0 +1,25 @@
+{
+  "candidate_vs_fixed_retention_action_rmse": 0.1262892484664917,
+  "candidate_vs_fixed_retention_action_max": 1.9997286796569824,
+  "state_preference_max_delta": 0.22481495141983032,
+  "energy_omitted_action_rmse": 0.5254384875297546,
+  "n_units_302_vs_100000_action_rmse": 0.0,
+  "retinal_sector_reverse_action_rmse": 0.8862560987472534,
+  "structure_302": {
+    "units": 3,
+    "connections": 6,
+    "activity": 0.19394274055957794
+  },
+  "structure_100000": {
+    "units": 3,
+    "connections": 6,
+    "activity": 0.19394274055957794
+  },
+  "hardcoded_tokens": {
+    "eye[:, 4:]": true,
+    "remainder(5)": true,
+    "3, 2": true,
+    "green": true,
+    "math.pi": true
+  }
+}

@@ -1,0 +1,3 @@
+Parent: candidates/growth_metabolic_graph/principle_organism.py
+Mutation: disable the two conjunctive stale-node pruning thresholds; preserve all other dynamics and parameters.
+Measurement: report active units per organism so the judge compares each brain with n_units rather than summing the batch.

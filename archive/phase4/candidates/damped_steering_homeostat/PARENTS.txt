@@ -1,0 +1,2 @@
+Parents: axiom_causal_homeostasis; metabolic_gate_fixed_speed
+Change: retain the causal energy trace and energy-gated speed, then add a damped steering state that relaxes toward current visual-plus-memory bearing. This tests whether persistent angular dynamics reduce oscillatory exploration and improve continuous-life progress.

@@ -1,0 +1,1 @@
+Matched ablation of candidates/axiom_metabolic_context_budget/: identical color-context metabolism, initialization, action selection and body policy; disables only the shared finite-capacity projection by setting its radius above any attainable memory norm.

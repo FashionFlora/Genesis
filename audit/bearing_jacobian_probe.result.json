@@ -1,0 +1,55 @@
+{
+  "steps": 40,
+  "main_ablation_rmse": 0.26954931020736694,
+  "main_energy_flip_rmse": 0.0,
+  "dark_main_ablation_rmse": 0.0,
+  "n_units_302_100000_rmse": 0.0,
+  "structure_302": {
+    "units": [
+      302.0,
+      302.0,
+      302.0,
+      302.0
+    ],
+    "connections": [
+      3.5,
+      3.5,
+      3.5,
+      3.5
+    ],
+    "activity": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  "structure_100000": {
+    "units": [
+      100000.0,
+      100000.0,
+      100000.0,
+      100000.0
+    ],
+    "connections": [
+      1000.47998046875,
+      1000.47998046875,
+      1000.47998046875,
+      1000.47998046875
+    ],
+    "activity": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  "source_literals": {
+    "total > 0.10": true,
+    "total > 1.25": true,
+    "concentration > 0.22": true,
+    "age * 0.037": true,
+    "tanh(1.9 * bearing)": true,
+    "explore_turn": true
+  }
+}

@@ -1,0 +1,4 @@
+mode first_rmse second_rmse
+vector 0.000000 0.018450
+turn_only 0.000000 0.441553
+none 0.000000 0.554090

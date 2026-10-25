@@ -1,0 +1,66 @@
+{
+  "axiom_global_capacity_covariance": {
+    "principle_sha256": "dd518fcefc3f4f33051bd98e0b0abee023c5faab241dd0ada34617c712e407d1",
+    "adapter_sha256": "8eb36d49dbe868084685fd643bd8fb9e86fd56002f886b2027f21978b79e5d30",
+    "small": {
+      "n_units": 302,
+      "structure": {
+        "units": 36,
+        "connections": 36
+      },
+      "learned_vs_frozen_rmse": 0.16176648437976837,
+      "n_units_repeat_rmse": 0.0,
+      "permutation_rmse": 0.26313546299934387,
+      "action_abs_mean": 0.4539657235145569,
+      "weight_norm": 4.566133975982666
+    },
+    "large": {
+      "n_units": 100000,
+      "structure": {
+        "units": 36,
+        "connections": 36
+      },
+      "learned_vs_frozen_rmse": 0.16176648437976837,
+      "n_units_repeat_rmse": 0.0,
+      "permutation_rmse": 0.26313546299934387,
+      "action_abs_mean": 0.4539657235145569,
+      "weight_norm": 4.566133975982666
+    },
+    "source_flags": {
+      "global_sensor_count_shape": true,
+      "hardcoded_rgb_or_world_terms": false
+    }
+  },
+  "axiom_centered_correlation": {
+    "principle_sha256": "e7fa2305bf32f14a033e0ed2ac753c6179f3f4789d1eeffa81047fee479c47aa",
+    "adapter_sha256": "65728dce0d72dc9a42b90049f780c40865868dbc10f01a0c67e599549a89ee6b",
+    "small": {
+      "n_units": 302,
+      "structure": {
+        "units": 36,
+        "connections": 36
+      },
+      "learned_vs_frozen_rmse": 0.10755426436662674,
+      "n_units_repeat_rmse": 0.0,
+      "permutation_rmse": 0.2796027362346649,
+      "action_abs_mean": 0.4155617654323578,
+      "weight_norm": 4.566133975982666
+    },
+    "large": {
+      "n_units": 100000,
+      "structure": {
+        "units": 36,
+        "connections": 36
+      },
+      "learned_vs_frozen_rmse": 0.10755426436662674,
+      "n_units_repeat_rmse": 0.0,
+      "permutation_rmse": 0.2796027362346649,
+      "action_abs_mean": 0.4155617654323578,
+      "weight_norm": 4.566133975982666
+    },
+    "source_flags": {
+      "global_sensor_count_shape": true,
+      "hardcoded_rgb_or_world_terms": false
+    }
+  }
+}

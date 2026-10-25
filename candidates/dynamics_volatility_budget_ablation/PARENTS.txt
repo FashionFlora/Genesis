@@ -1,0 +1,2 @@
+Parent: candidates/dynamics_volatility_budget/.
+Ablation: fixes volatility coupling to zero, removing both volatility-dependent trace decay and volatility-dependent budget contraction while retaining the same sensor handling and base memory.

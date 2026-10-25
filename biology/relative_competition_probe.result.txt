@@ -1,0 +1,4 @@
+seeds=100 cells=128 steps_per_context=1200 mutation_sd=0.04
+none: context0=0.494821 (sd=0.027929) context1_after_switch=0.501468 (sd=0.023261)
+absolute: context0=0.745916 (sd=0.018184) context1_after_switch=0.729854 (sd=0.028934)
+relative: context0=0.990905 (sd=0.001959) context1_after_switch=0.961570 (sd=0.026264)

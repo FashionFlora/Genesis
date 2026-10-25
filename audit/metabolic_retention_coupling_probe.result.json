@@ -1,0 +1,17 @@
+{
+  "eligibility_state_max_abs_delta": 16.328798294067383,
+  "fixed_bite_count": 410,
+  "fixed_bites_off_age_mod_5": 0,
+  "full_bite_count": 141,
+  "full_bites_off_age_mod_5": 0,
+  "full_vs_fixed_action_fraction_rows_changed": 0.65625,
+  "full_vs_fixed_action_max_abs": 1.349954605102539,
+  "full_vs_fixed_action_rmse": 0.6369835138320923,
+  "preference_state_max_abs_delta": 2.007634162902832,
+  "source_sha256": "d3e2fe7caddb2c08921c1542960629136384410622d68a4726e3393318f5bd5c",
+  "steps": 2048,
+  "structure": {
+    "connections": 3,
+    "units": 3
+  }
+}

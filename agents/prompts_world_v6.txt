@@ -1,0 +1,29 @@
+Jesteś budowniczym świata i sędziego Genesis (tylko Ty zmieniasz sandbox/). Agenci są ZATRZYMANI. Przeczytaj HANDOFF.md,
+RULES.md i potrzebne fragmenty sandbox/worlds/organism.py, organism_config.py, sandbox/organism_judge.py,
+sandbox/test_organism.py. Oszczędzaj tokeny. nice -n 15, sloty GPU jak dotąd.
+
+Decyzja użytkownika: obecna drabina pokoi jest zła, bo pokoje 1–6 da się przejść stałą tabelą jednej wartości na kolor
+(reguła Rescorli–Wagnera), a pokoje, w których to nie wystarcza, są na samym końcu, gdzie prawie nikt nie dochodzi.
+PRZEBUDUJ DRABINĘ POKOI (organism-v6) od zera, zachowując silnik świata, ciało, oko, energię, kontrakt mózgu,
+sloty GPU, pomiar growth/routine/scale, test niezależności, brak kanału nagrody i evolve.py:
+1. POKÓJ 1 = najprostszy możliwy pokój, w którym stała tabela wartości na kolor ZAWODZI z samej konstrukcji, a
+   który da się nauczyć w jednym życiu. Np. znaczenie zależne od kontekstu: dwa kolory jedzenia i dwa konteksty
+   wzrokowe (np. wzór ścian), kolor A jest jedzeniem tylko w kontekście X, kolor B tylko w kontekście Y; średnio każdy
+   kolor jest tak samo dobry, więc wartość na kolor nic nie daje. Jak najmniej innych utrudnień w pokoju 1.
+2. Kolejne pokoje: trudność rośnie stopniowo i każdy wymaga czegoś więcej (np. więcej kontekstów i obiektów, nowe
+   rodzaje obiektów w trakcie życia, odwrócenia, pamięć miejsc poza zasięgiem wzroku, wyczerpywanie i odrastanie w wielu
+   miejscach, cień). Liczba pokoi dowolna (np. 6–8). Znaczenia losowane per świat.
+3. Kalibracja (8x128 światów, 302 jednostki, 6000 kroków), końcowy wiersz w sandbox/organism_calibration.jsonl:
+   {"candidate": "organism-v6-final", "protocol": {"version": "organism-v6", ...}, "baseline_table": {
+   "random": ..., "braitenberg": ..., "delta": ..., "table": ..., "growing": ...}} gdzie każdy wpis ma
+   summary.room_reach_fraction (lista po pokojach, jak w v4). "table" = kontrola z nagrodą i stałą wartością na kolor
+   (obecna kontrola). "growing" = kontrola z nagrodą, której pamięć rośnie z doświadczeniem (np. wartości dla
+   kombinacji kolor×kontekst dopisywane, gdy się pojawiają, plus zapamiętane miejsca). Tylko kontrole dostają nagrodę;
+   poza rankingiem.
+   WARUNKI: przejście pokoju 1 (room_reach_fraction[1]): random, braitenberg i table najwyżej 5%; growing co najmniej
+   50%; w każdym kolejnym pokoju growing wyraźnie lepszy od table (rozłączne CI 95%); krzywa growing maleje stopniowo.
+   Jeśli warunki nie wychodzą, szukaj przyczyny (RULES.md), nie stroj progów w kółko.
+4. Testy spójności dla nowych pokoi (kontekst widoczny w oku, znaczenie zależne od kontekstu, brak nagrody dla
+   kandydatów). Usuń kod starej drabiny, jedna wersja. README krótko: drabina pokoi i tabela kalibracji.
+Na koniec HANDOFF.md (do 25 linii, jedną operacją) z tabelą pokój × random/braitenberg/delta/table/growing, linia
+KONIEC sama w linii.

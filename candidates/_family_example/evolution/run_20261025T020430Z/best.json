@@ -1,0 +1,12 @@
+{
+  "fitness": 0.0010000000474974513,
+  "generation": 0,
+  "genome": {
+    "bite_threshold": 0.2691752314567566,
+    "evidence_gain": 0.4064393639564514,
+    "speed": 0.18447363376617432,
+    "trace_decay": 0.9133020639419556
+  },
+  "score": 0.0,
+  "survival": 1.0
+}

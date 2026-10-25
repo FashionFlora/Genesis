@@ -1,0 +1,22 @@
+Jesteś budowniczym świata i sędziego Genesis (tylko Ty zmieniasz sandbox/). Agenci są ZATRZYMANI. Przeczytaj HANDOFF.md,
+RULES.md i potrzebne fragmenty sandbox/. Oszczędzaj tokeny. nice -n 15.
+Ważne: od 14:12 sędzia liczy 1024 światy jako JEDNĄ partię (batch_size 1024, --organism-seeds 1) — to ~8x szybciej,
+pełna kalibracja jednej kontroli trwa ~7 min. Nie wracaj do 8x128.
+
+Kalibracja organism-v6 (wiersz organism-v6-final, logs/calib_v6/*.json) — przejście pokoju 1:
+random 0.0%, braitenberg 0.5%, delta 0.0%, table 0.8% (dobrze: tabela zawodzi), growing 6.8% (ŹLE: ma być >=50%).
+Pokój 1 jest za trudny albo kontrola growing jest za słaba. Najpierw zdiagnozuj na jednym przebiegu (np. czy growing
+przeżywa wystarczająco długo, ile zjada, czy widzi kontekst, czy kryterium opanowania nie jest za ostre, ile prób
+potrzebuje na naukę każdej pary kolor×kontekst), zapisz przyczynę w RULES.md, popraw przyczynę. Preferuj: więcej
+czasu/energii na naukę w pokoju 1 lub sensowne kryterium opanowania — NIE ułatwiaj tak, by stała tabela wartości na
+kolor zaczęła przechodzić (konstrukcja kontekstowa zostaje). Kontrola growing ma być uczciwym, prostym uczniem
+kombinacji kolor×kontekst z nagrodą.
+Warunki jak wcześniej: przejście pokoju 1 — random, braitenberg, table <=5%, growing >=50%; w dalszych pokojach
+growing wyraźnie lepszy od table; krzywa growing maleje stopniowo. Testy przechodzą.
+Kalibracja: uruchom 5 kontroli równolegle: `for m in random braitenberg delta table growing; do nice -n 15
+.venv/bin/python sandbox/judge.py candidates/_organism_random --organism --organism-baseline $m --organism-seeds 1
+--author calibration & done; wait` i dopisz końcowy wiersz {"candidate": "organism-v6-final", "baseline":
+"baseline_table", "baseline_table": {tryb: summary}, "protocol": {..."version": "organism-v6"...}} do
+sandbox/organism_calibration.jsonl (jeśli zmieniasz świat, podbij wersję tylko w opisie protokołu, pole version
+zostaw "organism-v6"). Na koniec HANDOFF.md (do 25 linii) z tabelą i linią KONIEC (sama w linii) TYLKO jeśli
+warunki są spełnione liczbami; inaczej bez KONIEC, z opisem, co dalej.

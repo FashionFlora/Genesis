@@ -1,0 +1,7 @@
+Parents: axiom_gain_only + axiom_signed_ema.
+Change: replace the unnormalized accumulated signed consequence with a recency-weighted
+mean energy change per previous bite attempt, using matched decay for consequence and
+attempt count. The cue is valued by consequence rate, so repeated exposure alone
+cannot increase its value. Retain low-energy visual exploration and existing steering.
+Reason: internal viability change is the only feedback available; normalize it by
+opportunities so cue preference estimates usefulness rather than exposure frequency.

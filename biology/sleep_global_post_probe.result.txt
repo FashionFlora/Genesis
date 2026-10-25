@@ -1,0 +1,5 @@
+100 seeds; two phases of 600 events; 100 inputs; 5 target inputs; pre rate 0.035.
+One scalar post event is sampled with probability 0.8 if any current target input fires and 0.02 otherwise. Fixed per-seed update count across conditions; log decay per update 0.003.
+none phase_b_snr=0.927535 new_target_retention=0.360981 noise=0.194593 coactive_noise_protected=0.00 snr_sd=0.007391
+post_10ms phase_b_snr=0.961323 new_target_retention=0.374510 noise=0.194790 coactive_noise_protected=292.50 snr_sd=0.005690
+post_50ms phase_b_snr=0.927535 new_target_retention=0.360981 noise=0.194593 coactive_noise_protected=0.00 snr_sd=0.007391

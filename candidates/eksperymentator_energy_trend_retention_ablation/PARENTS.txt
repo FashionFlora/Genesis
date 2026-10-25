@@ -1,0 +1,2 @@
+Matched ablation for candidates/eksperymentator_energy_trend_retention.
+Only trend_coupling is set to zero; reserve coupling and all action code remain identical.

@@ -1,0 +1,46 @@
+{
+  "scope": "deterministic implementation probe only; not organism-world evidence",
+  "steps": 48,
+  "batch": 16,
+  "sensor_width": 49,
+  "dynamic_energy_values": [
+    0.95,
+    0.58,
+    0.82
+  ],
+  "dynamic_action_rmse_vs_main": {
+    "published_ablation_trace_coupling_off": 0.15570612251758575,
+    "budget_compression_off": 0.0,
+    "all_volatility_modulation_off": 0.15570612251758575
+  },
+  "stable_energy_action_rmse_vs_main": {
+    "published_ablation_trace_coupling_off": 0.0,
+    "budget_compression_off": 0.0,
+    "all_volatility_modulation_off": 0.0
+  },
+  "final_mean_state": {
+    "main": {
+      "volatility": 0.0849142000079155,
+      "trace_mass": 12.51064682006836,
+      "preference_norm": 0.22309404611587524
+    },
+    "published_ablation_trace_coupling_off": {
+      "volatility": 0.0849142000079155,
+      "trace_mass": 15.811629295349121,
+      "preference_norm": 0.24762210249900818
+    },
+    "budget_compression_off": {
+      "volatility": 0.0849142000079155,
+      "trace_mass": 12.51064682006836,
+      "preference_norm": 0.22309404611587524
+    },
+    "all_volatility_modulation_off": {
+      "volatility": 0.0,
+      "trace_mass": 15.811629295349121,
+      "preference_norm": 0.24762210249900818
+    }
+  },
+  "ablation_budget_expression": "budget=capacity*(1-volatility); remains active when volatility_coupling=0",
+  "candidate_hash": "a8b48fa4e6bf97f4d6fa21efc4a5b463bf24f4b23e2564296680050e72278696",
+  "ablation_hash": "bc74c821fb0969eac2d072c6477741fa6b3b82ea475edc52019124678cf83450"
+}

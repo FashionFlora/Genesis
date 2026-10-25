@@ -2336,6 +2336,22 @@ def _gpu_leaderboard_row(result, existing):
 
 
 def main():
+    import torch
+
+    calibration_file = ROOT / "organism_calibration.jsonl"
+    v7_ready = False
+    if calibration_file.exists():
+        with calibration_file.open(encoding="utf-8") as handle:
+            for line in handle:
+                if not line.strip():
+                    continue
+                try:
+                    row = json.loads(line)
+                except json.JSONDecodeError:
+                    continue
+                if row.get("candidate") in ("organism-v7-final", "organism-v7p-final") and row.get("calibration_passed"):
+                    v7_ready = True
+
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("candidate", type=Path, nargs="?", help="candidate directory containing principle.py")
     parser.add_argument("--nursery", action="store_true",
@@ -2351,15 +2367,37 @@ def main():
                         help="run the independent large-scale CUDA track")
     parser.add_argument("--organism", action="store_true",
                         help="run the batched multi-scale organism assays")
-    parser.add_argument("--organism-baseline", choices=("random", "braitenberg", "delta", "control"), default=None,
+    parser.add_argument("--organism-preflight", action="store_true",
+                        help="exercise every v7 room transition on a tiny batch and exit")
+    parser.add_argument("--organism-version", choices=("v6", "v7"), default=("v7" if v7_ready else "v6"),
+                        help="select a versioned organism ladder (v7 becomes default after passing calibration)")
+    parser.add_argument("--organism-baseline", choices=("random", "braitenberg", "delta", "control",
+                                                          "table", "growing", "baseline_table"), default=None,
                         help="select a built-in organism baseline controller")
-    parser.add_argument("--organism-seeds", type=int, default=2,
+    parser.add_argument("--organism-seeds", type=int, default=1,
                         help="independent randomized organisms per assay")
+    parser.add_argument("--sizes", default="302",
+                        help="full-life organism scales (comma-separated, 302 is always included)")
+    parser.add_argument("--allow-cpu", action="store_true",
+                        help="allow slow CPU organism evaluation when CUDA is unavailable")
     parser.add_argument("--no-interoception", action="store_true",
                         help="omit body energy from organism sensory input")
+    parser.add_argument("--organism-social-group-size", type=int, default=1,
+                        help="number of organisms sharing a v7 world in the social assay")
+    parser.add_argument("--organism-steps", type=int, default=None,
+                        help="v7 lifetime in steps (defaults to 50000; baseline_table requires the default)")
+    parser.add_argument("--quick", action="store_true",
+                        help="run preliminary v7 assessment on 1024 worlds for 12000 steps")
     parser.add_argument("--gpu-steps", type=int, default=GPU_DEFAULT_STEPS,
                         help="steps at each GPU scale (10000..100000)")
     args = parser.parse_args()
+    if args.organism_preflight:
+        if args.organism_version != "v7":
+            parser.error("--organism-preflight requires --organism-version v7")
+        from organism_judge_v7 import _preflight_all_rooms
+        result = _preflight_all_rooms("cuda" if torch.cuda.is_available() else "cpu")
+        print(json.dumps(result, sort_keys=True))
+        raise SystemExit(0 if result.get("passed") else 1)
     if args.nursery:
         entries = [json.loads(line) for line in (ROOT / "leaderboard.jsonl").read_text(encoding="utf-8").splitlines()
                    if line.strip()]
@@ -2389,12 +2427,39 @@ def main():
     if args.organism:
         if args.gpu or args.long or args.only_level is not None:
             parser.error("--organism cannot be combined with --gpu, --long or --only-level")
-        if args.organism_seeds < 1 or args.organism_seeds > 8:
-            parser.error("--organism-seeds must be between 1 and 8")
-        from organism_judge import append_result, judge as judge_organism
+        if args.organism_seeds < 1 or args.organism_seeds > 2:
+            parser.error("--organism-seeds must be 1 or 2 (1 partia = 1024 światy; więcej zapycha GPU)")
+        if args.organism_social_group_size < 1 or args.organism_social_group_size > 16:
+            parser.error("--organism-social-group-size must be between 1 and 16")
+        if args.organism_steps is not None and args.organism_steps < 1:
+            parser.error("--organism-steps must be positive")
+        if args.organism_steps is not None and args.organism_version != "v7":
+            parser.error("--organism-steps is currently available only for v7")
+        if args.quick and args.organism_version != "v7":
+            parser.error("--quick requires --organism-version v7")
+        if args.quick and (args.organism_steps is not None or args.organism_seeds != 1):
+            parser.error("--quick fixes 12000 steps and one batch of 1024 worlds")
+        if not torch.cuda.is_available() and not args.allow_cpu:
+            parser.error("--organism requires CUDA; pass --allow-cpu to explicitly allow a slow CPU run")
+        try:
+            organism_sizes = [int(value) for value in args.sizes.split(",") if value.strip()]
+        except ValueError:
+            parser.error("--sizes must be comma-separated integers")
+        if not organism_sizes or any(value < 1 or value > 100000 for value in organism_sizes):
+            parser.error("--sizes must contain values from 1 to 100000")
+        if args.organism_version == "v7":
+            from organism_judge_v7 import append_result, judge as judge_organism
+        else:
+            from organism_judge import append_result, judge as judge_organism
         result = judge_organism(candidate_dir, args.author, seeds=args.organism_seeds,
                                 baseline_mode=args.organism_baseline,
-                                no_interoception=args.no_interoception)
+                                no_interoception=args.no_interoception,
+                                sizes=organism_sizes,
+                                social_group_size=args.organism_social_group_size,
+                                **({"life_steps": args.organism_steps}
+                                   if args.organism_steps is not None else {}),
+                                quick=args.quick,
+                                device="cuda" if torch.cuda.is_available() else "cpu")
         organism_path = candidate_dir / "principle_organism.py"
         organism_ast_hash = _normalized_ast_hash(organism_path)
         existing = [json.loads(line) for line in (ROOT / "leaderboard.jsonl").read_text(encoding="utf-8").splitlines()
@@ -2409,16 +2474,26 @@ def main():
                                            next((row.get("candidate") for row in matches
                                                  if row.get("principle_sha256") != result["principle_sha256"]), None))
         append_result(result)
-        print(json.dumps({"track": result["track"], "candidate": result["candidate"],
-                          "score": round(result["score"], 4),
-                          "growth": result.get("growth"),
-                          "sizes": [{"units": row["units"], "batch": row.get("batch"),
-                                     "score": round(row["score"], 4) if "score" in row else None,
-                                     "seconds": round(row["wall_seconds"], 2) if "wall_seconds" in row else None,
-                                     "summary": row.get("summary")}
-                                    for row in result["sizes"]],
-                          "leaderboard": str(ROOT / "leaderboard.jsonl") if result["track"] == "organism" else None,
-                          "wall_seconds": round(result["wall_seconds"], 2)}, sort_keys=True))
+        output = {"track": result["track"], "candidate": result["candidate"],
+                  "score": round(result["score"], 4), "growth": result.get("growth"),
+                  "achieved_stage": result.get("achieved_stage"),
+                  "body_growth": result.get("body_growth"),
+                  "sizes": [{"units": row["units"], "batch": row.get("batch"),
+                             "score": round(row["score"], 4) if "score" in row else None,
+                             "seconds": round(row["wall_seconds"], 2) if "wall_seconds" in row else None,
+                             "summary": row.get("summary")}
+                            for row in result["sizes"]],
+                  "leaderboard": (str(ROOT / "leaderboard.jsonl")
+                                  if result["track"] == "organism" else None),
+                  "wall_seconds": round(result["wall_seconds"], 2)}
+        if result.get("baseline_table"):
+            output["baseline_table"] = {
+                mode: {"rooms_reached": round(row["rooms_reached"]["mean"], 4),
+                       "room_reach_fraction": [round(value["mean"], 4)
+                                               for value in row["room_reach_fraction"]]}
+                for mode, row in result["baseline_table"].items()}
+            output["new_room_ci_separation"] = result["new_room_ci_separation"]
+        print(json.dumps(output, sort_keys=True))
         return
     if args.organism_baseline:
         parser.error("--organism-baseline requires --organism")

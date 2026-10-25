@@ -1,0 +1,2 @@
+Parent: candidates/axiom_capacity_correlation/
+Mutation: hold the same initialized synaptic weights fixed and remove only trace accumulation and norm-conserving redistribution, for a seed-matched test of the learning mechanism.

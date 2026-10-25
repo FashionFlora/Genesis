@@ -1,0 +1,5 @@
+Parents: candidates/dynamics_energy_trace and candidates/dynamics_energy_trace_ablation.
+Change: collapse the color-by-room preference and eligibility tensors to one global
+preference and trace per color. The update remains local: recent color occupancy is
+credited or weakened by the organism's own energy change. This removes the explicit
+room-context decoder so any useful memory must arise from endogenous dynamics.

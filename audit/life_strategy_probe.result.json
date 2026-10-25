@@ -1,0 +1,21 @@
+{
+  "context_flip_fraction_after_pixel_swap": 0.51953125,
+  "formula": "odd green mean > even green mean; bite gated by age remainder 5",
+  "mean_action_l1_after_swap": 0.017898619174957275,
+  "room_context_accuracy": 0.9765625,
+  "source": "candidates/life_metabolic_context/principle_organism.py",
+  "synthetic_bite_sequence": [
+    1,
+    0,
+    0,
+    0,
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    1,
+    0
+  ]
+}

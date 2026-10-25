@@ -1,0 +1,17 @@
+{
+  "family": "candidates/_family_example",
+  "author": "sedzia",
+  "generations": 1,
+  "population": 4,
+  "budget_minutes": 5.0,
+  "worlds": 1,
+  "units": 302,
+  "mutation": 0.12,
+  "seed": 1,
+  "organism_version": "v7",
+  "device": "cuda",
+  "algorithm": "elitist genetic algorithm; 25% elite, 50% uniform crossover, 25% mutation",
+  "mutation_scale": 0.12,
+  "worlds_per_generation": 1,
+  "fitness": "mean rooms_reached + 0.001 * survival tie-break"
+}

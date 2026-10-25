@@ -1,0 +1,13 @@
+seeds=100 slots=96 initial_alive=64 events_per_context=1800
+none base: coverage=0.928052 coverage_sd=0.011846 target_spread=0.047267
+none shifted: coverage=0.915674 coverage_sd=0.014435 target_spread=0.056865
+none alive_end=56.000000 alive_sd=0.000000
+none lesion_recovery=0.000000 lesion_recovery_sd=0.000000
+global base: coverage=0.965793 coverage_sd=0.008840 target_spread=0.043155
+global shifted: coverage=0.957595 coverage_sd=0.008494 target_spread=0.043501
+global alive_end=64.000000 alive_sd=0.000000
+global lesion_recovery=0.188750 lesion_recovery_sd=0.121829
+density base: coverage=0.930280 coverage_sd=0.011978 target_spread=0.045650
+density shifted: coverage=0.911575 coverage_sd=0.014305 target_spread=0.060034
+density alive_end=63.950000 alive_sd=1.722643
+density lesion_recovery=0.511250 lesion_recovery_sd=0.083094

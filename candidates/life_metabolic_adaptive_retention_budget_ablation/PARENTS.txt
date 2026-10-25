@@ -1,0 +1,1 @@
+Matched ablation of candidates/life_metabolic_adaptive_retention_budget: identical controller and state updates, with only learning_rate forced to zero. This tests whether adaptive metabolic writing causes any organism effect.

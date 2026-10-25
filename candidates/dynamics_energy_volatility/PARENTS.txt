@@ -1,0 +1,2 @@
+Parents: candidates/dynamics_energy_trace/ and candidates/dynamics_metabolic_retention/.
+Mutation: retained signed endogenous energy credit and the color-context eligibility table, but replaced fixed trace decay with decay accelerated by a low-pass estimate of absolute energy change. Volatile internal consequences shorten stale credit; stable periods preserve it. Removed the inherited age-based turn and bite pulses so action timing is not supplied by a clock. First energy observation initializes the sensor history without writing artificial credit.

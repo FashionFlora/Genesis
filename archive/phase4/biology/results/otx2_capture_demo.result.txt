@@ -1,0 +1,6 @@
+modules=2 capture=(0.9,0.2) threshold=0.6
+mode | stable_trace_drift | new_module_adaptation | gates
+local | 0.0 | 0.5 | [False, True]
+global | 0.5 | 0.5 | [True, True]
+motif_absent | 0.5 | 0.5 | [True, True]
+Interpretation: invented gate logic only; not biology or organism evidence.

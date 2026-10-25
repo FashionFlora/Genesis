@@ -1,0 +1,7 @@
+command: nice -n 15 .venv/bin/python biology/phase_myelin_probe.py
+seeds=100 routes=40 frequent_per_phase=8 steps=1200 switch=600
+columns: phase1_active_error phase2_active_error unused_error mean_delay_shift
+none: 1.567818 1.559473 1.565659 0.000000
+use_shortening: 1.551786 1.542135 1.565295 0.371407
+phase_only: 0.581169 0.579965 1.239297 0.589048
+phase_cost: 0.589180 0.587414 1.240600 0.585174

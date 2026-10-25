@@ -1,0 +1,5 @@
+{'mode': 'frozen', 'A_end_error': 0.830112, 'B_end_error': 0.827108, 'A_recall_error': 0.830112, 'gate_A': 0.0, 'gate_B': 0.0}
+{'mode': 'always', 'A_end_error': 0.006765, 'B_end_error': 0.006735, 'A_recall_error': 0.979105, 'gate_A': 1.0, 'gate_B': 1.0}
+{'mode': 'brake_only', 'A_end_error': 0.002424, 'B_end_error': 0.687678, 'A_recall_error': 0.092675, 'gate_A': 0.6406, 'gate_B': 0.107945}
+{'mode': 'input_ablated', 'A_end_error': 0.000896, 'B_end_error': 0.992157, 'A_recall_error': 0.00084, 'gate_A': 0.390217, 'gate_B': 0.005397}
+{'mode': 'input_coupled', 'A_end_error': 0.000999, 'B_end_error': 0.196095, 'A_recall_error': 0.546293, 'gate_A': 0.455124, 'gate_B': 0.173858}

@@ -1,0 +1,49 @@
+{
+  "alternating_main_vs_constant_max_action_delta": 1.9669532775878906e-06,
+  "alternating_main_vs_control_max_action_delta": 0.0,
+  "constant_bite_ages": [
+    0,
+    5,
+    10,
+    15,
+    20,
+    25,
+    30,
+    35
+  ],
+  "constant_bite_count": 32,
+  "constant_main_vs_control_max_action_delta": 0.0,
+  "control_constant_bite_ages": [
+    0,
+    5,
+    10,
+    15,
+    20,
+    25,
+    30,
+    35
+  ],
+  "control_constant_bite_count": 32,
+  "control_structure_302": {
+    "activity": 0.0,
+    "connections": 6,
+    "units": 3
+  },
+  "energy_omitted_vs_neutral_max_action_delta": 0.0,
+  "included_pixel4_vs_pixel8_max_action_delta": 1.9980075359344482,
+  "main_structure_100000": {
+    "activity": 0.0,
+    "connections": 6,
+    "units": 3
+  },
+  "main_structure_302": {
+    "activity": 0.0,
+    "connections": 6,
+    "units": 3
+  },
+  "pixel0_vs_blank_max_action_delta": 0.0,
+  "pixel0_vs_pixel8_max_action_delta": 1.3399964570999146,
+  "random_main_vs_control_action_rmse": 0.25982069969177246,
+  "random_main_vs_control_max_action_delta": 1.9999973773956299,
+  "units_302_vs_100000_max_action_delta": 0.0
+}

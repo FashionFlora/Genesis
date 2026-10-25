@@ -1,0 +1,5 @@
+Parents:
+- axiom_causal_sparse_growth: dynamic sensory-pair candidates with causal traces and disuse pruning.
+- axiom_causal_homeostasis: signed action-conditioned energy change as evidence.
+
+Change: candidate sensory pairs remain temporary until repeated positive energy changes after the corresponding bite accumulate enough local support. The support decays continuously, so the same local pressure that forms a unit also lets unsupported candidates fade.

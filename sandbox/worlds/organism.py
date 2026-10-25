@@ -12,7 +12,7 @@ except ImportError:
 
 
 class OrganismWorld:
-    """One vectorized organism-v4 world with independent rows."""
+    """One vectorized organism-v6 world with independent rows."""
 
     PIXELS = WORLD_CONFIG["pixels"]
     N_SENSORS = PIXELS * WORLD_CONFIG["color_count"] + 1
@@ -32,7 +32,7 @@ class OrganismWorld:
         self.interoception = bool(interoception)
         self.params = {**WORLD_CONFIG, **(params or {})}
         self.gen = torch.Generator(device=self.device).manual_seed(int(seed))
-        self.retina_pixels = self.PIXELS + 2 * (self.ROOMS - 1)
+        self.retina_pixels = self.PIXELS + 2 * min(self.ROOMS - 1, 5)
         self.angles = torch.arange(self.PIXELS, device=self.device) * (2 * math.pi / self.PIXELS)
         self.retina_angles = torch.arange(self.retina_pixels, device=self.device) * (2 * math.pi / self.retina_pixels)
         self.reset()
@@ -50,8 +50,20 @@ class OrganismWorld:
         self.alive = torch.ones(b, dtype=torch.bool, device=d)
         self.age = torch.zeros(b, device=d)
         self.food_count = torch.tensor(self.FOOD_COUNTS, device=d)
-        self.food = self.rand(b, self.MAX_PATCHES, 2) * span - span / 2
-        self.patch_color = (self.rand(b, self.MAX_PATCHES) * self.params["color_count"]).long()
+        old_patches = self.FOOD_COUNTS[-1]
+        self.food = torch.zeros(b, self.MAX_PATCHES, 2, device=d)
+        self.food[:, :old_patches] = self.rand(b, old_patches, 2) * span - span / 2
+        self.patch_color = torch.zeros(b, self.MAX_PATCHES, dtype=torch.long, device=d)
+        self.patch_color[:, :old_patches] = (self.rand(b, old_patches) * 2).long()
+        self.food_shape = torch.zeros(b, self.MAX_PATCHES, dtype=torch.long, device=d)
+        self.room_context = (self.rand(b) > 0.5).long()
+        self.context_color = torch.zeros(b, 2, dtype=torch.long, device=d)
+        first_color = (self.rand(b) > 0.5).long()
+        self.context_color[:, 0] = first_color
+        self.context_color[:, 1] = 1 - first_color
+        self.target_shape = torch.zeros(b, dtype=torch.long, device=d)
+        self.target_color = torch.zeros(b, dtype=torch.long, device=d)
+        self.context_required = torch.zeros(b, dtype=torch.long, device=d)
         self.decoy = torch.zeros(b, self.MAX_PATCHES, dtype=torch.bool, device=d)
         first = self.FOOD_COUNTS[0]
         decoys = self.rand(b, first) < self.params["decoy_probability"][0]
@@ -62,7 +74,7 @@ class OrganismWorld:
         self.patch_energy = torch.zeros(b, self.MAX_PATCHES, device=d)
         self.patch_energy[:, :first] = 1
         self.regrow = torch.zeros(b, self.MAX_PATCHES, device=d)
-        self.food_channel = (self.rand(b) * self.params["color_count"]).long()
+        self.food_channel = self.context_color.gather(1, self.room_context[:, None])[:, 0]
         self.flip_time = torch.full((b,), -1, device=d)
         self.room_time = torch.full((b, self.ROOMS), -1, dtype=torch.long, device=d)
         self.room_time[:, 0] = 0
@@ -80,6 +92,7 @@ class OrganismWorld:
         self.mastered_colors = torch.zeros(b, self.params["color_count"], dtype=torch.bool, device=d)
         self.last_gain = torch.zeros(b, dtype=torch.bool, device=d)
         self.last_bite = torch.zeros(b, dtype=torch.bool, device=d)
+        self.last_bite_index = torch.full((b,), -1, dtype=torch.long, device=d)
         self.visible_mask = torch.zeros(b, self.MAX_PATCHES, dtype=torch.bool, device=d)
         self.bite_mask = torch.zeros(b, self.MAX_PATCHES, dtype=torch.bool, device=d)
 
@@ -103,6 +116,21 @@ class OrganismWorld:
     def _available_mask(self):
         return self._active_mask() & (self.patch_energy > 0)
 
+    def _edible_mask(self, available=None):
+        """Return the food rule for the current room.
+
+        Keeping this rule in one method lets versioned worlds add assays
+        without duplicating the physics in ``observe`` and ``step``.
+        """
+        available = self._available_mask() if available is None else available
+        context_color = self.context_color.gather(1, self.room_context[:, None])
+        contextual = self.patch_color == context_color
+        patterned = contextual & (self.food_shape == self.target_shape[:, None])
+        return available & torch.where(
+            (self.room < 2)[:, None], contextual,
+            torch.where((self.room < 4)[:, None], patterned,
+                        patterned & (self.room_context == self.context_required)[:, None]))
+
     def observe(self):
         delta = self.food - self.pos[:, None, :]
         dist = torch.linalg.vector_norm(delta, dim=2).clamp_min(1e-5)
@@ -117,10 +145,14 @@ class OrganismWorld:
         available = self._available_mask()
         self.bite_mask = available & (dist < self.params["touch_radius"])
         strength = visible[:, :, None] * angular * available[:, :, None]
+        shape_phase = ((self.food_shape.float()[:, :, None] + 1) * 2
+                       * (pxang - rel[:, :, None])
+                       + self.food_shape[:, :, None].float() * (math.pi / 2))
+        texture = 0.2 + 0.8 * (0.5 + 0.5 * torch.cos(shape_phase))
+        strength = torch.where((self.room >= 2)[:, None, None], strength * texture, strength)
         self.visible_mask = strength.amax(dim=2) > 0
-        edible_color = self.food_channel[:, None].expand(-1, self.MAX_PATCHES)
-        edible = available & ~self.decoy
-        channels = torch.where(edible, edible_color, self.patch_color)
+        edible = self._edible_mask(available) & ~self.decoy
+        channels = self.patch_color
         colors = torch.zeros(self.batch, self.MAX_PATCHES, self.params["color_count"], device=self.device)
         colors.scatter_(2, channels[:, :, None], 1.0)
         eye = (strength[:, :, :, None] * colors[:, :, None, :]).amax(dim=1)
@@ -129,9 +161,28 @@ class OrganismWorld:
         high_pxang = torch.remainder(self.retina_angles[None, None, :] + math.pi, 2 * math.pi) - math.pi
         high_angular = torch.exp(-((torch.remainder(high_pxang - rel[:, :, None] + math.pi, 2 * math.pi) - math.pi) / high_width[:, None, None]).square())
         high_strength = visible[:, :, None] * high_angular * available[:, :, None]
+        high_phase = ((self.food_shape.float()[:, :, None] + 1) * 2
+                      * (high_pxang - rel[:, :, None])
+                      + self.food_shape[:, :, None].float() * (math.pi / 2))
+        high_texture = 0.2 + 0.8 * (0.5 + 0.5 * torch.cos(high_phase))
+        high_strength = torch.where((self.room >= 2)[:, None, None],
+                                    high_strength * high_texture, high_strength)
         eye_high = (high_strength[:, :, :, None] * colors[:, :, None, :]).amax(dim=1)
         eye_high = F.interpolate(eye_high.transpose(1, 2), size=self.PIXELS, mode="linear", align_corners=False).transpose(1, 2)
         eye = torch.where((self.room >= self.params["high_resolution_room"])[:, None, None], eye_high, eye)
+
+        pixels = torch.arange(self.PIXELS, device=self.device)
+        cue_mask = (pixels < 4)[None, :]
+        cue = ((pixels[None, :] + self.room_context[:, None]) % 2 == 0).float()
+        eye[:, :, 1] = torch.where((self.room >= 0)[:, None] & cue_mask,
+                                   torch.maximum(eye[:, :, 1], cue * 0.8), eye[:, :, 1])
+
+        sites = torch.arange(self.MAX_PATCHES, device=self.device) < 4
+        landmark = (torch.exp(-dist / 0.5)[:, :, None] * angular
+                    * (dist < 1.5)[:, :, None] * sites[None, :, None])
+        landmark = landmark.amax(dim=1)
+        eye[:, :, 2] = torch.where((self.room == self.ROOMS - 1)[:, None],
+                                   torch.maximum(eye[:, :, 2], landmark), eye[:, :, 2])
 
         shadow_delta = self.shadow - self.pos
         shadow_dist = torch.linalg.vector_norm(shadow_delta, dim=1).clamp_min(1e-5)
@@ -165,18 +216,33 @@ class OrganismWorld:
         decay_factor = torch.where(self.room == 0, self.params["room_zero_energy_factor"],
                                    1 + self.params["room_energy_linear_gain"] * room_float
                                    + self.params["room_energy_quadratic_gain"] * room_float.square())
-        self.energy -= (self.params["energy_decay"] * self.params["energy_decay_factor"] * decay_factor
-                        + self.params["move_cost"] * self.params["move_cost_factor"] * speed.abs()) * active
+        metabolic_cost = (self.params["energy_decay"] * self.params["energy_decay_factor"] * decay_factor
+                           + self.params["move_cost"] * self.params["move_cost_factor"] * speed.abs()) * active
+        # v7 starts with a finite developmental reserve (the yolk analogue).
+        # It pays ordinary metabolism only; construction remains charged to
+        # the organism's usable energy in the versioned body interface.
+        if hasattr(self, "yolk"):
+            covered = torch.minimum(self.yolk, metabolic_cost)
+            self.yolk -= covered
+            self.energy -= metabolic_cost - covered
+            newly_empty = (self.yolk <= 0) & (self.yolk_depleted_at < 0)
+            self.yolk_depleted_at = torch.where(newly_empty,
+                                                torch.full_like(self.yolk_depleted_at, self.t),
+                                                self.yolk_depleted_at)
+        else:
+            self.energy -= metabolic_cost
 
         dfood = torch.linalg.vector_norm(self.pos[:, None, :] - self.food, dim=2)
         available = self._available_mask()
         touching = (dfood < self.params["touch_radius"]) & (m[:, 2, None] > 0) & active[:, None]
-        edible = available & ~self.decoy
+        edible = self._edible_mask(available) & ~self.decoy
         self.bite_mask = available & (dfood < self.params["touch_radius"]) & active[:, None]
         eating = touching & edible
         decoy_bite = touching & (available & ~edible)
         gain = eating.any(dim=1)
         bite = (touching & available).any(dim=1)
+        self.last_bite_index = torch.where(
+            bite, touching.float().argmax(dim=1), torch.full_like(self.last_bite_index, -1))
         self.visits += gain
         patch_id = eating.float().argmax(dim=1)
         self.patch_transitions += gain & (self.last_patch >= 0) & (self.last_patch != patch_id)
@@ -208,8 +274,9 @@ class OrganismWorld:
 
         flip = (torch.tensor(self.REVERSAL_TIMES, device=self.device) == self.t).any() & active
         if flip.any():
-            next_color = (self.rand(self.batch) * (self.params["color_count"] - 1)).long()
-            next_color = (next_color + self.food_channel + 1) % self.params["color_count"]
+            next_context = 1 - self.room_context
+            self.room_context = torch.where(flip, next_context, self.room_context)
+            next_color = self.context_color.gather(1, next_context[:, None])[:, 0]
             self.food_channel = torch.where(flip, next_color, self.food_channel)
             self.flip_time = torch.where(flip, torch.full_like(self.flip_time, self.t), self.flip_time)
             self.flip_bites = torch.where(flip, torch.zeros_like(self.flip_bites), self.flip_bites)
@@ -222,9 +289,16 @@ class OrganismWorld:
         minimum_time = torch.where(self.room == 0, self.params["minimum_time_first"], self.params["minimum_time_later"])
         selectivity = self.flip_correct_bites / self.flip_bites.clamp_min(1)
         window = self.params["energy_window_steps"]
+        if hasattr(self, "body_pixels"):
+            required_pixels = torch.tensor((2, 3, 4, 6, 8, 12), device=self.device)[self.room]
+            required_motors = torch.tensor((1, 1, 2, 3, 4, 5), device=self.device)[self.room]
+            body_ready = (self.body_pixels >= required_pixels) & (self.body_motors >= required_motors)
+        else:
+            body_ready = torch.ones_like(active)
         mastery = ((self.t >= minimum_time) & (self.t % window == window - 1)
                    & (self.window_n >= window) & (self.room_age >= dwell)
                    & (self.flip_bites >= required_bites) & (selectivity >= self.params["selectivity_threshold"])
+                   & body_ready
                    & active)
         mastered_now = mastery & (self.flip_time >= 0)
         self.mastered_colors.scatter_(1, self.food_channel[:, None],
@@ -239,11 +313,51 @@ class OrganismWorld:
             self.food[:, :new_n] = torch.where(new[:, None, None], self._room_positions(level), self.food[:, :new_n])
             self.patch_energy[:, :new_n] = torch.where(new[:, None], torch.ones_like(self.patch_energy[:, :new_n]), self.patch_energy[:, :new_n])
             self.regrow[:, :new_n] = torch.where(new[:, None], torch.zeros_like(self.regrow[:, :new_n]), self.regrow[:, :new_n])
+            if level >= 1:
+                fresh_color = (self.rand(self.batch, new_n) * self.params["color_count"]).long()
+                self.patch_color[:, :new_n] = torch.where(new[:, None], fresh_color, self.patch_color[:, :new_n])
+                first_color = (self.rand(self.batch) * self.params["color_count"]).long()
+                second_color = (first_color + 1 + (self.rand(self.batch) > 0.5).long()) % self.params["color_count"]
+                self.context_color[:, 0] = torch.where(new, first_color, self.context_color[:, 0])
+                self.context_color[:, 1] = torch.where(new, second_color, self.context_color[:, 1])
+            if level >= 2:
+                fresh_shape = (self.rand(self.batch, new_n) * level).long()
+                fresh_color = (self.rand(self.batch, new_n) * self.params["color_count"]).long()
+                target_shape = (self.rand(self.batch) * level).long()
+                target_color = (self.rand(self.batch) * self.params["color_count"]).long()
+                context = (self.rand(self.batch) > 0.5).long()
+                self.food_shape[:, :new_n] = torch.where(new[:, None], fresh_shape, self.food_shape[:, :new_n])
+                self.patch_color[:, :new_n] = torch.where(new[:, None], fresh_color, self.patch_color[:, :new_n])
+                self.food_shape[:, 0] = torch.where(new, target_shape, self.food_shape[:, 0])
+                self.food_shape[:, 1] = torch.where(new, target_shape, self.food_shape[:, 1])
+                self.patch_color[:, 0] = torch.where(new, target_color, self.patch_color[:, 0])
+                self.patch_color[:, 1] = torch.where(new, target_color, self.patch_color[:, 1])
+                self.target_shape = torch.where(new, target_shape, self.target_shape)
+                self.target_color = torch.where(new, target_color, self.target_color)
+                self.room_context = torch.where(new, context, self.room_context)
+                self.context_required = torch.where(new, context, self.context_required)
+                other_color = (target_color + 1 + (self.rand(self.batch) > 0.5).long()) % self.params["color_count"]
+                map_zero = torch.where(context == 0, target_color, other_color)
+                map_one = torch.where(context == 1, target_color, other_color)
+                self.context_color[:, 0] = torch.where(new, map_zero, self.context_color[:, 0])
+                self.context_color[:, 1] = torch.where(new, map_one, self.context_color[:, 1])
+                self.patch_color[:, 0] = torch.where(new, map_zero, self.patch_color[:, 0])
+                self.patch_color[:, 1] = torch.where(new, map_one, self.patch_color[:, 1])
+            else:
+                target_color = self.context_color.gather(1, self.room_context[:, None])[:, 0]
+                self.target_color = torch.where(new, target_color, self.target_color)
+            current_color = self.context_color.gather(1, self.room_context[:, None])[:, 0]
+            self.food_channel = torch.where(new, current_color, self.food_channel)
             probability = self.params["decoy_probability"][level]
             fresh_decoys = self.rand(self.batch, new_n) < probability
             fresh_decoys[:, 0] = False
+            if level < 2:
+                fresh_decoys[:, 1] = False
             self.decoy[:, :new_n] = torch.where(new[:, None], fresh_decoys, self.decoy[:, :new_n])
         self.room = torch.where(advance, self.room + 1, self.room)
+        if bool(advance.any()) and bool((self.room >= self.ROOMS).any()):
+            bad = self.room[self.room >= self.ROOMS].detach().cpu().tolist()
+            raise RuntimeError(f"room transition exceeded {self.ROOMS} rooms: {bad[:8]}")
         self.mastered_colors = torch.where(advance[:, None], torch.zeros_like(self.mastered_colors), self.mastered_colors)
         self.room_age = torch.where(advance, torch.zeros_like(self.room_age), self.room_age)
         side = self._side()

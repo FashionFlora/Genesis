@@ -1,0 +1,366 @@
+[
+  {
+    "candidate": "life_metabolic_trace",
+    "output_10000": [
+      [
+        0.0,
+        0.800000011920929,
+        1.0
+      ],
+      [
+        0.0,
+        0.800000011920929,
+        1.0
+      ]
+    ],
+    "output_302": [
+      [
+        0.0,
+        0.800000011920929,
+        1.0
+      ],
+      [
+        0.0,
+        0.800000011920929,
+        1.0
+      ]
+    ],
+    "sha256": "6f948e5ad58eb4706dedeabc0eabf80f67c39219ea0aad0c2673ae14ba3439eb",
+    "structure_after_energy_jump": [
+      {
+        "activity": 1.0,
+        "mass": 302.0
+      },
+      {
+        "activity": 1.0,
+        "mass": 10000.0
+      }
+    ],
+    "structure_before_energy_jump": [
+      {
+        "activity": 1.0,
+        "mass": 302.0
+      },
+      {
+        "activity": 1.0,
+        "mass": 10000.0
+      }
+    ],
+    "units_302_vs_10000_output_identical": true,
+    "units_302_vs_10000_structure_identical": false
+  },
+  {
+    "candidate": "dynamics_energy_trace",
+    "output_10000": [
+      [
+        0.0,
+        0.800000011920929,
+        1.0
+      ],
+      [
+        0.0,
+        0.800000011920929,
+        1.0
+      ]
+    ],
+    "output_302": [
+      [
+        0.0,
+        0.800000011920929,
+        1.0
+      ],
+      [
+        0.0,
+        0.800000011920929,
+        1.0
+      ]
+    ],
+    "sha256": "bf8e5cc78f0bd15b25e087df689f16a87c6b516b21d9e4fa81b5a0d45d2e48f1",
+    "structure_after_energy_jump": [
+      {
+        "connections": 6,
+        "units": 3
+      },
+      {
+        "connections": 6,
+        "units": 3
+      }
+    ],
+    "structure_before_energy_jump": [
+      {
+        "connections": 6,
+        "units": 3
+      },
+      {
+        "connections": 6,
+        "units": 3
+      }
+    ],
+    "units_302_vs_10000_output_identical": true,
+    "units_302_vs_10000_structure_identical": true
+  },
+  {
+    "candidate": "axiom_energy_trace",
+    "output_10000": [
+      [
+        -0.11775992810726166,
+        -0.014824841171503067,
+        0.3254678249359131
+      ],
+      [
+        -0.05526040866971016,
+        0.35673069953918457,
+        0.02230680175125599
+      ]
+    ],
+    "output_302": [
+      [
+        -0.11775992810726166,
+        -0.014824841171503067,
+        0.3254678249359131
+      ],
+      [
+        -0.05526040866971016,
+        0.35673069953918457,
+        0.02230680175125599
+      ]
+    ],
+    "sha256": "7f467247cad7638c07a3fd312ffafcbb02c486d4ae242a124c44a68b14a8adb4",
+    "structure_after_energy_jump": [
+      {
+        "connections": 147,
+        "units": 147
+      },
+      {
+        "connections": 147,
+        "units": 147
+      }
+    ],
+    "structure_before_energy_jump": [
+      {
+        "connections": 147,
+        "units": 147
+      },
+      {
+        "connections": 147,
+        "units": 147
+      }
+    ],
+    "units_302_vs_10000_output_identical": true,
+    "units_302_vs_10000_structure_identical": true
+  },
+  {
+    "candidate": "axiom_capacity_correlation",
+    "output_10000": [
+      [
+        -0.11775992810726166,
+        -0.014824841171503067,
+        0.3254678249359131
+      ],
+      [
+        -0.05526040866971016,
+        0.35673069953918457,
+        0.02230680175125599
+      ]
+    ],
+    "output_302": [
+      [
+        -0.11775992810726166,
+        -0.014824841171503067,
+        0.3254678249359131
+      ],
+      [
+        -0.05526040866971016,
+        0.35673069953918457,
+        0.02230680175125599
+      ]
+    ],
+    "sha256": "2428d5c10f0948ed1ba2cd485c70daa2b17189ae7640c4c70b38436539c22b8c",
+    "structure_after_energy_jump": [
+      {
+        "connections": 147,
+        "units": 147
+      },
+      {
+        "connections": 147,
+        "units": 147
+      }
+    ],
+    "structure_before_energy_jump": [
+      {
+        "connections": 147,
+        "units": 147
+      },
+      {
+        "connections": 147,
+        "units": 147
+      }
+    ],
+    "units_302_vs_10000_output_identical": true,
+    "units_302_vs_10000_structure_identical": true
+  },
+  {
+    "candidate": "growth_trace",
+    "output_10000": [
+      [
+        0.0,
+        0.11176100373268127,
+        1.0
+      ],
+      [
+        0.0,
+        0.11176100373268127,
+        1.0
+      ]
+    ],
+    "output_302": [
+      [
+        0.0,
+        0.11176100373268127,
+        1.0
+      ],
+      [
+        0.0,
+        0.11176100373268127,
+        1.0
+      ]
+    ],
+    "sha256": "3e4c0b30acb3576c767941fa255b6a447de9b5c243038d5a58e5a6883c4d0600",
+    "structure_after_energy_jump": [
+      {
+        "connections": [
+          4.0,
+          4.0
+        ],
+        "units": [
+          3.0,
+          3.0
+        ]
+      },
+      {
+        "connections": [
+          4.0,
+          4.0
+        ],
+        "units": [
+          3.0,
+          3.0
+        ]
+      }
+    ],
+    "structure_before_energy_jump": [
+      {
+        "connections": [
+          2.0,
+          2.0
+        ],
+        "units": [
+          2.0,
+          2.0
+        ]
+      },
+      {
+        "connections": [
+          2.0,
+          2.0
+        ],
+        "units": [
+          2.0,
+          2.0
+        ]
+      }
+    ],
+    "units_302_vs_10000_output_identical": true,
+    "units_302_vs_10000_structure_identical": true
+  },
+  {
+    "candidate": "agency_trace",
+    "output_10000": [
+      [
+        0.3469592332839966,
+        0.3400000035762787,
+        0.0
+      ],
+      [
+        0.0,
+        0.8199999928474426,
+        0.0
+      ]
+    ],
+    "output_302": [
+      [
+        0.3469592332839966,
+        0.3400000035762787,
+        0.0
+      ],
+      [
+        0.0,
+        0.8199999928474426,
+        0.0
+      ]
+    ],
+    "sha256": "976be849323eab2ed5ffde21d87f27561feff1897d3e0cb7792b7040f6e46fbc",
+    "structure_after_energy_jump": [
+      {
+        "activity": [
+          0.4000000059604645,
+          0.4000000059604645
+        ],
+        "connections": [
+          4.460000038146973,
+          4.460000038146973
+        ],
+        "units": [
+          302.0,
+          302.0
+        ]
+      },
+      {
+        "activity": [
+          0.4000000059604645,
+          0.4000000059604645
+        ],
+        "connections": [
+          101.43999481201172,
+          101.43999481201172
+        ],
+        "units": [
+          10000.0,
+          10000.0
+        ]
+      }
+    ],
+    "structure_before_energy_jump": [
+      {
+        "activity": [
+          0.0,
+          0.4000000059604645
+        ],
+        "connections": [
+          4.460000038146973,
+          4.460000038146973
+        ],
+        "units": [
+          302.0,
+          302.0
+        ]
+      },
+      {
+        "activity": [
+          0.0,
+          0.4000000059604645
+        ],
+        "connections": [
+          101.43999481201172,
+          101.43999481201172
+        ],
+        "units": [
+          10000.0,
+          10000.0
+        ]
+      }
+    ],
+    "units_302_vs_10000_output_identical": true,
+    "units_302_vs_10000_structure_identical": false
+  }
+]

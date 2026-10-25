@@ -1,0 +1,6 @@
+Parent: candidates/metabolic_gate_fixed_speed/ (principle.py and principle_organism.py).
+Mutation: add one slowly updated metabolic reserve. Retention is reduced by chronic
+reserve depletion, while exploration is driven by the complementary reserve deficit;
+movement remains the parent's fixed speed.
+Why: a reserve should buffer transient energy noise but make prolonged scarcity reopen
+search and release stale memory, using one state for retention and exploration.

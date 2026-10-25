@@ -1,0 +1,15 @@
+{
+  "grown": {
+    "connections": 32.0,
+    "memory_bytes": 1052,
+    "units": 18.0
+  },
+  "growth_steps": 80,
+  "quiet": {
+    "connections": 2.0,
+    "memory_bytes": 476,
+    "units": 2.0
+  },
+  "quiet_steps": 1000,
+  "remaining_keys": 0
+}

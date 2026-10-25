@@ -1,0 +1,47 @@
+{
+  "leader": {
+    "n_units_action_max_abs_delta": 0.0,
+    "energy_zero_action_rmse": 0.5720680952072144,
+    "energy_zero_action_changed_fraction": 0.453125,
+    "retinal_layout_action_delta": 0.33266985416412354,
+    "visible_source_bite_by_age_0_to_14": [
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "structure_302": {
+      "units": 3,
+      "connections": 3
+    },
+    "structure_100000": {
+      "units": 3,
+      "connections": 3
+    }
+  },
+  "h005": {
+    "structure": {
+      "units": 147,
+      "connections": 147
+    },
+    "row_norm_max_abs_delta": 2.9802322387695312e-08,
+    "global_norm_delta": 0.0,
+    "capacity_shape": [
+      1,
+      49,
+      1
+    ],
+    "n_units_ignored_in_code": true
+  }
+}

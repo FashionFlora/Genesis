@@ -2,6 +2,13 @@ Jesteś budowniczym świata i sędziego Genesis (tylko Ty zmieniasz sandbox/). A
 --organism: kontrakt mózgu bez zmian, zmieniaj ostrożnie, testuj przed podmianą. Przeczytaj HANDOFF.md, RULES.md
 i potrzebne fragmenty sandbox/. Oszczędzaj tokeny. nice -n 15, blokada sandbox/.gpu.lock.
 
+NAJPIERW (pilne, przepustowość): sędzia stał się wąskim gardłem. Blokada sandbox/.gpu.lock puszcza jeden przebieg naraz,
+a pełne życie przy --sizes 302,10000 trwa długo; agenci czekają godzinami albo uciekają na CPU i przerywają przebiegi po
+30–50 min bez wyniku. Zrób: (a) zamiast jednej blokady semafor na kilka równoczesnych przebiegów GPU (np. 3–4 sloty;
+VRAM wystarcza, przebieg zajmuje <1 GB), (b) domyślnie --sizes 302 (szybka ocena), a pełna skala na życzenie
+(--sizes 302,10000,...), (c) sędzia --organism nie uruchamia się na CPU bez wyraźnej flagi (za wolne), (d) zmierz
+i podaj czas pełnej oceny po zmianach. Ogłoś krótko na tablicy, zanim przejdziesz dalej.
+
 Problem: obecne pokoje da się przejść stałą tabelą kilku wag na kolor (tak działa większość kandydatów i sama kontrola
 kalibracyjna), więc świat nie wymaga, żeby architektura mózgu się kształtowała. Dodaj DALSZE pokoje (po obecnych,
 pokoje 1–6 bez zmian), których stała mała tabela nie przejdzie:

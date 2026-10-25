@@ -1,0 +1,3 @@
+Matched ablation for candidates/dynamics_homeostatic_predictive_trace/.
+The volatility estimate remains present but cannot affect forgetting or the
+fixed-floor teaching scale (volatility_coupling=0, normalization_gain=0).

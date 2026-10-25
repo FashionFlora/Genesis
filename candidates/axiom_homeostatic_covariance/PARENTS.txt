@@ -1,0 +1,2 @@
+Parents: candidates/axiom_centered_correlation/ and candidates/axiom_energy_trace/
+Mutation: retain centered sensor-action covariance and per-sensor norm conservation from the first parent, then gate the covariance update by the organism's signed change in sensed energy as in the second parent. This tests whether local surprise is useful only when it coincides with endogenous viability evidence, while finite capacity prevents unbounded synaptic growth.

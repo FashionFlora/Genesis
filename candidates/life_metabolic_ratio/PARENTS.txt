@@ -1,0 +1,6 @@
+Parents: life_metabolic_context and life_metabolic_context_ablation.
+Change: replace the free-running preference update and learning_rate with a
+decayed signed-metabolic-evidence table divided by a decayed eligibility-mass
+table. Each colour/context memory is now an estimate of its recent metabolic
+consequence rather than an accumulated weight. This tests whether relative
+evidence stabilizes learning across judge parameter perturbations.

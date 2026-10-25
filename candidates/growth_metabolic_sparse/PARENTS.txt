@@ -1,0 +1,5 @@
+Parents:
+- candidates/growth_local_eligibility/: sparse pixel-color connections born from bitten sensory choices and removed by trace decay.
+- candidates/life_metabolic_context/: delayed energy change is used as endogenous metabolic teaching signal.
+
+Mutation: multiply each eligible delayed energy change by the energy reserve present at the preceding choice. This continuously scales which local traces grow, while preserving the parent's shared decay-and-removal mechanism. The purpose is to test whether metabolic state makes sparse structural growth more selective than energy change alone.

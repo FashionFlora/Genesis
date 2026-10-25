@@ -1,0 +1,14 @@
+Source checked this turn: Gonzalez-Rueda et al., Neuron 97 (2018), PMC5873548;
+opened with .venv/bin/python shared/lit.py fetch.
+Probe: 100 seeds, 100 inputs, 5 initially strong inputs, 1200 events;
+postsynaptic outcome is queued, and weight update occurs after lag events.
+
+none lag=1 signal=0.500000 noise=0.200000 snr=2.500000 retention=1.000000 snr_sd=0.000000
+global lag=1 signal=0.013629 noise=0.010000 snr=1.362903 retention=0.027258 snr_sd=0.000000
+local lag=1 signal=0.498251 noise=0.192766 snr=2.584755 retention=0.996502 snr_sd=0.005396
+local lag=5 signal=0.498257 noise=0.192804 snr=2.584270 retention=0.996514 snr_sd=0.005323
+
+Interpretation: update delay 1 vs 5 barely changed this toy metric. This is not
+a test of biological 10 ms vs 50 ms timing: the event correlation is not varied,
+and no organism judge was run. A useful timing test must vary causal pre/post
+offset while matching event and weight-change budgets.

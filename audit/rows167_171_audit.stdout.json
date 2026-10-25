@@ -1,0 +1,429 @@
+{
+  "rows": {
+    "axiom_capacity_correlation_ablation": {
+      "line": 169,
+      "score": 0.033203125,
+      "protocol": {
+        "batch_size": 1024,
+        "batches": 1,
+        "calibration_units": 302,
+        "description": "v7 organism-capacity ladder with energy-priced body growth",
+        "hidden_world_family": 3,
+        "ladder": [
+          {
+            "ability": "temporal gradient comparison and adaptation",
+            "capacity": 8,
+            "room": 0,
+            "stage": "temporal comparison",
+            "task": "compare successive samples while the nutrient gradient drifts"
+          },
+          {
+            "ability": "habituation, simple association, preference learning",
+            "capacity": 32,
+            "room": 1,
+            "stage": "habituation and preference learning",
+            "task": "habituate to a repeated cue and retain a two-choice preference"
+          },
+          {
+            "ability": "classical conditioning, sensitization, long-term memory",
+            "capacity": 64,
+            "room": 2,
+            "stage": "association and delayed memory",
+            "task": "condition a visual cue and retain it across a long delay"
+          },
+          {
+            "ability": "reversal, place learning, context",
+            "capacity": 128,
+            "room": 3,
+            "stage": "reversal and contextual place memory",
+            "task": "reverse a cue, remember a place, and use room context"
+          },
+          {
+            "ability": "same/different, route memory, small-number discrimination",
+            "capacity": 256,
+            "room": 4,
+            "stage": "relations, route memory and quantity",
+            "task": "match or mismatch visual exemplars while following a remembered route"
+          },
+          {
+            "ability": "spatial maps, latent and episodic-like memory",
+            "capacity": 512,
+            "room": 5,
+            "stage": "spatial map and episodic memory",
+            "task": "use landmarks and a latent map after a delayed episode"
+          }
+        ],
+        "max_food": 15,
+        "pixels": 16,
+        "rooms": 6,
+        "scale_smoke_steps": 64,
+        "sensors": 49,
+        "sizes": [
+          302
+        ],
+        "steps": 50000,
+        "version": "organism-v7",
+        "world_families": 3,
+        "worlds_per_calibration": 1024,
+        "yolk_energy": 1.5
+      },
+      "principle_sha256": "549154cb2226c8664c1b6c160119ca3e403e4500d628555c7ff8bd9198e43e79",
+      "clone_of": "axiom_capacity_correlation_ablation"
+    },
+    "axiom_centered_correlation": {
+      "line": 168,
+      "score": 0.048828125,
+      "protocol": {
+        "batch_size": 1024,
+        "batches": 1,
+        "calibration_units": 302,
+        "description": "v6: growing learns rewarded color per visible context (last_patch feedback); selectivity criterion remains 0.80",
+        "max_food": 15,
+        "pixels": 16,
+        "rooms": 6,
+        "scale_smoke_steps": 64,
+        "sensors": 49,
+        "sizes": [
+          302
+        ],
+        "steps": 12000,
+        "version": "organism-v6",
+        "worlds_per_calibration": 1024
+      },
+      "principle_sha256": "65728dce0d72dc9a42b90049f780c40865868dbc10f01a0c67e599549a89ee6b",
+      "clone_of": null
+    },
+    "axiom_global_capacity_covariance": {
+      "line": 167,
+      "score": 0.0341796875,
+      "protocol": {
+        "batch_size": 1024,
+        "batches": 1,
+        "calibration_units": 302,
+        "description": "v6: growing learns rewarded color per visible context (last_patch feedback); selectivity criterion remains 0.80",
+        "max_food": 15,
+        "pixels": 16,
+        "rooms": 6,
+        "scale_smoke_steps": 64,
+        "sensors": 49,
+        "sizes": [
+          302
+        ],
+        "steps": 12000,
+        "version": "organism-v6",
+        "worlds_per_calibration": 1024
+      },
+      "principle_sha256": "8eb36d49dbe868084685fd643bd8fb9e86fd56002f886b2027f21978b79e5d30",
+      "clone_of": null
+    },
+    "agency_sensorimotor_prediction": {
+      "line": 170,
+      "score": 0.0126953125,
+      "protocol": {
+        "batch_size": 1024,
+        "batches": 1,
+        "calibration_units": 302,
+        "description": "v7 organism-capacity ladder with energy-priced body growth",
+        "hidden_world_family": 3,
+        "ladder": [
+          {
+            "ability": "temporal gradient comparison and adaptation",
+            "capacity": 8,
+            "room": 0,
+            "stage": "temporal comparison and adaptation",
+            "task": "compare successive samples while the nutrient gradient drifts"
+          },
+          {
+            "ability": "habituation, simple association, preference learning",
+            "capacity": 32,
+            "room": 1,
+            "stage": "habituation and preference",
+            "task": "habituate to a repeated cue and retain a two-choice preference"
+          },
+          {
+            "ability": "classical conditioning, sensitization, long-term memory",
+            "capacity": 64,
+            "room": 2,
+            "stage": "conditioning and delayed memory",
+            "task": "condition a visual cue and retain it across a long delay"
+          },
+          {
+            "ability": "reversal, place learning, context",
+            "capacity": 128,
+            "room": 3,
+            "stage": "reversal, place and context",
+            "task": "reverse a cue, remember a place, and use room context"
+          },
+          {
+            "ability": "same/different, route memory, small-number discrimination",
+            "capacity": 256,
+            "room": 4,
+            "stage": "concepts, route and quantity",
+            "task": "match or mismatch visual exemplars while following a remembered route"
+          },
+          {
+            "ability": "spatial maps, latent and episodic-like memory",
+            "capacity": 512,
+            "room": 5,
+            "stage": "spatial map and episode memory",
+            "task": "use landmarks and a latent map after a delayed episode"
+          }
+        ],
+        "max_food": 15,
+        "pixels": 16,
+        "rooms": 6,
+        "scale_smoke_steps": 64,
+        "sensors": 49,
+        "sizes": [
+          302
+        ],
+        "steps": 50000,
+        "version": "organism-v7",
+        "world_families": 3,
+        "worlds_per_calibration": 1024,
+        "yolk_energy": 1.5
+      },
+      "principle_sha256": "c0ceb893ccd399329870e5903d4c32d77d30c5fd07cd7ef68a02516e85d774d8",
+      "clone_of": null
+    },
+    "axiom_metabolic_retention_budget": {
+      "line": 171,
+      "score": 0.7119140625,
+      "protocol": {
+        "batch_size": 1024,
+        "batches": 1,
+        "calibration_units": 302,
+        "description": "v6: growing learns rewarded color per visible context (last_patch feedback); selectivity criterion remains 0.80",
+        "max_food": 15,
+        "pixels": 16,
+        "rooms": 6,
+        "scale_smoke_steps": 64,
+        "sensors": 49,
+        "sizes": [
+          302
+        ],
+        "steps": 12000,
+        "version": "organism-v6",
+        "worlds_per_calibration": 1024
+      },
+      "principle_sha256": "84d5188837a8387dcea1381a3be64fdb72ca2c552d0973fbf1c33bad71b2f0e4",
+      "clone_of": null
+    }
+  },
+  "candidates": {
+    "axiom_global_capacity_covariance": {
+      "source": "candidates/axiom_global_capacity_covariance/principle.py",
+      "source_sha256": {
+        "principle.py": "dd518fcefc3f4f33051bd98e0b0abee023c5faab241dd0ada34617c712e407d1",
+        "principle_organism.py": "8eb36d49dbe868084685fd643bd8fb9e86fd56002f886b2027f21978b79e5d30"
+      },
+      "recorded_hash": "8eb36d49dbe868084685fd643bd8fb9e86fd56002f886b2027f21978b79e5d30",
+      "recorded_hash_file": "principle_organism.py",
+      "structure_302": {
+        "units": 147,
+        "connections": 147
+      },
+      "structure_100000": {
+        "units": 147,
+        "connections": 147
+      },
+      "action_rmse_302_vs_100000": 0.0,
+      "flags": {
+        "hardcoded_eye_slice": false,
+        "periodic_age_gate": false,
+        "fixed_visual_thresholds": false,
+        "manual_channel_or_context": false,
+        "sinusoidal_exploration": false,
+        "structure_reports_limit_directly": false
+      }
+    },
+    "axiom_centered_correlation": {
+      "source": "candidates/axiom_centered_correlation/principle.py",
+      "source_sha256": {
+        "principle.py": "e7fa2305bf32f14a033e0ed2ac753c6179f3f4789d1eeffa81047fee479c47aa",
+        "principle_organism.py": "65728dce0d72dc9a42b90049f780c40865868dbc10f01a0c67e599549a89ee6b"
+      },
+      "recorded_hash": "65728dce0d72dc9a42b90049f780c40865868dbc10f01a0c67e599549a89ee6b",
+      "recorded_hash_file": "principle_organism.py",
+      "structure_302": {
+        "units": 147,
+        "connections": 147
+      },
+      "structure_100000": {
+        "units": 147,
+        "connections": 147
+      },
+      "action_rmse_302_vs_100000": 0.0,
+      "flags": {
+        "hardcoded_eye_slice": false,
+        "periodic_age_gate": false,
+        "fixed_visual_thresholds": false,
+        "manual_channel_or_context": false,
+        "sinusoidal_exploration": false,
+        "structure_reports_limit_directly": false
+      }
+    },
+    "axiom_capacity_correlation_ablation": {
+      "source": "candidates/axiom_capacity_correlation_ablation/principle.py",
+      "source_sha256": {
+        "principle.py": "c9dead45e0aa8dade8dcba69da297be05799e5e06e8c97445f43ff0bd6f061a5",
+        "principle_organism.py": "549154cb2226c8664c1b6c160119ca3e403e4500d628555c7ff8bd9198e43e79"
+      },
+      "recorded_hash": "549154cb2226c8664c1b6c160119ca3e403e4500d628555c7ff8bd9198e43e79",
+      "recorded_hash_file": "principle_organism.py",
+      "structure_302": {
+        "units": 147,
+        "connections": 147
+      },
+      "structure_100000": {
+        "units": 147,
+        "connections": 147
+      },
+      "action_rmse_302_vs_100000": 0.0,
+      "flags": {
+        "hardcoded_eye_slice": false,
+        "periodic_age_gate": false,
+        "fixed_visual_thresholds": false,
+        "manual_channel_or_context": false,
+        "sinusoidal_exploration": false,
+        "structure_reports_limit_directly": false
+      }
+    },
+    "agency_sensorimotor_prediction": {
+      "source": "candidates/agency_sensorimotor_prediction/principle_organism.py",
+      "source_sha256": {
+        "principle.py": null,
+        "principle_organism.py": "c0ceb893ccd399329870e5903d4c32d77d30c5fd07cd7ef68a02516e85d774d8"
+      },
+      "recorded_hash": "c0ceb893ccd399329870e5903d4c32d77d30c5fd07cd7ef68a02516e85d774d8",
+      "recorded_hash_file": "principle_organism.py",
+      "structure_302": {
+        "units": [
+          302.0,
+          302.0,
+          302.0,
+          302.0,
+          302.0,
+          302.0,
+          302.0,
+          302.0,
+          302.0,
+          302.0,
+          302.0,
+          302.0
+        ],
+        "connections": [
+          131.27682495117188,
+          178.98243713378906,
+          132.1189727783203,
+          244.1984100341797,
+          350.0,
+          216.09669494628906,
+          350.0,
+          150.2696075439453,
+          350.0,
+          110.72785186767578,
+          350.0,
+          266.7352294921875
+        ],
+        "activity": [
+          8.239470481872559,
+          8.046819686889648,
+          9.34803581237793,
+          10.070507049560547,
+          8.59630298614502,
+          9.493661880493164,
+          9.107441902160645,
+          8.911502838134766,
+          8.86876392364502,
+          8.395462036132812,
+          8.066225051879883,
+          9.929594039916992
+        ]
+      },
+      "structure_100000": {
+        "units": [
+          100000.0,
+          100000.0,
+          100000.0,
+          100000.0,
+          100000.0,
+          100000.0,
+          100000.0,
+          100000.0,
+          100000.0,
+          100000.0,
+          100000.0,
+          100000.0
+        ],
+        "connections": [
+          37525.66796875,
+          51162.38671875,
+          37766.39453125,
+          69804.4609375,
+          100048.0,
+          61771.546875,
+          100048.0,
+          42954.78125,
+          100048.0,
+          31651.71484375,
+          100048.0,
+          76246.640625
+        ],
+        "activity": [
+          8.239470481872559,
+          8.046819686889648,
+          9.34803581237793,
+          10.070507049560547,
+          8.59630298614502,
+          9.493661880493164,
+          9.107441902160645,
+          8.911502838134766,
+          8.86876392364502,
+          8.395462036132812,
+          8.066225051879883,
+          9.929594039916992
+        ]
+      },
+      "action_rmse_302_vs_100000": 0.0,
+      "flags": {
+        "hardcoded_eye_slice": false,
+        "periodic_age_gate": false,
+        "fixed_visual_thresholds": true,
+        "manual_channel_or_context": true,
+        "sinusoidal_exploration": true,
+        "structure_reports_limit_directly": true
+      },
+      "prediction_gain_zero_action_rmse": 0.20975527167320251
+    },
+    "axiom_metabolic_retention_budget": {
+      "source": "candidates/axiom_metabolic_retention_budget/principle_organism.py",
+      "source_sha256": {
+        "principle.py": null,
+        "principle_organism.py": "84d5188837a8387dcea1381a3be64fdb72ca2c552d0973fbf1c33bad71b2f0e4"
+      },
+      "recorded_hash": "84d5188837a8387dcea1381a3be64fdb72ca2c552d0973fbf1c33bad71b2f0e4",
+      "recorded_hash_file": "principle_organism.py",
+      "structure_302": {
+        "units": 3,
+        "connections": 6,
+        "activity": 0.17273065447807312
+      },
+      "structure_100000": {
+        "units": 3,
+        "connections": 6,
+        "activity": 0.17273065447807312
+      },
+      "action_rmse_302_vs_100000": 0.0,
+      "flags": {
+        "hardcoded_eye_slice": true,
+        "periodic_age_gate": true,
+        "fixed_visual_thresholds": true,
+        "manual_channel_or_context": true,
+        "sinusoidal_exploration": true,
+        "structure_reports_limit_directly": false
+      },
+      "energy_coupling_zero_action_rmse": 0.1230342760682106
+    }
+  }
+}

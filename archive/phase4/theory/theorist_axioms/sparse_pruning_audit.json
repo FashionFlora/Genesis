@@ -1,0 +1,18 @@
+{
+  "test": "matched pruning on/off; same source and world seed",
+  "steps": 6000,
+  "batch": 8,
+  "seed": 20261024,
+  "pruning_on": {
+    "rooms_reached": 0.875,
+    "survival": 1.0,
+    "mean_energy": 0.9094620794057846,
+    "reversal_latency": 655.75
+  },
+  "pruning_off": {
+    "rooms_reached": 0.75,
+    "survival": 1.0,
+    "mean_energy": 0.9597050100564957,
+    "reversal_latency": 657.125
+  }
+}

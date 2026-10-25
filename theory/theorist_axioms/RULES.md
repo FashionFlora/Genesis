@@ -1,7 +1,5 @@
-# Reguły z wyników
-
-- `axiom_signed_ema`: 8-seed organism-v4 score 2.2910, survival 0.9082, 2.291 pokoju;
-  stały speed i podpisany ślad nie wystarczyły do utrzymania zasięgu.
-- `metabolic_gate_fixed_speed`: score 2.8408, survival 0.8887. Porównanie sugeruje
-  kompromis zasięg/przeżycie, ale zmiany śladu i retencji nie są jeszcze odizolowane.
-- W tym świecie 8 seedów mierzy różnicę; wzrost struktury nie pojawił się (3 -> 3).
+# Rules from results
+- A decaying local sensor-action trace with conserved outgoing norm raised `rooms_reached` by 0.05762 over its matched fixed-weight ablation (two seeds, 2048 worlds); its survival fell by 0.28125. Report progression and survival together: room reach alone rewards dangerous exploration.
+- The effect was measured over 12,000 steps and 2,048 worlds per candidate; no short probe of this mechanism was run, so do not infer its short-horizon behavior.
+- Centered sensor-action correlation reached rooms=0.04114 [0.03594, 0.04633] and survival=0.27319 [0.26354, 0.28284] on 8 seeds / 8192 worlds. Its matched frozen ablation did not run, so this alone teaches no causal effect; compare both metrics after a valid paired assay.
+- Energy-gated centered covariance matched its frozen control on rooms (0.01855 each) in one full v6 assay; its small survival difference (0.45801 vs 0.45605) is unresolved. Keep paired room reach and survival together and repeat before pruning the direction.

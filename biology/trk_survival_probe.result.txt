@@ -1,0 +1,16 @@
+Command: .venv/bin/python biology/trk_survival_probe.py
+N=256; target=64; seeds=100; max_rounds=200; four ring neighbors; paired seeds; separate contexts; no undershoot
+mode rounds_a rounds_b survivors_a survivors_b quality_a quality_b precision_a precision_b
+full 48.210 47.510 64.000 64.000 0.644481 0.643366 0.617031 0.625469
+no_sensitization 59.530 57.870 64.000 64.000 0.629940 0.629858 0.601875 0.609375
+no_paracrine 65.660 64.690 64.000 64.000 0.662262 0.661184 0.647656 0.644062
+no_protection 42.450 41.370 64.000 64.000 0.631738 0.631043 0.602500 0.606563
+all_off 98.560 98.780 64.000 64.000 0.654058 0.652438 0.636875 0.632188
+paired_delta_mean_context_rounds_vs_full mode mean sd
+no_sensitization 10.840 4.273
+no_paracrine 17.315 5.632
+no_protection -5.950 2.797
+all_off 50.810 11.419
+Interpretation: feedback altered elimination speed in this constructed model, but did
+not necessarily maximize endpoint quality. Each context stops at exactly 64 survivors;
+these results are a synthetic probe, not a judge result.

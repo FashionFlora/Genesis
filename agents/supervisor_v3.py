@@ -8,7 +8,7 @@ G = "/opt/dlami/nvme/genesis"
 CODEX = os.path.expanduser("~/.local/bin/codex3")
 RUN_HOURS = 10**6  # bez limitu czasu (decyzja użytkownika 2026-10-23): do wyczerpania salda, stop na FATAL
 STAGGER = 30
-COOLDOWN = {"krytyk": 300}
+COOLDOWN = {"krytyk": 2400, "biolog": 2400}  # 40 min: odkrywcy dają ~1 wynik/h (ocena v7 trwa długo), a te role przepalały budżet
 PAUSED_WHEN_FROZEN = {"krytyk", "eksperymentator"}
 MAX_CONCURRENT = 8  # nowy klucz: płatność za tokeny, bez limitu zapytań na minutę  # min. sekund między startami tur (krytyk ma krótkie tury i zjada limit 10/min)
 FLAGS = "--json --dangerously-bypass-approvals-and-sandbox --skip-git-repo-check"
@@ -191,16 +191,15 @@ def prompt(name, turn=1):
                  "bardziej nowy względem literatury i ma lepsze perspektywy skalowania. Werdykt z uzasadnieniem dopisz jako "
                  "jedną linię JSON do audit/tournament.jsonl i wyślij autorom. To uzupełnienie wyniku sędziego, nie jego zamiennik.")
     if name.startswith("odkrywca"):
-        extra += ("\nŚLEPE ULICZKI: dla kierunku, nad którym pracujesz, w HANDOFF.md trzymaj trzy linie: KIERUNEK, KRYTERIUM "
-                  "PORZUCENIA (jaka metryka, jaki próg) i BUDŻET (najwyżej 3 tury). Co turę zapisz, czy główna metryka się "
-                  "poprawiła. Po budżecie bez postępu odłóż kierunek z opisem dlaczego (hyp.py status ... parked) i weź inny. "
-                  "Sprawdź też, czy Twój test w ogóle MOŻE pokazać efekt (np. pamięć nie pokaże oszczędności, jeśli pierwsze "
-                  "nauczenie trwa 1 krok).")
+        extra += ("\nKIERUNKI: w HANDOFF.md trzymaj KIERUNEK i KRYTERIUM PORZUCENIA (jaka metryka, jaki próg). Kierunek "
+                  "odkładasz tylko wtedy, gdy pełny test sędziego (nie szybka próba na kilku organizmach) pokazał brak "
+                  "efektu w granicach CI; liczba tur nie jest powodem. Sprawdź też, czy Twój test w ogóle MOŻE pokazać "
+                  "efekt (zasada rozwoju może potrzebować długiego życia, dużego limitu n_units albo wielu pokoleń).")
     return (f"Jesteś agentem GENESIS `{name}`. Przeczytaj AGENTS.md. {role}\n\n"
             f"Twoje pliki: {own}. Twoja pamięć z poprzednich tur: {handoff} (jeśli nie istnieje, przeczytaj swoje THEORY.md, "
             f"JOURNAL.md lub raport). Potem `python3 shared/board.py read {name}`.\n{leader()}{extra}\n"
             f"Pracuj tę turę konkretnie (kilka kroków: myśl → kod → uruchom → wnioski). Na koniec nadpisz {handoff} "
-            "(najwyżej 25 linii) i zakończ turę. Następna tura zacznie się od świeżej sesji.")
+            "(najwyżej 60 linii) i zakończ turę. Następna tura zacznie się od świeżej sesji.")
 
 
 START_OFFSETS = {}  # rozmiar logów przy starcie nadzorcy: stare błędy (np. wygasły klucz) nie zatrzymują nowego startu

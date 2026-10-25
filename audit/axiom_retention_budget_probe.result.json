@@ -1,0 +1,42 @@
+{
+  "random_main_vs_control": {
+    "action_rmse": 0.19808930158615112,
+    "max_abs": 1.9999990463256836
+  },
+  "component_controls": {
+    "energy_coupling_zero_rmse": 0.19808930158615112,
+    "learning_rate_zero_rmse": 0.5218586921691895,
+    "preference_max": 0.8963294625282288,
+    "control_preference_max": 0.8949337601661682,
+    "no_coupling_preference_max": 0.8949337601661682,
+    "no_learning_preference_max": 0.0
+  },
+  "interoception": {
+    "energy_flip_rmse": 0.6093227863311768,
+    "no_energy_vs_neutral_rmse": 0.1998869776725769
+  },
+  "bright_fixed_scene": {
+    "main_vs_control_rmse": 0.0,
+    "main_bites": 448.0,
+    "control_bites": 448.0
+  },
+  "scaling": {
+    "action_rmse_302_vs_100000": 0.0,
+    "structure_302": {
+      "units": 3,
+      "connections": 6,
+      "activity": 0.21587850153446198
+    },
+    "structure_100000": {
+      "units": 3,
+      "connections": 6,
+      "activity": 0.21587850153446198
+    }
+  },
+  "source_flags": {
+    "fixed_eye_offset": true,
+    "green_parity_context": true,
+    "periodic_bite_gate": true,
+    "energy_used_for_retention_and_urgency": true
+  }
+}

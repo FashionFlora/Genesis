@@ -1,0 +1,37 @@
+{
+  "component_isolation": {
+    "main_bites": 41.0,
+    "main_final_readiness": 0.32583680748939514,
+    "no_cost_bites": 240.0,
+    "no_cost_final_readiness": 0.8000001907348633,
+    "no_coupling_bites": 41.0,
+    "no_coupling_final_readiness": 0.32583680748939514,
+    "no_recovery_bites": 1.0,
+    "no_recovery_final_readiness": 0.44999998807907104
+  },
+  "interoception": {
+    "48_sensor_final_readiness": 8.756749139138265e-07,
+    "48_sensor_vs_neutral_49_action_rmse": 0.3547230660915375,
+    "neutral_49_final_readiness": 0.5000004172325134
+  },
+  "retinal_confound": {
+    "first_4_pixels_motor_action_rmse": 0.4505865275859833,
+    "swap_used_sectors_action_rmse": 0.09655045717954636,
+    "used_pixel_action_rmse": 0.5780371427536011
+  },
+  "source_flags": {
+    "allocates_n_units": false,
+    "fixed_eye_slice": true,
+    "fixed_thresholds": [
+      ">0.04",
+      ">0.42",
+      ">0.24",
+      ">0.5"
+    ]
+  },
+  "stream": {
+    "batch": 32,
+    "seed": 12025,
+    "steps": 80
+  }
+}

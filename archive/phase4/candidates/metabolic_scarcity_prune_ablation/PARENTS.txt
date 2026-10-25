@@ -1,0 +1,3 @@
+Parent: candidates/growth_signed_trace
+Mutation: matched ablation with scarcity_prune set to zero.
+Why: isolates whether energy-dependent use-trace decay changes organism performance or structure.

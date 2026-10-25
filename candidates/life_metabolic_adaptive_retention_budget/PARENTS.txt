@@ -1,0 +1,3 @@
+Parents: candidates/life_metabolic_context/, candidates/dynamics_metabolic_retention/, and candidates/axiom_metabolic_context_budget/.
+
+Mutation/crossover: preserve color-by-eye-context memory and endogenous energy credit from life_metabolic_context; use reserve-dependent trace retention from dynamics_metabolic_retention; keep the single finite preference norm from axiom_metabolic_context_budget. New mechanism: divide each energy change by the organism's own decaying recent absolute change before writing memory, so metabolic evidence is scale-relative across bodies. No world reward, map, or external state was added.

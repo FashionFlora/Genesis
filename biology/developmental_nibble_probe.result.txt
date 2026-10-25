@@ -1,0 +1,6 @@
+{'mode': 'nibble', 'local_scaling': False, 'relative_rate_vector_error_mean': 0.059738, 'relative_rate_vector_error_sd': 0.008681, 'retained_edge_fraction_mean': 1.0, 'final_rate_mean': 0.715649}
+{'mode': 'random_partial', 'local_scaling': False, 'relative_rate_vector_error_mean': 0.053096, 'relative_rate_vector_error_sd': 0.008791, 'retained_edge_fraction_mean': 1.0, 'final_rate_mean': 0.715911}
+{'mode': 'delete', 'local_scaling': False, 'relative_rate_vector_error_mean': 0.117142, 'relative_rate_vector_error_sd': 0.008792, 'retained_edge_fraction_mean': 0.799805, 'final_rate_mean': 0.671659}
+{'mode': 'nibble', 'local_scaling': True, 'relative_rate_vector_error_mean': 0.004098, 'relative_rate_vector_error_sd': 0.002254, 'retained_edge_fraction_mean': 1.0, 'final_rate_mean': 0.752998}
+{'mode': 'random_partial', 'local_scaling': True, 'relative_rate_vector_error_mean': 0.004252, 'relative_rate_vector_error_sd': 0.002336, 'retained_edge_fraction_mean': 1.0, 'final_rate_mean': 0.752944}
+{'mode': 'delete', 'local_scaling': True, 'relative_rate_vector_error_mean': 0.004892, 'relative_rate_vector_error_sd': 0.002109, 'retained_edge_fraction_mean': 0.799805, 'final_rate_mean': 0.752853}

@@ -5,7 +5,14 @@ Oszczędzaj tokeny. nice -n 15, blokada sandbox/.gpu.lock, max 40 GB VRAM.
 Cel (od użytkownika): agenci wymyślają RODZINĘ zasady (jedna idea z otwartymi miejscami), a EWOLUCJA na GPU przeszukuje
 tysiące jej konkretnych wersji w świecie organizmów; agenci analizują wynik. Organizm w ciągu życia nadal nie dostaje
 nagrody ani gradientu: selekcja działa tylko między pokoleniami (jak prawdziwa ewolucja przed narodzinami organizmu).
-Zbuduj narzędzie `sandbox/evolve.py`:
+NAJPIERW (pilne, błąd orkiestratora): sędzia --organism liczy pełne życie KANDYDATA tylko przy n_units=302
+(calibration_units), a 1e3/1e4/1e5 to 64-krokowy smoke. Zasada "jeden rozmiar" dotyczyła tylko baseline'ów i kontroli,
+które nie używają n_units. Dla kandydatów przywróć pełny pomiar skali: opcja --sizes (np. 302,1000,10000,100000;
+domyślnie 302 i 10000 dla rozsądnego czasu), pełne życie i te same światy dla każdego rozmiaru, wynik per rozmiar
+z CI, growth per rozmiar i krzywa "pokoje vs limit n_units". `score` = wynik przy 302 (wstecznie zgodnie), osobne pole
+`scale` z wynikami per rozmiar. Ogłoś to krótko na tablicy, zanim przejdziesz do ewolucji.
+
+Potem zbuduj narzędzie `sandbox/evolve.py`:
 1. Kontrakt rodziny: candidates/<nazwa>/family.py z
    GENOME = {nazwa: (min, max)} (ciągłe) i/lub dyskretne wybory (listy opcji), oraz
    OrganismBrain(n_units, n_sensors, n_motors, batch, device, seed, genome) gdzie genome to tensor/dict o wymiarze batch:

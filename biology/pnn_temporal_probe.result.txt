@@ -1,0 +1,12 @@
+{'gate': 'sensory', 'schedule': 'regular', 'B_error': 0.420221, 'B_sd': 0.295965, 'A_recall_error': 0.406835, 'A_recall_sd': 0.286564, 'gate_B': 0.977629, 'plasticity_cost': 2.625859}
+{'gate': 'sensory', 'schedule': 'burst', 'B_error': 0.47579, 'B_sd': 0.291637, 'A_recall_error': 0.373379, 'A_recall_sd': 0.285101, 'gate_B': 0.867498, 'plasticity_cost': 2.352204}
+{'gate': 'sensory', 'paired_delta_burst_minus_regular': [0.055569, -0.033456, -0.110132, -0.273655], 'delta_95ci_half_width': [0.010337, 0.00914, 0.00027, 0.014355]}
+{'gate': 'rate', 'schedule': 'regular', 'B_error': 0.407201, 'B_sd': 0.295204, 'A_recall_error': 0.417451, 'A_recall_sd': 0.287085, 'gate_B': 1.0, 'plasticity_cost': 2.675609}
+{'gate': 'rate', 'schedule': 'burst', 'B_error': 0.407201, 'B_sd': 0.295204, 'A_recall_error': 0.417451, 'A_recall_sd': 0.287085, 'gate_B': 1.0, 'plasticity_cost': 2.675609}
+{'gate': 'rate', 'paired_delta_burst_minus_regular': [0.0, 0.0, 0.0, 0.0], 'delta_95ci_half_width': [0.0, 0.0, 0.0, 0.0]}
+{'gate': 'ablated', 'schedule': 'regular', 'B_error': 0.846496, 'B_sd': 0.120238, 'A_recall_error': 0.354302, 'A_recall_sd': 0.282111, 'gate_B': 0.109127, 'plasticity_cost': 0.944588}
+{'gate': 'ablated', 'schedule': 'burst', 'B_error': 0.849377, 'B_sd': 0.121466, 'A_recall_error': 0.320959, 'A_recall_sd': 0.281593, 'gate_B': 0.124467, 'plasticity_cost': 1.04553}
+{'gate': 'ablated', 'paired_delta_burst_minus_regular': [0.002882, -0.033342, 0.01534, 0.100942], 'delta_95ci_half_width': [0.001574, 0.003095, 0.0, 0.005504]}
+{'gate': 'always', 'schedule': 'regular', 'B_error': 0.407201, 'B_sd': 0.295204, 'A_recall_error': 0.417451, 'A_recall_sd': 0.287085, 'gate_B': 1.0, 'plasticity_cost': 2.675609}
+{'gate': 'always', 'schedule': 'burst', 'B_error': 0.407201, 'B_sd': 0.295204, 'A_recall_error': 0.417451, 'A_recall_sd': 0.287085, 'gate_B': 1.0, 'plasticity_cost': 2.675609}
+{'gate': 'always', 'paired_delta_burst_minus_regular': [0.0, 0.0, 0.0, 0.0], 'delta_95ci_half_width': [0.0, 0.0, 0.0, 0.0]}

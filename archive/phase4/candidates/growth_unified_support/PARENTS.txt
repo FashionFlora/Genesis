@@ -1,0 +1,3 @@
+Parent: candidates/growth_delayed_support
+Mutation: make decaying metabolic support the only structural state. A sensory unit exists exactly while its support exceeds the allocation threshold; removed the separate use-and-weight pruning condition and its use trace.
+Why: test whether one local persistence law can produce both growth and pruning with fewer structural rules, while retaining the parent's signed energy consequence for behavior.

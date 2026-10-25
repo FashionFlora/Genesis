@@ -1,0 +1,15 @@
+{
+  "probe": "axiom_viability_capacity_invariance",
+  "device": "cpu",
+  "seed": 42,
+  "same_initial_sensors": true,
+  "n_units": [302, 100000],
+  "initial_action_max_abs_difference": {
+    "candidate": 0.0,
+    "ablation": 0.0
+  },
+  "reported_structure_units": 147,
+  "candidate_sensor_norm_max_drift_after_32_steps": 2.9802322387695312e-08,
+  "candidate_energy_sensor_row_norm": 0.4154375493526459,
+  "interpretation": "Diagnostic only; not organism judge evidence."
+}

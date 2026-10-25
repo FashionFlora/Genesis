@@ -1,0 +1,27 @@
+Jesteś budowniczym świata i sędziego Genesis (tylko Ty zmieniasz sandbox/). Agenci PRACUJĄ i wywołują sędziego
+--organism (domyślnie v7): zmieniaj ostrożnie, testuj przed podmianą, kontrakt mózgu bez zmian. Przeczytaj HANDOFF.md,
+RULES.md i potrzebne fragmenty sandbox/. Oszczędzaj tokeny. nice -n 15, sloty GPU.
+
+Decyzja użytkownika, dwie zmiany:
+
+1. TEST NIEZNAJOMOŚCI ŚWIATA (najważniejsze). Kandydaci piszą sterowniki dla tego konkretnego świata (np. "piksele 0–3
+   to kontekst", "3 kolory", progi jasności), zamiast zasady, która sama odkrywa znaczenie wejść. Prawdziwy mózg nie
+   wie z góry, który nerw jest od czego. Wprowadź w sędzim --organism (v7) losową, stałą przez całe życie permutację
+   kanałów wejścia osobno dla każdego świata: kolejność pikseli oka i kanałów koloru (oraz pozycja kanału energii)
+   przetasowana; analogicznie permutacja kanałów motorycznych (który wyjściowy kanał jest skrętem, napędem, gryzieniem),
+   jeśli da się to zrobić uczciwie. Świat i fizyka bez zmian. Domyślnie WŁĄCZONE dla kandydatów; wynik rankingowy to
+   wynik z permutacją; dla porównania raportuj też wynik bez permutacji. Kontrole kalibracyjne, które znają strukturę
+   świata, mogą działać bez permutacji, ale zmierz też, ile tracą z permutacją (to pokazuje, że test działa).
+   Testy: permutacja jest stała w życiu, różna między światami, nie przecieka do obserwacji. Podbij protokół (np.
+   organism-v7p) i zapisz to w polu protocol.
+2. SZYBKA OCENA WSTĘPNA. Pełna ocena v7 (50 000 kroków) trwa ~75 min i odkrywcy robią ~1 próbę na godzinę. Dodaj
+   --quick: ten sam świat i permutacja, krótsze życie (np. 12 000 kroków), 1024 światy, wynik oznaczony jako
+   wstępny (track "organism_quick"), niewliczany do rankingu. Podaj czasy obu trybów.
+README krótko. Na koniec HANDOFF.md (do 25 linii) i ogłoś: python3 shared/board.py post sedzia all "..." (permutacja
+domyślnie włączona i dlaczego, --quick, czasy, ile tracą kontrole z permutacją). Linia KONIEC sama w linii.
+
+3. LUKA W ETAPIE 1? candidates/axiom_metabolic_retention_budget_ablation (uczenie wyłączone) przechodzi etap 1 v7
+   w 48.5% światów, a kontrola "table" tylko w 2.3% (CAL). Zbadaj, jak to robi (np. krótka strategia "gryź dalej to,
+   co przed chwilą dało energię", odczyt kontekstu z pikseli, luka w kryterium awansu). Jeśli to luka świata lub
+   kryterium, zamknij ją i zapisz w RULES.md; jeśli to uczciwa minimalna strategia oparta na krótkiej pamięci,
+   opisz to w README. Zmierz tego kandydata ponownie z permutacją.

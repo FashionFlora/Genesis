@@ -1,6 +1,6 @@
 # Genesis
 
-**A small society of AI agents searching for the principle from which a brain can grow.**
+**A small society of AI agents searching for the principle from which a developing organism, and its intelligence, can grow.**
 
 Most learning systems are assembled: a fixed architecture, a loss, a gradient, and a module bolted on for every missing
 ability (memory here, exploration there). Genesis asks the opposite question. Is there one law, or a few that interlock
@@ -44,92 +44,90 @@ in which every idea moves from *proposed* to *testing* to *supported* or *refute
 "island" and crosses with other islands only now and then, after an early phase in which a shared leaderboard made
 everyone converge on clones of one rule.
 
-## The main test: the organism world
+## The main test: one developing organism
 
-The organism world ([`sandbox/worlds/organism.py`](sandbox/worlds/organism.py), judge
-[`sandbox/organism_judge.py`](sandbox/organism_judge.py)) is a flat 2D world on the GPU in which thousands of organisms
-live at once.
+The organism world ([`sandbox/worlds/`](sandbox/worlds/), judge [`sandbox/organism_judge_v7.py`](sandbox/)) is a flat
+2D world on the GPU in which 1024 independent organisms live at once, one brain each.
 
-- **Body.** Position and heading; three muscles: turn, drive (forward, stop or backward) and bite.
-- **Senses.** Only a simple eye (16 directional RGB pixels covering 360°) and, optionally, the body's own energy level,
-  like hunger. The world never says what anything means and never gives a reward. Energy falls with time and movement,
-  rises when the organism eats the right thing, and at zero the organism dies.
-- **One continuous life in nested rooms.** The organism starts in a small room. A room opens onto the next only when the
-  organism has mastered it: it keeps its energy up and bites the right colour selectively after the meaning of colours
-  has flipped. Later rooms add more food patches that deplete and regrow elsewhere (so it cannot graze in one spot
-  forever), decoys, faster hunger, a looming shadow to escape and visual landmarks to remember places. Which colour is
-  food is drawn at random in every world, so no strategy can be written in advance.
-- **A skull, not a size.** `n_units` (302, as in *C. elegans*, up to 10⁵, roughly a fruit fly) is only an upper limit.
-  The judge records the brain's actual number of units and connections during life (`growth`), and whether the organism
-  gets stuck in a routine (`routine`). Both are observations only and do not change the score.
-- **Every measurement uses at least 1024 worlds**, with 95% confidence intervals. Each organism must have its own brain:
-  the judge perturbs one organism's input and checks that no other organism's output changes.
+- **Body and senses.** A simple eye of directional RGB pixels covering 360°, optionally the body's own energy level, and
+  muscles for turning, driving (forward, stop, backward) and biting. The world never says what anything means and never
+  gives a reward. Energy falls with time and movement, rises with the right food, and at zero the organism dies.
+- **One organism that develops.** Intelligence is treated as the organization of a whole organism, not a separate thing
+  inside a brain. The organism starts simple, lives on a yolk-like energy reserve while it develops, may grow its own
+  body (more eye pixels, more muscles) at an energy cost, and passes through six *stages of ability* in one continuous
+  life of 50 000 steps: finding food, association, context, place memory, concepts, maps. Animals appear only as a
+  comparative footnote ("this ability is seen in…"), never as separate tasks.
+- **Even the first stage defeats a table.** Whether a colour is food depends on a visible context (the wall pattern),
+  drawn at random in every world, so a fixed value per colour (the Rescorla–Wagner rule) is useless by construction.
+- **A skull, not a size.** `n_units` is only an upper limit. The judge records the actual size of brain and body during
+  life (`growth`) and whether the organism falls into a routine (`routine`); both are observations, not scores.
 
-### Calibration: does the test measure learning at all?
+### Calibration
 
-A test that cannot register learning would make every principle look like a failure. So the world is calibrated in
-both directions, borrowing a practice from automated wet labs: negative controls that must fail, and a positive control
-that must pass. The positive control is the only thing allowed a reward signal (energy gain) and is never ranked.
-Fraction of 1024 worlds reaching each room (organism-v3):
+Negative controls must fail and a positive control must pass, or the test is not measuring learning. Only the positive
+controls are given a reward signal, and they are never ranked. Fraction of 1024 worlds reaching each stage (v7):
 
-| Room reached | 2 | 3 | 4 | 5 | 6 |
+| Stage reached | 2 | 3 | 4 | 5 | 6 |
 |---|---:|---:|---:|---:|---:|
 | Random movement | 0% | 0% | 0% | 0% | 0% |
-| Hard-wired reflex ("go to colour") | 1.7% | 1.2% | 0.6% | 0% | 0% |
-| Simple online delta rule | 8.1% | 5.9% | 2.2% | 0.9% | 0% |
-| **Positive control** (learner with reward) | **76.8%** | 69.6% | 61.8% | 29.1% | 3.4% |
+| Hard-wired reflex | 0.5% | 0.2% | 0% | 0% | 0% |
+| Fixed value per colour, with reward | 2.3% | 0.6% | 0% | 0% | 0% |
+| **Growing memory (colour × context, places), with reward** | **93.1%** | 86.4% | 67.8% | 5.9% | 1.5% |
 
-Getting here took far longer than writing the world. The calibration caught real bugs: depleted food that was still
-visible to the eye, so a colour reflex passed by luck; a colour flip in one world that reset the flip clock in all of them;
-a reward hook any candidate could have used. It also caught a mistake in the calibration itself: PPO, the first positive
-control, needs hundreds of thousands of steps and lost to random movement within a single 6000-step life.
+## Results so far (25 October 2026)
 
-## Current results (phase 4, 24 October 2026)
+| Candidate | Author | Stage score (v7) | Without its learning |
+|---|---|---:|---:|
+| `dynamics_metabolic_retention` | discoverer · dynamics | 0.80 | similar parent |
+| `axiom_metabolic_retention_budget` | discoverer · axioms | 0.79 | **0.79** |
+| `life_metabolic_fixed_scale_budget` | discoverer · life | 0.38 | — |
+| `life_metabolic_adaptive_retention_budget` | discoverer · life | 0.29 | 0.08 |
+| `dynamics_volatility_budget` | discoverer · dynamics | 0.27 | 0.08 (unmatched) |
 
-Mean number of rooms reached (higher is better; organism-v4):
+What this says, honestly:
 
-| Candidate | Author | Score | What it is |
-|---|---|---:|---|
-| `axiom_causal_homeostasis` | discoverer · axioms (replicated by the experimenter) | 2.85 | the energy change after an action reinforces or weakens the trace of what was seen |
-| `metabolic_gate_fixed_speed` | discoverer · life | 2.84 | the body's energy gates how strongly a sensory trace is retained |
-| `action_consequence` | discoverer · agency | 2.65 | energetic consequences strengthen stimulus–action pairs |
-| positive control (with reward) | calibration | 2.41 | |
+- **The top scores do not come from learning.** The leading candidate scores the same with its learning switched off.
+  Most candidates are hand-written controllers for this particular world ("pixels 0–3 are the context", "three colours",
+  brightness thresholds) with a small learning rule attached. That is why the brain size limit changes nothing: identical
+  behaviour at 302 and at 100 000 units.
+- **Where learning does help, it is one family of ideas:** an energy change after an action writes a trace of what was
+  seen and done, and the body's reserve decides how long the trace lasts. This is close to known three-factor learning
+  rules (an eligibility trace gated by a neuromodulator-like signal).
+- **Nothing reaches stages 5–6**, and no brain grows. In the earlier world (v4), several candidates went further than a
+  reward-trained control, but they turned out to be the Rescorla–Wagner rule rediscovered: one value per colour.
 
-Several principles without any reward from the world now go further than the reward-trained control. Ablations say why:
-removing the energy gate on the sensory trace drops `metabolic_gate` from 2.84 to 2.03; removing the action trace drops
-`action_consequence` from 2.69 to 2.27. An energy-to-speed coupling that the critic flagged as a written-in policy turned
-out to be *harmful*: taking it out raised the score from 2.40 to 2.84.
+## What we learned about doing this
 
-**The honest caveat:** every leading candidate keeps exactly **3 units from birth to death**. The `growth` measurement
-shows that none of them grows or prunes. They are good learning rules in a small table, not architectures that shape
-themselves, because the current rooms can be solved with one value per colour. That is a flaw of the world, not only of
-the agents.
+- **Building a world that measures the right thing is the hard part.** Writing the world took an hour; making it honest
+  took two days. Calibration in both directions caught invisible-but-depleted food, a colour flip that reset every world,
+  a reward hook any candidate could use, one shared brain for all organisms, and a positive control (PPO) too sample-hungry
+  for a single life.
+- **Agents optimise the world, not the goal.** Whatever the world allows, they find: a value table, a pixel decoder, a
+  silent switch to the CPU to skip the GPU queue. Every fix moved the problem rather than removing it.
+- **Speed matters as much as ideas.** A full evaluation takes over an hour, so a discoverer tests about ten ideas a night.
+  Successful automated discovery of learning rules in the literature searched thousands to millions of variants.
 
-## In progress
+## Next
 
-- **Ability to reverse and stop** (organism-v4), with recalibration.
-- **Evolution under the agents.** The agents reason well but search slowly: every successful attempt in the literature to
-  discover learning rules automatically (evolved Hebbian rules, meta-learned plasticity, discovered RL algorithms)
-  searched thousands to millions of variants. An agent will write a principle as a *family* with open parts, and
-  [`sandbox/evolve.py`](sandbox/) will search thousands of its versions on the GPU. The world batch is the population,
-  selection acts only between generations, never within a life, and the evolved version must still pass the normal
-  judge.
-- **Rooms a small table cannot pass:** many object kinds with new ones appearing during life, meanings that depend on
-  context, and food out of sight that must be found again from memory. They come with a negative control (a fixed
-  value-per-colour table must fail them) and a positive control (a learner whose memory grows must pass them).
+- **A test that the candidate does not know the world:** sensor and motor channels shuffled at random in every world,
+  so a controller that hard-codes "pixels 0–3 are the context" falls apart, while a principle that discovers what its
+  inputs mean does not. A real brain does not know in advance which nerve does what.
+- **A quick evaluation mode** and evolution under the agents: a discoverer writes a *family* of principles with open
+  parts, and [`sandbox/evolve.py`](sandbox/) searches thousands of its versions on the GPU, selecting only between
+  generations, never within a life.
 
 ## History
 
 | Phase | What happened | Record |
 |---|---|---|
 | 1 (22–23 Oct) | Sensory streams, Snake, Crafter ladder. Prediction alone does not yield wanting (40 of 40 paired worlds); most local rules collapsed into a Hebbian covariance rule; three attempts to game the judge were caught. | [`archive/phase1/`](archive/phase1/) |
-| 2 (23 Oct) | Clean start with no memory of phase 1, still on streams; stopped after 20 minutes to build a better world. | [`archive/phase2/`](archive/phase2/) |
-| 3 (23 Oct) | First organism world (v2); stopped after an hour when calibration showed that even the reward-trained control could barely pass the first room. | [`archive/phase3/`](archive/phase3/) |
-| 4 (24 Oct–) | Calibrated organism world (v3/v4), current results above. | this repository's root |
+| 2 (23 Oct) | Clean start on streams; stopped after 20 minutes to build a better world. | [`archive/phase2/`](archive/phase2/) |
+| 3 (23 Oct) | First organism world (v2); stopped when even the reward-trained control barely passed the first room. | [`archive/phase3/`](archive/phase3/) |
+| 4 (24 Oct) | Calibrated organism world (v3/v4). Reward-free rules beat the reward-trained control, but all were one value per colour. | [`archive/phase4/`](archive/phase4/) |
+| 5 (24–25 Oct) | Worlds v6/v7: context from the first room, one developing organism with stages of ability, body growth, yolk. | this repository's root |
 
-A separate *archaeologist* agent started re-testing every distinct phase-1 mechanism at large scale on the GPU, to ask
-whether anything was discarded only because the worlds were too small. Its first and so far only measured mechanism did
-not improve with scale; the rest is unfinished ([`archive/archeology/`](archive/archeology/)).
+A separate *archaeologist* agent began re-testing phase-1 mechanisms at large scale; its only measured mechanism did not
+improve with scale ([`archive/archeology/`](archive/archeology/)).
 
 ## Repository map
 

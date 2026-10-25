@@ -1,0 +1,35 @@
+{
+  "candidate": "growth_local_eligibility",
+  "device": "cpu",
+  "measurement": "persistent tensor storage at initialization",
+  "sizes": [
+    {
+      "n_units": 302,
+      "batch": 1024,
+      "per_organism_state_bytes": 392,
+      "shared_tensor_bytes": 64,
+      "persistent_tensor_bytes": 401472
+    },
+    {
+      "n_units": 1000,
+      "batch": 1024,
+      "per_organism_state_bytes": 392,
+      "shared_tensor_bytes": 64,
+      "persistent_tensor_bytes": 401472
+    },
+    {
+      "n_units": 10000,
+      "batch": 1024,
+      "per_organism_state_bytes": 392,
+      "shared_tensor_bytes": 64,
+      "persistent_tensor_bytes": 401472
+    },
+    {
+      "n_units": 100000,
+      "batch": 1024,
+      "per_organism_state_bytes": 392,
+      "shared_tensor_bytes": 64,
+      "persistent_tensor_bytes": 401472
+    }
+  ]
+}

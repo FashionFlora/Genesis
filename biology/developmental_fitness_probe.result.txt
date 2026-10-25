@@ -1,0 +1,5 @@
+mode score_base score_shift high_precision_base high_precision_shift survivor_overlap; 100 seeds
+random 0.524701 0.530493 0.490312 0.500938 0.250625
+scrambled 0.537562 0.525367 0.513437 0.491719 0.240313
+absolute 0.776801 0.566779 0.988906 0.558281 0.282813
+relative 0.745474 0.745363 0.894687 0.895156 0.430781

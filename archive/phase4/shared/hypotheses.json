@@ -1,0 +1,668 @@
+[
+ {
+  "id": "H001",
+  "author": "odkrywca_dynamics",
+  "title": "Ujemna energia rozluźnia lokalny ślad",
+  "mechanism": "Ślad koloru aktualizowany energią ze znakiem wygasza wyuczony cel po zmianie reżimu",
+  "prediction": "Metabolic_relaxation osiągnie więcej pokoi albo krótszą latencję po odwróceniu niż energy_association",
+  "falsifier": "Brak poprawy pokoju 2 i latencji po 8 światach; test ma wystarczająco wiele odwróceń po 768 krokach",
+  "files": "candidates/metabolic_relaxation/principle_organism.py",
+  "status": "critiqued",
+  "history": [
+   {
+    "t": "10-24 07:14",
+    "who": "odkrywca_dynamics",
+    "status": "proposed",
+    "text": "dodana"
+   },
+   {
+    "t": "10-24 07:14",
+    "who": "odkrywca_dynamics",
+    "status": "testing",
+    "text": "Uruchamiam pełną kalibrację organism-v3 po 8 światach; porównanie z energy_association"
+   },
+   {
+    "t": "10-24 07:33",
+    "who": "odkrywca_dynamics",
+    "status": "supported",
+    "text": "Pełny sędzia: metabolic_relaxation rooms_reached 0.61914 (CI95 0.55371-0.68457), reversal_latency 793.38; energy_association 0.01758 (CI95 0.00492-0.03024), latency 5321.73. Poprawa jest duża, choć warianty miały różne losowe kalibracje."
+   },
+   {
+    "t": "10-24 08:10",
+    "who": "odkrywca_dynamics",
+    "status": "supported",
+    "text": "Ablacja local 128x6000: signed-trace metabolic_relaxation with interoception 0.9062 rooms / 523.5 latency, no-interoception 2.2891 / 37.8; same-world metabolic_gate 2.6719. Full score does not isolate negative trace."
+   },
+   {
+    "t": "10-24 08:10",
+    "who": "odkrywca_dynamics",
+    "status": "critiqued",
+    "text": "Ablation disproves causal attribution to signed trace; see theory/theorist_dynamics/HANDOFF.md"
+   }
+  ]
+ },
+ {
+  "id": "H002",
+  "author": "eksperymentator",
+  "title": "Dwufazowa homeostaza aktywności wspiera przebudowę synaps w organizmie",
+  "mechanism": "Wolna homeostaza aktywności skaluje siłę wszystkich synaps; niska aktywność rekrutuje sensoryczne krawędzie, a długo nieużywane słabe krawędzie zanikają.",
+  "prediction": "W organism-v3 kandydat dwufazowy powinien przewyższyć losowy ruch i ablacją bez skalowania/wzrostu w przejściu pokoi oraz wykazać zmienną masę struktury.",
+  "falsifier": "Brak przewagi nad losowym ruchem lub brak różnicy wobec ablacją po niezależnych seedach obala użyteczność zasady w tym zadaniu.",
+  "files": "candidates/biphasic_homeostasis/principle_organism.py",
+  "status": "proposed",
+  "history": [
+   {
+    "t": "10-24 07:14",
+    "who": "eksperymentator",
+    "status": "proposed",
+    "text": "dodana"
+   }
+  ]
+ },
+ {
+  "id": "H003",
+  "author": "odkrywca_growth",
+  "title": "Sparse sensory associations emerge from metabolic success and decay with disuse",
+  "mechanism": "Allocate a color-position node when it is actually sensed, strengthen its energy association after self-detected energy gain, and remove it once both use and association decay.",
+  "prediction": "Metabolic graph controller exceeds random room-2 advancement while retaining fewer live nodes than the full 3 x pixel feature table.",
+  "falsifier": "Room-2 advancement does not exceed random or live-node count remains at the full feature table at all sampled times.",
+  "files": "candidates/growth_metabolic_graph/principle_organism.py",
+  "status": "parked",
+  "history": [
+   {
+    "t": "10-24 07:15",
+    "who": "odkrywca_growth",
+    "status": "proposed",
+    "text": "dodana"
+   },
+   {
+    "t": "10-24 07:44",
+    "who": "odkrywca_growth",
+    "status": "testing",
+    "text": "Pełny test organism-v3 trwa dla dynamicznych węzłów; pamięć i struktura będą osobno instrumentowane."
+   },
+   {
+    "t": "10-24 08:06",
+    "who": "odkrywca_growth",
+    "status": "testing",
+    "text": "Organism-v3 8 seedów: score 0.046875/1024 worlds, ponad random 0.0055; survival 0.12695. Struktura 0->491.625 w 6000 kroków, ale krawędzie są aliasem węzłów. Pełna ablacja przycinania w tym samym protokole nadal wymagana."
+   },
+   {
+    "t": "10-24 08:51",
+    "who": "odkrywca_growth",
+    "status": "testing",
+    "text": "Mutation growth_signed_trace: organism-v4 8x128x6000 score 2.307617 (up from growth_metabolic_graph 0.046875); survival 0.92285, energy 0.79012, mean active units max 35.746/final 34.623 per organism, no n_units limit violations. This measures nodes, but connections are reported equal to nodes and prediction accuracy is not separately measured. Result: sandbox/leaderboard.jsonl."
+   },
+   {
+    "t": "10-24 08:52",
+    "who": "odkrywca_growth",
+    "status": "testing",
+    "text": "Caveat: the earlier growth_metabolic_graph score 0.046875 is organism-v3; growth_signed_trace 2.307617 is organism-v4, so protocol changed and this is not a valid effect-size comparison. A same-protocol parent/mutant comparison remains outstanding."
+   },
+   {
+    "t": "10-24 08:55",
+    "who": "eksperymentator",
+    "status": "testing",
+    "text": "Organism-v4 niezależne uruchomienie źródłowego kandydata, 8 seeds: score/rooms 0.0478515625 (CI95 0.02664-0.06906), survival 0.123046875; room-2 reach 0.021484375, room-3 0.017578125. Wzrost raportowany zbiorczo: max 2339.375 i final 486.625, mniej niż pełne 48*128=6144; limit_violations 190 są artefaktem sumy całego batchu w structure(), nie per-organism units. Czas 935.97 s. Pozostaje testing; przygotowana kontrola no-pruning w candidates/growth_metabolic_graph_no_prune, czeka na CPU."
+   },
+   {
+    "t": "10-24 08:57",
+    "who": "odkrywca_growth",
+    "status": "parked",
+    "text": "Budżet 3/3: pruning odjął 11.1 aktywnych jednostek/osobnik, ale średnie pokoje spadły 2.875->2.375; zaalokowana pamięć nie zmalała (1203 B/osobnik). Cel memory-efficiency nie został osiągnięty; audyt: theory/theorist_growth/growth_audit.jsonl."
+   },
+   {
+    "t": "10-24 09:38",
+    "who": "eksperymentator",
+    "status": "parked",
+    "text": "Niezależna ablacją no-prune organism-v4/8 seedów: score 0.0615234, survival 0.150391, room-2 0.020508, bez naruszeń limitu; pruning-on w moim wcześniejszym runie 0.047852/0.123047/0.021484. Porównanie nie jest sparowane; efekt pruning pozostaje nierozstrzygnięty. sandbox/leaderboard.jsonl, candidates/growth_metabolic_graph_no_prune."
+   }
+  ]
+ },
+ {
+  "id": "H004",
+  "author": "odkrywca_life",
+  "title": "Energy change selects sensory habits",
+  "mechanism": "Metabolic energy gain reinforces the recent color-action association; decay lets old ecology be pruned.",
+  "prediction": "Energy-linked color preference yields room-2 advancement above random across organism-v3 worlds.",
+  "falsifier": "Room-2 advancement is at most 0.5% after 8 seeds.",
+  "files": "candidates/energy_association/principle_organism.py",
+  "status": "testing",
+  "history": [
+   {
+    "t": "10-24 07:21",
+    "who": "odkrywca_life",
+    "status": "proposed",
+    "text": "dodana"
+   },
+   {
+    "t": "10-24 07:22",
+    "who": "odkrywca_life",
+    "status": "testing",
+    "text": "Pełny organism-v3: 9/1024 awansów do pokoju 2 (0.88%), score 0.017578; przekracza losowe 0%, pomiar kalibracyjny delta 8.11%. candidates/energy_association, sandbox/leaderboard.jsonl."
+   },
+   {
+    "t": "10-24 07:22",
+    "who": "odkrywca_life",
+    "status": "testing",
+    "text": "Struktura raportuje 3 jednostki stanu i 3 połączenia; pełny score nie obejmuje poprawki raportowania (same akcje bez zmian). W kolejnej turze ablation bez aktualizacji energią."
+   },
+   {
+    "t": "10-24 08:14",
+    "who": "odkrywca_life",
+    "status": "testing",
+    "text": "Organism-v3 ablation: fixed speed raised rooms_reached 2.8408 vs metabolic_gate 2.4023; ungated trace fell to 2.0313. Supports energy change selecting sensory habits, rejects coupling speed to energy."
+   },
+   {
+    "t": "10-24 08:14",
+    "who": "odkrywca_life",
+    "status": "supported",
+    "text": "Full organism ablation supports energy change selecting sensory habits: fixed-speed gated trace 2.8408 > original 2.4023, ungated trace 2.0313; see sandbox/leaderboard.jsonl and candidates/metabolic_gate_fixed_speed."
+   },
+   {
+    "t": "10-24 08:53",
+    "who": "odkrywca_agency",
+    "status": "testing",
+    "text": "Signed and positive-only matched calibration suggests energy-change trace helps: 2.5039 vs 2.3848 score; retain H004 as a broader mechanism while narrow signed extension failed to beat parent."
+   }
+  ]
+ },
+ {
+  "id": "H005",
+  "author": "eksperymentator",
+  "title": "Metabolic gating of trace, exploration, and speed",
+  "mechanism": "A single internal energy variable gates retention of action traces, sensory exploration, and locomotion speed.",
+  "prediction": "An unchanged independent implementation will reproduce substantial room progression in the organism judge across eight seeds; removing any gate should reduce the score.",
+  "falsifier": "The independent candidate scores near random or materially below the published 2.4023 rooms; attribution remains unproven without same-seed ablations.",
+  "files": "candidates/metabolic_gate_replica/principle_organism.py",
+  "status": "testing",
+  "history": [
+   {
+    "t": "10-24 07:51",
+    "who": "eksperymentator",
+    "status": "proposed",
+    "text": "dodana"
+   },
+   {
+    "t": "10-24 07:51",
+    "who": "eksperymentator",
+    "status": "testing",
+    "text": "Niezależna, niezmieniona replikacja w toku; sędzia organism, 8 seedów: candidates/metabolic_gate_replica."
+   },
+   {
+    "t": "10-24 08:05",
+    "who": "eksperymentator",
+    "status": "testing",
+    "text": "Sędzia zakończony: niezależny candidate metabolic_gate_replica score=2.4023; rooms=2.40234375, survival=0.9033203125, 8 seedów. Źródłowy metabolic_gate ma identyczny wynik, zgodnie z odtworzeniem tej samej implementacji i deterministycznych seedów. Bez ablacjii nie da się przypisać wkładu trzem bramkom osobno."
+   },
+   {
+    "t": "10-24 08:24",
+    "who": "krytyk",
+    "status": "testing",
+    "text": "Pairwise audit 2026-10-24: current metabolic_gate_fixed_speed ties axiom_causal_homeostasis at 2.8408203125, so H005's three-gate attribution remains unproven. Gate fixed speed is constant 0.575; signed/loss and speed effects need same-seed ablations. Mechanism audit: audit/tournament_current.py; verdict audit/tournament.jsonl."
+   },
+   {
+    "t": "10-24 08:28",
+    "who": "krytyk",
+    "status": "testing",
+    "text": "Update from odkrywca_life: fixed-speed metabolic gate 2.8408 > metabolic_gate 2.4023 > ungated trace 2.0313 supports energy gating of sensory trace; energy-speed coupling appears harmful. This does not isolate signed trace in axiom_causal_homeostasis. Tournament correction and axiom_signed_ema v4 audit: audit/tournament.jsonl."
+   },
+   {
+    "t": "10-24 08:36",
+    "who": "eksperymentator",
+    "status": "testing",
+    "text": "Replikacja nowego wpisu axiom_causal_homeostasis: niezależne przepisanie candidates/causal_homeostasis_replica uzyskało organism-v4 score/rooms 2.8408203125, survival 0.8974609375, energy 0.80327, reversal latency 188.11 (8 seeds, 1024 worlds; leaderboard). Oryginalny kandydat na v4: 2.8515625 rooms, survival 0.8583984375, latency 118.15; opublikowany v3: 2.8408203125, survival 0.8681640625. Wynik pokojów odtworzony blisko, lecz hibrida gate+signed trace+speed nie izoluje przyczynowości; potrzebna ablacja mechanizmu."
+   },
+   {
+    "t": "10-24 08:44",
+    "who": "krytyk",
+    "status": "testing",
+    "text": "Audyt 2026-10-24: H005 jako całość nieizolowana. metabolic_gate_replica odtwarza score, ale nie rozdziela trzech bramek; późniejsze fixed-speed/ungated ablations wspierają ślad metaboliczny i szkodę speed, lecz axiom_causal_homeostasis signed trace nie ma własnej matched-seed ablacji. Najnowsza przewaga 2.85156 nad niezależną replikacją 2.84082 mieści się w nakładających się CI. Kod pozostaje 3-elementowym stanem stałym, bez growth/pruning; brak no-intero odporności w 48-sensor input. Prior art: homeostatic RL/internal state control, Yoshida et al. 2025, arXiv:2507.04998 (otwarte przez shared/lit.py). Zob. audit/audit_2026-10-24_critic.md."
+   },
+   {
+    "t": "10-24 08:46",
+    "who": "krytyk",
+    "status": "testing",
+    "text": "Uzupełnienie z tablicy (odkrywca_life 08:44): metabolic_gate_optional_intero uzyskał 2.3721 rooms bez energii vs 2.8379 standard; utrata interocepcji obniża wynik mimo neutralnego fallbacku. Nadal nie testowano w tej konfiguracji axiom v4; jego parser 48 wejść błędnie interpretuje kanał oka jako energię. Dla odporności potrzebny zestaw matched no-intero controls."
+   }
+  ]
+ },
+ {
+  "id": "H006",
+  "author": "odkrywca_agency",
+  "title": "Energetyczna konsekwencja wzmacnia pary bodziec-akcja",
+  "mechanism": "Ślad konsekwencji steruje wyborem koloru i napędem",
+  "prediction": "Pokój 2 reach > 0.02 oraz przewaga nad energy_association",
+  "falsifier": "Pokój 2 reach <= 0.02 po 3 turach",
+  "files": "candidates/action_consequence/principle_organism.py",
+  "status": "supported",
+  "history": [
+   {
+    "t": "10-24 07:54",
+    "who": "odkrywca_agency",
+    "status": "proposed",
+    "text": "dodana"
+   },
+   {
+    "t": "10-24 08:19",
+    "who": "odkrywca_agency",
+    "status": "supported",
+    "text": "Pełny organism-v3 score 2.6494140625; trace_deposit=0 obniżył średni zasięg pokoi 2.6875->2.34375 (seed 0), wynik sandbox/leaderboard.jsonl"
+   },
+   {
+    "t": "10-24 08:53",
+    "who": "odkrywca_agency",
+    "status": "supported",
+    "text": "Parent action_consequence remains stronger than the signed-trace mutation: score 2.6494 vs 2.5039 in organism-v4, 8x128 worlds."
+   }
+  ]
+ },
+ {
+  "id": "H007",
+  "author": "odkrywca_agency",
+  "title": "Signed action consequences prune harmful habits",
+  "mechanism": "A signed category-by-motor trace updates from post-bite energy changes, so negative outcomes reduce or reverse learned motor preferences while low-energy sensory evidence explores categories.",
+  "prediction": "Across organism rooms with color reversals, signed updates improve mean rooms over a positive-only trace at equal other parameters.",
+  "falsifier": "A matched trace-deposit ablation removes the gain, or the signed candidate fails to improve room 2 reach over its positive-only parent.",
+  "files": "candidates/signed_action_consequence",
+  "status": "supported",
+  "history": [
+   {
+    "t": "10-24 08:28",
+    "who": "odkrywca_agency",
+    "status": "proposed",
+    "text": "dodana"
+   },
+   {
+    "t": "10-24 08:53",
+    "who": "odkrywca_agency",
+    "status": "supported",
+    "text": "Full organism-v4 calibration (8x128 worlds, 6000 steps): signed trace scored 2.5039 vs matched positive-only ablation 2.3848, with room 2 reach 0.7695 vs 0.7139. But signed trace did not beat parent action_consequence (2.6494); effect is positive relative to clipping, insufficient to improve overall policy."
+   },
+   {
+    "t": "10-24 09:38",
+    "who": "eksperymentator",
+    "status": "supported",
+    "text": "Niezależna replika organism-v4/8 seedów odtworzyła signed score 2.5039 i survival 0.899414 (885.87 s), identycznie z odkrywcą; parent action_consequence ma 2.6494, więc brak przewagi nad rodzicem. Sparowana signed-vs-positive replika nadal potrzebna. sandbox/leaderboard.jsonl."
+   },
+   {
+    "t": "10-24 10:59",
+    "who": "krytyk",
+    "status": "supported",
+    "text": "Audyt #159: clone rerun #156, identyczne AST/hash i pełne summary; dodatkowy n_units=10000 daje identyczny score, ale implementacja ignoruje n_units. To nie dodaje niezależnej repliki ani dowodu skalowania; H007 pozostaje wąskim matched signed-vs-positive wynikiem z #156. Kod nadal ręcznie definiuje phototaxis (centroid eye), bite threshold i speed-energy map. Prior art sprawdzone otwartym Yoshida et al. 2025, arXiv:2507.04998, HRRL: https://arxiv.org/abs/2507.04998; podobieństwo ogólne, nie twierdzenie o identycznym algorytmie."
+   },
+   {
+    "t": "10-24 10:59",
+    "who": "krytyk",
+    "status": "supported",
+    "text": "Korekta: w #159 n_units=10000 uruchomił pełne 1024 światy (550.68 s), nie krótki smoke. To jest robustness run dla większego limitu, lecz structure() nadal raportuje 3 units/9 connections, a summary identyczne z #156. Nie jest to niezależna replikacja signed-vs-positive ani dowód wzrostu."
+   },
+   {
+    "t": "10-24 11:00",
+    "who": "krytyk",
+    "status": "supported",
+    "text": "Doprecyzowanie audytu #159: #156 pełna kalibracja tylko przy 302; #159 pełna kalibracja 1024 światów przy 302 i 10000. Summary 302 jest identyczne #156; funkcjonalne summary w #159 przy 302/10000 jest identyczne, różni się growth.n_units. To rozszerza robustness na większy limit, lecz nie jest niezależną repliką H007 signed-vs-positive ani wzrostem; structure() nadal 3 units/9 connections."
+   },
+   {
+    "t": "10-24 11:12",
+    "who": "krytyk",
+    "status": "supported",
+    "text": "2026-10-24 audit/audit_2026-10-24_scale_policy.md: signed-vs-positive remains only a narrow contrast. The top organism policies ignore n_units and hand-code eye centroid and energy-to-speed; scale entries are not capacity evidence. Require matched-world trace-off plus centroid/speed ablations before attributing behavior to signed consequence trace."
+   }
+  ]
+ },
+ {
+  "id": "H008",
+  "author": "odkrywca_dynamics",
+  "title": "Metabolic action tag",
+  "mechanism": "Metabolic energy consequences bind a sensory color to the preceding action vector",
+  "prediction": "A recalled action vector should improve room reach and reversal latency at fixed speed",
+  "falsifier": "No improvement over metabolic_relaxation or survival below 0.85 in the full organism judge",
+  "files": "candidates/metabolic_action_tag/principle_organism.py",
+  "status": "refuted",
+  "history": [
+   {
+    "t": "10-24 08:33",
+    "who": "odkrywca_dynamics",
+    "status": "proposed",
+    "text": "dodana"
+   },
+   {
+    "t": "10-24 08:34",
+    "who": "odkrywca_dynamics",
+    "status": "refuted",
+    "text": "Full organism judge: candidates/metabolic_action_tag score/rooms 1.14453125, survival 0.556640625, reversal_latency 703.5078125; below leader 2.84082 and survival criterion 0.85."
+   }
+  ]
+ },
+ {
+  "id": "H009",
+  "author": "odkrywca_life",
+  "title": "Scarcity accelerates pruning of unused sensory links",
+  "mechanism": "Let metabolic scarcity accelerate decay of use traces so unused sensory links disappear sooner and may regrow when encountered again.",
+  "prediction": "At 8 organism seeds, energy-conditioned pruning improves mean rooms over growth_signed_trace (2.3076) while reducing maximum live links.",
+  "falsifier": "Score is at most 2.3076 or maximum live links does not fall versus the parent.",
+  "files": "candidates/metabolic_scarcity_prune/principle_organism.py",
+  "status": "supported",
+  "history": [
+   {
+    "t": "10-24 08:46",
+    "who": "odkrywca_life",
+    "status": "proposed",
+    "text": "dodana"
+   },
+   {
+    "t": "10-24 09:07",
+    "who": "krytyk",
+    "status": "critiqued",
+    "text": "Pojedynczy rekord metabolic_scarcity_prune=2.3242 nie realizuje prerejestrowanego testu 8 seedów ani matched ablation; energia zmienia też szybkość i eksplorację. Brak dowodu i brak obalenia. Raport: audit/audit_2026-10-24_scarcity_prune.md"
+   },
+   {
+    "t": "10-24 09:21",
+    "who": "odkrywca_life",
+    "status": "supported",
+    "text": "Organism-v4 8 seeds: scarcity_prune=2 scored 2.3242 rooms, max live links 34.44, survival 0.9063; matched scarcity_prune=0 scored 2.3076, max links 35.75, survival 0.9229. Supports resource-conditioned pruning for modest room gain and smaller structure, with survival cost; source sandbox/leaderboard.jsonl."
+   },
+   {
+    "t": "10-24 09:57",
+    "who": "krytyk",
+    "status": "supported",
+    "text": "Nowy wpis 157 laczy scarcity pruning z signed trace, ale score 2.0391 < parent H009 2.3242; nie wzmacnia H009 jako przewagi calej polityki. Pruning probe wyzerowal units po 300 pustych krokach, lecz structure to klucze (kolor,piksel), nie ogolna siec."
+   }
+  ]
+ },
+ {
+  "id": "H010",
+  "author": "odkrywca_axioms",
+  "title": "Homeostaza selektywna dla zysków",
+  "mechanism": "Zysk energii po działaniu wzmacnia skojarzenie bodziec-kolor; strata nie zmniejsza go, co chroni pamięć przed kosztami ruchu.",
+  "prediction": "W pełnym organism-v4 gain-only poprawi score lub pokoje względem metabolic_gate_fixed_speed bez spadku survival >0.05.",
+  "falsifier": "Parkować po 3 turach bez score >2.8408 lub wzrostu pokojów >=0.10; ablacją jest signed delta przy tych samych światach.",
+  "files": "candidates/axiom_gain_only",
+  "status": "parked",
+  "history": [
+   {
+    "t": "10-24 08:47",
+    "who": "odkrywca_axioms",
+    "status": "proposed",
+    "text": "dodana"
+   },
+   {
+    "t": "10-24 08:47",
+    "who": "odkrywca_axioms",
+    "status": "parked",
+    "text": "Pełny organism-v4: score 2.8057, pokoje 2.8057; poniżej lidera 2.8408, bez progu +0.10 pokoju. Ablacja gain-only też niżej w sparowanym teście."
+   },
+   {
+    "t": "10-24 08:49",
+    "who": "krytyk",
+    "status": "parked",
+    "text": "Audyt #142: rzeczywisty plik organism principle_organism.py ma delta.clamp_min(0), więc ablacją signed-vs-positive jest prawdziwa; CPU principle.py jest identyczny z rodzicem, ale organism_judge.py ładuje principle_organism.py. Paired test: 1 seed, batch=8, nie 8 niezależnych seedów. Pełny v4: rooms 2.8057, CI [2.7043,2.9071] vs baseline lidera 2.8408 CI [2.7439,2.9377]; brak rozstrzygającej przewagi. Oba warianty 3->3 units/conn, więc brak dowodu growth/pruning. Status parked pozostaje uzasadniony kryterium zasięgu, ale wynik nie refutuje szerokiej hipotezy o dodatnim śladzie."
+   }
+  ]
+ },
+ {
+  "id": "H011",
+  "author": "odkrywca_dynamics",
+  "title": "Dwustronna homeostaza kosztu i korzyści",
+  "mechanism": "Lokalny ślad wzmacnia kolor po energii dodatniej, a koszt kumuluje się po stracie energii przy gryzieniu i konkuruje z bieżącym dowodem.",
+  "prediction": "Na tym samym krótkim przebiegu zmniejszy średnią latencję odwrócenia względem metabolic_gate_fixed_speed, bez obniżenia energii.",
+  "falsifier": "Odrzucić, jeśli w co najmniej 3 porównywalnych seedach latencja nie maleje albo energia spada bez wzrostu rooms_reached.",
+  "files": "candidates/metabolic_dual_homeostat/principle_organism.py",
+  "status": "parked",
+  "history": [
+   {
+    "t": "10-24 08:52",
+    "who": "odkrywca_dynamics",
+    "status": "proposed",
+    "text": "dodana"
+   },
+   {
+    "t": "10-24 08:52",
+    "who": "odkrywca_dynamics",
+    "status": "parked",
+    "text": "Wstępny test 8 światów x 2048 kroków: rooms_reached=0 dla obu kontrolerów, więc główna metryka jest tu nieczuła; odwrócenie było wolniejsze (127.375 vs 99.375) i energia niższa (0.9772 vs 0.9897). Brak podstaw do pełnego sędziego; wrócić tylko z horyzontem obejmującym przejście pokoju."
+   },
+   {
+    "t": "10-24 08:52",
+    "who": "odkrywca_dynamics",
+    "status": "parked",
+    "text": "Literatura wstępna: Chalmers et al. 2024, Simulated synapse loss induces depression-like behaviors in deep reinforcement learning, PMC11576168 (otwarte przez lit.py fetch); praca ma zewnętrzną nagrodę, więc nie jest dowodem dla organizmu Genesis."
+   }
+  ]
+ },
+ {
+  "id": "H012",
+  "author": "odkrywca_dynamics",
+  "title": "Damped sensory steering",
+  "mechanism": "A local angular relaxation state combines visual bearing and metabolic direction memory into smoother motion.",
+  "prediction": "Against the undamped parent, damped steering increases rooms reached or survival across eight randomized organism seeds without reducing either other main metric.",
+  "falsifier": "No gain in rooms reached and survival, or worse survival, in the eight-seed organism judge; compare against axiom_causal_homeostasis under the same protocol.",
+  "files": "candidates/damped_steering_homeostat",
+  "status": "refuted",
+  "history": [
+   {
+    "t": "10-24 08:56",
+    "who": "odkrywca_dynamics",
+    "status": "proposed",
+    "text": "dodana"
+   },
+   {
+    "t": "10-24 09:24",
+    "who": "odkrywca_dynamics",
+    "status": "refuted",
+    "text": "In the matched 8-seed, 1024-world, 6000-step judge, damped steering scored 2.7588 rooms / 0.8760 survival versus parent axiom_causal_homeostasis at 2.8516 / 0.8584. Survival rose but the primary rooms metric fell; result rows are in sandbox/leaderboard.jsonl."
+   }
+  ]
+ },
+ {
+  "id": "H013",
+  "author": "odkrywca_agency",
+  "title": "Action consequences steer, energy consequences select",
+  "mechanism": "A consequential energy change writes both a color value and the motor action; color value selects food while action trace only nudges heading, preserving exploration.",
+  "prediction": "Matched organism-v4 score exceeds 2.8515 or retains score within 0.02 with lower reversal latency than causal homeostasis.",
+  "falsifier": "After 3 full organism runs, no score improvement and no latency improvement; or score below 2.65.",
+  "files": "candidates/action_consequence_homeostat",
+  "status": "supported",
+  "history": [
+   {
+    "t": "10-24 08:57",
+    "who": "odkrywca_agency",
+    "status": "proposed",
+    "text": "dodana"
+   },
+   {
+    "t": "10-24 09:14",
+    "who": "odkrywca_agency",
+    "status": "supported",
+    "text": "Full organism-v4 8 seeds: score 2.849609 vs causal-homeostasis 2.851562 (within 0.02); reversal latency 116.949 vs 118.154, survival 0.881836 vs 0.858398, energy 0.779809 vs 0.756969. Result sandbox/leaderboard.jsonl; action consequence only nudges heading."
+   },
+   {
+    "t": "10-24 09:23",
+    "who": "krytyk",
+    "status": "supported",
+    "text": "Audyt turnieju 2026-10-24: leaderboard wspiera wyłącznie predeclared descriptive criterion (score within 0.02 and slightly lower latency), nie izoluje przyczyny action_trace. CI survival/latency nachodzą, brak matched action_trace=0 na obecnym kodzie; trace zapisuje tylko turn, wyjściowy action correction 0.04 jest jawnie strojonym heurystycznym dodatkiem. Prior art internal-state/homeostatic RL i homeostatic synaptic plasticity: Yoshida et al. 2025 arXiv:2507.04998, Turrigiano 2012 PMC3249629 (otwarte przez lit.py). Stare v4 wyniki wymagają replikacji po nowej kalibracji świata (score 2.4697)."
+   },
+   {
+    "t": "10-24 10:27",
+    "who": "odkrywca_agency",
+    "status": "supported",
+    "text": "2026-10-24 paired exploratory CPU probe, 4 seeds x batch 8 x 6000 steps at 302 units: parent correction mean rooms 2.625 [1.875,3.000,2.875,2.750], correction ablation 2.84375 [2.125,3.375,3.125,2.750]; repeated identically. Suggests no room-reach benefit, but below official 8-seed protocol. File theory/theorist_agency/ablation_turn_correction/paired_probe.json; full judge run interrupted after 31 min due CPU cost."
+   }
+  ]
+ },
+ {
+  "id": "H014",
+  "author": "odkrywca_growth",
+  "title": "Energy-supported delayed structural allocation",
+  "mechanism": "A local sensory association earns a physical slot only after repeated self-detected energy gains; unsupported slots decay under the same local trace dynamics.",
+  "prediction": "Across organism-v4 and doubled-room worlds, delayed allocation preserves room advancement while using fewer allocated bytes than allocate-on-sight growth.",
+  "falsifier": "Matched runs show no decrease in allocated bytes at matched room advancement, or performance falls below the existing growth controller.",
+  "files": "theory/theorist_growth/growth_audit.py",
+  "status": "testing",
+  "history": [
+   {
+    "t": "10-24 08:57",
+    "who": "odkrywca_growth",
+    "status": "proposed",
+    "text": "dodana"
+   },
+   {
+    "t": "10-24 09:32",
+    "who": "odkrywca_growth",
+    "status": "testing",
+    "text": "1/3: growth_delayed_support scored 2.3125 on 1024 organism-v4 worlds but reported zero live units through 6000 steps; delayed allocation did not form. See sandbox/leaderboard.jsonl and theory/theorist_growth/HANDOFF.md."
+   }
+  ]
+ },
+ {
+  "id": "H015",
+  "author": "odkrywca_axioms",
+  "title": "Causal sparse sensory growth",
+  "mechanism": "Grow local sensory traces on evidence, update them with signed action-conditioned energy change, and prune low-use weak traces faster under scarcity.",
+  "prediction": "A minimal plastic structure should adapt across harder rooms while retaining survival.",
+  "falsifier": "After 3 organism-v4 tests, no score above 2.8408 or rooms +0.10 without survival loss >0.05.",
+  "files": "candidates/axiom_causal_sparse_growth/",
+  "status": "testing",
+  "history": [
+   {
+    "t": "10-24 09:06",
+    "who": "odkrywca_axioms",
+    "status": "proposed",
+    "text": "dodana"
+   },
+   {
+    "t": "10-24 09:06",
+    "who": "odkrywca_axioms",
+    "status": "testing",
+    "text": "Pierwszy pełny organism-v4: axiom_causal_sparse_growth score 0.9971, rooms 0.9971, survival 0.9639; growth 0 -> 32.12 links. Not competitive with leader 2.8408; keep direction within 3-turn budget for matched ablation."
+   },
+   {
+    "t": "10-24 09:36",
+    "who": "odkrywca_axioms",
+    "status": "testing",
+    "text": "Sparse pruning audit: on/off rooms 0.875/0.750, survival 1.0/1.0 at 6000 steps, one world seed; official candidate score 0.9971 below leader."
+   },
+   {
+    "t": "10-24 09:57",
+    "who": "krytyk",
+    "status": "testing",
+    "text": "Wpis 157 raportuje wzrost indeksowanej puli kluczy i units=connections; _grow jest wspolny dla batcha. Brak dowodu causal sparse growth bez osobnikowego occupancy i niezaleznych polaczen."
+   }
+  ]
+ },
+ {
+  "id": "H016",
+  "author": "odkrywca_life",
+  "title": "Signed causal consequences prune sparse sensory links",
+  "mechanism": "Sparse sensory links grow from observed features; an eligible bite writes a signed energy consequence into selected feature links, while low energy accelerates decay and pruning of unused links.",
+  "prediction": "Negative energy changes after biting weaken the responsible sensory links and improve organism survival or room progress over unsigned scarcity pruning.",
+  "falsifier": "Across matched organism seeds, signed feedback fails to improve room score or survival, or destroys useful links more quickly.",
+  "files": "candidates/metabolic_causal_sparse/principle_organism.py",
+  "status": "refuted",
+  "history": [
+   {
+    "t": "10-24 09:23",
+    "who": "odkrywca_life",
+    "status": "proposed",
+    "text": "dodana"
+   },
+   {
+    "t": "10-24 09:44",
+    "who": "odkrywca_life",
+    "status": "refuted",
+    "text": "Organism-v4 8-seed result: candidates/metabolic_causal_sparse scored 2.0391, below H009's 2.3242; signed loss updates did not improve room progress."
+   }
+  ]
+ },
+ {
+  "id": "H017",
+  "author": "odkrywca_dynamics",
+  "title": "Powracający bodziec odczytuje pamięć konsekwencji skrętu",
+  "mechanism": "Lokalny ślad zmiany energii, warunkowany poprzednim kolorem i skrętem, zmienia skręt przy powrocie tego koloru.",
+  "prediction": "Wzmocnienie śladu podniesie rooms_reached o co najmniej 0.05 nad ablację gain=0 bez spadku survival; 8 seedów.",
+  "falsifier": "Pełny test 8 seedów bez poprawy rooms_reached >=0.05 względem ablacji albo niższe survival.",
+  "files": "theory/theorist_dynamics/metabolic_turn_test",
+  "status": "testing",
+  "history": [
+   {
+    "t": "10-24 09:30",
+    "who": "odkrywca_dynamics",
+    "status": "proposed",
+    "text": "dodana"
+   },
+   {
+    "t": "10-24 09:30",
+    "who": "odkrywca_dynamics",
+    "status": "testing",
+    "text": "Aktywny test 8 seedów; H013 jest prior art zespołu, a wyszukiwanie lit.py nie zwróciło wyników."
+   },
+   {
+    "t": "10-24 10:01",
+    "who": "krytyk",
+    "status": "testing",
+    "text": "Audyt wpis 158: score 2.731445, CI95 rooms 2.6290-2.8339, poniżej lidera; stałe structure 7/16. Deterministyczna sonda wykazała, że tylko action_trace turn-component wpływa na następną akcję; speed/bite component ignorowane, a skręt nadal bazuje na centroidzie oka. H017 wymaga gain=0 matched 8-seed ablation; nie znaleziono wyniku ablacjii w leaderboard. Raport: audit/audit_2026-10-24_metabolic_turn_test.md. Prior art rodziny: Sommer & Wurtz 2008 PMC2807735, otwarte przez lit.py fetch."
+   }
+  ]
+ },
+ {
+  "id": "H018",
+  "author": "odkrywca_agency",
+  "title": "Confidence-gated consequence recall",
+  "mechanism": "A sensory color stores the signed action vector that changed energy; accumulated absolute consequence mass normalizes the vector and gates recall against visual steering.",
+  "prediction": "Confidence-gated recall should preserve room reach while reducing reversal latency relative to a color-only causal trace.",
+  "falsifier": "Organism score below 2.65 or room reach collapse versus action_consequence_homeostat.",
+  "files": "candidates/consequence_confident_recall/PARENTS.txt",
+  "status": "refuted",
+  "history": [
+   {
+    "t": "10-24 09:35",
+    "who": "odkrywca_agency",
+    "status": "proposed",
+    "text": "dodana"
+   },
+   {
+    "t": "10-24 09:35",
+    "who": "odkrywca_agency",
+    "status": "refuted",
+    "text": "Organism-v4 8 worlds scored 2.2588, below 2.65 and parent 2.8496; room reach collapsed despite survival 0.9814. Result: sandbox/leaderboard.jsonl, candidate consequence_confident_recall."
+   }
+  ]
+ },
+ {
+  "id": "H019",
+  "author": "odkrywca_life",
+  "title": "Scarcity-pruned memory does not need metabolic speed control",
+  "mechanism": "Keep H009's energy-dependent sensory-link pruning and learning, but use a fixed movement drive so energy regulates retention rather than locomotion.",
+  "prediction": "On organism-v4, matched 8-seed score improves over H009 2.3242; survival is not materially worse.",
+  "falsifier": "Score <= 2.3242, or improvement comes only with a survival collapse.",
+  "files": "candidates/metabolic_scarcity_fixed_speed/principle.py",
+  "status": "testing",
+  "history": [
+   {
+    "t": "10-24 09:49",
+    "who": "odkrywca_life",
+    "status": "proposed",
+    "text": "dodana"
+   },
+   {
+    "t": "10-24 09:57",
+    "who": "krytyk",
+    "status": "proposed",
+    "text": "Wpis 157 metabolic_causal_sparse nadal ma speed=.35+.45*energy; nie testuje braku metabolic speed control. Matched fixed-speed ablation required (audit/audit_2026-10-24_metabolic_causal_sparse.md)."
+   },
+   {
+    "t": "10-24 10:40",
+    "who": "odkrywca_life",
+    "status": "proposed",
+    "text": "W tej turze utworzono matched ablation metabolic_scarcity_fixed_speed; pełny judge v4 uruchomiony na CPU, przerwany po 49 min bez wyniku, więc główna metryka nieoceniona. GPU sędziego ma torch cuda-device incompatibility."
+   },
+   {
+    "t": "10-24 10:40",
+    "who": "odkrywca_life",
+    "status": "testing",
+    "text": "Matched fixed-speed ablation created at candidates/metabolic_scarcity_fixed_speed; full organism-v4 run interrupted after 49 min before result file, so no score claim."
+   }
+  ]
+ }
+]

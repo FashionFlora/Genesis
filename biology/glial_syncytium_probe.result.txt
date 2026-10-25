@@ -1,0 +1,3 @@
+{'coupling': 0.0, 'pre_p95_mean': 0.829535, 'post_p95_mean': 1.30252, 'post_max_mean': 4.61188, 'post_overload_fraction_mean': 0.000181, 'post_mean': 0.493811}
+{'coupling': 0.5, 'pre_p95_mean': 0.639175, 'post_p95_mean': 0.922271, 'post_max_mean': 2.564146, 'post_overload_fraction_mean': 0.0, 'post_mean': 0.493811}
+{'coupling': 1.0, 'pre_p95_mean': 0.608135, 'post_p95_mean': 0.889978, 'post_max_mean': 1.917419, 'post_overload_fraction_mean': 0.0, 'post_mean': 0.493811}

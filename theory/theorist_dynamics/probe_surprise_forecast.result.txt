@@ -1,0 +1,10 @@
+Command: .venv/bin/python theory/theorist_dynamics/probe_surprise_forecast.py
+64 parallel sequences x 1200 steps; metric: one-step MAE of predicted endogenous energy delta.
+Regime     Predictor MAE   Zero-predictor MAE   Gain
+smooth     0.000944        0.003000             +0.002056
+shock      0.001346        0.003228             +0.001882
+noise      0.146205        0.141080             -0.005125
+
+Interpretation: H017 predicts structured delta-energy signals in this probe,
+but its lagged estimate is worse than zero prediction for iid noise. This is
+not evidence of improved action choice, organism learning, or room reach.

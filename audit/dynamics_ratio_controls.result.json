@@ -1,0 +1,92 @@
+{
+  "source_sha256": "4c67ed1110a79ba6e23bd48cda8e187806d7697f124ae598b82271ae2881cd7b",
+  "no_intero": {
+    "reported_eye_width": 15,
+    "reported_energy_index": 47,
+    "action_delta_when_last_eye_channel_changes": 0.0,
+    "state_a": [
+      {
+        "eye_width": 15,
+        "energy_index": 47,
+        "previous_energy": 0.0,
+        "previous_context": 0,
+        "previous_color": 0,
+        "mass_sum": 1.0,
+        "evidence_sum": -0.0494999997317791
+      },
+      {
+        "eye_width": 15,
+        "energy_index": 47,
+        "previous_energy": 0.0,
+        "previous_context": 0,
+        "previous_color": 0,
+        "mass_sum": 1.940000057220459,
+        "evidence_sum": -0.04653000086545944
+      }
+    ],
+    "state_b": [
+      {
+        "eye_width": 15,
+        "energy_index": 47,
+        "previous_energy": 1.0,
+        "previous_context": 0,
+        "previous_color": 0,
+        "mass_sum": 1.0,
+        "evidence_sum": 0.027500007301568985
+      },
+      {
+        "eye_width": 15,
+        "energy_index": 47,
+        "previous_energy": 1.0,
+        "previous_context": 0,
+        "previous_color": 0,
+        "mass_sum": 1.940000057220459,
+        "evidence_sum": 0.02585000731050968
+      }
+    ]
+  },
+  "cue_flip": {
+    "second_action_delta": 0.0,
+    "first_action_delta": 0.0,
+    "state_a": [
+      {
+        "eye_width": 16,
+        "energy_index": 48,
+        "previous_energy": 0.0,
+        "previous_context": 0,
+        "previous_color": 0,
+        "mass_sum": 1.0,
+        "evidence_sum": -0.0494999997317791
+      },
+      {
+        "eye_width": 16,
+        "energy_index": 48,
+        "previous_energy": 1.0,
+        "previous_context": 0,
+        "previous_color": 0,
+        "mass_sum": 1.940000057220459,
+        "evidence_sum": 0.06347000598907471
+      }
+    ],
+    "state_b": [
+      {
+        "eye_width": 16,
+        "energy_index": 48,
+        "previous_energy": 0.0,
+        "previous_context": 1,
+        "previous_color": 0,
+        "mass_sum": 1.0,
+        "evidence_sum": -0.0494999997317791
+      },
+      {
+        "eye_width": 16,
+        "energy_index": 48,
+        "previous_energy": 1.0,
+        "previous_context": 1,
+        "previous_color": 0,
+        "mass_sum": 1.940000057220459,
+        "evidence_sum": 0.06347000598907471
+      }
+    ]
+  }
+}

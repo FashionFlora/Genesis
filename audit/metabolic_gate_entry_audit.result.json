@@ -1,0 +1,52 @@
+{
+  "source_sha256": {
+    "main": "4a55e99d484ad0085394e5d087ecdd0606c2b248bc96aab725d6e8d55dd1c300",
+    "control": "5afdb7ddaba6b469ea70c481f3db4c2b89e143b57f858d355b141a7a3bdf0a69"
+  },
+  "row_173_recorded_main_sha256": "4a55e99d484ad0085394e5d087ecdd0606c2b248bc96aab725d6e8d55dd1c300",
+  "main_vs_control": {
+    "action_rmse": 0.22554075717926025,
+    "action_max_abs": 1.999992847442627,
+    "control_matches_main_package_params": {
+      "action_rmse": 0.0,
+      "action_max_abs": 0.0
+    }
+  },
+  "component_probes": {
+    "energy_coupling_zero_rmse": 0.22554075717926025,
+    "readiness_recovery_zero_rmse": 0.0,
+    "readiness_cost_zero_rmse": 0.0,
+    "bright_readiness_recovery_zero_rmse": 0.1178511306643486,
+    "bright_readiness_cost_zero_rmse": 0.2282177358865738,
+    "bright_bites_main": 80.0,
+    "bright_bites_no_recovery": 16.0,
+    "bright_bites_no_cost": 320.0,
+    "bright_readiness_final_main": 0.4764074981212616,
+    "bright_readiness_final_no_recovery": 0.45000001788139343
+  },
+  "energy_input": {
+    "last_sensor_flip_rmse": 0.5765124559402466,
+    "last_sensor_flip_max_abs": 1.9999946355819702,
+    "no_interoception_vs_neutral_rmse": 0.3529965579509735,
+    "no_interoception_readiness_final": 5.380361045581594e-08,
+    "neutral_readiness_final": 0.5000001788139343
+  },
+  "scaling": {
+    "action_rmse_302_vs_100000": 0.0,
+    "units_302": 3.0,
+    "units_100000": 3.0,
+    "connections_302": 3.0,
+    "connections_100000": 3.0
+  },
+  "source_flags": {
+    "fixed_eye_context_slice": true,
+    "fixed_thresholds": [
+      "> 0.04",
+      "> 0.42",
+      "> 0.24",
+      "> 0.5"
+    ],
+    "age_or_periodic_gate": false,
+    "allocates_n_units_state": true
+  }
+}

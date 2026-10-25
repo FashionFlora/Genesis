@@ -1,0 +1,21 @@
+{
+  "family": "candidates/_family_example",
+  "author": "sedzia",
+  "generations": 2,
+  "population": 4,
+  "budget_minutes": 180.0,
+  "worlds": 4,
+  "units": 302,
+  "steps": 50000,
+  "device": "cuda",
+  "output_name": "_organism_v7_evolution_full_life_cuda",
+  "mutation": 0.12,
+  "seed": 7719,
+  "organism_version": "v7",
+  "life_steps": 50000,
+  "algorithm": "elitist genetic algorithm; 25% elite, 50% uniform crossover, 25% mutation",
+  "world_sampling": "same deterministic batch for every generation",
+  "mutation_scale": 0.12,
+  "worlds_per_generation": 4,
+  "fitness": "mean rooms_reached + 0.001 * survival tie-break"
+}

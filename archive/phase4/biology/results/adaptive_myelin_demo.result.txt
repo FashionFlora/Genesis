@@ -1,0 +1,4 @@
+local: initial_mae=0.2151; initial_accuracy=0.5130; new_path_mae=0.1362; old_retention=0.5280
+global: initial_mae=0.2227; initial_accuracy=0.4938; new_path_mae=0.3588; old_retention=0.5111
+none: initial_mae=0.4575; initial_accuracy=0.2430; new_path_mae=0.8326; old_retention=0.2726
+instant: initial_mae=0.0295; initial_accuracy=1.0000; new_path_mae=0.0704; old_retention=1.0000

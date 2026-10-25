@@ -1,0 +1,59 @@
+{
+  "123": [
+    {
+      "all_pixel_accuracy": 0.98828125,
+      "first_four_accuracy": 0.99609375,
+      "room_zero_fraction": 1.0
+    },
+    {
+      "all_pixel_accuracy": 0.98828125,
+      "first_four_accuracy": 0.99609375,
+      "room_zero_fraction": 1.0
+    },
+    {
+      "all_pixel_accuracy": 0.98828125,
+      "first_four_accuracy": 0.99609375,
+      "room_zero_fraction": 1.0
+    }
+  ],
+  "19": [
+    {
+      "all_pixel_accuracy": 0.9765625,
+      "first_four_accuracy": 0.99609375,
+      "room_zero_fraction": 1.0
+    },
+    {
+      "all_pixel_accuracy": 0.9765625,
+      "first_four_accuracy": 0.99609375,
+      "room_zero_fraction": 1.0
+    },
+    {
+      "all_pixel_accuracy": 0.9765625,
+      "first_four_accuracy": 0.99609375,
+      "room_zero_fraction": 1.0
+    }
+  ],
+  "7": [
+    {
+      "all_pixel_accuracy": 0.98828125,
+      "first_four_accuracy": 0.9921875,
+      "room_zero_fraction": 1.0
+    },
+    {
+      "all_pixel_accuracy": 0.98828125,
+      "first_four_accuracy": 0.9921875,
+      "room_zero_fraction": 1.0
+    },
+    {
+      "all_pixel_accuracy": 0.98828125,
+      "first_four_accuracy": 0.9921875,
+      "room_zero_fraction": 1.0
+    }
+  ],
+  "summary": {
+    "formula": "odd green mean > even green mean",
+    "mean_all_pixel_accuracy": 0.984375,
+    "mean_first_four_accuracy": 0.9947916666666666,
+    "n_batches": 9
+  }
+}

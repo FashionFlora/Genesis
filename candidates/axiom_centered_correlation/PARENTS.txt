@@ -1,0 +1,1 @@
+axiom_capacity_correlation: replace raw sensor-action co-activity with deviations from each organism's running means; preserve per-sensor synaptic capacity.

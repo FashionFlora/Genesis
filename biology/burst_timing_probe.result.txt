@@ -1,0 +1,7 @@
+{'rule': 'none', 'eye_margin_mean': 0.079514, 'eye_margin_sd': 0.004277, 'spatial_alignment_mean': 0.714685, 'spatial_alignment_sd': 0.001669, 'mean_weight': 0.250126}
+{'rule': 'btdp', 'eye_margin_mean': 0.113516, 'eye_margin_sd': 0.03936, 'spatial_alignment_mean': 0.71479, 'spatial_alignment_sd': 0.005652, 'mean_weight': 0.734092}
+{'rule': 'btdp_norm', 'eye_margin_mean': 0.242005, 'eye_margin_sd': 0.039425, 'spatial_alignment_mean': 0.719686, 'spatial_alignment_sd': 0.019082, 'mean_weight': 0.250126}
+{'rule': 'stdp', 'eye_margin_mean': 0.404247, 'eye_margin_sd': 0.091048, 'spatial_alignment_mean': 0.717548, 'spatial_alignment_sd': 0.028419, 'mean_weight': 0.553367}
+{'rule': 'stdp_norm', 'eye_margin_mean': 0.518896, 'eye_margin_sd': 0.079638, 'spatial_alignment_mean': 0.721509, 'spatial_alignment_sd': 0.037769, 'mean_weight': 0.250126}
+{'rule': 'rate', 'eye_margin_mean': 0.078937, 'eye_margin_sd': 0.006628, 'spatial_alignment_mean': 0.714666, 'spatial_alignment_sd': 0.001627, 'mean_weight': 0.317812}
+{'rule': 'rate_norm', 'eye_margin_mean': 0.078937, 'eye_margin_sd': 0.006628, 'spatial_alignment_mean': 0.714666, 'spatial_alignment_sd': 0.001627, 'mean_weight': 0.250126}

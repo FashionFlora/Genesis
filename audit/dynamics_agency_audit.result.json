@@ -1,0 +1,39 @@
+{
+  "agency_trace": {
+    "ablation_sha256": "ebff2ec037be87689d73776d0df42efa3312ea05647a7f5ac71c5dda3fa95b33",
+    "current_base_hash_has_leaderboard_row": false,
+    "same_first_action": true,
+    "second_action_delta_max_abs": 0.11685213446617126,
+    "sha256": "012068a721b7323e0845ac68ee51729083566d24bdce35605500a2e0166ff52c"
+  },
+  "dynamics_energy_ratio": {
+    "n_sensors_48_action": [
+      0.9999017715454102,
+      0.800000011920929,
+      1.0
+    ],
+    "n_sensors_48_structure": {
+      "activity": 0.008249999955296516,
+      "connections": 12,
+      "units": 6
+    },
+    "red_vs_green_action_max_abs": 0.0,
+    "sha256": "4c67ed1110a79ba6e23bd48cda8e187806d7697f124ae598b82271ae2881cd7b",
+    "structure_100000": {
+      "activity": 0.0,
+      "connections": 12,
+      "units": 6
+    },
+    "structure_302": {
+      "activity": 0.0,
+      "connections": 12,
+      "units": 6
+    },
+    "units_302_vs_100000_action_equal": true
+  },
+  "dynamics_energy_ratio_ablation": {
+    "leaderboard_rows": [],
+    "note": "No matching candidate row found by name in leaderboard.jsonl.",
+    "sha256": "3c0bf81c5fd4bb79c5eedc608cecab7afd890820f4552cedae25bd43c1cc2c4b"
+  }
+}

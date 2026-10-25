@@ -1,0 +1,1 @@
+Matched ablation of candidates/dynamics_metabolic_retention/: fixes energy_coupling to zero so eligibility uses the same fixed decay across all reserve levels.

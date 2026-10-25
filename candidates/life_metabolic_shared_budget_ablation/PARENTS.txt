@@ -1,0 +1,8 @@
+Parents: life_metabolic_competition and life_metabolic_ratio.
+
+Mutation: retain the contextual energy eligibility trace and competitive preference
+memory, but center all six color-by-context memories together. The parent competition
+rule centered the three colors independently inside each context. A single global
+zero-sum constraint makes metabolic gains in one context suppress alternatives in
+other contexts too, testing whether finite memory capacity is shared across contexts.
+No observation, reward channel, or controller behavior was added.

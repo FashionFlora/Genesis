@@ -1,0 +1,3 @@
+Matched ablation of candidates/dynamics_metabolic_contrast: force energy_coupling=0
+so the reserve still updates and signed endogenous evidence is retained, while metabolic
+contrast no longer changes eligibility-trace lifetime.

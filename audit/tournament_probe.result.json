@@ -1,0 +1,30 @@
+{
+  "energy_trace_simple": {
+    "max_action_diff_energy_vs_constant": 1.0,
+    "max_action_diff_units_302_vs_10000": 0.0,
+    "source_sha256": "d7db3ee9cb9a3d737ce4c37c39669acc2ddf1fbc27ad6c0a3d11effb0af407b1",
+    "structure_10000": {
+      "connections": 3,
+      "units": 3
+    },
+    "structure_302": {
+      "connections": 3,
+      "units": 3
+    }
+  },
+  "life_metabolic_context": {
+    "max_action_diff_energy_vs_constant": 0.9429373741149902,
+    "max_action_diff_units_302_vs_10000": 0.0,
+    "source_sha256": "db3da3476b7bf14433f3bba2753035ef8bb10f622daa29cf7c00b6a117fd241c",
+    "structure_10000": {
+      "activity": 0.02827511541545391,
+      "connections": 6,
+      "units": 3
+    },
+    "structure_302": {
+      "activity": 0.02827511541545391,
+      "connections": 6,
+      "units": 3
+    }
+  }
+}

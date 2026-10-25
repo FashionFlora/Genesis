@@ -1,0 +1,6 @@
+dynamics_metabolic_arousal low {'late_drive': 0.5964, 'late_bite': 1.0, 'arousal': 0.98}
+dynamics_metabolic_arousal high {'late_drive': 0.0, 'late_bite': 0.0, 'arousal': 0.02}
+dynamics_metabolic_arousal hidden {'finite': True, 'arousal': 0.5}
+dynamics_metabolic_arousal_ablation low {'late_drive': 0.51, 'late_bite': 1.0, 'arousal': 0.5}
+dynamics_metabolic_arousal_ablation high {'late_drive': 0.0, 'late_bite': 0.0, 'arousal': 0.5}
+dynamics_metabolic_arousal_ablation hidden {'finite': True, 'arousal': 0.5}

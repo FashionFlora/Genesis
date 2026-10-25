@@ -1,0 +1,4 @@
+matched: probe_mse=0.0104; assembly_accuracy=0.7410
+shuffled: probe_mse=0.4731; assembly_accuracy=0.3512
+no_replay: probe_mse=0.3373; assembly_accuracy=0.5356
+no_plasticity: probe_mse=0.3373; assembly_accuracy=0.5356

@@ -1,7 +1,7 @@
-"""Single source of truth for the organism-v4 world parameters."""
+"""Single source of truth for the organism-v6 world parameters."""
 
 WORLD_CONFIG = {
-    "version": "organism-v4",
+    "version": "organism-v6",
     "pixels": 16,
     "motor_count": 3,
     "rooms": 6,
@@ -9,7 +9,8 @@ WORLD_CONFIG = {
     "food_counts": (5, 7, 9, 11, 13, 15),
     "room_sides": (2.0, 3.2, 4.8, 6.4, 8.2, 10.2),
     "room_dwell": (0, 160, 240, 320, 400, 480),
-    "reversal_times": (768, 1344, 1920, 2496, 3072, 3840, 4608, 4992, 5376, 5664, 5888),
+    "reversal_times": (768, 1344, 1920, 2496, 3072, 3840, 4608, 4992, 5376, 5664, 5888,
+                       6400, 7040, 7680, 8320, 8960, 9600, 10240, 10880, 11520),
     "initial_position_span": 0.8,
     "initial_energy": 0.95,
     "color_count": 3,
@@ -47,13 +48,13 @@ WORLD_CONFIG = {
     "room_radius_inner_gain": 0.04,
     "room_radius_outer_base": 0.23,
     "room_radius_outer_decay": 0.025,
-    "decoy_probability": (0.2, 0.2, 0.2, 0.34, 0.42, 0.5),
+    "decoy_probability": (0.0, 0.12, 0.20, 0.30, 0.38, 0.45),
     "decoy_cost": 0.02,
     "decoy_room_cost": 0.01,
     "regrow_base": 36,
     "regrow_room_gain": 40,
     "regrow_level_gain": 12,
-    "required_bites": (9, 9, 9, 9, 9, 9),
+    "required_bites": (6, 7, 7, 8, 8, 8),
     "required_reversals": (2, 1, 1, 1, 1, 1),
     "minimum_time_first": 2048,
     "minimum_time_later": 256,
@@ -67,8 +68,8 @@ WORLD_CONFIG = {
     "routine_position_grid": 4,
     "high_energy_threshold": 0.75,
     "learning_reset_energy": 0.85,
-    "batch_size": 128,
-    "life_steps": 6000,
+    "batch_size": 1024,  # jedna partia 1024 światów: tyle samo światów co 8x128, ~8x szybciej (pętla kroków jest ograniczona narzutem CPU)
+    "life_steps": 12000,
     "calibration_units": 302,
     "scale_smoke_steps": 64,
     "brain_sizes": (302, 1000, 10000, 100000),

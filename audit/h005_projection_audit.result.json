@@ -1,0 +1,18 @@
+{
+  "source": "candidates/axiom_capacity_correlation/principle.py",
+  "prior_art": "Oja projected/local Hebbian normalization; arXiv:2408.08408 fetched via shared/lit.py",
+  "steps": 240,
+  "max_row_norm_error": 5.960464477539063e-08,
+  "mean_row_norm_error": 5.809362324527001e-09,
+  "final_weight_frobenius_delta": 2.0963122844696045,
+  "n_units_action_max_abs_delta": 0.0,
+  "structure_302": {
+    "units": 147,
+    "connections": 147
+  },
+  "structure_100000": {
+    "units": 147,
+    "connections": 147
+  },
+  "n_units_ignored_by_constructor": true
+}

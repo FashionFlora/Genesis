@@ -1,0 +1,7 @@
+switch old_cov/old_step/old_margin/new_cov/new_step/new_margin/cross_corr/mean_w 0.393750 3.979677 0.059191 0.393750 3.945161 0.059191 0.085327 0.332338
+ltp old_cov/old_step/old_margin/new_cov/new_step/new_margin/cross_corr/mean_w 0.168750 1.349355 0.319461 0.168750 1.351935 0.319461 0.027438 0.322330
+ltd old_cov/old_step/old_margin/new_cov/new_step/new_margin/cross_corr/mean_w 0.550000 5.812903 0.003799 0.550000 5.837742 0.003799 -0.146012 0.317997
+none old_cov/old_step/old_margin/new_cov/new_step/new_margin/cross_corr/mean_w 0.362812 3.137097 0.028287 0.362812 3.177097 0.028287 -0.258091 0.342041
+switch_early 600 old_cov/new_cov/cross_corr/mean_w 0.498750 0.498750 0.089383 0.335694
+switch_early 1200 old_cov/new_cov/cross_corr/mean_w 0.393750 0.393750 0.085327 0.332338
+switch_early 1800 old_cov/new_cov/cross_corr/mean_w 0.213750 0.213750 0.029801 0.326770

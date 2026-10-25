@@ -1,0 +1,7 @@
+seeds=100 active_cells=128 steps_per_phase=1200 mutation_sd=0.04
+phases: task 0 -> task 1 -> task 0; neighbor-relative fitness comparison in all modes
+delete: task0=0.990905 (sd=0.001959) task1=0.961570 (sd=0.026264) task0_return=0.990853 (sd=0.001699)
+reserve: task0=0.992250 (sd=0.001793) task1=0.991818 (sd=0.002256) task0_return=0.992069 (sd=0.001701)
+reserve_no_retrieve: task0=0.990905 (sd=0.001959) task1=0.961570 (sd=0.026264) task0_return=0.990853 (sd=0.001699)
+
+Toy result only. The reserve condition stores loser vectors and reintroduces a stored vector when it fits a weak active slot; this does not model epidermal layers, cell differentiation, or a biological rate.

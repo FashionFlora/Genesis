@@ -1,0 +1,7 @@
+Parents: candidates/axiom_metabolic_retention_budget/ and candidates/axiom_centered_correlation/.
+
+Mutation/crossover: replace the hand-defined color/context table with a single centered sensorimotor covariance
+trace. Energy change gates the trace update, reserve changes its forgetting rate, and one global norm constrains all
+color/action memories. The visual controller is retained only as the organism's initial sensorimotor substrate; the
+new learned preference is a bounded perturbation of it. This removes parity context, separate credit terms, and
+context-specific branches while testing whether one metabolic covariance law can retain useful behavior.

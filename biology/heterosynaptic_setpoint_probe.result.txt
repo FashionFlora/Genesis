@@ -1,0 +1,5 @@
+mode selectivity unseen_mix ei_corr abs_ei_bias mean_weight; 100 paired seeds
+homo_only 1.059206 0.996794 0.237371 0.429927 selectivity_sd=0.022656
+local_slow 1.106273 0.989482 0.232749 0.459828 selectivity_sd=0.034652
+global_slow 1.067410 0.996869 0.236267 0.426717 selectivity_sd=0.025382
+shuffled_slow 1.064565 0.996824 0.236568 0.426295 selectivity_sd=0.025260

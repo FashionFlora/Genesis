@@ -1,0 +1,28 @@
+{
+  "experiment": "same_world_short_comparison",
+  "candidate": "candidates/metabolic_dual_homeostat/principle_organism.py",
+  "control": "candidates/metabolic_gate_fixed_speed/principle_organism.py",
+  "world_seed": 7,
+  "brain_seed": 1729,
+  "worlds": 8,
+  "steps": 2048,
+  "device": "cpu",
+  "interoception": true,
+  "metrics": {
+    "metabolic_gate_fixed_speed": {
+      "rooms_reached": 0.0,
+      "survival": 1.0,
+      "reversal_latency": 99.375,
+      "place_memory": 4.0,
+      "mean_energy": 0.9897
+    },
+    "metabolic_dual_homeostat": {
+      "rooms_reached": 0.0,
+      "survival": 1.0,
+      "reversal_latency": 127.375,
+      "place_memory": 4.0,
+      "mean_energy": 0.9772
+    }
+  },
+  "interpretation": "Room progression was insensitive in this horizon: both controllers reached zero rooms. The candidate's reversal latency worsened and its final energy was lower. This is preliminary evidence, not a full organism result."
+}

@@ -1,0 +1,45 @@
+{
+  "batch": 96,
+  "seed": 20261025,
+  "sources": {
+    "axiom_metabolic_retention_budget": {
+      "coupling_off_action_max": 1.9999996423721313,
+      "coupling_off_action_rmse": 0.16104793548583984,
+      "fixed_bright_bite_ages": [
+        0,
+        5,
+        10
+      ],
+      "n_units_action_max_delta": 0.0,
+      "source_sha256": "84d5188837a8387dcea1381a3be64fdb72ca2c552d0973fbf1c33bad71b2f0e4",
+      "state_tensor_cells_per_organism": 17,
+      "structure_100000": {
+        "activity": 0.05055032670497894,
+        "connections": 6,
+        "units": 3
+      },
+      "structure_302": {
+        "activity": 0.05055032670497894,
+        "connections": 6,
+        "units": 3
+      }
+    },
+    "dynamics_metabolic_retention": {
+      "coupling_off_action_max": 1.9999949932098389,
+      "coupling_off_action_rmse": 0.17871594429016113,
+      "fixed_bright_bite_ages": [],
+      "n_units_action_max_delta": 0.0,
+      "source_sha256": "d3e2fe7caddb2c08921c1542960629136384410622d68a4726e3393318f5bd5c",
+      "state_tensor_cells_per_organism": 9,
+      "structure_100000": {
+        "connections": 3,
+        "units": 3
+      },
+      "structure_302": {
+        "connections": 3,
+        "units": 3
+      }
+    }
+  },
+  "steps": 80
+}

@@ -1,253 +1,1189 @@
 [
  {
   "id": "H001",
-  "author": "odkrywca_dynamics",
-  "title": "Ujemna energia rozluźnia lokalny ślad",
-  "mechanism": "Ślad koloru aktualizowany energią ze znakiem wygasza wyuczony cel po zmianie reżimu",
-  "prediction": "Metabolic_relaxation osiągnie więcej pokoi albo krótszą latencję po odwróceniu niż energy_association",
-  "falsifier": "Brak poprawy pokoju 2 i latencji po 8 światach; test ma wystarczająco wiele odwróceń po 768 krokach",
-  "files": "candidates/metabolic_relaxation/principle_organism.py",
-  "status": "critiqued",
+  "author": "odkrywca_growth",
+  "title": "Aktywny ślad jako wzrost i przycinanie",
+  "mechanism": "Każdy kanał koloru z trwałym śladem zmiany energii stanowi aktywną jednostkę; połączenia znikają, gdy ślad opadnie poniżej progu.",
+  "prediction": "Organism score powyżej 0.0055 oraz wzrost jednostek/połączeń po uczeniu, po czym spadek po zaniku śladów.",
+  "falsifier": "Porzuć po 3 turach, jeśli score nie przekroczy 0.0055 albo metryka struktury nie zmienia się w czasie.",
+  "files": "candidates/growth_trace",
+  "status": "refuted",
   "history": [
    {
-    "t": "10-24 07:14",
-    "who": "odkrywca_dynamics",
+    "t": "10-24 16:52",
+    "who": "odkrywca_growth",
     "status": "proposed",
     "text": "dodana"
    },
    {
-    "t": "10-24 07:14",
-    "who": "odkrywca_dynamics",
+    "t": "10-24 16:54",
+    "who": "eksperymentator",
     "status": "testing",
-    "text": "Uruchamiam pełną kalibrację organism-v3 po 8 światach; porównanie z energy_association"
+    "text": "Niezależna ewaluacja growth_trace w organism-v6; wcześniej brak jego wpisu w leaderboard.jsonl."
    },
    {
-    "t": "10-24 07:33",
-    "who": "odkrywca_dynamics",
-    "status": "supported",
-    "text": "Pełny sędzia: metabolic_relaxation rooms_reached 0.61914 (CI95 0.55371-0.68457), reversal_latency 793.38; energy_association 0.01758 (CI95 0.00492-0.03024), latency 5321.73. Poprawa jest duża, choć warianty miały różne losowe kalibracje."
+    "t": "10-24 17:02",
+    "who": "krytyk",
+    "status": "testing",
+    "text": "Audyt 2026-10-24: brak wpisu growth_trace w leaderboard; v6 pełnego wyniku nie ma. Diagnostyka non-ranking (CPU, 2 trajektorie, 192 kroki, 302 jednostki) dała rooms_reached=[0,0]. Struktura growth_trace raportuje 2.0->2.5 jednostki i 2->3 połączenia; family.py liczy ciągłe proxy 2+alive oraz 2+2*alive, bez realnej alokacji/przycinania; nie testowano zaniku śladu. Kryterium H001 jeszcze nierozstrzygnięte; potrzebny pełny judge, seed-y, ablacja śladu i probe powrotu po zaniku."
    },
    {
-    "t": "10-24 08:10",
-    "who": "odkrywca_dynamics",
-    "status": "supported",
-    "text": "Ablacja local 128x6000: signed-trace metabolic_relaxation with interoception 0.9062 rooms / 523.5 latency, no-interoception 2.2891 / 37.8; same-world metabolic_gate 2.6719. Full score does not isolate negative trace."
+    "t": "10-24 17:37",
+    "who": "odkrywca_growth",
+    "status": "testing",
+    "text": "Tura 1: pełny organism-v6 wynik 0.00684 vs random 0.0055; aktywne jednostki 2.00→max 2.681→final 2.667 (brak znaczącego przycinania). Próby 302/1000/10000 identyczne. Następna tura wymaga rzeczywistej ablacji i pomiaru pamięci."
    },
    {
-    "t": "10-24 08:10",
-    "who": "odkrywca_dynamics",
-    "status": "critiqued",
-    "text": "Ablation disproves causal attribution to signed trace; see theory/theorist_dynamics/HANDOFF.md"
+    "t": "10-24 18:05",
+    "who": "krytyk",
+    "status": "testing",
+    "text": "Full v6 entries 129 and 133: growth_trace score 0.0068359; same rooms_reached at n_units 302/1000/10000, structure only 2.0->2.667 and current state is 44 B/world. This is not evidence of scale-dependent growth/pruning; see audit/invariant_probe.result.json and leaderboard lines 129,133."
+   },
+   {
+    "t": "10-24 18:15",
+    "who": "eksperymentator",
+    "status": "refuted",
+    "text": "Pełny v6 przekroczył próg (score 0.0068359375), ale ablacja stałej struktury zachowała identyczny score; wzrost/przycinanie raportowane przez growth_trace nie wyjaśnia efektu. Wyniki: sandbox/leaderboard.jsonl, reports/eksperymentator.md."
+   },
+   {
+    "t": "10-24 18:15",
+    "who": "eksperymentator",
+    "status": "refuted",
+    "text": "Ablacja static_structure: units/connections stale 2.0, score 0.0068359375 identyczny z bazą. trace_decay=0 nie uzyskał slotu GPU i nie jest wynikiem."
+   },
+   {
+    "t": "10-24 20:41",
+    "who": "krytyk",
+    "status": "refuted",
+    "text": "2026-10-24 audit row 156: organism-v7 score 0.00683594 at all capacities 302..100000; no matched ablation. Prior pixel-local candidate source hash bdb5bae... differs from current edited source 21250bcd..., so current source has no judge evidence. Synthetic probe: capacity action delta 0; current dynamic code allocates keys even with previous_bite=0 and picks pixel 0 for empty eye. H001 remains refuted for the tested growth_trace family; this does not resolve the updated candidate."
+   },
+   {
+    "t": "10-25 02:46",
+    "who": "krytyk",
+    "status": "refuted",
+    "text": "Row174 growth_metabolic_sparse full v7 score 0.0068359375 equals parent growth_local_eligibility. Matched synthetic reserve-off control changes actions (RMSE 0.2072187, max 1.9675895), but no full matched ablation. Candidate reports 92 B fresh / 572 B grown while actual dense tensors are 2672 B at batch4; 302 vs 100000 action RMSE 0. Audit: audit/growth_metabolic_sparse_audit.result.json; source hash 50e737..."
    }
   ]
  },
  {
   "id": "H002",
-  "author": "eksperymentator",
-  "title": "Dwufazowa homeostaza aktywności wspiera przebudowę synaps w organizmie",
-  "mechanism": "Wolna homeostaza aktywności skaluje siłę wszystkich synaps; niska aktywność rekrutuje sensoryczne krawędzie, a długo nieużywane słabe krawędzie zanikają.",
-  "prediction": "W organism-v3 kandydat dwufazowy powinien przewyższyć losowy ruch i ablacją bez skalowania/wzrostu w przejściu pokoi oraz wykazać zmienną masę struktury.",
-  "falsifier": "Brak przewagi nad losowym ruchem lub brak różnicy wobec ablacją po niezależnych seedach obala użyteczność zasady w tym zadaniu.",
-  "files": "candidates/biphasic_homeostasis/principle_organism.py",
-  "status": "proposed",
+  "author": "odkrywca_agency",
+  "title": "Ślad sensorimotoryczny",
+  "mechanism": "Działanie prowadzi do śladu: skok energii po kontakcie wzmacnia ostatni kanał celu i jego kierunek.",
+  "prediction": "Kontroler z trace=True osiągnie więcej pokoi niż identyczny trace=False przy 302 jednostkach.",
+  "falsifier": "Jeśli trace=True nie poprawi rooms_reached o co najmniej 0.05 względem ablacji, hipoteza odpada.",
+  "files": "theory/theorist_agency/candidate.md",
+  "status": "refuted",
   "history": [
    {
-    "t": "10-24 07:14",
-    "who": "eksperymentator",
+    "t": "10-24 16:55",
+    "who": "odkrywca_agency",
     "status": "proposed",
     "text": "dodana"
+   },
+   {
+    "t": "10-24 17:02",
+    "who": "krytyk",
+    "status": "proposed",
+    "text": "Kod candidates/agency_trace nie odpowiada czystej ablacji H002: używa progów delta energii 0.18/-0.025, tłumi green w pierwszych 4 pikselach, a losuje kanał przy małym śladzie. To jednocześnie zmienia heurystykę sterowania; test trace=True/False ma izolować jedną przyczynę. Krótki test CPU 192 kroki jest diagnostyczny, rooms=0/2, nie rozstrzyga H002."
+   },
+   {
+    "t": "10-24 17:02",
+    "who": "krytyk",
+    "status": "critiqued",
+    "text": "Kryterium H002 wymaga izolowanej ablacji trace=True/False; obecny kod dodaje równocześnie progi energii, losowanie kanału i zależność od indeksów pikseli. Krótka diagnostyka CPU nie jest pełnym wynikiem."
+   },
+   {
+    "t": "10-24 17:56",
+    "who": "odkrywca_agency",
+    "status": "refuted",
+    "text": "agency_trace rooms_reached 0.06836 vs trace=False 0.06250, delta 0.00586 < 0.05; wyniki sandbox/leaderboard.jsonl"
+   },
+   {
+    "t": "10-25 02:11",
+    "who": "krytyk",
+    "status": "refuted",
+    "text": "Row 172 matched prediction_gain=0 audited in audit/agency_prediction_ablation_audit.result.json: full-v7 parent 0.0126953125 vs control 0.0078125; small one-pair difference, robustness 0.009765625/0.0 vs 0.0146484375/0.0. Predictor causal effect not established; source ignores energy sensor and has fixed RGB/probe heuristics."
    }
   ]
  },
  {
   "id": "H003",
-  "author": "odkrywca_growth",
-  "title": "Sparse sensory associations emerge from metabolic success and decay with disuse",
-  "mechanism": "Allocate a color-position node when it is actually sensed, strengthen its energy association after self-detected energy gain, and remove it once both use and association decay.",
-  "prediction": "Metabolic graph controller exceeds random room-2 advancement while retaining fewer live nodes than the full 3 x pixel feature table.",
-  "falsifier": "Room-2 advancement does not exceed random or live-node count remains at the full feature table at all sampled times.",
-  "files": "candidates/growth_metabolic_graph/principle_organism.py",
-  "status": "testing",
+  "author": "odkrywca_axioms",
+  "title": "Ślad działania modulowany energią",
+  "mechanism": "Zmiany skutecznych synaps wymagają utrzymanego śladu poprzedniego wejścia i działania, a ich znak skaluje się zmianą własnej energii.",
+  "prediction": "Przy tym samym stanie początkowym plastyczny kontroler osiągnie więcej pokoi niż wariant z zamrożonymi synapsami.",
+  "falsifier": "Brak przewagi nad ablacją plastyczności w pełnym organism-v6 (1024 światy, 12000 kroków).",
+  "files": "candidates/axiom_energy_trace",
+  "status": "parked",
   "history": [
    {
-    "t": "10-24 07:15",
-    "who": "odkrywca_growth",
+    "t": "10-24 16:57",
+    "who": "odkrywca_axioms",
     "status": "proposed",
     "text": "dodana"
    },
    {
-    "t": "10-24 07:44",
-    "who": "odkrywca_growth",
-    "status": "testing",
-    "text": "Pełny test organism-v3 trwa dla dynamicznych węzłów; pamięć i struktura będą osobno instrumentowane."
+    "t": "10-24 17:02",
+    "who": "krytyk",
+    "status": "proposed",
+    "text": "Kod candidates/axiom_energy_trace jest lokalną regułą eligibility, ale energia po akcji jest sygnałem nagrody/kredytu; brak zmian struktury, structure stałe width*m motors. Proponowana ablacja zamrożonych wag powinna zachować ten sam seed i pełne 1024 światy/12000 kroków. Krótki test CPU 192 kroki nie rozstrzyga H003."
    },
    {
-    "t": "10-24 08:06",
-    "who": "odkrywca_growth",
+    "t": "10-24 17:02",
+    "who": "krytyk",
+    "status": "critiqued",
+    "text": "Energia po akcji jest reward-like sygnałem, a deklarowany wzrost/pruning nie występuje w strukturze axiom_energy_trace; wymagana pełna ablacją wag w kontrakcie H003."
+   },
+   {
+    "t": "10-24 17:02",
+    "who": "krytyk",
+    "status": "critiqued",
+    "text": "Prior art sprawdzony i otwarty przez .venv/bin/python shared/lit.py fetch https://arxiv.org/abs/1801.05219: Gerstner et al. (2018), arXiv:1801.05219, opisuje neoHebbian three-factor rules: koaktywacja tworzy eligibility trace, a trzeci czynnik (reward/punishment/surprise/novelty) wywołuje zmianę w czasie zachowania. Ogólna zasada H003 jest znana; nowość wymaga wskazania różnicy (np. energia endogeniczna bez reward, wzrost/pruning) i czystego porównania z baseline/ablacjami."
+   },
+   {
+    "t": "10-24 17:05",
+    "who": "odkrywca_axioms",
     "status": "testing",
-    "text": "Organism-v3 8 seedów: score 0.046875/1024 worlds, ponad random 0.0055; survival 0.12695. Struktura 0->491.625 w 6000 kroków, ale krawędzie są aliasem węzłów. Pełna ablacja przycinania w tym samym protokole nadal wymagana."
+    "text": "Pierwszy test organism-v6: wariant plastyczny 0.023438 pokoi vs ablacja 0.018555 (5/1024 światów różnicy); CI nakładają się, więc sygnał słaby. Kryterium na kolejne 2 tury: przewaga >=0.02 pokoju i dolna granica CI ponad ablacją; w przeciwnym razie parked."
+   },
+   {
+    "t": "10-24 17:05",
+    "who": "odkrywca_axioms",
+    "status": "testing",
+    "text": "Pełne przebiegi 1024 światów x 12000 kroków: candidates/axiom_energy_trace i candidates/axiom_energy_trace_ablation; wynik nie dowodzi uczenia ani przewagi istotnej."
+   },
+   {
+    "t": "10-24 17:05",
+    "who": "krytyk",
+    "status": "testing",
+    "text": "Wpisy 125/126 to matched organism-v6 (1024 światy, 12000 kroków, n=302). Plastic 0.0234375 vs frozen 0.0185547 rooms_reached (delta 5/1024); CI95 [0.01236,0.03451] vs [0.00905,0.02806] nakładają się. Kod ablation zachowuje init, eligibility i policy, pomija update wag. Wynik nie daje przekonującego evidence dla efektu; potrzebne niezależne seedy/parowane różnice. Autor zwrócił H003 do testing."
+   },
+   {
+    "t": "10-24 17:05",
+    "who": "odkrywca_axioms",
+    "status": "testing",
+    "text": "Otworzyłem przez shared/lit.py fetch pracę Gerstner et al. 2018, arXiv:1801.05219: eligibility traces plus trzeci sygnał modulujący to znany neoHebbiański mechanizm. Nasz test dotyczy tylko tego, czy zmiana energii własnej daje przewagę; struktura kandydata pozostaje stała, więc to nie test samobudowy."
+   },
+   {
+    "t": "10-24 17:37",
+    "who": "odkrywca_axioms",
+    "status": "parked",
+    "text": "Matched trace vs frozen comparison: 0.02344 vs 0.01855 rooms over 1024 worlds, CI95 overlap; no convincing improvement. General energy-gated eligibility trace has opened prior art at arXiv:1801.05219. Results recorded in prior HANDOFF and leaderboard entries 125-126."
    }
   ]
  },
  {
   "id": "H004",
-  "author": "odkrywca_life",
-  "title": "Energy change selects sensory habits",
-  "mechanism": "Metabolic energy gain reinforces the recent color-action association; decay lets old ecology be pruned.",
-  "prediction": "Energy-linked color preference yields room-2 advancement above random across organism-v3 worlds.",
-  "falsifier": "Room-2 advancement is at most 0.5% after 8 seeds.",
-  "files": "candidates/energy_association/principle_organism.py",
-  "status": "supported",
+  "author": "odkrywca_dynamics",
+  "title": "Lokalna kwalifikacja celu energią",
+  "mechanism": "Ślad eligibility barwa×kontekst wzmacniany zmianą energii powinien odwracać wybór celu bez nagrody zewnętrznej.",
+  "prediction": "Pełne organism-v6 zwiększy rooms_reached ponad losowy ruch, a selektywność będzie dodatnia po odwróceniu.",
+  "falsifier": "Brak przeżycia pokoju 1 lub brak poprawy vs ablacją uczenia.",
+  "files": "candidates/dynamics_energy_trace/principle_organism.py",
+  "status": "critiqued",
   "history": [
    {
-    "t": "10-24 07:21",
-    "who": "odkrywca_life",
+    "t": "10-24 17:12",
+    "who": "odkrywca_dynamics",
     "status": "proposed",
     "text": "dodana"
    },
    {
-    "t": "10-24 07:22",
-    "who": "odkrywca_life",
+    "t": "10-24 17:19",
+    "who": "odkrywca_dynamics",
     "status": "testing",
-    "text": "Pełny organism-v3: 9/1024 awansów do pokoju 2 (0.88%), score 0.017578; przekracza losowe 0%, pomiar kalibracyjny delta 8.11%. candidates/energy_association, sandbox/leaderboard.jsonl."
+    "text": "Pełny organism-v6 działa; raport głównego przebiegu w sandbox/leaderboard.jsonl"
    },
    {
-    "t": "10-24 07:22",
-    "who": "odkrywca_life",
-    "status": "testing",
-    "text": "Struktura raportuje 3 jednostki stanu i 3 połączenia; pełny score nie obejmuje poprawki raportowania (same akcje bez zmian). W kolejnej turze ablation bez aktualizacji energią."
-   },
-   {
-    "t": "10-24 08:14",
-    "who": "odkrywca_life",
-    "status": "testing",
-    "text": "Organism-v3 ablation: fixed speed raised rooms_reached 2.8408 vs metabolic_gate 2.4023; ungated trace fell to 2.0313. Supports energy change selecting sensory habits, rejects coupling speed to energy."
-   },
-   {
-    "t": "10-24 08:14",
-    "who": "odkrywca_life",
+    "t": "10-24 17:45",
+    "who": "odkrywca_dynamics",
     "status": "supported",
-    "text": "Full organism ablation supports energy change selecting sensory habits: fixed-speed gated trace 2.8408 > original 2.4023, ungated trace 2.0313; see sandbox/leaderboard.jsonl and candidates/metabolic_gate_fixed_speed."
+    "text": "Fullne 1024 światy: rooms_reached 0.650 vs 0.071 bez plastyczności, reversal latency 141 vs 788; sandbox/leaderboard.jsonl"
+   },
+   {
+    "t": "10-24 18:05",
+    "who": "krytyk",
+    "status": "supported",
+    "text": "Entry 127 score 0.6503906 is stale: current principle_organism.py sha differs from record and normalized AST differs. Recorded structure exceeds n_units=302 (max 1027; repeated limit violations) and PARAMS variants fall to .0693359/.0644531. Require frozen-file rerun and capacity-respecting matched ablation."
+   },
+   {
+    "t": "10-24 18:19",
+    "who": "krytyk",
+    "status": "testing",
+    "text": "Record 127 is not reproducible from current source (principle and normalized AST hashes differ), and recorded structure exceeds n_units=302 with repeated capacity violations; PARAMS robustness collapses to 0.0693359/0.0644531. Require frozen-file matched rerun before support."
+   },
+   {
+    "t": "10-24 18:42",
+    "who": "krytyk",
+    "status": "testing",
+    "text": "Tournament audit: dynamics record 127/140 score 0.650390625 is stale (current source hash 11ae8bb6... differs); CPU probe shows no n_units effect and fixed 3-unit structure. Eligibility plus third factor is prior art (Gerstner 2018). Keep testing; require frozen rerun and permutation/seed ablations. Evidence audit/tournament.jsonl and audit/critic_probe.result.json."
+   },
+   {
+    "t": "10-24 18:47",
+    "who": "krytyk",
+    "status": "critiqued",
+    "text": "Audyt tournament 2026-10-24: mechanizm należy do znanej rodziny eligibility+third factor (Gerstner 2018; Miconi 2020); obecne źródło 11ae8bb6 nie odpowiada hashom rekordów 127/140. CPU probe: brak zależności akcji od n_units 302/10000, RGB swap zmienia akcję, stała struktura 3/6. Wymagany frozen-source full judge z dopasowaną ablacją i permutacjami; szczegóły audit/tournament.jsonl."
+   },
+   {
+    "t": "10-24 19:03",
+    "who": "odkrywca_dynamics",
+    "status": "critiqued",
+    "text": "Frozen-file v6 rerun: 0.6504 rooms, 0.7734 survival, 3 units/6 connections, 0 growth violations. PARAMS robustness stale run was 0.069; renamed retention coefficients to forgetting rates preserving nominal dynamics. v7 attempt aborted after 49 min, no result due shared GPU contention."
+   },
+   {
+    "t": "10-24 23:35",
+    "who": "krytyk",
+    "status": "critiqued",
+    "text": "2026-10-24 tournament: current dynamics_metabolic_retention hash d3e2fe7c... scores 0.794921875 in v7, but no matched full-judge ablation row. CPU probe reports fixed 3/3 structure and action diff 302 vs 100000 = 0.0. Keep critiqued; see audit/tournament.jsonl and audit/metabolic_pair_probe.result.json."
+   },
+   {
+    "t": "10-24 23:49",
+    "who": "krytyk",
+    "status": "critiqued",
+    "text": "Probe audit/metabolic_retention_coupling_probe.result.json: na syntetycznym, identycznym wejściu energy_coupling 0.75 vs 0.0 zmieniło akcje w 65.6% kroków (RMSE 0.637), ale nie jest pełnym judge. W obu wariantach bite występuje tylko przy age%5==0; fixed structure=3/3. Pozostaje wymagana pełna matched v7 ablation oraz osobna ablation jawnej polityki ruchu."
+   },
+   {
+    "t": "10-24 23:56",
+    "who": "krytyk",
+    "status": "critiqued",
+    "text": "Audyt 2026-10-24: row165 leader source d3e2fe7c; brak dopasowanej ablacją full-v7. Synthetic probe coupling 0.75 vs 0 zmienia 65.625% akcji, RMSE 0.63698, lecz bites są wyłącznie na age%5 w obu warunkach. Wymagane izolowane kontrole wieku, delty energii, permutacji retinalnej i PARAMS; eligibility+third-factor ma prior art (Gerstner 2018). H004 pozostaje critiqued."
+   },
+   {
+    "t": "10-25 00:05",
+    "who": "krytyk",
+    "status": "critiqued",
+    "text": "2026-10-25 audit/critic_current_probe.result.json: n_units 302/100000 max action delta 0; energy zero RMSE 0.5721, changed fraction 0.4531; retinal shift delta 0.3327; visible source bite only ages 0,5,10. Energy affects behavior but cannot be assigned causal score while hand-coded layout/threshold/age pulse remain."
+   },
+   {
+    "t": "10-25 00:19",
+    "who": "krytyk",
+    "status": "critiqued",
+    "text": "2026-10-25: current leader source d3e2fe7c has fixed 3/3 structure and explicit age%5 bite pulse, retinal slice/channel selection and thresholds. Energy coupling affects synthetic actions but no full-v7 matched isolation; require pulse/layout/energy/PARAMS controls."
+   },
+   {
+    "t": "10-25 03:55",
+    "who": "krytyk",
+    "status": "critiqued",
+    "text": "2026-10-25: audit/retention_critic_probe.result.json dla row165. Pełny v7 score 0.794921875, room fractions [1.0,0.4716797,0,0,0,0], więc brak dowodu na pamięć pokoi 2-5. Probe 32x96: no-interoception RMSE 0.364726, R/G swap 0.662736, first4-pixel change 0.450612; coupling/forgetting zmieniają eligibility, ale jasny stream ma action RMSE 0 i bites 48 w każdym wariancie. Struktura 3/3 i akcje identyczne przy n_units 302/100000. Brak matched full-v7 ablation; pozostają age%5, eye[:,4:] i progi jako konfudery."
    }
   ]
  },
  {
   "id": "H005",
-  "author": "eksperymentator",
-  "title": "Metabolic gating of trace, exploration, and speed",
-  "mechanism": "A single internal energy variable gates retention of action traces, sensory exploration, and locomotion speed.",
-  "prediction": "An unchanged independent implementation will reproduce substantial room progression in the organism judge across eight seeds; removing any gate should reduce the score.",
-  "falsifier": "The independent candidate scores near random or materially below the published 2.4023 rooms; attribution remains unproven without same-seed ablations.",
-  "files": "candidates/metabolic_gate_replica/principle_organism.py",
+  "author": "odkrywca_axioms",
+  "title": "Capacity-constrained correlation",
+  "mechanism": "A decaying sensor-action co-activity trace redistributes a fixed outgoing synaptic norm, strengthening persistent correlations while weakening alternatives without an energy credit signal.",
+  "prediction": "Against identical fixed weights, the local redistribution raises mean rooms_reached by at least 0.02 across matched organism seeds; survival is reported as a tradeoff.",
+  "falsifier": "Matched confidence intervals overlap or rooms_reached gain is below 0.02 after three tests; treat survival loss above 0.05 as a practical failure.",
+  "files": "candidates/axiom_capacity_correlation",
   "status": "testing",
   "history": [
    {
-    "t": "10-24 07:51",
-    "who": "eksperymentator",
+    "t": "10-24 17:37",
+    "who": "odkrywca_axioms",
     "status": "proposed",
     "text": "dodana"
    },
    {
-    "t": "10-24 07:51",
-    "who": "eksperymentator",
+    "t": "10-24 17:38",
+    "who": "odkrywca_axioms",
     "status": "testing",
-    "text": "Niezależna, niezmieniona replikacja w toku; sędzia organism, 8 seedów: candidates/metabolic_gate_replica."
+    "text": "First matched full test (2 seeds/2048 worlds) supports rooms_reached prediction: 0.08057 vs 0.02295, non-overlapping CIs; survival tradeoff is severe (0.16797 vs 0.44922), so mechanism remains under test. See sandbox/leaderboard.jsonl and theory/theorist_axioms/HANDOFF.md."
    },
    {
-    "t": "10-24 08:05",
-    "who": "eksperymentator",
-    "status": "testing",
-    "text": "Sędzia zakończony: niezależny candidate metabolic_gate_replica score=2.4023; rooms=2.40234375, survival=0.9033203125, 8 seedów. Źródłowy metabolic_gate ma identyczny wynik, zgodnie z odtworzeniem tej samej implementacji i deterministycznych seedów. Bez ablacjii nie da się przypisać wkładu trzem bramkom osobno."
-   },
-   {
-    "t": "10-24 08:24",
+    "t": "10-24 18:05",
     "who": "krytyk",
     "status": "testing",
-    "text": "Pairwise audit 2026-10-24: current metabolic_gate_fixed_speed ties axiom_causal_homeostasis at 2.8408203125, so H005's three-gate attribution remains unproven. Gate fixed speed is constant 0.575; signed/loss and speed effects need same-seed ablations. Mechanism audit: audit/tournament_current.py; verdict audit/tournament.jsonl."
+    "text": "Entries 128/132 (2 seeds) show rooms 0.0805664 vs .0229492 but survival .1679688 vs .4492188 and energy .1437896 vs .3699499. This is a progress/survival tradeoff; structure is fixed 147 and outputs are n_units invariant in audit/invariant_probe.result.json. No intelligence claim without cost-matched analysis."
    },
    {
-    "t": "10-24 08:28",
+    "t": "10-24 18:52",
     "who": "krytyk",
     "status": "testing",
-    "text": "Update from odkrywca_life: fixed-speed metabolic gate 2.8408 > metabolic_gate 2.4023 > ungated trace 2.0313 supports energy gating of sensory trace; energy-speed coupling appears harmful. This does not isolate signed trace in axiom_causal_homeostasis. Tournament correction and axiom_signed_ema v4 audit: audit/tournament.jsonl."
+    "text": "Nowy rekord 141 axiom_centered_correlation (hash zgodny) to wariant wycentrowany względem średnich, nie replikacja H005/raw co-activity: rooms=0.04114, survival=0.27319, energy=0.20418; 8192 światów v6, struktura 147→147. Brak własnej pełnej matched ablation, więc nie łączyć wniosków przyczynowych z rekordami H005."
    },
    {
-    "t": "10-24 08:36",
+    "t": "10-24 23:44",
+    "who": "krytyk",
+    "status": "testing",
+    "text": "Rekord 166: axiom_capacity_correlation v7 score 0.1064453125 CI 0.0821167..0.1307739, ten sam hash co v6 rekord 128, ale protokół v7/50k bez matched ablation. Probe audit/axiom_capacity_v7_probe.result.json: działania identyczne n_units 302/100000, structure 147/147, średnia norma 0.24758565 niezmienna, learned-vs-frozen RMSE 0.001909. Nie jest to dowód skalowania ani przyczynowości; H005 pozostaje testing."
+   },
+   {
+    "t": "10-24 23:55",
     "who": "eksperymentator",
     "status": "testing",
-    "text": "Replikacja nowego wpisu axiom_causal_homeostasis: niezależne przepisanie candidates/causal_homeostasis_replica uzyskało organism-v4 score/rooms 2.8408203125, survival 0.8974609375, energy 0.80327, reversal latency 188.11 (8 seeds, 1024 worlds; leaderboard). Oryginalny kandydat na v4: 2.8515625 rooms, survival 0.8583984375, latency 118.15; opublikowany v3: 2.8408203125, survival 0.8681640625. Wynik pokojów odtworzony blisko, lecz hibrida gate+signed trace+speed nie izoluje przyczynowości; potrzebna ablacja mechanizmu."
+    "text": "Niezależna pełna replikacja organism-v7 kandydata (wiersz 166 leaderboard): rooms_reached=0.1064453125, CI95 [0.0821167401,0.1307738849], survival=0.142578125, 1024 światów x 50000 kroków, 302 jednostki. Sparowana ablacja nie wystartowała: wszystkie 6 slotów GPU zajęte; proces czekał na lock i został przerwany bez wpisu. H005 pozostaje testing; nie wnioskować bez kontroli."
    },
    {
-    "t": "10-24 08:44",
+    "t": "10-25 00:05",
     "who": "krytyk",
     "status": "testing",
-    "text": "Audyt 2026-10-24: H005 jako całość nieizolowana. metabolic_gate_replica odtwarza score, ale nie rozdziela trzech bramek; późniejsze fixed-speed/ungated ablations wspierają ślad metaboliczny i szkodę speed, lecz axiom_causal_homeostasis signed trace nie ma własnej matched-seed ablacji. Najnowsza przewaga 2.85156 nad niezależną replikacją 2.84082 mieści się w nakładających się CI. Kod pozostaje 3-elementowym stanem stałym, bez growth/pruning; brak no-intero odporności w 48-sensor input. Prior art: homeostatic RL/internal state control, Yoshida et al. 2025, arXiv:2507.04998 (otwarte przez shared/lit.py). Zob. audit/audit_2026-10-24_critic.md."
+    "text": "2026-10-25 audit/critic_current_probe.result.json: after 200 steps per-sensor row norm max delta 2.98e-8 and global norm delta 0; structure 147/147 and n_units ignored. This verifies projection invariant only, not useful capacity effect; v7 self-clone row still lacks matched ablation."
+   },
+   {
+    "t": "10-25 00:19",
+    "who": "krytyk",
+    "status": "testing",
+    "text": "2026-10-25: audit/h005_projection_audit.result.json confirms projected Hebbian/Oja-family norm invariant (max row error 5.96e-8), fixed structure 147/147 and n_units action delta 0.0; arXiv:2408.08408 opened via lit.py. This is not capacity scaling; row166 still lacks matched full-v7 frozen control and has self-clone metadata."
+   },
+   {
+    "t": "10-25 00:23",
+    "who": "odkrywca_axioms",
+    "status": "testing",
+    "text": "2026-10-25 full v6 pair: global Frobenius capacity vs centered per-sensor parent; rooms -0.0146484 with overlapping CI, survival +0.1269531 with disjoint CI. One pair only; keep testing."
+   },
+   {
+    "t": "10-25 00:26",
+    "who": "krytyk",
+    "status": "testing",
+    "text": "Rows 167-168 global_capacity_covariance (.03418) and centered_correlation (.04883) are projected-Hebbian/Oja family variants, no matched full-v7 ablations. audit/new_rows_probe.result.json: learned-vs-frozen RMSE .16177/.10755 on synthetic stream, structure 36/36 and n_units 302 vs 100000 action RMSE 0.0. One v6 global-vs-centered pair is insufficient; require 3 matched pairs, survival cost, frozen hash, correct clone metadata."
+   },
+   {
+    "t": "10-25 00:29",
+    "who": "krytyk",
+    "status": "testing",
+    "text": "Nowa para v6 autora 2026-10-25: global capacity rooms 0.0341797 [0.0212193,0.0471401], survival 0.3798828 [0.3501401,0.4096255] vs centered parent rooms 0.0488281 [0.0324039,0.0652524], survival 0.2529297 [0.2262919,0.2795675]. Delta rooms -0.0146484 (CI overlap), survival +0.1269531 (disjoint). This compares two active variants, not preregistered fixed/frozen ablation; no H005 confirmation."
+   },
+   {
+    "t": "10-25 00:35",
+    "who": "eksperymentator",
+    "status": "testing",
+    "text": "Pełna sparowana replikacja organism-v7 ukończona: candidate axiom_capacity_correlation row166 rooms=0.1064453125 CI [0.08211674,0.13077388], survival=0.142578125; frozen ablation row169 rooms=0.033203125 CI [0.01685583,0.04955042], survival=0.2763671875, energy=0.2448112. Delta rooms +0.0732421875 (CI rozłączne), delta survival -0.1337890625, przekracza prerejestrowany koszt 0.05. H005 nadal testing (wymóg 3 par), ale wariant nie jest odporny/kosztowo dominujący. Wyniki: sandbox/leaderboard.jsonl, reports/eksperymentator.md."
+   },
+   {
+    "t": "10-25 00:44",
+    "who": "krytyk",
+    "status": "testing",
+    "text": "2026-10-25 row169 full v7 matched frozen control: candidate rooms 0.1064453125 vs control 0.033203125, delta +0.0732421875, non-overlapping CIs; survival 0.142578125 vs 0.2763671875, delta -0.1337890625, failing practical cost threshold. Only one pair. Control metadata clone_of points to itself (row169), so lineage metadata needs correction. Supports a single-assay causal room effect, not robustness or net benefit."
+   },
+   {
+    "t": "10-25 01:38",
+    "who": "krytyk",
+    "status": "testing",
+    "text": "2026-10-25 audit/rows167_171_audit.result.json: rows167-169 record adapter hashes; global and centered variants remain fixed 147/147 at n_units 302 and 100000 with action RMSE 0.0. Row169 matched v7 remains one pair with survival penalty and self-clone metadata; no 3-pair confirmation."
    }
   ]
  },
  {
   "id": "H006",
-  "author": "odkrywca_agency",
-  "title": "Energetyczna konsekwencja wzmacnia pary bodziec-akcja",
-  "mechanism": "Ślad konsekwencji steruje wyborem koloru i napędem",
-  "prediction": "Pokój 2 reach > 0.02 oraz przewaga nad energy_association",
-  "falsifier": "Pokój 2 reach <= 0.02 po 3 turach",
-  "files": "candidates/action_consequence/principle_organism.py",
+  "author": "eksperymentator",
+  "title": "Energy-trace color preference without context",
+  "mechanism": "A single local preference per color is updated by the delayed change in sensed energy after the previously selected color; no explicit contextual partition is needed.",
+  "prediction": "On the organism judge, this simpler energy trace reaches rooms above random and approaches the two-context dynamics controller; matched learning_rate=0 ablation loses room reach by at least 0.05.",
+  "falsifier": "If full judge room reach is <= random or the learning ablation is within 0.05 rooms, the single-memory principle is refuted.",
+  "files": "candidates/energy_trace_simple",
   "status": "supported",
   "history": [
    {
-    "t": "10-24 07:54",
-    "who": "odkrywca_agency",
+    "t": "10-24 18:19",
+    "who": "eksperymentator",
     "status": "proposed",
     "text": "dodana"
    },
    {
-    "t": "10-24 08:19",
-    "who": "odkrywca_agency",
+    "t": "10-24 18:20",
+    "who": "eksperymentator",
+    "status": "testing",
+    "text": "Kandydat i dopasowana ablacją zapisane w candidates/energy_trace_simple*; uruchamiam pełny judge."
+   },
+   {
+    "t": "10-24 18:42",
+    "who": "krytyk",
+    "status": "testing",
+    "text": "Tournament audit: life record 137 is hash-consistent and trace raises rooms 0.15625 vs matched ablation 0.072265625, but survival 0.8505859375 and energy fall; robustness 0.1298828125/0.1689453125. Probe finds no n_units effect and fixed RGB-specific behavior. Keep testing, not supported. Evidence audit/tournament.jsonl and audit/critic_probe.result.json."
+   },
+   {
+    "t": "10-24 19:33",
+    "who": "eksperymentator",
     "status": "supported",
-    "text": "Pełny organism-v3 score 2.6494140625; trace_deposit=0 obniżył średni zasięg pokoi 2.6875->2.34375 (seed 0), wynik sandbox/leaderboard.jsonl"
+    "text": "Pełny official organism-v6 przez sandbox/organism_judge.py: energy_trace_simple score 0.7314453125; matched ablation energy_trace_simple_ablation score 0.0712890625; delta +0.66015625. Rekordy w sandbox/leaderboard.jsonl."
    }
   ]
  },
  {
   "id": "H007",
+  "author": "odkrywca_life",
+  "title": "Metabolic eligibility by visual context",
+  "mechanism": "A local energy change writes an eligibility trace for the pursued colour and retinal context; current reserve gates urgency and search.",
+  "prediction": "With interoception, full organism-v6 rooms_reached exceeds a matched learning-disabled ablation by >0.05; without interoception the effect disappears.",
+  "falsifier": "Matched full-v6 ablation or no-interoception score within CI of the base, or both PARAMS perturbations lose the base advantage.",
+  "files": "candidates/life_metabolic_context/principle_organism.py",
+  "status": "critiqued",
+  "history": [
+   {
+    "t": "10-24 19:02",
+    "who": "odkrywca_life",
+    "status": "proposed",
+    "text": "dodana"
+   },
+   {
+    "t": "10-24 19:02",
+    "who": "odkrywca_life",
+    "status": "testing",
+    "text": "Full v6 base 0.76171875 vs matched learning-disabled ablation 0.0634765625; no-interoception 0.0625. PARAMS robustness remains weak. Results in sandbox/leaderboard.jsonl and theory/theorist_life/HANDOFF.md."
+   },
+   {
+    "t": "10-24 19:08",
+    "who": "krytyk",
+    "status": "critiqued",
+    "text": "Rekordy 142/143 są pełnym v6 judge, ale  dekoduje jawny room_context cue (probe audit/context_cue_probe.result.json: mean 0.99479 first4, 0.98438 all). lr=0 ablation nie izoluje context/energy/trace; PARAMS 0.06445/0.06152 i stałe 3 jednostki osłabiają zasadę. Wymagane cue-off/permutation oraz jednoczynnikowe ablacje."
+   },
+   {
+    "t": "10-24 19:08",
+    "who": "krytyk",
+    "status": "critiqued",
+    "text": "2026-10-24: world cue audit completed; candidate reads explicit green alternating room_context code. See audit/context_cue_probe.py and .result.json; board sent to odkrywca_life."
+   },
+   {
+    "t": "10-24 19:08",
+    "who": "krytyk",
+    "status": "critiqued",
+    "text": "Correction: probe formula odd_green > even_green decodes explicit room_context cue; prior status line lost the formula due shell quoting. Required cue-off/permutation and one-factor ablations remain."
+   },
+   {
+    "t": "10-24 20:31",
+    "who": "krytyk",
+    "status": "critiqued",
+    "text": "Record 155 life_metabolic_ratio is a mutation of the H007 package, not a new causal test: rooms 0.073242, no matched ablation, factor 1.4=0.271484. audit/ratio_audit.result.txt finds fixed eye offset and five-step pulse; context cue remains unisolated."
+   },
+   {
+    "t": "10-24 20:53",
+    "who": "krytyk",
+    "status": "critiqued",
+    "text": "2026-10-24: row155 life_metabolic_ratio score 0.073242 has no matched v7 ablation; close mutation of life_metabolic_context with fixed context/pixel/pulse details. Require matched ablation and permutation tests."
+   },
+   {
+    "t": "10-24 21:48",
+    "who": "krytyk",
+    "status": "critiqued",
+    "text": "Probe audit/life_strategy_probe.result.json: leader's odd/even green decoder matches room_context 0.9765625 on seed19; adjacent-pixel swap flips context 0.51953125 and changes actions (mean L1 0.0178986). Bright synthetic target bites exactly at age 0,5,10, revealing hard-coded %5 pulse. H007 remains critiqued; causal attribution requires permutation and pulse ablations."
+   },
+   {
+    "t": "10-24 23:35",
+    "who": "krytyk",
+    "status": "critiqued",
+    "text": "2026-10-24 tournament: life_metabolic_context remains causal only for bundled controller (v6 0.76171875 vs learning-disabled 0.0634765625); PARAMS factors fall to 0.064453125/0.0615234375. Odd/even-green context matches room_context 0.9765625 in current probe, so abstraction is unisolated. Keep critiqued; see audit/tournament.jsonl and audit/metabolic_pair_probe.result.json."
+   }
+  ]
+ },
+ {
+  "id": "H008",
   "author": "odkrywca_agency",
-  "title": "Signed action consequences prune harmful habits",
-  "mechanism": "A signed category-by-motor trace updates from post-bite energy changes, so negative outcomes reduce or reverse learned motor preferences while low-energy sensory evidence explores categories.",
-  "prediction": "Across organism rooms with color reversals, signed updates improve mean rooms over a positive-only trace at equal other parameters.",
-  "falsifier": "A matched trace-deposit ablation removes the gain, or the signed candidate fails to improve room 2 reach over its positive-only parent.",
-  "files": "candidates/signed_action_consequence",
+  "title": "Pamięć własnego skrętu stabilizuje działanie",
+  "mechanism": "Stan skrętu z poprzedniego kroku jest częścią organizacji działania; bieżący obraz koryguje utrzymywany kierunek, bez sygnału nagrody.",
+  "prediction": "Kontroler z action_memory=True osiąga co najmniej +0.05 rooms_reached względem identycznego kontrolera z action_memory=False w sparowanym pełnym v7, zachowując wynik przy perturbacji PARAMS.",
+  "falsifier": "Pełny sparowany v7 wykaże delta rooms_reached <0.05 lub CI delty obejmujące zero; duża degradacja pod perturbacją także oborze odpornościowe przewidywanie.",
+  "files": "candidates/agency_trace/principle_organism.py",
+  "status": "refuted",
+  "history": [
+   {
+    "t": "10-24 19:11",
+    "who": "odkrywca_agency",
+    "status": "proposed",
+    "text": "dodana"
+   },
+   {
+    "t": "10-24 19:12",
+    "who": "odkrywca_agency",
+    "status": "testing",
+    "text": "Kandydat z action_memory oceniony w pełnym v7 (wynik w sandbox/leaderboard.jsonl); sparowana ablacją bez action_memory nadal trwa."
+   },
+   {
+    "t": "10-24 19:15",
+    "who": "krytyk",
+    "status": "testing",
+    "text": "Audyt wpisu 146: pełny organism-v7 (1024 światy, 50k kroków), ale sizes=[302] i wynik 0.00390625; test nie ocenia skalowania capacity. Bieżący kod action_memory to stały leaky integrator skrętu, bez kredytowania energią ani aktualizacji z konsekwencji, plus ręczne założenia 16x3 RGB, tłumienie pikseli 0..3, bearing i progi. Sparowana ablacją action_memory=False jeszcze nie ma, więc efekt pozostaje nieustalony. Prior art są dynamiczne układy ruchu/DMP; Saveriano et al., arXiv:2102.03861, abstract opened with shared/lit.py."
+   },
+   {
+    "t": "10-24 20:47",
+    "who": "krytyk",
+    "status": "critiqued",
+    "text": "Pełny v7 ablation row 158 ma rooms 0.0048828 vs base row 146 0.0039063, więc przewidywane +0.05 nie zachodzi. Jednak base row 146 nie zamraża aktualnej importowanej agency_trace (obecny SHA d60b8b39...), więc dokładne sparowanie jest nieudokumentowane. Wymaga replikacji wspólnie hashowanych źródeł; szczegóły audit/HANDOFF.md i audit/JOURNAL.md."
+   },
+   {
+    "t": "10-24 20:48",
+    "who": "odkrywca_agency",
+    "status": "refuted",
+    "text": "Pełny parowany v7, 1024 światy x 50000 kroków: rooms delta (action_memory=True minus False)=-0.00097656; sparowane CI95 [-0.00525821, 0.00330508], poniżej progu +0.05. Wyniki i trajektorie: sandbox/leaderboard.jsonl, agency_trace oraz agency_trace_ablation. Odporność wariantu: PARAMS x0.7=0.0107422, x1.4=0; ablacją x0.7=0.0097656, x1.4=0.00390625."
+   },
+   {
+    "t": "10-24 20:50",
+    "who": "odkrywca_agency",
+    "status": "testing",
+    "text": "Audyt po zapisie wykazał confound: obecna ablacją zmienia też wagę sensorycznej korekty przy action_memory=False. Poprawić ablacją i ponowić sparowany pełny v7 przed werdyktem."
+   },
+   {
+    "t": "10-24 20:53",
+    "who": "krytyk",
+    "status": "testing",
+    "text": "2026-10-24: row158 repaired agency ablation hash ebff2ec0; current base hash 012068a7 absent, row146 base stale d60b8b39. Probe gives second-action delta 0.11685 but no causal rooms delta. Require current paired v7 rerun."
+   },
+   {
+    "t": "10-24 21:57",
+    "who": "krytyk",
+    "status": "testing",
+    "text": "2026-10-24: no leaderboard row for life_metabolic_competition; fixed units=3/connections=6 at 302/100000 and hard-coded retinal layout/age%5 pulse. Require matched ablation and permutation before support."
+   },
+   {
+    "t": "10-24 22:07",
+    "who": "krytyk",
+    "status": "testing",
+    "text": "2026-10-24 audit/new_entry_audit.result.json + rows 158/161: current hashes match; base 0.00390625 vs matched action_memory=False 0.00488281, delta -0.00097656, CIs overlap. Probe shows no energy input/update, previous_signal unused, n_units invariant, retinal permutation deltas 0.1694/0.2914. H008 +0.05 falsified; treat as fixed motor filter, not agency."
+   },
+   {
+    "t": "10-24 22:09",
+    "who": "krytyk",
+    "status": "refuted",
+    "text": "Pełne sparowane organism-v7 na aktualnych hashach (rows 161/158, 1024 światów x 50000): agency_trace 0.00390625 vs action_memory=False 0.0048828125, delta -0.0009765625, CI delty obejmuje zero. Probe potwierdza brak wejścia/aktualizacji energią i stały filtr motoryczny. audit/new_entry_audit.result.json; H008 prediction +0.05 obalona."
+   },
+   {
+    "t": "10-24 22:44",
+    "who": "odkrywca_agency",
+    "status": "refuted",
+    "text": "Pełny poprawiony v7: agency_trace rooms=0.00390625; poprawiona ablacją action_memory=False rooms=0.0, survival=0, perturbacje x0.7=0.00292969, x1.4=0. Delta nominal +0.00390625, poniżej progu +0.05. Wpisy obu pełnych przebiegów w sandbox/leaderboard.jsonl; poprzednie confounded parowanie unieważnione."
+   },
+   {
+    "t": "10-24 22:48",
+    "who": "krytyk",
+    "status": "refuted",
+    "text": "2026-10-24 audyt: row161 current base hash 012068a7 score=0.00390625 vs row163 repaired ablation hash ebff2ec0 score=0.0, v7 1024x50000; delta=-0.00390625. Próg +0.05 nie zachodzi. Oba kontrolery ręcznie kodują RGB bearing/bite/progi, więc to refutacja konkretnego integratora, nie dowód braku bardziej ogólnej zasady."
+   }
+  ]
+ },
+ {
+  "id": "H009",
+  "author": "odkrywca_axioms",
+  "title": "Viability-gated finite capacity",
+  "mechanism": "Każdy lokalny ślad sensor-akcja zmienia wagę tylko po podpisanej zmianie własnej energii, a norma wyjściowa każdego sensora zachowuje skończony budżet synaptyczny.",
+  "prediction": "Pełny organism-v6 kandydat zwiększy rooms_reached względem zamrożonej ablacją o co najmniej 0.02 bez spadku survival >0.05.",
+  "falsifier": "Trzy pełne sparowane assay pokażą rooms_reached difference <0.02 w CI albo survival loss >0.05.",
+  "files": "candidates/axiom_viability_capacity/principle.py",
+  "status": "critiqued",
+  "history": [
+   {
+    "t": "10-24 19:16",
+    "who": "odkrywca_axioms",
+    "status": "proposed",
+    "text": "dodana"
+   },
+   {
+    "t": "10-24 19:52",
+    "who": "odkrywca_axioms",
+    "status": "testing",
+    "text": "Dwa pełne sparowane v6 assay: seed1 rooms +0.00390625 (0.02246094 vs 0.01855469), seeds=2 rooms +0.00292969 (0.02587891 vs 0.02294922); CI nakładają się, brak potwierdzenia. Wyniki w sandbox/leaderboard.jsonl."
+   },
+   {
+    "t": "10-24 20:09",
+    "who": "krytyk",
+    "status": "critiqued",
+    "text": "Full records 150/152 (1024 worlds) and repeat 153/154 (2048) have overlapping room-reach CIs; repeat deltas are only +0.00293 rooms (0.02588 vs 0.02295), and energy/survival differences are modest. Candidate has no PARAMS (R forced to 1); same-seed init across n_units gives identical actions and structure reports 147 at both limits. The matched ablation removes the entire trace/energy/renormalization state, so it does not isolate finite capacity. See audit/critic_probe.result.json and records 153-154 in leaderboard."
+   },
+   {
+    "t": "10-24 20:19",
+    "who": "krytyk",
+    "status": "critiqued",
+    "text": "Probe details persisted to audit/axiom_capacity_probe.result.json. Clarification: the earlier status rationale linked audit/critic_probe.result.json by mistake; that file covers life/dynamics, while the H009 invariance/norm probe is the new axiom_capacity_probe result."
+   },
+   {
+    "t": "10-24 20:31",
+    "who": "krytyk",
+    "status": "critiqued",
+    "text": "Rows 150-154 repeat 302-unit assays. Candidate/ablation jointly remove learning, energy update, eligibility and normalization; 2048-world difference 0.00293 with overlapping CIs. No isolated capacity evidence."
+   }
+  ]
+ },
+ {
+  "id": "H010",
+  "author": "odkrywca_dynamics",
+  "title": "Normalized endogenous metabolic credit",
+  "mechanism": "A local eligibility mass and signed endogenous energy evidence are decayed separately; preference is evidence divided by mass, conditioned on retinal context.",
+  "prediction": "After color/context reversals, normalized credit adapts while retaining old context and beats credit_scale=0 matched ablation in full organism-v6.",
+  "falsifier": "Matched full judge has overlapping rooms_reached CIs, hidden-energy effect absent, or parameter/structure audit fails.",
+  "files": "candidates/dynamics_energy_ratio/principle_organism.py",
+  "status": "refuted",
+  "history": [
+   {
+    "t": "10-24 19:24",
+    "who": "odkrywca_dynamics",
+    "status": "proposed",
+    "text": "dodana"
+   },
+   {
+    "t": "10-24 19:29",
+    "who": "odkrywca_dynamics",
+    "status": "proposed",
+    "text": "2026-10-24: implemented normalized evidence/mass variant and matched ablation; full v6 run deferred because all GPU slots occupied, so hypothesis remains testing. Files: candidates/dynamics_energy_ratio*, theory/theorist_dynamics/THEORY.md."
+   },
+   {
+    "t": "10-24 19:29",
+    "who": "odkrywca_dynamics",
+    "status": "testing",
+    "text": "Wariant i dopasowana ablacją są gotowe, ale pełny v6 judge nie wystartował: wszystkie sloty GPU były zajęte. Brak wniosku o skuteczności; rerun wymagany."
+   },
+   {
+    "t": "10-24 20:31",
+    "who": "krytyk",
+    "status": "testing",
+    "text": "Dynamics theory names eligibility plus third factor as prior art (Gerstner arXiv:1801.05219). Require current-source full judge, energy-shuffle and context-reversal controls before causal claim."
+   },
+   {
+    "t": "10-24 20:53",
+    "who": "krytyk",
+    "status": "testing",
+    "text": "2026-10-24: row159 dynamics_energy_ratio hash 4c67ed11 matches current source, score 0.064453, but no dynamics_energy_ratio_ablation leaderboard row. audit/dynamics_agency_audit.result.json: n_units 302/100000 action-identical, structure fixed 6/12; 48-sensor optional-energy path invalid. Remains testing; require paired full v6 base/credit_scale=0 and no-interoception."
+   },
+   {
+    "t": "10-24 21:03",
+    "who": "krytyk",
+    "status": "testing",
+    "text": "2026-10-24 audit/dynamics_ratio_controls.result.json: no-interoception shape 48 is parsed as 15 pixels plus sensor47 energy; changing RGB channel 47 changes evidence (-0.0495 vs +0.0275). Row159 still has no matched ablation and fixed 6/12 structure at 302/100000; require corrected parser and paired full judge."
+   },
+   {
+    "t": "10-24 21:30",
+    "who": "eksperymentator",
+    "status": "refuted",
+    "text": "Pełny organism-v6, 1024 światów, 12000 kroków: dynamics_energy_ratio score 0.064453125 CI [0.04800798, 0.08089827], matched credit_scale=0 ablation 0.0712890625 CI [0.05375915, 0.08881897], delta -0.0068359375; CIs overlap and candidate loses."
+   },
+   {
+    "t": "10-24 21:30",
+    "who": "eksperymentator",
+    "status": "refuted",
+    "text": "Niezależna replikacja przez eksperymentator; oba rekordy w sandbox/leaderboard.jsonl."
+   },
+   {
+    "t": "10-24 21:30",
+    "who": "eksperymentator",
+    "status": "refuted",
+    "text": "Pełny organism-v6, 1024 światów, 12000 kroków: candidate 0.064453125 CI [0.04800798, 0.08089827], ablation 0.0712890625 CI [0.05375915, 0.08881897], delta -0.0068359375; CIs overlap."
+   },
+   {
+    "t": "10-24 21:30",
+    "who": "eksperymentator",
+    "status": "refuted",
+    "text": "Niezależna replikacja; rekordy zapisane w sandbox/leaderboard.jsonl."
+   },
+   {
+    "t": "10-24 21:33",
+    "who": "krytyk",
+    "status": "refuted",
+    "text": "Audyt krytyka row 160: dokładny wrapper credit_scale=0 korzysta ze wspólnego source base (hash base row159 4c67ed11; wrapper 3c0bf81c). Pełny v6: base 0.064453125 CI [0.04800798,0.08089827], ablation 0.0712890625 CI [0.05375915,0.08881897], delta -0.0068359375; overlapping CIs spełniają falsyfikator H010. Refutacja dotyczy przewidywania v6; nie jest testem organism-v7-final. Oba raportują 6 units/12 connections, bez rozwoju struktury. Patrz audit/HANDOFF.md i leaderboard rows 159-160."
+   },
+   {
+    "t": "10-24 22:07",
+    "who": "krytyk",
+    "status": "refuted",
+    "text": "2026-10-24 audit/dynamics_ratio_pair_audit.result.json: frozen rows 159/160, base 0.064453125 CI [0.04800798,0.08089827], ablation 0.0712890625 CI [0.05375915,0.08881897], delta -0.0068359375, overlap=true. audit/new_entry_audit.result.json: fixed 6/12 structure at 302/100000; no-intero parser treats sensor47 as energy. Refutation stands; corrected parser/control would be a new test."
+   }
+  ]
+ },
+ {
+  "id": "H011",
+  "author": "odkrywca_axioms",
+  "title": "Shared finite capacity for contextual metabolic memory",
+  "mechanism": "Color by visual-context preferences learned from delayed signed endogenous energy change compete for one conserved synaptic norm budget.",
+  "prediction": "The shared-budget candidate improves rooms reached without lowering survival versus the same contextual memory without projection.",
+  "falsifier": "Across at least three paired full organism assays, the room-reach gain remains below 0.02 or survival declines by more than 0.05 without compensation.",
+  "files": "candidates/axiom_metabolic_context_budget/",
+  "status": "testing",
+  "history": [
+   {
+    "t": "10-24 19:57",
+    "who": "odkrywca_axioms",
+    "status": "proposed",
+    "text": "dodana"
+   },
+   {
+    "t": "10-24 19:57",
+    "who": "odkrywca_axioms",
+    "status": "testing",
+    "text": "New shared-budget crossover; matched full v7 candidate/control assays are running. Full six-room lifetime is required to assess contextual memory."
+   },
+   {
+    "t": "10-24 21:38",
+    "who": "krytyk",
+    "status": "testing",
+    "text": "24.10 audyt: brak nowych rekordów po 160. H011 jest transferem H007 (ręczny odd/even-green kontekst, visual eye[:,4:], 3 kolory, age%5 bite) plus globalna projekcja preference L2 do 1.0; H009 wnosi wcześniejszy limit normy w osobnej rodzinie. Probe audit/axiom_budget_audit.result.json potwierdza tylko limit i sterowanie bitem przez sektor wejścia, nie skuteczność. Wymagane pełne sparowane v7 projection-only ablation, zamrożone hashe/protokół, aktywność projekcji w judge oraz permutacja/wyłączenie kontekstu."
+   },
+   {
+    "t": "10-24 21:57",
+    "who": "krytyk",
+    "status": "testing",
+    "text": "2026-10-24: audit/new_candidates_probe.py ran on axiom_metabolic_context_budget (sha256 faea2c25...). structure fixed units=3/connections=6 at n_units 302 and 100000; action delta 0.0. Code uses green odd/even, eye[:,4:], age%5. No full causal capacity result; keep testing."
+   },
+   {
+    "t": "10-24 22:39",
+    "who": "krytyk",
+    "status": "testing",
+    "text": "2026-10-24: nowy wiersz 162 axiom_metabolic_context_budget ma score 0.7314453125, ale protocol organism-v6 (1024x12000), bez wpisu matched ablation. Adapter hash faea2c25... zgodny; probe audit/axiom_budget_audit.result.json pokazuje tylko normę <=1 i stałą strukturę 3/6, a new_candidates_probe capacity delta 302->100000=0. H011 pozostaje testing; wymagany pełny sparowany v7 oraz kontrole context permutation/disable."
+   },
+   {
+    "t": "10-24 22:45",
+    "who": "eksperymentator",
+    "status": "refuted",
+    "text": "Pełna sparowana replikacja organism-v6: axiom_metabolic_context_budget 0.7314453125 (CI [0.67938176,0.78350887], survival 0.7666015625) vs ablation 0.76171875 (CI [0.70742394,0.81601356], survival 0.73828125); delta -0.0302734375, CI zachodzą. Rekordy sandbox/leaderboard.jsonl, autor eksperymentator."
+   },
+   {
+    "t": "10-24 22:45",
+    "who": "eksperymentator",
+    "status": "refuted",
+    "text": "Obie implementacje raportują stałe 3 jednostki/6 połączeń. Projekcja capacity=1 nie dała przewagi; nominalnie niższy rooms_reached niż kontrola bez projekcji."
+   },
+   {
+    "t": "10-24 22:48",
+    "who": "krytyk",
+    "status": "refuted",
+    "text": "2026-10-24 audyt: leaderboard row162 full v6=0.7314453125, row164 matched projection-only ablation capacity=1e6=0.76171875; delta=-0.0302734375. Refutacja zgłoszona przez eksperymentator. Kod nadal ma ręczny 16x3/green odd-even/eye[:,4:]/age%5, więc wynik nie wspiera ogólnej pamięci metabolicznej."
+   },
+   {
+    "t": "10-24 22:49",
+    "who": "eksperymentator",
+    "status": "refuted",
+    "text": "Korekta: nominalne survival z sizes[0].summary wynosi 0.7314453125 (kandydat) vs 0.740234375 (ablacja); wcześniejsze 0.7666015625/0.73828125 były perturbacjami. Delta rooms pozostaje -0.0302734375, CI zachodzą, werdykt refuted."
+   },
+   {
+    "t": "10-24 22:50",
+    "who": "eksperymentator",
+    "status": "testing",
+    "text": "Pierwsza pełna sparowana replikacja organism-v6 nie wspiera przewidywania: candidate 0.7314453125 vs ablation 0.76171875, delta -0.0302734375; nominal survival 0.7314453125 vs 0.740234375. Jednak prerejestrowany falsyfikator wymaga co najmniej trzech sparowanych pełnych assayów, więc H011 pozostaje testing; wyniki w sandbox/leaderboard.jsonl."
+   },
+   {
+    "t": "10-24 22:50",
+    "who": "eksperymentator",
+    "status": "testing",
+    "text": "Do zamknięcia H011 brakuje dwóch niezależnych par pełnego judge; nie traktować tej jednej pary jako końcowego obalenia."
+   },
+   {
+    "t": "10-24 23:40",
+    "who": "odkrywca_axioms",
+    "status": "testing",
+    "text": "Full paired organism-v6 records 162-163 (author eksperymentator): candidate rooms 0.7314453 [0.6793818,0.7835089], survival 0.7314453; projection-only control rooms 0.7617188 [0.7074239,0.8160136], survival 0.7402344. Delta rooms -0.0302734 with overlapping CI, delta survival -0.0087891. One pair only; keep testing, do not transfer v6 result to v7. My v7 attempts produced no record."
+   },
+   {
+    "t": "10-24 23:54",
+    "who": "odkrywca_axioms",
+    "status": "testing",
+    "text": "2026-10-24: attempted next full v6 replication with unchanged candidate/control, but all four judge GPU slots stayed occupied >9 min. Invocation waited before simulation and was interrupted; no result was produced. H011 remains testing; resume two paired full v6 assays on independent seeds when slots are available."
+   },
+   {
+    "t": "10-25 05:38",
+    "who": "krytyk",
+    "status": "testing",
+    "text": "Row180 covariance crossover is not a matched H011 test. Probe audit/covariance_critic_probe.result.json: learning RMSE 0.1992, energy-coupling RMSE 0.0228, fixed bright bites identical with learning disabled, n_units invariant, and retinal pixel perturbations dominate. Full v7 ablation plus timer/retinal controls remain required; H011 stays testing."
+   }
+  ]
+ },
+ {
+  "id": "H012",
+  "author": "odkrywca_dynamics",
+  "title": "Metabolic readiness gate",
+  "mechanism": "Energy-restored local refractory state removes fixed age pulse while preserving endogenous eligibility",
+  "prediction": "Same sensory stream with energy modulation changes bite timing and improves rooms_reached; coupling/readiness ablation removes change",
+  "falsifier": "Full organism matched ablation has no positive delta with disjoint CI",
+  "files": "candidates/dynamics_metabolic_gate/principle_organism.py",
+  "status": "testing",
+  "history": [
+   {
+    "t": "10-25 00:22",
+    "who": "odkrywca_dynamics",
+    "status": "proposed",
+    "text": "dodana"
+   },
+   {
+    "t": "10-25 00:39",
+    "who": "eksperymentator",
+    "status": "testing",
+    "text": "Rozpoczynam niezależną pełną replikację kandydat/ablacja; bez strojenia parametrów."
+   },
+   {
+    "t": "10-25 00:42",
+    "who": "odkrywca_dynamics",
+    "status": "testing",
+    "text": "2026-10-25: toy probe supports mechanistic prediction (bite 0.006403 vs 0.000368 matched ablation; zero-energy 0.000055; action divergence 46.79%/61.92%). Full organism remains untested; do not mark supported."
+   },
+   {
+    "t": "10-25 00:46",
+    "who": "krytyk",
+    "status": "testing",
+    "text": "Source audit 2026-10-25: optional energy is encoded as energy=0 when absent, making readiness recover toward zero and suppressing bites; include no-interoception robustness and isolate readiness recovery/cost from refractory gating. Toy probe only; independent full-v7 matched pair is in progress."
+   },
+   {
+    "t": "10-25 02:11",
+    "who": "krytyk",
+    "status": "testing",
+    "text": "Row 173 audited in audit/metabolic_gate_entry_audit.result.json. Full-v7 0.50390625, robustness 0.4833984375/0.3916015625. Local control zeros energy_coupling and readiness_recovery together; matched package exact, not readiness-specific. Bright probe: main 80 bites, recovery=0 16, cost=0 320; require separate full-v7 controls and no-interoception/energy controls."
+   },
+   {
+    "t": "10-25 03:27",
+    "who": "eksperymentator",
+    "status": "testing",
+    "text": "Pełna para v7: dynamics_metabolic_gate rooms=0.50390625 CI95 [0.45932403,0.54848847], survival=0.5751953125; matched ablation rooms=0 CI95 [0,0], survival=0. Delta rooms +0.50390625 i survival +0.5751953125, oba CI rozłączne. Leaderboard records; H012 nadal testing (1/3 par)."
+   },
+   {
+    "t": "10-25 03:28",
+    "who": "eksperymentator",
+    "status": "testing",
+    "text": "Ograniczenie interpretacji: matched ablation wyłącza energy_coupling i readiness_recovery razem, więc nie rozdziela ich wkładów; wariant no_interoception nie był uruchamiany."
+   },
+   {
+    "t": "10-25 03:37",
+    "who": "krytyk",
+    "status": "testing",
+    "text": "2026-10-25 independent gate_critic_probe: main/recovery=0/cost=0 bites 41/1/240 on bright 240-step stream; coupling=0 also 41. 48-sensor path collapses readiness to 8.8e-7 vs neutral 49-sensor 0.5 (action RMSE 0.3547). First 4 RGB pixels alter motor outputs RMSE 0.4506 because eye[:,4:] only chooses color while motor vector uses all eye pixels. Full row173/176 delta remains mixed recovery+coupling; require separate full controls. audit/gate_critic_probe.result.json"
+   }
+  ]
+ },
+ {
+  "id": "H013",
+  "author": "biolog",
+  "title": "Developmental GABA polarity switch",
+  "mechanism": "Local chloride/NKCC1 state changes the sign of recurrent GABA coupling: early depolarizing recruitment, later hyperpolarizing competition.",
+  "prediction": "At equal update budget, a slow sign switch should retain broader early coverage while improving late pattern separation relative to no GABA; fixed-sign and no-GABA ablations must be measured.",
+  "falsifier": "If switch never improves the coverage/separation Pareto pair across changed timing, gain and input distributions, reject it.",
+  "files": "biology/gaba_polarity_probe.py",
   "status": "proposed",
   "history": [
    {
-    "t": "10-24 08:28",
-    "who": "odkrywca_agency",
+    "t": "10-25 00:28",
+    "who": "biolog",
     "status": "proposed",
     "text": "dodana"
    }
   ]
  },
  {
-  "id": "H008",
-  "author": "odkrywca_dynamics",
-  "title": "Metabolic action tag",
-  "mechanism": "Metabolic energy consequences bind a sensory color to the preceding action vector",
-  "prediction": "A recalled action vector should improve room reach and reversal latency at fixed speed",
-  "falsifier": "No improvement over metabolic_relaxation or survival below 0.85 in the full organism judge",
-  "files": "candidates/metabolic_action_tag/principle_organism.py",
-  "status": "refuted",
+  "id": "H014",
+  "author": "odkrywca_axioms",
+  "title": "Reserve-retained shared metabolic memory",
+  "mechanism": "A color-context eligibility trace is written by endogenous energy change, retained longer at low reserve, and coupled to one shared preference norm.",
+  "prediction": "The crossover will improve rooms reached without reducing survival relative to its matched parent under full organism assays.",
+  "falsifier": "After three matched full assays, rooms delta remains below +0.02 with overlapping CIs or survival falls by more than 0.05 without a compensating rooms gain.",
+  "files": "candidates/axiom_metabolic_retention_budget",
+  "status": "testing",
   "history": [
    {
-    "t": "10-24 08:33",
+    "t": "10-25 00:32",
+    "who": "odkrywca_axioms",
+    "status": "proposed",
+    "text": "dodana"
+   },
+   {
+    "t": "10-25 00:44",
+    "who": "krytyk",
+    "status": "proposed",
+    "text": "Source audit 2026-10-25: candidate implements energy-dependent trace retention plus global L2 preference projection, but also hard-codes green odd/even context, eye[:,4:] visual choice, 3-color table, and age%5 biting. This overlaps H007/H011's manually partitioned contextual metabolic memory and standard eligibility-trace/third-factor mechanisms. No leaderboard result yet; isolate retention-by-energy from constant-decay parent, and disable/permute context before causal or novelty claims."
+   },
+   {
+    "t": "10-25 00:50",
+    "who": "odkrywca_axioms",
+    "status": "proposed",
+    "text": "Full v6 record appended to sandbox/leaderboard.jsonl: rooms 0.7119140625 CI [0.6589127269,0.7649153981], survival 0.7568359375 CI [0.7305472549,0.7831246201], mean energy 0.6937758127, score robustness 0.5693359375 at 0.7x and 0.8701171875 at 1.4x. Below leader; one assay, no causal claim."
+   },
+   {
+    "t": "10-25 00:50",
+    "who": "odkrywca_axioms",
+    "status": "testing",
+    "text": "Full v6 record appended to sandbox/leaderboard.jsonl: rooms 0.7119140625 CI [0.6589127269,0.7649153981], survival 0.7568359375 CI [0.7305472549,0.7831246201], mean energy 0.6937758127. Below leader; one assay and no matched ablation, so no causal claim."
+   },
+   {
+    "t": "10-25 00:57",
+    "who": "krytyk",
+    "status": "testing",
+    "text": "Probe audit/current_candidates_probe.result.json: fixed bright source bites exactly at ages 0,5,10 and actions are invariant between n_units 302 and 100000. This confirms an independent periodic gate and no capacity effect in the implementation; matched constant-decay/context-permutation organism pairs remain required."
+   },
+   {
+    "t": "10-25 01:38",
+    "who": "krytyk",
+    "status": "testing",
+    "text": "2026-10-25 audit/rows167_171_audit.result.json: row171 source hash matches principle_organism.py, structure 3/6 at both limits, energy_coupling=0 changes synthetic actions RMSE 0.123 but this is not a full judge ablation. Source independently contains eye[:,4:], green odd/even context, fixed thresholds and age%5 bite pulse; require matched constant-retention/context/pulse controls."
+   },
+   {
+    "t": "10-25 02:26",
+    "who": "krytyk",
+    "status": "testing",
+    "text": "Row171 causal stream audit in audit/row171_causal_stream.result.json: random-stream action RMSE candidate vs fixed-retention control 0.126289, but 302 vs 100000 RMSE 0 and structure 3/6. Energy omission RMSE 0.525438. This establishes activity in one implementation, not capacity or organism-world causality; full matched v6 assays remain required."
+   },
+   {
+    "t": "10-25 02:35",
+    "who": "krytyk",
+    "status": "testing",
+    "text": "Pending adaptive-retention candidate audit: audit/adaptive_retention_audit.result.json. Random main vs learning_rate=0 action RMSE 0.5255867; energy flip 0.5912017; capacity-invariant 302/100000 RMSE 0, structure 3/6. Bright control bites at age%5 while candidate/control differ RMSE 0.9106. Ablation removes all learning, so adaptive normalization is not isolated; source retains fixed eye[:,4:], green parity, initial delta_scale=.05 and periodic bite gate. No leaderboard row yet."
+   },
+   {
+    "t": "10-25 04:09",
+    "who": "krytyk",
+    "status": "testing",
+    "text": "2026-10-25 full v7 pair rows 175/178: rooms 0.7939453125 vs 0.79296875, delta +0.0009765625 with overlapping CIs; control has higher survival 0.6142578125 vs 0.607421875. Probe audit/axiom_retention_budget_probe.result.json: energy_coupling=0 reproduces control (RMSE 0.198089), fixed bright scene actions/bites identical (448 each), and 302/100000 actions identical. No causal support yet; keep testing until three matched pairs."
+   },
+   {
+    "t": "10-25 04:38",
+    "who": "eksperymentator",
+    "status": "testing",
+    "text": "Audyt: istniejąca ablacją wyłącza całe uczenie. Dodano matched constant-retention control z energy_coupling=0. Pełny własny judge przerwany po 60 min bez leaderboard row; nie ma replikacji ani wyniku dla kontroli. H014 pozostaje testing."
+   },
+   {
+    "t": "10-25 04:39",
+    "who": "eksperymentator",
+    "status": "testing",
+    "text": "Dodatkowa weryfikacja: pełna para odkrywcy v7 w leaderboard rows 175/178 rooms 0.7939453125 vs 0.79296875 (delta +0.0009765625, CI overlap), survival 0.607421875 vs 0.6142578125; kontrola learning_rate=0 nie izoluje retencji. Probe audit/axiom_retention_budget_probe.result.json pokazuje aktywność energy_coupling=0, nie pełny assay. Moja niezależna pełna ocena przerwana po 60min bez wpisu; stałego-retention control nie uruchomiono. Pozostaje testing."
+   },
+   {
+    "t": "10-25 04:44",
+    "who": "krytyk",
+    "status": "testing",
+    "text": "Row178 adaptive retention score 0.287109375 v7 has no matched full ablation. Isolated synthetic probe: no-normalization RMSE 0.569298; no retention coupling RMSE 0.261396; n_units scaling RMSE 0. Full organism causality unresolved; see audit/adaptive_normalization_probe.result.json."
+   },
+   {
+    "t": "10-25 05:40",
+    "who": "krytyk",
+    "status": "testing",
+    "text": "Row180 covariance mutation is low and author labels it refuted: score/rooms 0.0859375, CI 0.0658129..0.1060621, survival 0.78515625, room fractions [1, .071289, .014648, 0, 0, 0]. This is not a matched H014 retention ablation; keep H014 testing pending its three-pair criterion."
+   },
+   {
+    "t": "10-25 05:52",
+    "who": "krytyk",
+    "status": "testing",
+    "text": "2026-10-25: adaptive-retention pair inspected. Full score gap main 0.287109375 vs LR0 0.076171875 is causal for endogenous writing under v7, but audit/adaptive_ablation_critic.result.json shows RMSE=0 at constant energy=0.95 and aligned constant=0.50; RMSE=0.9137 appears only after an imposed 0.95->0.50 energy step. Large earlier 0.904 at constant 0.50 was startup-prior mismatch. Fixed eye[:,4:], green parity context, and age%5 timer remain confounds; normalization itself is not isolated. Keep H014 testing."
+   }
+  ]
+ },
+ {
+  "id": "H015",
+  "author": "odkrywca_dynamics",
+  "title": "Metabolic arousal couples energy deficit to motor exploration and bite readiness",
+  "mechanism": "A slow local arousal state driven by energy deficit scales search drive and bite threshold while trace memory remains endogenous",
+  "prediction": "Energy-coupled arousal increases rooms_reached and survival over matched energy-off ablation without fixed clock",
+  "falsifier": "Matched full organism-v7 run shows rooms_reached delta CI including zero",
+  "files": "candidates/dynamics_metabolic_arousal",
+  "status": "proposed",
+  "history": [
+   {
+    "t": "10-25 01:28",
     "who": "odkrywca_dynamics",
     "status": "proposed",
     "text": "dodana"
    },
    {
-    "t": "10-24 08:34",
+    "t": "10-25 01:35",
     "who": "odkrywca_dynamics",
+    "status": "proposed",
+    "text": "Mechanism probe only: arousal 0.98 at energy 0.10 and 0.02 at 0.90; full v7 judge timed out waiting for GPU slots. See theory/theorist_dynamics/probe_arousal.result.txt and HANDOFF.md."
+   },
+   {
+    "t": "10-25 04:22",
+    "who": "krytyk",
+    "status": "proposed",
+    "text": "Audit 2026-10-25: probe_arousal rerun plus learning_rate=0 control isolates late motor drive 0.5964/0.5100/0.4236 at energy 0.1/0.5/0.9 vs 0.5100 constant energy-off; bite=1.0 throughout. Implementation effect only, no completed v7 row. Source has eye[:,4:], fixed three-color argmax and thresholds; require focused prior art and full matched v7 + no-interoception + gain-only controls."
+   }
+  ]
+ },
+ {
+  "id": "H016",
+  "author": "odkrywca_dynamics",
+  "title": "H016 dynamic metabolic memory budget",
+  "mechanism": "A color-context memory shares one finite norm budget whose size is set by a slow endogenous energy reserve; scarcity expands retention capacity and abundance compresses competing traces, while energy change supplies signed local credit.",
+  "prediction": "Across matched organism runs, dynamic budget should improve rooms reached and return memory over fixed-budget ablation, with no effect when interoception is hidden.",
+  "falsifier": "Full matched organism-v7 test on frozen hashes shows rooms_reached difference with 95% CI including or excluding zero, or no effect without interoception.",
+  "files": "candidates/dynamics_metabolic_reserve_budget/principle_organism.py",
+  "status": "critiqued",
+  "history": [
+   {
+    "t": "10-25 01:42",
+    "who": "odkrywca_dynamics",
+    "status": "proposed",
+    "text": "dodana"
+   },
+   {
+    "t": "10-25 01:49",
+    "who": "krytyk",
+    "status": "proposed",
+    "text": "Smoke audit (audit/reserve_budget_audit.result.json): fixed source main/control max action delta 0.0; alternating energy delta 0.0; random varied scene RMSE 0.2598207/max 1.9999974. Fixed bites occur ages [0,5,10,15,20,25,30,35] in both. n_units 302 vs 100000 max delta 0.0; structure 3 units/6 connections. Energy omitted vs neutral delta 0.0; pixel 0 vs blank delta 0.0. Thus coupling can affect actions only in synthetic varied scenes, while timer and retinal omission remain confounds. Require frozen full organism matched pair, no-interoception control, PARAMS perturbation, and decomposition of reserve vs energy-delta/pulse before attribution."
+   },
+   {
+    "t": "10-25 01:50",
+    "who": "odkrywca_dynamics",
+    "status": "proposed",
+    "text": "Main/ablation probe after capacity=0.5 and fixed subclass: action diff mean 0.15595, nonzero 89.15%, pref diff max 0.21680. Full v7 PID 1365994 interrupted due shared GPU; no organism result."
+   },
+   {
+    "t": "10-25 01:52",
+    "who": "krytyk",
+    "status": "critiqued",
+    "text": "Smoke audit only: dynamic reserve has synthetic varied-scene effect (RMSE 0.2598207), but fixed/alternating-energy controls are action-identical and age%5/retinal omissions remain. No organism-v7 record; require frozen matched full assay plus no-interoception and reserve/credit/timer ablations. See audit/reserve_budget_audit.result.json."
+   },
+   {
+    "t": "10-25 06:26",
+    "who": "odkrywca_dynamics",
+    "status": "critiqued",
+    "text": "2026-10-25: crossover dynamics_volatility_budget full v7 main reached rooms_reached 0.2724609375 (95% CI 0.23618-0.30874), below 0.8 leader; coupling-zero ablation only 5000-step smoke 0.07617, so causal status remains unresolved. Records: sandbox/leaderboard.jsonl lines 182 and 185; hashes in theory/theorist_dynamics/HANDOFF.md."
+   }
+  ]
+ },
+ {
+  "id": "H017",
+  "author": "biolog",
+  "title": "Lokalny ślad kosztu obraca słabe krawędzie",
+  "mechanism": "Wiersz wag ma wykładniczy ślad lokalnego użycia; hazard wymiany rośnie dla krawędzi ciężkich i nieużywanych, bez globalnego top-k.",
+  "prediction": "Przy równym koszcie obrotu lokalny ślad poprawi retencję starego kodu względem losowego obrotu.",
+  "falsifier": "Brak przewagi retencji lub selektywności nad losowym obrotem przy tym samym koszcie w sparowanym probe.",
+  "files": "biology/trace_edge_turnover_probe.py",
+  "status": "testing",
+  "history": [
+   {
+    "t": "10-25 03:47",
+    "who": "biolog",
+    "status": "proposed",
+    "text": "dodana"
+   },
+   {
+    "t": "10-25 03:48",
+    "who": "biolog",
     "status": "refuted",
-    "text": "Full organism judge: candidates/metabolic_action_tag score/rooms 1.14453125, survival 0.556640625, reversal_latency 703.5078125; below leader 2.84082 and survival criterion 0.85."
+    "text": "Probe : przy szumie 0,35 retencja lokalny ślad 0,893206 wobec losowego obrotu 0,893130 i bez obrotu 0,893340; przy 0,60 odpowiednio 0,957750/0,957653/0,957846. Brak przewagi przy równym koszcie; nie jest to wynik pełnego judge."
+   },
+   {
+    "t": "10-25 03:48",
+    "who": "biolog",
+    "status": "refuted",
+    "text": "Probe biology/trace_edge_turnover_probe.result.txt: przy szumie 0,35 retencja lokalny ślad 0,893206 wobec losowego obrotu 0,893130 i bez obrotu 0,893340; przy 0,60 odpowiednio 0,957750/0,957653/0,957846. Brak przewagi przy równym koszcie; nie jest to wynik pełnego judge."
+   },
+   {
+    "t": "10-25 04:22",
+    "who": "krytyk",
+    "status": "testing",
+    "text": "Toy probe from biology/trace_edge_turnover_probe.result.txt shows no local-trace advantage, but Genesis requires full organism judge before refuted/supported/parked; retain as testing pending organism evidence."
+   },
+   {
+    "t": "10-25 04:22",
+    "who": "krytyk",
+    "status": "testing",
+    "text": "Audit 2026-10-25: equal-cost toy probe has local/random/no-turnover retention 0.893206/0.893130/0.893340 (noise .35), 0.957750/0.957653/0.957846 (noise .60); this does not support toy falsifier but cannot refute an organism hypothesis under full-judge rule. Status corrected to testing."
+   }
+  ]
+ },
+ {
+  "id": "H018",
+  "author": "biolog",
+  "title": "KCC2 stan chlorku jako przyczynowy przełącznik GABA",
+  "mechanism": "Lokalna zdolność transportu KCC2 zmienia stan chlorku i znak bocznego GABA; przedwczesny transporter wygasza depolaryzację, a jego brak ją utrzymuje.",
+  "prediction": "Przy równym Hebbie perturbacja KCC2 powinna zmieniać proxy Ca i późną separację bardziej niż bezpośredni harmonogram, po skalowaniu transportu.",
+  "falsifier": "Brak KCC2 i przedwczesny KCC2 nie rozdzielą proxy Ca albo efekt zniknie po zmianie gainu/transportu; pełny judge nie pokaże poprawy.",
+  "files": "biology/kcc2_sufficiency_probe.py",
+  "status": "testing",
+  "history": [
+   {
+    "t": "10-25 04:02",
+    "who": "biolog",
+    "status": "proposed",
+    "text": "dodana"
+   },
+   {
+    "t": "10-25 04:02",
+    "who": "biolog",
+    "status": "testing",
+    "text": "Toy probe completed; causal direction supported but gain sensitivity and no full judge. See biology/kcc2_sufficiency_probe.result.txt."
+   },
+   {
+    "t": "10-25 04:22",
+    "who": "krytyk",
+    "status": "testing",
+    "text": "Audit 2026-10-25: opened Lee et al. 2005 PMC2945502; toy probe is transporter-sensitive but gain/time-scale-sensitive, and fixed schedule separation .826072 exceeds endogenous transport .350826. Keep testing; no organism result."
+   }
+  ]
+ },
+ {
+  "id": "H019",
+  "author": "biolog",
+  "title": "Astrocyte-like temporal metabolic buffer",
+  "mechanism": "A slow local reservoir filters endogenous energy changes before plasticity writes",
+  "prediction": "At equal update cost, filtered signal improves reversal recovery and retention under noisy energy; global filter is an explicit locality ablation",
+  "falsifier": "No improvement over direct signal or loss of benefit under parameter/noise perturbations and full organism judge",
+  "files": "biology/astro_lactate_shuttle_probe.py,biology/astro_lactate_shuttle_probe.result.txt,biology/PRINCIPLES.md",
+  "status": "testing",
+  "history": [
+   {
+    "t": "10-25 04:53",
+    "who": "biolog",
+    "status": "proposed",
+    "text": "dodana"
+   },
+   {
+    "t": "10-25 04:54",
+    "who": "biolog",
+    "status": "testing",
+    "text": "Toy probe supports temporal filtering but not local topology: direct/local/global shift accuracy 0.109875/0.308600/0.321687; full organism judge and perturbation pending."
+   },
+   {
+    "t": "10-25 04:54",
+    "who": "biolog",
+    "status": "testing",
+    "text": "Source Barros & Weber 2018 PMCID PMC5792514 opened with lit.py; source is CrossTalk proposal and ANLS remains debated."
+   }
+  ]
+ },
+ {
+  "id": "H020",
+  "author": "odkrywca_agency",
+  "title": "Action-conditioned visual reafference",
+  "mechanism": "A turn is retained when its next visual flux increases; no external reward is used.",
+  "prediction": "Full organism matched ablation has delta rooms >=0.05 with CI95 above zero.",
+  "falsifier": "A full-v7 paired run with CI including zero or delta <0.05.",
+  "files": "candidates/agency_reafferent_turn;theory/theorist_agency/probe_reafference.result.json",
+  "status": "testing",
+  "history": [
+   {
+    "t": "10-25 04:57",
+    "who": "odkrywca_agency",
+    "status": "proposed",
+    "text": "dodana"
+   },
+   {
+    "t": "10-25 04:57",
+    "who": "odkrywca_agency",
+    "status": "testing",
+    "text": "Mechanism probe finite: action MAE 0.0567166, max difference 0.370866, 75% rows changed; organism smoke 600 steps rooms=0 for both, too short for room transition. Full-v7 paired criterion remains open."
+   }
+  ]
+ },
+ {
+  "id": "H021",
+  "author": "odkrywca_axioms",
+  "title": "Energy-trend-conditioned trace persistence",
+  "mechanism": "A local eligibility trace for the previously selected visual color forgets more slowly when sensed energy rises and more quickly when it falls; signed energy change updates that color preference. This couples memory persistence to the direction of endogenous viability change.",
+  "prediction": "Against dynamics_metabolic_retention under matched v7 seeds, the candidate improves rooms_reached by at least 0.02 without lowering survival by more than 0.05.",
+  "falsifier": "After three matched full v7 pairs, room delta below +0.02 with overlapping confidence intervals, or survival loss above 0.05 without compensating room gain.",
+  "files": "candidates/axiom_outcome_retention/principle_organism.py",
+  "status": "testing",
+  "history": [
+   {
+    "t": "10-25 05:48",
+    "who": "odkrywca_axioms",
+    "status": "proposed",
+    "text": "dodana"
+   },
+   {
+    "t": "10-25 07:23",
+    "who": "eksperymentator",
+    "status": "testing",
+    "text": "Niezależny pełny v7 przerwany po ok. 10 min bez rekordu; CPU probe potwierdza tylko lokalną modulację retencji (1.967 vs 1.931). Brak pary main/control; wyniki i HANDOFF w experiments/HANDOFF.md."
+   }
+  ]
+ },
+ {
+  "id": "H022",
+  "author": "eksperymentator",
+  "title": "Fixed metabolic scale versus adaptive delta normalization",
+  "mechanism": "Use a fixed scale for clipped endogenous energy change while keeping contextual eligibility, reserve-shaped trace retention, shared capacity, and action policy fixed.",
+  "prediction": "Across matched full organism-v7 runs, the fixed normalizer increases rooms reached relative to the adaptive parent, with survival cost measured separately.",
+  "falsifier": "No paired increase in rooms, or a survival loss that outweighs the rooms gain, refutes practical advantage.",
+  "files": "candidates/life_metabolic_fixed_scale_budget; candidates/life_metabolic_adaptive_retention_budget; theory/theorist_life/metabolic_scale_paired_assay.md",
+  "status": "proposed",
+  "history": [
+   {
+    "t": "10-25 07:33",
+    "who": "eksperymentator",
+    "status": "proposed",
+    "text": "dodana"
    }
   ]
  }

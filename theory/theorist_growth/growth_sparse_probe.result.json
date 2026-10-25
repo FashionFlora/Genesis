@@ -1,0 +1,174 @@
+{
+  "organism_smoke": [
+    {
+      "association_gain": 0.8,
+      "growth_final": {
+        "connections": 4.3759765625,
+        "stage": 0.0,
+        "step": 512,
+        "units": 18.0
+      },
+      "growth_initial": {
+        "connections": 2.0,
+        "stage": 0.0,
+        "step": 0,
+        "units": 2.0
+      },
+      "growth_maximum": {
+        "connections": 4.748046875,
+        "units": 18.0
+      },
+      "rooms_mean": 0.0,
+      "steps": 512,
+      "survival_mean": 0.9990234375,
+      "units_limit": 302,
+      "worlds": 1024
+    },
+    {
+      "association_gain": 0.0,
+      "growth_final": {
+        "connections": 4.1240234375,
+        "stage": 0.0,
+        "step": 512,
+        "units": 18.0
+      },
+      "growth_initial": {
+        "connections": 2.0,
+        "stage": 0.0,
+        "step": 0,
+        "units": 2.0
+      },
+      "growth_maximum": {
+        "connections": 4.5322265625,
+        "units": 18.0
+      },
+      "rooms_mean": 0.0,
+      "steps": 512,
+      "survival_mean": 1.0,
+      "units_limit": 302,
+      "worlds": 1024
+    },
+    {
+      "association_gain": 0.8,
+      "growth_final": {
+        "connections": 4.3759765625,
+        "stage": 0.0,
+        "step": 512,
+        "units": 18.0
+      },
+      "growth_initial": {
+        "connections": 2.0,
+        "stage": 0.0,
+        "step": 0,
+        "units": 2.0
+      },
+      "growth_maximum": {
+        "connections": 4.748046875,
+        "units": 18.0
+      },
+      "rooms_mean": 0.0,
+      "steps": 512,
+      "survival_mean": 0.9990234375,
+      "units_limit": 1000,
+      "worlds": 1024
+    },
+    {
+      "association_gain": 0.0,
+      "growth_final": {
+        "connections": 4.1240234375,
+        "stage": 0.0,
+        "step": 512,
+        "units": 18.0
+      },
+      "growth_initial": {
+        "connections": 2.0,
+        "stage": 0.0,
+        "step": 0,
+        "units": 2.0
+      },
+      "growth_maximum": {
+        "connections": 4.5322265625,
+        "units": 18.0
+      },
+      "rooms_mean": 0.0,
+      "steps": 512,
+      "survival_mean": 1.0,
+      "units_limit": 1000,
+      "worlds": 1024
+    },
+    {
+      "association_gain": 0.8,
+      "growth_final": {
+        "connections": 4.3759765625,
+        "stage": 0.0,
+        "step": 512,
+        "units": 18.0
+      },
+      "growth_initial": {
+        "connections": 2.0,
+        "stage": 0.0,
+        "step": 0,
+        "units": 2.0
+      },
+      "growth_maximum": {
+        "connections": 4.748046875,
+        "units": 18.0
+      },
+      "rooms_mean": 0.0,
+      "steps": 512,
+      "survival_mean": 0.9990234375,
+      "units_limit": 100000,
+      "worlds": 1024
+    },
+    {
+      "association_gain": 0.0,
+      "growth_final": {
+        "connections": 4.1240234375,
+        "stage": 0.0,
+        "step": 512,
+        "units": 18.0
+      },
+      "growth_initial": {
+        "connections": 2.0,
+        "stage": 0.0,
+        "step": 0,
+        "units": 2.0
+      },
+      "growth_maximum": {
+        "connections": 4.5322265625,
+        "units": 18.0
+      },
+      "rooms_mean": 0.0,
+      "steps": 512,
+      "survival_mean": 1.0,
+      "units_limit": 100000,
+      "worlds": 1024
+    }
+  ],
+  "stream_prediction": [
+    {
+      "channels": 4,
+      "memory_final_bytes": 1024,
+      "memory_initial_bytes": 0,
+      "memory_max_bytes": 1024,
+      "mse_after_warmup": 0.5416220019056553,
+      "steps": 3000
+    },
+    {
+      "channels": 16,
+      "memory_final_bytes": 12480,
+      "memory_initial_bytes": 0,
+      "memory_max_bytes": 12480,
+      "mse_after_warmup": 0.2439913896111454,
+      "steps": 3000
+    },
+    {
+      "channels": 32,
+      "memory_final_bytes": 48000,
+      "memory_initial_bytes": 0,
+      "memory_max_bytes": 48000,
+      "mse_after_warmup": 0.24129886819575574,
+      "steps": 3000
+    }
+  ]
+}

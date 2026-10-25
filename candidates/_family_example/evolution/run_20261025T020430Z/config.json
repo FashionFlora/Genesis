@@ -1,0 +1,20 @@
+{
+  "family": "candidates/_family_example",
+  "author": "sedzia",
+  "generations": 2,
+  "population": 4,
+  "budget_minutes": 15.0,
+  "worlds": 1,
+  "units": 302,
+  "steps": 5000,
+  "device": "cpu",
+  "output_name": "_family_example_v7_generation_smoke",
+  "mutation": 0.12,
+  "seed": 1,
+  "organism_version": "v7",
+  "life_steps": 5000,
+  "algorithm": "elitist genetic algorithm; 25% elite, 50% uniform crossover, 25% mutation",
+  "mutation_scale": 0.12,
+  "worlds_per_generation": 1,
+  "fitness": "mean rooms_reached + 0.001 * survival tie-break"
+}

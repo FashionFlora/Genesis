@@ -1,0 +1,6 @@
+Parents: candidates/dynamics_metabolic_retention/ and candidates/dynamics_energy_trace/.
+Mutation/crossover: retained local color eligibility and endogenous signed energy evidence,
+but replaced direct absolute-energy trace modulation with a slowly relaxing local reserve.
+The deviation of current energy from that reserve controls trace forgetting, so memory
+timescale responds to metabolic contrast rather than a fixed baseline. This is a single
+state update and remains local, bounded, and compatible with energy-hidden sensors.

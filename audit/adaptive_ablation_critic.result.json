@@ -1,0 +1,76 @@
+{
+  "constant_energy_095": {
+    "action_rmse": 0.0,
+    "main_bite_ages": [
+      0,
+      5,
+      10,
+      15,
+      20,
+      25,
+      30
+    ],
+    "control_bite_ages": [
+      0,
+      5,
+      10,
+      15,
+      20,
+      25,
+      30
+    ],
+    "main_preference_max": 0.0,
+    "control_preference_max": 0.0
+  },
+  "constant_energy_050_aligned_prior": {
+    "action_rmse": 0.0,
+    "main_bite_ages": [
+      0,
+      5,
+      10,
+      15,
+      20,
+      25,
+      30
+    ],
+    "control_bite_ages": [
+      0,
+      5,
+      10,
+      15,
+      20,
+      25,
+      30
+    ],
+    "main_preference_max": 0.0
+  },
+  "constant_energy_050_default_prior": {
+    "action_rmse": 0.9041493535041809,
+    "main_bite_ages": [],
+    "control_bite_ages": [
+      0,
+      5,
+      10,
+      15,
+      20,
+      25,
+      30
+    ],
+    "main_preference_max": 0.2452944964170456
+  },
+  "energy_step_095_to_050": {
+    "action_rmse": 0.7912895679473877,
+    "pre_step_rmse": 0.0,
+    "post_step_rmse": 0.9137024879455566,
+    "main_preference_max": 0.9549985527992249
+  },
+  "no_energy_sensor": {
+    "action_rmse": 0.0,
+    "main_preference_max": 0.0
+  },
+  "source_flags": {
+    "fixed_eye_slice": true,
+    "green_parity_context": true,
+    "periodic_age_gate": true
+  }
+}

@@ -1,0 +1,6 @@
+stable_mass_last=8.328365
+reversal_mass_before=7.393317 after=8.275310
+ablation_mass_after=8.328365
+reversal_main_ablation_action_mae=0.324144
+no_intero_energy_state=0.000000
+stable_vs_reversal_action_mae=0.318466

@@ -1,0 +1,46 @@
+{
+  "random_main_vs_no_normalization": {
+    "rmse": 0.5692983269691467,
+    "max_abs": 2.0
+  },
+  "random_main_vs_no_retention_coupling": {
+    "rmse": 0.2613956332206726,
+    "max_abs": 2.0
+  },
+  "energy_flip_rmse": 0.5912017226219177,
+  "no_energy_vs_neutral_rmse": 0.3082926869392395,
+  "bright_main_vs_no_normalization_rmse": 0.9105951189994812,
+  "bright_bites": {
+    "main": 0.0,
+    "no_norm": 448.0
+  },
+  "scaling_rmse_302_vs_100000": 0.0,
+  "structure": {
+    "main_302": {
+      "units": 3,
+      "connections": 6,
+      "activity": 0.3252628743648529
+    },
+    "main_100000": {
+      "units": 3,
+      "connections": 6,
+      "activity": 0.3252628743648529
+    },
+    "no_norm": {
+      "units": 3,
+      "connections": 6,
+      "activity": 0.21587850153446198
+    },
+    "no_retention": {
+      "units": 3,
+      "connections": 6,
+      "activity": 0.32106319069862366
+    }
+  },
+  "state": {
+    "main_preference_max": 0.8495026230812073,
+    "no_norm_preference_max": 0.8963294625282288,
+    "no_retention_preference_max": 0.9107033610343933,
+    "main_delta_scale_mean": 0.09320500493049622
+  }
+}

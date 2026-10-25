@@ -1,0 +1,12 @@
+Toy ablation: unlabeled context clustering for task-local memory
+Run: nice -n 15 .venv/bin/python biology/unsupervised_branch_demo.py
+Seeds: 200; 4 task mappings; 4 branches; 100 training examples/task; 100 held-out probes/task.
+Router context: four input dimensions with task-specific means and Gaussian noise (sd 0.15).
+The unsupervised router clusters unlabeled input cues; output mappings are learned online with the selected branch.
+
+oracle: mean_probe_mse=0.495399
+unsupervised: mean_probe_mse=0.569024
+shared: mean_probe_mse=0.821708
+random: mean_probe_mse=0.609258
+
+Interpretation: clustering cues reduced interference versus a shared pool in this toy. It does not show biological branch formation or organism performance; contexts are deliberately separable and the router sees an unlabeled cue sample.

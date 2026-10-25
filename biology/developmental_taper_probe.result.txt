@@ -1,0 +1,3 @@
+{'schedule': 'none', 'attenuation_events_percent': 0, 'relative_response_error_mean': 0.0, 'relative_response_error_sd': 0.0, 'mean_weight_mean': 0.50034, 'row_sum_sd_mean': 0.813886}
+{'schedule': 'constant', 'attenuation_events_percent': 10, 'relative_response_error_mean': 0.007081, 'relative_response_error_sd': 0.000529, 'mean_weight_mean': 0.495465, 'row_sum_sd_mean': 0.953398}
+{'schedule': 'front_loaded_taper', 'attenuation_events_percent': 10, 'relative_response_error_mean': 0.006503, 'relative_response_error_sd': 0.000533, 'mean_weight_mean': 0.495469, 'row_sum_sd_mean': 0.925293}

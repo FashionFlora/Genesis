@@ -1,0 +1,48 @@
+{
+  "config": {
+    "seeds": 100,
+    "dims": 24,
+    "branches": 4,
+    "steps": 800,
+    "eta": 0.08,
+    "noise": 0.08
+  },
+  "results": {
+    "local": {
+      "pure": 0.9870861598664483,
+      "recombination": 0.7388327868697006,
+      "binding_margin": 0.24825337299674766,
+      "branch_separation": 0.9362351362560425,
+      "two_branch_occupancy": 0.97,
+      "pure_sd": 0.04599990511661291,
+      "recombination_sd": 0.04517418812495793,
+      "binding_margin_sd": 0.09110802630619697,
+      "branch_separation_sd": 0.16470635430824415,
+      "two_branch_occupancy_sd": 0.17058722109231983
+    },
+    "global": {
+      "pure": 0.727267357778556,
+      "recombination": 0.9977399504900429,
+      "binding_margin": -0.270472592711487,
+      "branch_separation": 7.851275185544181e-14,
+      "two_branch_occupancy": 1.0,
+      "pure_sd": 0.0010160402339044674,
+      "recombination_sd": 0.00021125029451031526,
+      "binding_margin_sd": 0.0010292790605050377,
+      "branch_separation_sd": 3.3587910508142495e-14,
+      "two_branch_occupancy_sd": 0.0
+    },
+    "single": {
+      "pure": 0.7255428553259488,
+      "recombination": 0.9953320592060341,
+      "binding_margin": -0.2697892038800855,
+      "branch_separation": 0.0,
+      "two_branch_occupancy": 0.0,
+      "pure_sd": 0.001148144498769034,
+      "recombination_sd": 0.0005865771360560501,
+      "binding_margin_sd": 0.0011460224011062533,
+      "branch_separation_sd": 0.0,
+      "two_branch_occupancy_sd": 0.0
+    }
+  }
+}

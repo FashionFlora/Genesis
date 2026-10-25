@@ -1,0 +1,2 @@
+Parent: candidates/agency_bearing_jacobian/principle_organism.py
+Mutation: matched ablation; retain sensory processing and action-conditioned bearing updates while setting only reafferent_gain to zero.

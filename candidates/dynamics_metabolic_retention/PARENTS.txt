@@ -1,0 +1,2 @@
+Parents: candidates/energy_trace_simple/ and candidates/life_metabolic_context/.
+Mutation: removed the fixed two-bin visual-context table and replaced fixed eligibility decay with a reserve-coupled trace lifetime. The single local rule keeps recent color eligibility longer at low energy and lets it fade faster at high energy; endogenous energy change still writes signed evidence. This tests whether energy-dependent persistence supplies useful memory without a hand-coded context decoder.

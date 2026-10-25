@@ -1,0 +1,12 @@
+Demonstrator selektywnego down-scaling, 100 seedow; nie wynik biologiczny ani organism.
+Konfiguracja z biology/sleep_downscale_demo.py: 100 wag, 12 tagowanych sladow,
+80% kandydatow do oslabienia, mnoznik oslabienia 0.82, ochrona sladu 1.04.
+
+mode      retention  rank_signal  mass
+selective 1.040      1.251        75.97
+global    0.820      1.006        72.35
+random    0.858      1.009        75.52
+none      1.000      1.006        88.24
+
+Interpretacja: tylko wariant selektywnej ochrony zachowuje przewage tagowanego
+sladu w tej konstrukcji; mnoznik ochrony jest arbitralny.

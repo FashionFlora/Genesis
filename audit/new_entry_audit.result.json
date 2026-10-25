@@ -1,0 +1,40 @@
+{
+  "agency_retinal_permutation": {
+    "first_action_delta_max": 0.1694325041025877,
+    "second_action_delta_max": 0.29142390191555023
+  },
+  "n_units_invariance": {
+    "agency_first_action_delta": 0.0,
+    "ratio_second_action_delta": 0.0,
+    "ratio_structure_large": {
+      "activity": 0.012494168244302273,
+      "connections": 12,
+      "units": 6
+    },
+    "ratio_structure_small": {
+      "activity": 0.012494168244302273,
+      "connections": 12,
+      "units": 6
+    }
+  },
+  "ratio_no_interoception": {
+    "action_delta_last_sensor": 0.0,
+    "energy_index": 47,
+    "eye_width": 15,
+    "previous_energy_a_final": 0.0,
+    "previous_energy_b_final": 1.0
+  },
+  "sources": {
+    "agency_trace": "012068a721b7323e0845ac68ee51729083566d24bdce35605500a2e0166ff52c",
+    "agency_trace_ablation": "ebff2ec037be87689d73776d0df42efa3312ea05647a7f5ac71c5dda3fa95b33",
+    "dynamics_energy_ratio": "4c67ed1110a79ba6e23bd48cda8e187806d7697f124ae598b82271ae2881cd7b",
+    "dynamics_energy_ratio_ablation": "3c0bf81c5fd4bb79c5eedc608cecab7afd890820f4552cedae25bd43c1cc2c4b"
+  },
+  "static_flags": {
+    "agency_age_phase_sweep": true,
+    "agency_context_suppression": true,
+    "agency_fixed_bite_thresholds": true,
+    "ratio_fixed_eye_offset": true,
+    "ratio_green_odd_even_context": true
+  }
+}

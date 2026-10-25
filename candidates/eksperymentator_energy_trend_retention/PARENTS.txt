@@ -1,0 +1,2 @@
+Independent replication of H021 (parent: candidates/axiom_outcome_retention).
+The only tested mechanism is the signed energy-delta term in trace forgetting.

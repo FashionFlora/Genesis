@@ -1,0 +1,32 @@
+{
+  "dynamics_energy_trace": {
+    "max_action_diff_energy_sequence": 1.0,
+    "max_action_diff_red_vs_green_same_geometry": 1.0,
+    "max_action_diff_units_302_vs_10000": 0.0,
+    "source_sha256": "11ae8bb6e55b090c85e0af7acd5f9c71a93b145cc2b0c845c7fe8764e31123cd",
+    "structure_10000": {
+      "connections": 6,
+      "units": 3
+    },
+    "structure_302": {
+      "connections": 6,
+      "units": 3
+    }
+  },
+  "life_metabolic_context": {
+    "max_action_diff_energy_sequence": 1.0,
+    "max_action_diff_red_vs_green_same_geometry": 1.0,
+    "max_action_diff_units_302_vs_10000": 0.0,
+    "source_sha256": "db3da3476b7bf14433f3bba2753035ef8bb10f622daa29cf7c00b6a117fd241c",
+    "structure_10000": {
+      "activity": 0.02827511541545391,
+      "connections": 6,
+      "units": 3
+    },
+    "structure_302": {
+      "activity": 0.02827511541545391,
+      "connections": 6,
+      "units": 3
+    }
+  }
+}

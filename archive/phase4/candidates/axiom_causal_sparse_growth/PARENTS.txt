@@ -1,0 +1,5 @@
+Parents:
+- axiom_causal_homeostasis: signed action-conditioned energy changes update traces.
+- metabolic_scarcity_prune: sensory links grow on evidence and unused links expire faster under scarcity.
+
+Change: combined causal eligibility with per-sensory-link growth and use-dependent pruning. Fixed speed removes the energy-to-speed shortcut, so energy only gates memory and pruning.

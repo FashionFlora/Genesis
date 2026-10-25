@@ -1,0 +1,43 @@
+{
+  "candidate": "growth_metabolic_sparse",
+  "grown": {
+    "connections": 38.5,
+    "memory_bytes": 530,
+    "units": 17.5
+  },
+  "initial_by_limit": [
+    {
+      "connections": 2.0,
+      "memory_bytes": 92,
+      "n_units": 302,
+      "units": 2.0
+    },
+    {
+      "connections": 2.0,
+      "memory_bytes": 92,
+      "n_units": 1000,
+      "units": 2.0
+    },
+    {
+      "connections": 2.0,
+      "memory_bytes": 92,
+      "n_units": 10000,
+      "units": 2.0
+    },
+    {
+      "connections": 2.0,
+      "memory_bytes": 92,
+      "n_units": 100000,
+      "units": 2.0
+    }
+  ],
+  "measurement": "initial memory by capacity; synthetic growth and quiet decay probe",
+  "quiet": {
+    "connections": 2.0,
+    "memory_bytes": 92,
+    "units": 2.0
+  },
+  "quiet_steps": 1000,
+  "remaining_keys": 0,
+  "synthetic_growth_steps": 80
+}

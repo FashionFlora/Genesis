@@ -1,0 +1,3 @@
+{'mode': 'none', 'pre_rate_mean': 0.752951, 'post_rate_mean': 0.430516, 'relative_vector_error_mean': 0.428063, 'relative_vector_error_sd': 0.006064}
+{'mode': 'shared', 'pre_rate_mean': 0.752951, 'post_rate_mean': 0.750279, 'relative_vector_error_mean': 0.026749, 'relative_vector_error_sd': 0.003286}
+{'mode': 'local', 'pre_rate_mean': 0.752951, 'post_rate_mean': 0.753318, 'relative_vector_error_mean': 0.007332, 'relative_vector_error_sd': 0.003536}

@@ -1,0 +1,58 @@
+{
+  "batch": 256,
+  "seed": 19,
+  "shared_sensor_probe": {
+    "cue_flip_fraction_after_first_pixel_swap": 0.51953125,
+    "room_context_accuracy_odd_even_green": 0.9765625
+  },
+  "sources": {
+    "dynamics_metabolic_retention": {
+      "action_max_abs_diff_302_vs_100000": 0.0,
+      "action_max_abs_diff_after_pixel_swap": 1.999989628791809,
+      "energy_only_state_probe": {
+        "eligibility_state_max_abs_delta": 11.602848052978516,
+        "final_action_max_abs_delta": 1.999984622001648,
+        "preference_state_max_abs_delta": 0.39338356256484985
+      },
+      "sha256": "d3e2fe7caddb2c08921c1542960629136384410622d68a4726e3393318f5bd5c",
+      "static_flags": {
+        "age_mod_5_bite": true,
+        "odd_even_green_context": false,
+        "target_offset_eye_4": true
+      },
+      "structure_100000": {
+        "connections": 3,
+        "units": 3
+      },
+      "structure_302": {
+        "connections": 3,
+        "units": 3
+      }
+    },
+    "life_metabolic_context": {
+      "action_max_abs_diff_302_vs_100000": 0.0,
+      "action_max_abs_diff_after_pixel_swap": 1.9999933242797852,
+      "energy_only_state_probe": {
+        "eligibility_state_max_abs_delta": 5.61846399307251,
+        "final_action_max_abs_delta": 0.2639049291610718,
+        "preference_state_max_abs_delta": 2.0311906337738037
+      },
+      "sha256": "db3da3476b7bf14433f3bba2753035ef8bb10f622daa29cf7c00b6a117fd241c",
+      "static_flags": {
+        "age_mod_5_bite": true,
+        "odd_even_green_context": true,
+        "target_offset_eye_4": true
+      },
+      "structure_100000": {
+        "activity": 0.0,
+        "connections": 6,
+        "units": 3
+      },
+      "structure_302": {
+        "activity": 0.0,
+        "connections": 6,
+        "units": 3
+      }
+    }
+  }
+}

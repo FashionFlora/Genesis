@@ -1,0 +1,6 @@
+bursts spikes bins mean_rate burst_events mean_rate_ablation
+32 32 200 0.160 0 0
+16 32 200 0.160 0 0
+8 32 200 0.160 0 0
+4 32 200 0.160 0 0
+2 32 200 0.160 2 0

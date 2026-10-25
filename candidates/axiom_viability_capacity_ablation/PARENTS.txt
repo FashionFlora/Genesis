@@ -1,0 +1,1 @@
+Matched control for candidates/axiom_viability_capacity: identical initialization, sensor/action map and structure, with endogenous plasticity removed.

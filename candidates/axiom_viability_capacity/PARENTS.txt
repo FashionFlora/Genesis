@@ -1,0 +1,2 @@
+Parents: candidates/axiom_capacity_correlation/ and candidates/axiom_energy_trace/
+Mutation: retain raw local sensor-action eligibility and per-sensor norm conservation from the capacity axiom, then qualify the update by signed endogenous energy change. This tests whether a finite synaptic budget becomes useful only when the organism receives viability evidence.

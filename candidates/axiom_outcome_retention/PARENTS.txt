@@ -1,0 +1,6 @@
+Parent: candidates/dynamics_metabolic_retention/.
+
+Mutation: retain the parent's signed energy-delta preference update and reserve-coupled
+eligibility trace. Add one local coupling from the same endogenous energy delta to
+trace decay: recovery slows forgetting, depletion speeds it. This tests whether the
+trace should preserve causes of improving viability and clear causes of decline.

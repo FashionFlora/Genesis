@@ -1,0 +1,2 @@
+Parents: candidates/life_metabolic_context/ and candidates/axiom_viability_capacity/
+Mutation/crossover: preserve the life candidate's color-by-visual-context memory and delayed endogenous energy credit; project the whole preference table onto a single bounded norm after each update, transferring finite synaptic capacity from the axiom candidate to the compact learned memory. This tests whether competing memories benefit from one shared budget.

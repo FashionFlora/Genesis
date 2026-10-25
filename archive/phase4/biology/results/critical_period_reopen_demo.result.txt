@@ -1,0 +1,12 @@
+100 seeds, scalar toy model, 300 samples per phase
+none(steps=3): old_trace=0.800; transient_drift=0.128; final_error=0.002
+fixed(steps=3): old_trace=0.772; transient_drift=0.001; final_error=0.450
+instant_release(steps=3): old_trace=0.772; transient_drift=0.126; final_error=0.028
+persistent_mismatch(steps=1): old_trace=0.772; transient_drift=0.126; final_error=0.028
+persistent_mismatch(steps=2): old_trace=0.772; transient_drift=0.001; final_error=0.028
+persistent_mismatch(steps=3): old_trace=0.772; transient_drift=0.001; final_error=0.028
+persistent_mismatch(steps=5): old_trace=0.772; transient_drift=0.001; final_error=0.028
+
+Interpretation: synthetic scalar rule under forced inputs, not a biological
+effect or an organism score. The transient perturbation is one large-error
+step; the later phase is a sustained target change.

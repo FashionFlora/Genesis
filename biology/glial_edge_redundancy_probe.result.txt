@@ -1,0 +1,4 @@
+{'edge_retention': 1.0, 'pre_p95_mean': 0.583145, 'post_p95_mean': 0.853763, 'post_max_mean': 1.736384, 'post_mean': 0.493811}
+{'edge_retention': 0.5, 'pre_p95_mean': 0.694934, 'post_p95_mean': 1.017851, 'post_max_mean': 3.733144, 'post_mean': 0.493811}
+{'edge_retention': 0.25, 'pre_p95_mean': 0.770194, 'post_p95_mean': 1.153255, 'post_max_mean': 4.250763, 'post_mean': 0.493811}
+{'edge_retention': 0.0, 'pre_p95_mean': 0.829535, 'post_p95_mean': 1.30252, 'post_max_mean': 4.61188, 'post_mean': 0.493811}

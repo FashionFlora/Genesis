@@ -1,0 +1,8 @@
+seeds=2000 steps=100 inputs=8 targets=2 active_per_input=20 keep=4
+target_overlap | timing_retained/2 | rate_retained/2
+            20 | 2.0000 | 0.9715
+            16 | 2.0000 | 0.9745
+            12 | 2.0000 | 0.9690
+             8 | 2.0000 | 0.9835
+             4 | 1.0185 | 0.9750
+             0 | 0.0000 | 0.9725

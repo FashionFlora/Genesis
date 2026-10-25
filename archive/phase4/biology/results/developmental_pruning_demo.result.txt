@@ -1,0 +1,25 @@
+seeds=2000 inputs=8 target_inputs=2 activity=20/100 retained=4
+target_overlap=20/20
+  staged: target_retained=2.0000/2 edges_remaining=4.0000/8
+  absolute: target_retained=0.9715/2 edges_remaining=4.0000/8
+  no_cleanup: target_retained=2.0000/2 edges_remaining=8.0000/8
+target_overlap=16/20
+  staged: target_retained=2.0000/2 edges_remaining=4.0000/8
+  absolute: target_retained=0.9745/2 edges_remaining=4.0000/8
+  no_cleanup: target_retained=2.0000/2 edges_remaining=8.0000/8
+target_overlap=12/20
+  staged: target_retained=2.0000/2 edges_remaining=4.0000/8
+  absolute: target_retained=0.9690/2 edges_remaining=4.0000/8
+  no_cleanup: target_retained=2.0000/2 edges_remaining=8.0000/8
+target_overlap=8/20
+  staged: target_retained=2.0000/2 edges_remaining=4.0000/8
+  absolute: target_retained=0.9835/2 edges_remaining=4.0000/8
+  no_cleanup: target_retained=2.0000/2 edges_remaining=8.0000/8
+target_overlap=4/20
+  staged: target_retained=1.0185/2 edges_remaining=4.0000/8
+  absolute: target_retained=0.9750/2 edges_remaining=4.0000/8
+  no_cleanup: target_retained=2.0000/2 edges_remaining=8.0000/8
+target_overlap=0/20
+  staged: target_retained=0.0000/2 edges_remaining=4.0000/8
+  absolute: target_retained=0.9725/2 edges_remaining=4.0000/8
+  no_cleanup: target_retained=2.0000/2 edges_remaining=8.0000/8

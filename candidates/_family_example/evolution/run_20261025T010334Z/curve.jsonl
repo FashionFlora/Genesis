@@ -1,0 +1,1 @@
+{"generation": 0, "world_seed": 491263129, "worlds_per_genome": 1, "fitness_mean": 0.500249981880188, "fitness_best": 2.0, "score_best": 2.0, "survival_best": 0.0, "fitness_ci95": [2.0, 2.0], "diversity": {"trace_decay": 0.030672747641801834, "evidence_gain": 0.10451028496026993, "speed": 0.28879514336586, "bite_threshold": 0.10306716710329056}, "seconds": 1727.9578890970442}

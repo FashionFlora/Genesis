@@ -1,0 +1,11 @@
+mode quality_a quality_b precision_a precision_b overlap; 100 seeds
+full 0.726414 0.725647 0.734844 0.738281 0.195000
+no_sensitization 0.726376 0.725568 0.734219 0.738281 0.196250
+no_paracrine 0.726978 0.726109 0.737344 0.741875 0.194062
+no_protection 0.726136 0.725261 0.733750 0.738906 0.197813
+all_off 0.726978 0.726109 0.737344 0.741875 0.194062
+paired_delta_quality_vs_full mode mean sd
+no_sensitization -0.000058 0.000105
+no_paracrine 0.000514 0.000213
+no_protection -0.000332 0.000277
+all_off 0.000514 0.000213

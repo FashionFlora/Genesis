@@ -1,0 +1,89 @@
+TEMPO (orkiestrator): pełna kalibracja v7 trwała 110 min i padła na błędzie indeksu pokoju. Zanim uruchomisz pełną
+kalibrację: (1) szybki test przejścia przez WSZYSTKIE pokoje (np. wymuszone awanse, krótkie życie, mała partia),
+żeby błędy indeksów wyszły w minutę, nie po 2 godzinach; (2) pełną kalibrację uruchamiaj jako 5–6 kontroli
+RÓWNOLEGLE (osobne procesy, sloty GPU), nie po kolei, i złóż wiersz końcowy z ich wyników.
+
+NAJWAŻNIEJSZE (użytkownik, powtórzone): to ma być JEDEN organizm, który się rozwija, a nie bakterie, muszki,
+pszczoły i myszy. Szczeble nazywaj ZDOLNOŚCIAMI etapu rozwoju (np. "kierunek do jedzenia", "skojarzenie",
+"kontekst", "pamięć miejsc", "pojęcia", "mapa"), nie gatunkami. Nazwy zwierząt i liczby neuronów mogą pojawić się
+tylko w README jako porównawczy przypis ("ta zdolność występuje u ..."), nie w nazwach szczebli, wynikach sędziego ani
+w zadaniach. Nie szukaj źródeł o kolejnych gatunkach; potrzebne są tylko źródła o tym, w jakiej kolejności zdolności
+pojawiają się w rozwoju i ewolucji.
+
+STATUS (orkiestrator): poprzednia tura zrobiła tylko SZKIELET v7 (szczeble dziedziczą zadania v6, brak kalibracji,
+limity jednostek tylko jako propozycja) i błędnie dopisała KONIEC. Linia KONIEC jest teraz IGNOROWANA: praca kończy się
+dopiero, gdy (1) sandbox/organism_calibration.jsonl ma wiersz "organism-v7-final" z baseline_table spełniającym warunki
+kalibracji v7, (2) domyślna --organism-version to v7, (3) testy przechodzą. Dokończ szczeble jako prawdziwe etapy
+rozwoju z własnymi zadaniami, żółtko, dłuższe życie i punkty A–D poniżej, po kolei.
+
+Jesteś budowniczym świata i sędziego Genesis (tylko Ty zmieniasz sandbox/). Agenci PRACUJĄ i cały czas wywołują
+sędziego --organism: obecna wersja (organism-v6) ma działać bez przerwy, nową drabinę zrób jako organism-v7 i przełącz
+domyślną wersję dopiero, gdy kalibracja v7 spełni warunki. Kontrakt mózgu bez zmian. Przeczytaj HANDOFF.md, RULES.md,
+potrzebne fragmenty sandbox/. Oszczędzaj tokeny. nice -n 15. Ocena = 1 partia 1024 światów (--organism-seeds 1).
+
+Decyzja użytkownika: drabina pokoi ma odpowiadać drabinie zdolności prawdziwych organizmów, od najprostszych do
+większych, z limitem czaszki (n_units) rosnącym razem z nią. Szczeble (sprawdź i podaj źródła otwarte przez
+.venv/bin/python shared/lit.py; nie zmyślaj liczb):
+0 bakteria (0 neuronów): chemotaksja przez porównanie w czasie, adaptacja;
+1 nicień C. elegans (302): habituacja, proste skojarzenia, uczenie preferencji;
+2 Aplysia (~2e4): warunkowanie klasyczne, sensytyzacja, pamięć długotrwała;
+3 muszka Drosophila (~1.4e5): warunkowanie z odwróceniem, uczenie miejsca, kontekst;
+4 pszczoła (~1e6): pojęcia (to samo/inne), nawigacja z pamięcią drogi, małe liczby;
+5 mysz (~7e7): mapy przestrzeni, uczenie utajone, pamięć epizodyczna.
+Każdy pokój = jeden szczebel, w wersji wykonalnej w naszym świecie 2D (tylko oko RGB + opcjonalnie energia, ruch).
+Dolne szczeble są KRÓTKIE (stała tabela wartości przejdzie je szybko), wynik główny liczy się od szczebla, na
+którym stała tabela przestaje wystarczać. W wyniku sędziego podaj osiągnięty szczebel z nazwą organizmu.
+Kalibracja v7 (5 kontroli równolegle jak dotąd, końcowy wiersz organism-v7-final z baseline_table):
+random i braitenberg odpadają wcześnie; table przechodzi dolne szczeble i utyka; growing (uczeń z rosnącą pamięcią
+kombinacji i miejsc, z nagrodą, tylko kalibracja) idzie wyraźnie dalej niż table (rozłączne CI); krzywe malejące.
+Testy spójności dla każdego szczebla. README: tabela szczebli ze źródłami i tabela kalibracji.
+Gdy warunki spełnione: przełącz domyślną wersję na v7, ogłoś `python3 shared/board.py post sedzia all "..."` (drabina
+szczebli, kalibracja, że wyniki v6 nie są porównywalne). HANDOFF.md (do 25 linii), linia KONIEC sama w linii.
+
+UWAGA OD UŻYTKOWNIKA: liczby neuronów są tylko porównawczym odniesieniem rzędu wielkości, nie celem. Prawdziwy mózg
+większość neuronów zużywa na podtrzymanie życia i ciało (np. u muszki ok. 2/3 neuronów to płaty wzrokowe przy oku
+z ~800 fasetek; do tego sterowanie złożonym ciałem, gospodarka wewnętrzna). U nas ciało, oko i podtrzymanie życia są
+dużo prostsze, więc ta sama zdolność powinna wymagać znacznie mniej jednostek. Limit n_units na szczeblu nie musi
+kopiować liczby neuronów; raportuj, ilu jednostek faktycznie użył organizm na każdym szczeblu, obok odniesienia
+biologicznego.
+
+DECYZJA UŻYTKOWNIKA (ważna): algorytm buduje nie tylko mózg, ale CAŁY ORGANIZM. Organizm startuje z prostym ciałem
+(np. kilka czujników światła, jeden mięsień) i ta sama zasada może dobudowywać ciało: więcej pikseli oka, ich
+rozmieszczenie, dodatkowe mięśnie. Każda część ciała kosztuje energię w budowie i utrzymaniu. Wyższe szczeble
+wymagają lepszego ciała (jak w biologii: bakteria bez oka, nicień kilka czujników, muszka wiele fasetek).
+Rozszerz kontrakt wstecznie zgodnie (stare mózgi z obecnym stałym ciałem nadal działają): np. opcjonalna metoda
+organizmu zwracająca prośby o zmianę ciała co krok lub co N kroków, świat realizuje je w budżecie energii i podaje
+nowe n_sensors/n_motors. Bez nagrody za samo rośnięcie. Sędzia raportuje rozwój ciała w czasie obok rozwoju mózgu.
+Kontrole kalibracyjne mogą mieć stałe ciało; dodaj jedną kontrolę z prostym, jawnym rozwojem ciała, żeby pokazać, że
+mechanika działa.
+
+UWAGA: szczebli może być więcej i drobniej, jeśli dają wykonalne, różne zdolności, np. orzęsek Stentor (habituacja
+bez neuronów), stułbia Hydra (sieć nerwowa), wypławek (uczenie, regeneracja), larwa danio pręgowanego, ośmiornica,
+ptaki krukowate. Kolejność i liczbę dobierz według zdolności ze źródeł, nie według liczby neuronów.
+
+DOPRECYZOWANIE OD UŻYTKOWNIKA: nie budujemy kolejnych gatunków (bakteria, nicień...), tylko JEDEN organizm, który jak
+zygota startuje z jednej komórki i rozwija się z jednej reguły. Szczeble to etapy jego rozwoju, sprawdzane
+zdolnościami w kolejności z biologii (najpierw to, co umie najprostsze życie, potem coraz więcej); nazwy organizmów
+służą tylko jako porównawcze odniesienie, na jakim poziomie zdolności jest organizm. Ciało i mózg rosną w trakcie
+jednego życia, a świat stopniowo stawia wymagania kolejnych szczebli.
+
+UWAGA OD UŻYTKOWNIKA: na początku życia organizmy dostają pożywienie praktycznie za darmo (żółtko jaja, łożysko,
+mleko, bielmo nasienia). Daj organizmowi na start zapas energii „jak żółtko”, który stopniowo się wyczerpuje, tak by
+miał czas się rozwinąć (ciało i mózg) i nauczyć podstaw, zanim musi sam zdobywać jedzenie. Wielkość zapasu to
+parametr świata, nie sygnał nagrody; kalibracja ma pokazać, że losowy ruch i stała tabela nadal odpadają, gdy zapas
+się skończy.
+
+DALSZE WYMAGANIA OD UŻYTKOWNIKA dla v7 (rób po kolei, każde z kalibracją i testami):
+A. DŁUŻSZE ŻYCIE: długość życia jako parametr, domyślnie wyraźnie dłuższa niż 12000 kroków (np. 50–100 tys.;
+   jedna partia 1024 światów to ~20 ms/krok), żeby zasady dojrzewające powoli (długi rozwój, późne uogólnienie) miały
+   czas. Pomiary w kolejnych oknach życia (kiedy organizm osiągał kolejne szczeble).
+B. POKOLENIA: tryb sędziego/świata z kolejnymi pokoleniami: program rozwoju (PARAMS/genom) organizmów, które dobrze
+   radziły sobie w życiu, przechodzi z drobnymi zmianami na potomstwo w następnym pokoleniu; w ciągu życia nadal bez
+   nagrody i bez gradientu. Raportuj postęp między pokoleniami osobno od wyniku pojedynczego życia. Wykorzystaj
+   istniejące sandbox/evolve.py.
+C. RÓŻNE TYPY ŚWIATÓW: kilka rodzin światów o różnej statystyce wzrokowej i geometrii (np. inne palety, rozkłady
+   obiektów, kształty pokoi), losowanych per świat, plus rodzina trzymana w ukryciu do testu uogólnienia (wynik
+   osobno), żeby zasada nie dopasowała się do jednego świata.
+D. INNE ORGANIZMY: w dalszych szczeblach wiele organizmów w jednym świecie (rodzeństwo, rodzic), widocznych w oku i
+   konkurujących o jedzenie; możliwość uczenia się przez obserwację innych, bez żadnego kanału komunikacji
+   wpisanego na sztywno. Każdy nadal ma osobny mózg (test niezależności dotyczy przepływu informacji poza światem).

@@ -1,0 +1,3 @@
+Parents: candidates/action_consequence_homeostat/ (energy-gated homeostatic consequence trace) and candidates/action_consequence/ (category-by-motor action trace).
+Mutation: divide the decayed signed action-consequence trace by a matched decayed count of eligible bite attempts before selecting a sensory color or steering.
+Why: an action should be remembered for its consequence rate, so repeated exposure without energetic benefit cannot inflate its preference; the same local trace still drives recall, pruning, and low-energy exploration.

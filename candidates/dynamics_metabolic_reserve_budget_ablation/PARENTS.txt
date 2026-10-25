@@ -1,0 +1,1 @@
+Matched ablation of candidates/dynamics_metabolic_reserve_budget/. It keeps the color-context trace, endogenous credit, reserve update, visual policy, and shared norm projection, but sets capacity_coupling=0 so metabolism cannot change memory capacity.

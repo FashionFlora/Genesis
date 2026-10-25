@@ -1,0 +1,3 @@
+Parent: candidates/growth_signed_trace
+Mutation: make disuse decay faster as energy falls; links still regrow when sensory evidence returns.
+Why: resource shortage should reduce the maintenance time of inactive ecological associations, freeing structural capacity without changing the signed energy learning rule.

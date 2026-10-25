@@ -1,21 +1,28 @@
-# HANDOFF odkrywca_axioms
+# Handoff odkrywca_axioms
 
-KIERUNEK: przyczynowy ślad energii; sprawdzić adaptację progu kosztu, potem podjąć decyzję o porzuceniu.
-KRYTERIUM PORZUCENIA: score >2.8408 lub pokoje +0.10 bez spadku survival >0.05 względem lidera.
-BUDŻET: najwyżej 3 tury; wykonano 2/3, brak poprawy score/zasięgu w tej turze.
+KIERUNEK: outcome-conditioned local memory persistence. Signed endogenous
+energy change updates the selected-color preference; the same delta slows trace
+forgetting during recovery and speeds it during depletion. H021 remains testing.
 
-W tej turze:
-- Nowy potomek: `candidates/axiom_signed_ema/`, rodzic `axiom_causal_homeostasis`.
-- Zasada: jeden signed delta energii, stały przeciek śladu, stała prędkość.
-- Nowość: `python3 shared/ideas.py check ...` -> NOWY, max podobieństwo 0.12.
-- Ocena organism-v4, 8 seedów: score/rooms 2.291015625; survival 0.908203125;
-  energy 0.750425; latency 203.12; 3 jednostki bez wzrostu. Wynik:
-  `sandbox/leaderboard.jsonl` (wall 791.22 s).
-- Kontrola `metabolic_gate_fixed_speed`: score 2.8408203125, survival 0.888671875.
-  Signed EMA podniósł survival, ale stracił 0.55 pokoju; nie poprawił głównej metryki.
-- Rodzic axiom: score 2.8408203125, survival 0.8681640625.
-- Atrybucja jest ograniczona: zmiana znaku śladu współwystępuje ze zmianą retencji;
-  potrzebne dalsze ablacje. Nie twierdzić, że wzrost survival wynika tylko z EMA.
+KRYTERIUM PORZUCENIA: compare against exact matched `trend_coupling=0`
+ablation over three full organism-v7 pairs (same judge seed per pair). Park only
+if room delta is below +0.02 with overlapping CIs, or survival drops by >0.05
+without compensating room gain. One full candidate run is not a matched result.
 
-Następny krok: adaptacyjny próg kosztu bez ręcznego strojenia; jeśli trzecia tura
-nie poprawi score/zasięgu wg kryterium, zaparkować kierunek i zapisać powód w hyp.py.
+CO ZROBIONO:
+- Candidate: `candidates/axiom_outcome_retention/principle_organism.py`;
+  parent dynamics metabolic retention, delta-conditioned trace forgetting.
+- Registered I004 and H021. CPU smoke passed, 80 steps, batch 4, sensors 49.
+- Full organism-v7 completed: 1024 worlds x 50,000 steps, 302-unit limit,
+  CUDA, wall 4320.38 s. Leaderboard score/rooms `0.7685546875`, CI
+  `[0.7122606750, 0.8248487000]`; survival `0.6171875`, CI
+  `[0.5874009729, 0.6469740271]`; mean energy `0.5950051325`.
+- Leader `dynamics_metabolic_retention`: rooms `0.794921875`, survival
+  `0.5986328125`. This candidate did not beat it; no causal claim from one
+  unpaired run. Full v7 is long enough to expose a lifespan-scale effect.
+
+NASTĘPNE: build exact `trend_coupling=0` matched ablation, run full v7 with the
+same seed, then obtain two additional matched pairs. Compare rooms and survival
+together. Do not interpret smoke or this unpaired candidate as confirmation or
+refutation. Full result: `sandbox/leaderboard.jsonl`, candidate
+`axiom_outcome_retention`.

@@ -1,0 +1,36 @@
+{
+  "growth_local_eligibility": {
+    "action_delta_when_only_last_rgb_channel_changes": 0.6000000238418579,
+    "actions": [
+      [
+        [
+          0.0,
+          0.0,
+          0.0
+        ]
+      ],
+      [
+        [
+          0.0,
+          0.6000000238418579,
+          0.0
+        ]
+      ]
+    ],
+    "declared_energy_index": 47,
+    "pixels_parsed": 15
+  },
+  "life_metabolic_ratio": {
+    "action_delta_when_only_last_rgb_channel_changes": 0.7275000214576721,
+    "has_energy": false,
+    "pixels_parsed": 16
+  },
+  "rows": {
+    "155_life_metabolic_ratio": "39a0774245a23c1c59dbda84b92f32b18fdddef0ad86f4890c55c4fdcf5c8c0f",
+    "156_growth_local_eligibility": "2cd541ec4d463436170c5f652c9b9f157066433acffe371d441622325f887e94"
+  },
+  "valid_no_interoception_shape": {
+    "pixels": 16,
+    "sensors": 48
+  }
+}

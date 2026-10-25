@@ -1,0 +1,2 @@
+Parents: candidates/dynamics_energy_volatility/ and candidates/axiom_metabolic_retention_budget/.
+Mutation: retained the volatility low-pass and volatility-dependent trace decay from the first parent, and crossed in the second parent's single shared preference budget. Unlike the parent budget's direct energy-level coupling, volatility now contracts both eligibility lifetime and total preference norm. Removed age pulses and initialized the first energy sample without credit.

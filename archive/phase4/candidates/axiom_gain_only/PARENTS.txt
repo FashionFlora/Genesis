@@ -1,0 +1,4 @@
+Parent: candidates/axiom_causal_homeostasis
+Mutation: remove negative energy-delta deposits; positive post-action energy
+changes alone strengthen the selected sensory trace. Fixed movement and other
+parameters are inherited to isolate the sign ablation.

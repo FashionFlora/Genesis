@@ -1,0 +1,16 @@
+Controlled CPU probe; synthetic 2-context foraging task, not organism judge.
+Script: theory/theorist_dynamics/probe_trace.py
+Seeds: 8; independent worlds per seed: 64; 500 steps per context block.
+Input contract: 48 RGB sensors (16 pixels) and 49 RGB+energy sensors both pass.
+
+Choice accuracy (mean across seeds; seed SD):
+Condition          A train late   B switch first   B late   A return first   A late
+energy trace       1.0000 (0)     0.9950 (0)       1.0000 (0) 1.0000 (0)      1.0000 (0)
+credit off         0.5000 (0)     0.5000 (0)       0.5000 (0) 0.5000 (0)      0.5000 (0)
+shuffled energy    0.4160 (.0426) 0.4796 (.0319)   0.4060 (.0565) 0.4006 (.0541) 0.3924 (.0538)
+
+Interpretation: in this constructed task, signed energy change predicts which
+color pays off, the context-indexed trace retains the first mapping, and the
+mechanism adapts to reversal. This is a controlled mechanism probe, not evidence
+about organism rooms_reached or a judge result. The 8 seeds vary assignment but
+share the same task family and are not a substitute for the official judge.

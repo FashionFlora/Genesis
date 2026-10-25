@@ -1,0 +1,2 @@
+Parent: candidates/agency_reafferent_turn/principle_organism.py
+Mutation: replace the scalar total-visual-flux consequence with wrapped change in visual bearing, credited to the previous turn sign. The difference between the two action-conditioned traces estimates a local sensorimotor effect and compensates subsequent turning. This tests whether directional image displacement carries more actionable information than brightness change.

@@ -1,0 +1,20 @@
+{
+  "actions_302_vs_100000_identical": true,
+  "learned_vs_frozen_action_rmse": 0.0019090598216280341,
+  "max_abs_learned_vs_frozen": 0.011464297771453857,
+  "mean_norm_initial_and_final": [
+    0.24758565425872803,
+    0.24758565425872803
+  ],
+  "per_sensor_norm_spread_final": 0.4226990044116974,
+  "source_sha256": "2428d5c10f0948ed1ba2cd485c70daa2b17189ae7640c4c70b38436539c22b8c",
+  "steps": 96,
+  "structure_100000": {
+    "connections": 147,
+    "units": 147
+  },
+  "structure_302": {
+    "connections": 147,
+    "units": 147
+  }
+}

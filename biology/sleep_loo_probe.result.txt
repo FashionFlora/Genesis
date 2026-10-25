@@ -1,0 +1,9 @@
+coupling=1.0 mode=none phase_b_snr=0.926867 retention=0.370956 noise=0.200113 updates=2517.0 snr_sd=0.006115
+coupling=1.0 mode=global phase_b_snr=0.923478 retention=0.370264 noise=0.200473 updates=2517.5 snr_sd=0.006399
+coupling=1.0 mode=loo phase_b_snr=0.924775 retention=0.370717 noise=0.200437 updates=2517.2 snr_sd=0.005808
+coupling=0.5 mode=none phase_b_snr=0.927275 retention=0.371109 noise=0.200108 updates=2517.3 snr_sd=0.006307
+coupling=0.5 mode=global phase_b_snr=0.926127 retention=0.370920 noise=0.200254 updates=2517.2 snr_sd=0.005515
+coupling=0.5 mode=loo phase_b_snr=0.925756 retention=0.370786 noise=0.200262 updates=2517.1 snr_sd=0.006192
+coupling=0.0 mode=none phase_b_snr=0.926867 retention=0.370956 noise=0.200113 updates=2517.0 snr_sd=0.006115
+coupling=0.0 mode=global phase_b_snr=0.927728 retention=0.371314 noise=0.200120 updates=2517.2 snr_sd=0.005806
+coupling=0.0 mode=loo phase_b_snr=0.927119 retention=0.371124 noise=0.200149 updates=2517.1 snr_sd=0.005021

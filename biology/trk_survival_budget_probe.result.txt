@@ -1,0 +1,11 @@
+Command: nice -n 15 .venv/bin/python biology/trk_survival_budget_probe.py
+N=256; target=64; seeds=100; fixed 4 deaths/round; 48 rounds; paired seeds
+mode quality_a quality_b precision_a precision_b
+full 0.649148 0.646711 0.622031 0.628125
+no_sensitization 0.631207 0.631272 0.600156 0.618281
+no_paracrine 0.666632 0.666233 0.643750 0.664531
+no_protection 0.634863 0.633682 0.606719 0.612812
+all_off 0.654835 0.652508 0.639062 0.633437
+Interpretation: with an equal death budget and endpoint size, the paracrine hazard
+reduced mean survivor quality and target-type precision; sensitization raised both
+relative to its ablation. Synthetic hazard model only, not a judge result.

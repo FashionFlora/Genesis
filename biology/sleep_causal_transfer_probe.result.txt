@@ -1,0 +1,15 @@
+target_post_prob=0.8
+none phase_a_snr=2.500087 phase_b_snr=0.926802 old_a_retention=0.888345 new_b_retention=0.355409 updates=3943.97 protected=0.00 phase_b_snr_sd=0.007372
+post_10ms phase_a_snr=2.625868 phase_b_snr=0.967830 old_a_retention=0.928601 new_b_retention=0.371588 updates=3943.97 protected=247.40 phase_b_snr_sd=0.006071
+post_50ms phase_a_snr=2.500087 phase_b_snr=0.926802 old_a_retention=0.888345 new_b_retention=0.355409 updates=3943.97 protected=0.00 phase_b_snr_sd=0.007372
+post_pre_10ms phase_a_snr=2.500087 phase_b_snr=0.926802 old_a_retention=0.888345 new_b_retention=0.355409 updates=3943.97 protected=0.00 phase_b_snr_sd=0.007372
+target_post_prob=0.4
+none phase_a_snr=2.500043 phase_b_snr=0.926954 old_a_retention=0.886112 new_b_retention=0.354557 updates=4029.37 protected=0.00 phase_b_snr_sd=0.007424
+post_10ms phase_a_snr=2.559033 phase_b_snr=0.946641 old_a_retention=0.904968 new_b_retention=0.362275 updates=4029.37 protected=162.00 phase_b_snr_sd=0.007255
+post_50ms phase_a_snr=2.500043 phase_b_snr=0.926954 old_a_retention=0.886112 new_b_retention=0.354557 updates=4029.37 protected=0.00 phase_b_snr_sd=0.007424
+post_pre_10ms phase_a_snr=2.500043 phase_b_snr=0.926954 old_a_retention=0.886112 new_b_retention=0.354557 updates=4029.37 protected=0.00 phase_b_snr_sd=0.007424
+target_post_prob=0.1
+none phase_a_snr=2.499807 phase_b_snr=0.927028 old_a_retention=0.884452 new_b_retention=0.353924 updates=4091.59 protected=0.00 phase_b_snr_sd=0.007563
+post_10ms phase_a_snr=2.512321 phase_b_snr=0.931093 old_a_retention=0.888452 new_b_retention=0.355516 updates=4091.59 protected=99.78 phase_b_snr_sd=0.007712
+post_50ms phase_a_snr=2.499807 phase_b_snr=0.927028 old_a_retention=0.884452 new_b_retention=0.353924 updates=4091.59 protected=0.00 phase_b_snr_sd=0.007563
+post_pre_10ms phase_a_snr=2.499807 phase_b_snr=0.927028 old_a_retention=0.884452 new_b_retention=0.353924 updates=4091.59 protected=0.00 phase_b_snr_sd=0.007563

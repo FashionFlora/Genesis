@@ -1,0 +1,4 @@
+mode branching_mean branching_sd size_mean size_p95 transmission_gt10 pre_branching post_branching pre_size post_size gain_mean; 100 seeds
+none branching_mean=0.485344 branching_sd=0.399476 size_mean=8.194908 size_p95=38.978500 transmission_gt10=0.187817 pre_branching=0.959895 post_branching=0.863677 pre_size=11.443188 post_size=6.577100 gain_mean=1.000000
+global branching_mean=0.996981 branching_sd=0.563133 size_mean=510.028675 size_p95=1999.446000 transmission_gt10=0.636383 pre_branching=1.442537 post_branching=1.466427 pre_size=433.156375 post_size=539.920488 gain_mean=1.000000
+local branching_mean=0.524193 branching_sd=0.408217 size_mean=11.218200 size_p95=55.066500 transmission_gt10=0.238825 pre_branching=0.983920 post_branching=0.930437 pre_size=13.448337 post_size=9.761300 gain_mean=1.125769

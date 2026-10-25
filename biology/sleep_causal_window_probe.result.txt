@@ -1,0 +1,4 @@
+none signal=0.444306 noise=0.177682 snr=2.500578 retention=0.888612 updates=3949.53 protected=0.00 applied_log_budget=11.848590 snr_sd=0.019191
+post_10ms signal=0.487417 noise=0.176818 snr=2.756615 retention=0.974834 updates=3949.53 protected=246.77 applied_log_budget=11.848590 snr_sd=0.012312
+post_50ms signal=0.444306 noise=0.177682 snr=2.500578 retention=0.888612 updates=3949.53 protected=0.00 applied_log_budget=11.848590 snr_sd=0.019191
+post_pre_10ms signal=0.444306 noise=0.177682 snr=2.500578 retention=0.888612 updates=3949.53 protected=0.00 applied_log_budget=11.848590 snr_sd=0.019191

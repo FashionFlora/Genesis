@@ -1,0 +1,2 @@
+Parents: candidates/axiom_energy_trace/ and candidates/axiom_energy_trace_ablation/
+Mutation: removed the endogenous energy credit signal and replaced reward-gated trace updates with a local decaying co-activity trace. Each sensor's outgoing synaptic norm is conserved, so correlated connections gain relative strength as other alternatives weaken. The invariant follows from finite capacity; it tests whether persistent sensorimotor structure alone is useful.

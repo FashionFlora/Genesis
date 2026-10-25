@@ -1,0 +1,3 @@
+Parent: candidates/metabolic_scarcity_prune (H009)
+Mutation: keep scarcity-dependent pruning and all learning parameters; fix movement drive at 0.575.
+Purpose: isolate whether metabolic state should regulate memory maintenance without regulating locomotion.

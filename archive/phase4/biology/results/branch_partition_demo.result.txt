@@ -1,0 +1,3 @@
+partitioned: mean_probe_mse=0.000010 mean_task_collisions=0.000
+shared: mean_probe_mse=0.124267 mean_task_collisions=6.000
+random_route: mean_probe_mse=0.053414 mean_task_collisions=1.494

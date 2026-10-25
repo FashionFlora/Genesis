@@ -1,0 +1,5 @@
+Parents: candidates/growth_trace_island/ (primary); candidates/growth_trace/ (historical family).
+Change: replace one global trace per RGB channel with pixel-local color eligibility traces.
+Why: an energy change after biting should strengthen only the visual locations that
+preceded that bite; decayed associations then remove active links without a separate
+pruning schedule, and positive associations can steer approach before contact.

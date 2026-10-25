@@ -1,0 +1,44 @@
+{
+  "sensor_dependence": {
+    "48_sensor_vs_neutral_49_action_rmse": 0.3647262454032898,
+    "first_4_pixels_action_rmse": 0.45061153173446655,
+    "no_intero_final_preference_abs_sum": 0.0,
+    "suffix_pixels_action_rmse": 0.5630234479904175,
+    "swap_r_g_action_rmse": 0.6627358794212341
+  },
+  "source_flags": {
+    "fixed_eye_slice": "eye[:, 4:]",
+    "fixed_three_color_state": true,
+    "fixed_thresholds": [
+      ">0.04",
+      ">0.42",
+      ">0.24",
+      ">0.5"
+    ]
+  },
+  "stream": {
+    "batch": 32,
+    "seed": 251025,
+    "steps": 96
+  },
+  "structure": {
+    "n_units_100000": {
+      "connections": 3,
+      "units": 3
+    },
+    "n_units_302": {
+      "connections": 3,
+      "units": 3
+    }
+  },
+  "trace_isolation": {
+    "coupling_zero_bites": 48.0,
+    "coupling_zero_final_eligibility_mean": 5.555548191070557,
+    "forgetting_020_bites": 48.0,
+    "forgetting_020_final_eligibility_mean": 1.6666663885116577,
+    "nominal_bites": 48.0,
+    "nominal_final_eligibility_mean": 4.535146713256836,
+    "nominal_vs_coupling_zero_action_rmse": 0.0,
+    "nominal_vs_forgetting_020_action_rmse": 0.0
+  }
+}

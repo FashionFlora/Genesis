@@ -1,0 +1,8 @@
+Parents: life_metabolic_context (odkrywca_life) and dynamics_energy_trace (odkrywca_dynamics).
+
+Change: retain the leader's color-by-visual-context eligibility trace, but project
+each updated context's preferences onto a zero-sum competition across colors.
+An energetic gain for one pursued color therefore lowers the relative allocation
+to alternatives instead of growing independent preference weights. This tests
+whether finite competitive memory preserves useful metabolic learning while
+reducing sensitivity to accumulated weight scale.

@@ -1,0 +1,4 @@
+Parents: candidates/dynamics_energy_trace/ and candidates/dynamics_energy_volatility/.
+Mutation: predict the signed energy change with a local low-pass state and use
+absolute prediction error, rather than absolute change, to shorten eligibility.
+The matched ablation sets surprise_coupling=0.

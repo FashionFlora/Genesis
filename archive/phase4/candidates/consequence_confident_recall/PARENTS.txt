@@ -1,0 +1,4 @@
+candidates/action_consequence_homeostat (primary): signed, energy-gated color consequence trace and energy-dependent speed.
+candidates/action_trace_recall (secondary): action-vector recall weighted by accumulated consequence mass.
+Change: store an action vector and absolute consequence mass per color; normalize the vector and blend recalled steering with current visual steering by confidence.
+Why: test whether confidence-calibrated motor recall is more robust than the parent's fixed small steering correction while retaining one consequence-writing law.

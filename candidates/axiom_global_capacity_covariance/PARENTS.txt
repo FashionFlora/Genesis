@@ -1,0 +1,3 @@
+Parents: candidates/axiom_centered_correlation/ and candidates/axiom_viability_capacity/
+Mutation: replaced independent per-sensor norm conservation with one conserved Frobenius norm for the whole sensor-action matrix, while retaining centered local covariance learning. This allows synaptic capacity to migrate between sensors under competition.
+Rationale: if an organism has one finite construction budget, local niches should compete for it rather than each receiving a permanently reserved quota.

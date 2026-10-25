@@ -1,0 +1,7 @@
+Parent: candidates/agency_sensorimotor_prediction/.
+
+Mutation: replace action-conditioned prediction of one selected colour with
+action-conditioned prediction of total RGB visual flux. The endogenous
+reafference difference biases the next turn; no energy or world reward is read.
+The matched ablation preserves all visual processing and predictor updates and
+sets only reafferent_gain to zero.

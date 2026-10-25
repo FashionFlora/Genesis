@@ -1,0 +1,4 @@
+seeds=500 cells=8 branches_per_cell=6 steps=30 isoforms=22
+stochastic: raw_self=534.350 raw_hetero=4481.100 surviving_self=0.000 surviving_hetero=1856.934
+single: raw_self=532.746 raw_hetero=4483.178 surviving_self=0.000 surviving_hetero=0.000
+none: raw_self=532.746 raw_hetero=4483.178 surviving_self=532.746 surviving_hetero=4483.178

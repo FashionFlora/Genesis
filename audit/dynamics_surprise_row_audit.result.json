@@ -1,0 +1,21 @@
+{
+  "scope": "deterministic implementation probe only; not organism-world evidence",
+  "stable_energy_steps": 120,
+  "reversal_energy_steps": 120,
+  "trace_mass": {
+    "stable_final": 16.65673065185547,
+    "reversal_before": 14.786635398864746,
+    "reversal_final": 16.550617218017578,
+    "ablation_final": 16.65673065185547
+  },
+  "action_mae": {
+    "main_vs_ablation_on_reversal": 0.0045825582928955555,
+    "stable_vs_reversal_main": 0.05863078311085701
+  },
+  "predicted_delta_abs_final": 0.00010824318451341242,
+  "no_intero_predicted_delta_max": 0.0,
+  "source_hashes": {
+    "dynamics_surprise_retention": "2e4817738c29bcc0cf7b670b8ad58be4d9dcf9176912e3cf642ee95c52176b17",
+    "dynamics_surprise_retention_ablation": "ac6d3bf6cd7e89b03c82c889289a477dd40f13097f9e36a98cecdf2a001b3268"
+  }
+}

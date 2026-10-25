@@ -1,0 +1,5 @@
+gated_selective: durable=39.96; off_target=0.00; spill=14.57; released=18.44
+gated_global: durable=38.90; off_target=16.98; spill=0.00; released=18.44
+gated_no_consume: durable=64.48; off_target=0.00; spill=50.34; released=18.44
+always_selective: durable=66.36; off_target=0.00; spill=53.64; released=102.00
+gated_unlimited_tag: durable=43.88; off_target=0.00; spill=3.04; released=18.44

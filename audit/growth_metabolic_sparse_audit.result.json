@@ -1,0 +1,48 @@
+{
+  "actual_tensor_bytes_100000": 2672,
+  "actual_tensor_bytes_candidate": 2672,
+  "actual_tensor_bytes_fresh": 2672,
+  "actual_tensor_bytes_no_reserve": 2672,
+  "actual_tensor_bytes_parent": 1328,
+  "batch_independence_max": 0.0,
+  "candidate": "growth_metabolic_sparse",
+  "candidate_vs_parent_action_max": 1.9675894975662231,
+  "candidate_vs_parent_action_rmse": 0.20721867680549622,
+  "capacity_action_max_302_vs_100000": 0.0,
+  "capacity_action_rmse_302_vs_100000": 0.0,
+  "parent_source_sha256": "2cd541ec4d463436170c5f652c9b9f157066433acffe371d441622325f887e94",
+  "reported_structure": {
+    "connections": 42.0,
+    "memory_bytes": 572,
+    "units": 18.0
+  },
+  "reported_structure_100000": {
+    "connections": 42.0,
+    "memory_bytes": 572,
+    "units": 18.0
+  },
+  "reported_structure_control": {
+    "connections": 31.75,
+    "memory_bytes": 449,
+    "units": 17.25
+  },
+  "reported_structure_fresh": {
+    "connections": 2.0,
+    "memory_bytes": 92,
+    "units": 2.0
+  },
+  "reported_structure_parent": {
+    "connections": 31.75,
+    "memory_bytes": 1052,
+    "units": 18.0
+  },
+  "reserve_vs_no_reserve_action_max": 1.9675894975662231,
+  "reserve_vs_no_reserve_action_rmse": 0.2072186917066574,
+  "source_note": "candidate stores trace/active/key_index densely for every pixel-color slot",
+  "source_sha256": "50e7379638c8ce12477bed81ad3a1146477196abdc7722c39b1ae8b887f00892",
+  "stream_shape": [
+    96,
+    4,
+    49
+  ]
+}

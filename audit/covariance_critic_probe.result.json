@@ -1,0 +1,46 @@
+{
+  "random_stream": {
+    "learning_rate_zero_rmse": 0.1992425173521042,
+    "energy_coupling_zero_rmse": 0.022820668295025826,
+    "trace_decay_zero_rmse": 0.17517414689064026,
+    "rgb_only_vs_neutral_energy_rmse": 0.0,
+    "rgb_channel_swap_rmse": 0.0,
+    "pixel_shift_rmse": 0.4864905774593353,
+    "first_four_pixels_zero_rmse": 0.7100145816802979,
+    "n_units_302_vs_100000_rmse": 0.0
+  },
+  "bright_fixed_stream": {
+    "nominal_bite_count": 128,
+    "learning_zero_bite_count": 128,
+    "nominal_vs_learning_zero_rmse": 0.0,
+    "bite_ages_nominal": [
+      0,
+      5,
+      10,
+      15
+    ]
+  },
+  "structure": {
+    "302": {
+      "units": 3,
+      "connections": 6,
+      "activity": 0.14841008186340332
+    },
+    "100000": {
+      "units": 3,
+      "connections": 6,
+      "activity": 0.14841008186340332
+    },
+    "rgb_only": {
+      "units": 3,
+      "connections": 6,
+      "activity": 0.0
+    }
+  },
+  "source_flags": {
+    "eye[:, 4:]": true,
+    "age.remainder(5)": true,
+    "total > 0.04": true,
+    "concentration > 0.42": true
+  }
+}

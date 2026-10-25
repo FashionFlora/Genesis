@@ -1,0 +1,4 @@
+{'perturbation': 'partial', 'local_scaling': False, 'relative_rate_vector_error_mean': 0.052481, 'retained_edge_fraction_mean': 1.0, 'final_rate_mean': 0.717541, 'reference_rate_mean': 0.754053}
+{'perturbation': 'delete', 'local_scaling': False, 'relative_rate_vector_error_mean': 0.116709, 'retained_edge_fraction_mean': 0.799414, 'final_rate_mean': 0.673336, 'reference_rate_mean': 0.754053}
+{'perturbation': 'partial', 'local_scaling': True, 'relative_rate_vector_error_mean': 0.007744, 'retained_edge_fraction_mean': 1.0, 'final_rate_mean': 0.755395, 'reference_rate_mean': 0.754053}
+{'perturbation': 'delete', 'local_scaling': True, 'relative_rate_vector_error_mean': 0.008403, 'retained_edge_fraction_mean': 0.799414, 'final_rate_mean': 0.754747, 'reference_rate_mean': 0.754053}

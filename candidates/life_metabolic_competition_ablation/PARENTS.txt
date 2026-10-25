@@ -1,0 +1,5 @@
+Matched ablation of life_metabolic_competition.
+
+Change: preserve the identical controller, competitive projection, perception,
+and movement, but set metabolic learning_rate to zero. This tests whether
+energy changes driving the competitive memory explain any full-life effect.

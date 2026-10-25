@@ -1,0 +1,96 @@
+{
+  "dynamics_volatility_budget": {
+    "main_last": [
+      [
+        -0.9999980330467224,
+        0.800000011920929,
+        1.0
+      ],
+      [
+        -0.9999980330467224,
+        0.800000011920929,
+        1.0
+      ],
+      [
+        -0.9999980330467224,
+        0.800000011920929,
+        1.0
+      ],
+      [
+        -0.9999980330467224,
+        0.800000011920929,
+        1.0
+      ]
+    ],
+    "ablation_rmse": 0.0,
+    "energy_flip_rmse": 0.330018013715744,
+    "visual_flip_rmse": 0.6218252778053284,
+    "dynamic_ablation_rmse": 0.16664332151412964,
+    "units_rmse": 0.0,
+    "structure_302": {
+      "units": 3,
+      "connections": 6
+    },
+    "structure_100000": {
+      "units": 3,
+      "connections": 6
+    },
+    "source_flags": {
+      "eye[:, 4:]": true,
+      "green[:, 0:4:2]": true,
+      "age": false,
+      "1.25": false,
+      "0.22": false,
+      "0.24": true,
+      "0.42": true
+    }
+  },
+  "agency_reafferent_turn": {
+    "main_last": [
+      [
+        -0.579992413520813,
+        0.8199999928474426,
+        1.0
+      ],
+      [
+        -0.579992413520813,
+        0.8199999928474426,
+        1.0
+      ],
+      [
+        -0.579992413520813,
+        0.8199999928474426,
+        1.0
+      ],
+      [
+        -0.579992413520813,
+        0.8199999928474426,
+        1.0
+      ]
+    ],
+    "ablation_rmse": 0.0,
+    "energy_flip_rmse": 0.0,
+    "visual_flip_rmse": 0.14544104039669037,
+    "dynamic_ablation_rmse": 0.2424476593732834,
+    "units_rmse": 0.0,
+    "structure_302": {
+      "units": "tensor([302., 302., 302., 302.])",
+      "connections": "tensor([3.2600, 3.2600, 3.2600, 3.2600])",
+      "activity": "tensor([0., 0., 0., 0.])"
+    },
+    "structure_100000": {
+      "units": "tensor([100000., 100000., 100000., 100000.])",
+      "connections": "tensor([1000.2400, 1000.2400, 1000.2400, 1000.2400])",
+      "activity": "tensor([0., 0., 0., 0.])"
+    },
+    "source_flags": {
+      "eye[:, 4:]": false,
+      "green[:, 0:4:2]": false,
+      "age": true,
+      "1.25": true,
+      "0.22": true,
+      "0.24": false,
+      "0.42": true
+    }
+  }
+}

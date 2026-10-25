@@ -1,0 +1,1 @@
+{"ablation": {"mean_rooms": 2.84375, "per_seed": [2.125, 3.375, 3.125, 2.75]}, "parent": {"mean_rooms": 2.625, "per_seed": [1.875, 3.0, 2.875, 2.75]}, "protocol": {"batch": 8, "device": "cpu", "seeds": 4, "steps": 6000, "units": 302}}

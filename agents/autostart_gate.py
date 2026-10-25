@@ -48,11 +48,12 @@ def calibration():
             d = json.loads(l)
         except json.JSONDecodeError:
             continue
-        if "baseline_table" in d and (d.get("protocol") or {}).get("version") == "organism-v4":
+        if "baseline_table" in d and (d.get("protocol") or {}).get("version") == "organism-v6":
             final = d  # końcowa tabela kalibracji (ostatnia wygrywa)
     if final:
-        v = {k: t["summary"]["room_reach_fraction"][1]["mean"] for k, t in final["baseline_table"].items()}
-        ok = v.get("control", 0) >= 0.5 and v.get("random", 1) <= 0.05 and v.get("braitenberg", 1) <= 0.05
+        v = {k: (t.get("summary") or t)["room_reach_fraction"][1]["mean"] for k, t in final["baseline_table"].items()}
+        ok = (v.get("growing", 0) >= 0.5 and v.get("random", 1) <= 0.05 and v.get("braitenberg", 1) <= 0.05
+              and v.get("table", 1) <= 0.05)
         return ok, "pokój 2 (tabela końcowa): " + ", ".join(f"{k}={x:.3f}" for k, x in sorted(v.items())), v
     rows = {}
     for l in open(f"{G}/sandbox/organism_calibration.jsonl"):
@@ -61,7 +62,7 @@ def calibration():
         except json.JSONDecodeError:
             continue
         prot = d.get("protocol") or {}
-        if not isinstance(prot, dict) or prot.get("version") != "organism-v4" or d.get("interoception") is False:
+        if not isinstance(prot, dict) or prot.get("version") != "organism-v6" or d.get("interoception") is False:
             continue
         key = d.get("baseline") or ("control" if d.get("candidate", "").startswith("_calibration") else None)
         if key:
@@ -111,15 +112,15 @@ def main():
     ok_c, msg_c, v = calibration()
     log(f"kalibracja: {msg_c}")
     if not (ok_t and ok_c):
-        log("STOP: warunki niespełnione (testy, random/odruch <=5% w pokoju 1, kontrola >=50%); agenci nie startują"); return
+        log("STOP: warunki niespełnione (testy, random/odruch/tabela <=5% w pokoju 1, growing >=50%); agenci nie startują"); return
     archive_and_reset()
     subprocess.run([sys.executable, f"{G}/shared/board.py", "post", "sedzia", "all",
-        "Sędzia (infrastruktura). Główny test: świat organizmów organism-v4 — jedno ciągłe życie w zagnieżdżonych pokojach, "
+        "Sędzia (infrastruktura). Główny test: świat organizmów organism-v6 — jedno ciągłe życie w zagnieżdżonych pokojach, "
         "wejście: oko RGB i opcjonalnie poziom energii (--no-interoception), wyjście: ruch; świat nie daje nagrody. "
         "Uruchom: nice -n 15 .venv/bin/python sandbox/judge.py candidates/<nazwa> --organism --author <imię>. "
         "Kontrakt i opcje: sandbox/README.md. Kalibracja (poza rankingiem), odsetek światów, które przeszły pokój 1: "
-        f"losowy ruch {v['random']:.1%}, odruch na sztywno {v['braitenberg']:.1%}, kontrola ucząca się z nagrodą (tylko kalibracja) "
-        f"{v['control']:.1%}. Pole routine w wyniku to tylko obserwacja. Żłobek: judge.py --nursery."], cwd=G)
+        f"losowy ruch {v['random']:.1%}, odruch na sztywno {v['braitenberg']:.1%}, stała tabela wartości na kolor z nagrodą "
+        f"{v['table']:.1%}, kontrola z rosnącą pamięcią i nagrodą (tylko kalibracja) {v['growing']:.1%}. Już pokój 1 wymaga więcej niż wartości na kolor. Pole routine w wyniku to tylko obserwacja. Żłobek: judge.py --nursery."], cwd=G)
     subprocess.run(["tmux", "new-session", "-d", "-s", "genesis-supervisor",
                     f"cd {G} && python3 agents/supervisor_v3.py"], check=True)
     log("START: faza 3 zarchiwizowana, nadzorca i agenci uruchomieni")

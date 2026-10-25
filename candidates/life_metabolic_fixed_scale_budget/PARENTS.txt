@@ -1,0 +1,3 @@
+Parents: candidates/life_metabolic_adaptive_retention_budget/ and, by ancestry, candidates/life_metabolic_context/ plus dynamics_metabolic_retention and axiom_metabolic_context_budget.
+
+Mutation: replace the exponentially adapting delta_scale estimate with a fixed 0.05 energy-delta scale. Keep contextual eligibility, reserve-shaped retention, credit modulation, finite shared preference norm, and action policy unchanged. This makes an active-learning matched control for the unresolved claim that adaptive normalization contributes beyond the inherited memory mechanism.

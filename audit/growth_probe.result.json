@@ -1,0 +1,22 @@
+{
+  "source_sha256": "21250bcd69619fdf3395f30e9ada63911214d70f921fd7eeb1ba26463c5adcda",
+  "max_action_delta_units_302_vs_100000": 0.0,
+  "max_action_delta_gain_0_vs_base": 0.7727417945861816,
+  "max_action_delta_red_green_swap": 1.7726902961730957,
+  "structure_302": {
+    "units": 18.0,
+    "connections": 69.0,
+    "memory_bytes": 1032
+  },
+  "structure_100000": {
+    "units": 18.0,
+    "connections": 69.0,
+    "memory_bytes": 1032
+  },
+  "trace_bytes_batch": 656,
+  "trace_bytes_batch_at_100000": 656,
+  "key_index_bytes_shared": 384,
+  "reported_memory_bytes_batch": 1032,
+  "persistent_tensor_bytes_batch": 1216,
+  "protocol": "Synthetic CPU diagnostic, 24 frames, batch 4; not a judge result"
+}

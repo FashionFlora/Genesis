@@ -1,0 +1,9 @@
+Parent: candidates/agency_sensorimotor_prediction/
+Matched ablation: candidates/agency_consequence_gated_steering_ablation/
+
+Mutation: preserve action-conditioned EMA estimates of visual change, but use
+their relative advantage as a multiplicative gate on the existing sensory /
+exploratory turn instead of adding a separate turn command. This asks whether
+action consequences organize the policy already induced by sensation rather
+than compete with it as an independent steering signal. The ablation retains
+all prediction state and removes only the gate's contribution.

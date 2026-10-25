@@ -1,0 +1,4 @@
+gated_finite: durable=31.80; spill=11.99; terminal_resource=0.309
+no_resource: durable=0.00; spill=0.00; terminal_resource=0.000
+always_resource: durable=44.55; spill=35.45; terminal_resource=0.741
+unlimited_tag: durable=43.22; spill=11.82; terminal_resource=0.304

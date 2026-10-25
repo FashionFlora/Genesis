@@ -1,0 +1,2 @@
+Matched ablation of candidates/dynamics_energy_volatility/.
+Mutation: set volatility_coupling=0 so eligibility always has the same baseline decay; all sensors, signed energy credit, context memory, and actions remain identical.
